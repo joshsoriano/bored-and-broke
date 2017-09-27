@@ -1,3 +1,5 @@
 # Bored & Broke
 
 ###### Mary Alverson, Mathew Sanders, Megan Karbowski, Josh Soriano, Jordan Woods, George Sarantinos and Mackenzie Tjogas 
+
+Bored & Broke is a browser-based application that will allow users to connect based on activities that they have a mutual interest in. On the website, the user will be asked to create a profile, which will store information such as location, name, and saved activities. The user can then see and save activities in their location. When a user saves an activity, they are brought to that activity’s page. On that page, they can see more information about the activity, such as photos and exact location, as well as a list of the other users who have saved that activity. The user is then able to contact those users individually through a third-party messaging app. The Bored & Broke system has three components: a web frontend that will be comprised of various web pages, a database to store user and activity data, and a server backend that will call API’s and handle data transfer between the frontend and the database.
