@@ -1,5 +1,5 @@
 | Week          | Deliverable                                  | Team Members  |
-| ------------- |:-------------:                               | -------------:|
+| ------------------ |:-------------:                               | -------------:|
 | Week 4        | Project Proposal Presentation                | All           |
 | Week 5        | Requirements Document & Preliminary Schedule | All           |
 | Week 6        | Mockups      |    Frontend Team         |
