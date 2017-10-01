@@ -3,7 +3,9 @@
 -homepage  
 -settings page  
 -"my saved events" page  
--modual for single event
+-modal for single event description  
+-modal for event-specific tagline  
+-modal for saved event (with other user's profiles) 
 
 ## Using  
 -bootstrap  
