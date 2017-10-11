@@ -60,6 +60,7 @@ _Final Product Delivery_ - Application will be provided with completed functiona
   Slack                                    | ✓             |
 ## 4.3 Project Organization
 ## 4.4 Project Schedule
+Our project schedule consists of our class deliverables as well as software deliverables toward the end product. 
 ### 4.4.1 PERT/GANTT Chart
 ### 4.4.2 Task/Resource Table
 
