@@ -50,7 +50,19 @@ _User's Manual Final Updates_ - Completed version of the User’s Manual with an
 _Final Product Delivery_ - Application will be provided with completed functionality and design.
 
 ## 4.2 Project Resources
+
 ### 4.2.1 Hardware Resources
+  Resource               | Development   | Execution
+  ------------------     | ------------- | -----------
+  macOS Machine          | ✓             | ✓
+  Windows Machine        | ✓             | ✓
+  Linux Machine          | ✓             | ✓
+  2 GB RAM (Minimum)     | ✓             | ✓
+  Display                | ✓             | ✓
+  Internet Connection    | ✓             | ✓
+  Intel Processor        |               | ✓
+  ARM Processor          |               | ✓
+
 ### 4.2.2 Software Resources
   Resource                                 | Development   | Execution
   ---------------------------------------- | ------------- | ---------
@@ -60,12 +72,14 @@ _Final Product Delivery_ - Application will be provided with completed functiona
   Web Broswers (Chrome, Firefox, IE)       | ✓             | ✓
   Node.js                                  | ✓             | ✓
   React.js                                 | ✓             | ✓
-  MongoDB                                  | ✓             | ✓
+  Postgres                                 | ✓             | ✓
   Heroku                                   | ✓             | ✓
   Bootstrap                                | ✓             | ✓
   GitHub                                   | ✓             |
   Adobe Experience Design (XD)             | ✓             |
   Slack                                    | ✓             |
+  Google Drive                             | ✓             |
+  
 ## 4.3 Project Organization
 The following table shows members for our three different teams: Backend, Frontend, and Database. While we have assigned teams, we expect to be moving throughout the teams frequently.
 
