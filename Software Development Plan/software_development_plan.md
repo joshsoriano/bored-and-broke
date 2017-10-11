@@ -11,34 +11,42 @@ By 10/18, the homepage will be able to display activities that have been request
 
 **9/20/17:**
 _Project Proposal Document_ - This document is made up of two parts. First is a description of what the project is, which is high-level overview of the project detailing software/hardware requirements along with the future vision of the project. The second part is the project justification.  This section serves to explain why the project is appropriate for the class in terms of use of knowledge from previous classes, suitable amount of difficulty, etc.
+
 **9/27/17:**
 _Requirements Specification_ - This document outlines the low level requirements for the 	project: functional, performance, and environment requirements.
 Initial Development Schedule (Part of SDP draft) - This is a preliminary project
 schedule that gives the dates for project deliverables.
+
 **10/11/17:**
 _Software Development Plan Document (complete)_ - This documents gives a detailed
 description of the entire project. This includes explaining the process that will be used
 to produce the required software and final product by the end of the semester.  It will
 also discuss specific member roles, team structure, as well as the schedules for team
 meetings and project deliverables.
+
 **11/1/17:**
 _Software Design Description Document (Architecture Section)_ - This part of the
 document consists of the architectural, or in other words, overall design of the project.
 This is done by breaking the design into classes, which are based off the
 functionalities of the application.
+
 **11/15/17:**
 _Software Design Description Document (Complete)_ - This will include the second part 	
 of the document that includes a detailed design of the application through use of text
 and diagrams.
+
 **11/29/17:**
 _Test and Integration Plan_ - This plan will introduce the software testing strategies, outline the unit testing requirements, and describe the unit and integration tests for the application.
+
 _ALPHA/BETA Presentation/Demonstration_ - Functionality of the application will be
 extremely close, if not completed.  Minor design adjustments may need to be made;
 however, the application should be usable. A draft of the User’s Manual will also be
 provided.  This manual will explain how to use every feature and function of the
 application.
+
 **12/13/17:**
 _User's Manual Final Updates_ - Completed version of the User’s Manual with any updates made since the Alpha/Beta demonstration.
+
 _Final Product Delivery_ - Application will be provided with completed functionality and design.
 
 ## 4.2 Project Resources
@@ -60,7 +68,7 @@ _Final Product Delivery_ - Application will be provided with completed functiona
   Slack                                    | ✓             |
 ## 4.3 Project Organization
 ## 4.4 Project Schedule
-Our project schedule consists of our class deliverables as well as software deliverables toward the end product. 
+Our project schedule consists of our class deliverables as well as software deliverables toward the end product.
 ### 4.4.1 PERT/GANTT Chart
 ### 4.4.2 Task/Resource Table
 
