@@ -1,5 +1,12 @@
-# 4 - Software Development Plan
+# 4 Bored & Broke Software Development Plan
 ## 4.1 Plan Introduction
+
+This Software Development Plan provides the details of the planned development for the Bored & Broke web application which allows users to connect with other users based on their similar interest in a certain activity.     
+     
+On the Bored & Broke website, the user will be asked to create a profile, which will store information such as location, name, and saved activities. The user can then see and save activities in their location. When a user saves an activity, they are brought to that activity’s page where they are then able to contact those users individually. This application is similar to Tinder, Bumble, and Meetup. It allows users to connect with people they may not know based on mutual interests and location. It is different because it “matches” people together based on their interest in activities that already exist (Meetup requires users to create their own events/activities). This caters to our end user, who is a person who is bored, broke, and alone (and doesn’t want to be).        
+   
+By 10/18, the homepage will be able to display activities that have been requested from various API’s. By 10/25, the database schema will be defined and the login/create account web page will be created. By 11/1 the Software Development Document will be written. By 11/8 users will be able to log in and out of accounts that store their information. The alpha beta presentation will then be on 11/29. 
+
 ### 4.1.1 Project Deliverables
 ## 4.2 Project Resources
 ### 4.2.1 Hardware Resources
