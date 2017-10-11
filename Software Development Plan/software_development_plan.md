@@ -67,6 +67,23 @@ _Final Product Delivery_ - Application will be provided with completed functiona
   Adobe Experience Design (XD)             | ✓             |
   Slack                                    | ✓             |
 ## 4.3 Project Organization
+The following table shows members for our three different teams: Backend, Frontend, and Database. While we have assigned teams, we expect to be moving throughout the teams frequently.
+
+| Team Member | Teams             |
+|-------------|-------------------|
+| Mary        | Backend, Database |
+| Jordan      | Frontend, Backend |
+| George      | Backend, Database |
+| Mat         | Backend, Database |
+| Josh        | Frontend          |
+| Mackenzie   | Frontend          |
+| Megan       | Frontend          |
+
+### Team Responsibilities
+*Frontend:* wireframe designs, mockup designs, frontend designs, Heroku/Deployment, HTML
+*Backend:* JSON object definitions, database integration, API calls, account verification
+*Database:* schema definition, query writing
+
 ## 4.4 Project Schedule
 Our project schedule consists of our class deliverables as well as software deliverables toward the end product.
 ### 4.4.1 PERT/GANTT Chart
