@@ -80,9 +80,11 @@ The following table shows members for our three different teams: Backend, Fronte
 | Megan       | Frontend          |
 
 ### Team Responsibilities
-*Frontend:* wireframe designs, mockup designs, frontend designs, Heroku/Deployment, HTML
-*Backend:* JSON object definitions, database integration, API calls, account verification
-*Database:* schema definition, query writing
+**Frontend:** wireframe designs, mockup designs, frontend designs, Heroku/Deployment, HTML
+
+**Backend:** JSON object definitions, database integration, API calls, account verification
+
+**Database:** schema definition, query writing
 
 ## 4.4 Project Schedule
 Our project schedule consists of our class deliverables as well as software deliverables toward the end product.
