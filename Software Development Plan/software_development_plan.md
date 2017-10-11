@@ -69,7 +69,9 @@ _Final Product Delivery_ - Application will be provided with completed functiona
 ## 4.3 Project Organization
 ## 4.4 Project Schedule
 Our project schedule consists of our class deliverables as well as software deliverables toward the end product.
-### 4.4.1 PERT/GANTT Chart
+### 4.4.1 GANTT Chart
+![GANTT Chart](https://raw.githubusercontent.com/joshsoriano/Bored-and-Broke/master/Software%20Development%20Plan/ganttChart.png)
+
 ### 4.4.2 Task/Resource Table
 
 Task     | Team | Hardware | Software
