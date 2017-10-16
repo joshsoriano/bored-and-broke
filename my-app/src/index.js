@@ -7,38 +7,72 @@ import Homepage from './Homepage.js';
 
 const styles = {
     main: {
-        backgroundColor: '#63d8ed',
+        backgroundColor: '#64d8ed',
         width: '43px',
         textAlign: 'center',
     },
 };
 
-class Board extends React.Component {
+class BoredAndBroke extends React.Component {
   render() {
-    const status = 'Welcome to:';
+    const status = 'This is our project:';
     return (
-          <div>
-            <div className={styles.main}>{status}</div>
-            <div className="board-row">
-              <span>
-              Bored and Broke!
-              </span>
+          <div className={styles.main}>
+            <span>This is our project</span>
+            <div>
+                <Homepage />
             </div>
-            <div className="new-title">
-              <span>This is our project</span>
-            </div>
-            <Homepage />
-          </div>
+         </div>
       );
     }
   }
 
 
-
-// ========================================
-
 ReactDOM.render(
-  <Board />,
+  <BoredAndBroke />,
   document.getElementById('root')
 );
-// export default injectSheet(styles)(Board);
+// export default injectSheet(styles)(BoredAndBroke);
+
+
+// ========================================// ========================================// ========================================
+
+// import React from 'react';
+// import PropTypes from 'prop-types';
+// import injectSheet from 'react-jss';
+// import Homepage from './Homepage.js';
+//
+// const propTypes = {
+//     classes: PropTypes.object.isRequired,
+// };
+//
+// const styles = {
+//     main: {
+//         backgroundColor: '#64d8ed',
+//         textAlign: 'center',
+//         marginLeft: '50px',
+//         width: '45px',
+//     },
+// };
+//
+// class BoredAndBroke extends React.Component {
+//   render() {
+//     const status = 'This is our project:';
+//     const { classes } = this.props;
+//     return (
+//         <div>
+//           <div className={ classes.main }>
+//             {status}
+//             <br />
+//             <span>Enjoy!</span>
+//           </div>
+//           <div>
+//             <Homepage />
+//           </div>
+//         </div>
+//     );
+//   }
+// }
+//
+// BoredAndBroke.propTypes = propTypes;
+// export default injectSheet(styles)(BoredAndBroke);

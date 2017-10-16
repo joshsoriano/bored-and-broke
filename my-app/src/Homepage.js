@@ -9,8 +9,8 @@ const propTypes = {
 const styles = {
     main: {
         backgroundColor: '#63d8ed',
-        width: '43px',
         textAlign: 'center',
+        marginLeft: '50px',
     },
 };
 
@@ -24,20 +24,10 @@ class Homepage extends React.Component {
             {status}
             <br />
             <span>Bored and Broke!</span>
-            <br />
-            <span>This is our project</span>
           </div>
         </div>
     );
   }
 }
-
-
-// ========================================
-
-// ReactDOM.render(
-//   <Board />,
-//   document.getElementById('root')
-// );
-
+Homepage.propTypes = propTypes;
 export default injectSheet(styles)(Homepage);
