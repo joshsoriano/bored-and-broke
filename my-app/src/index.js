@@ -18,7 +18,7 @@ class Board extends React.Component {
   }
 
   render() {
-    const status = 'Welcome to:';
+    const status = 'Welcome to: This';
 
     return (
       <div>
