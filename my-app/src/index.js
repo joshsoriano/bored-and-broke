@@ -1,6 +1,6 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
-import injectSheet from 'react-jss';
+import ReactDOM from 'react-dom';
+// import injectSheet from 'react-jss';
 import './index.css';
 import Homepage from './Homepage.js';
 
@@ -37,8 +37,8 @@ class Board extends React.Component {
 
 // ========================================
 
-// ReactDOM.render(
-//   <Board />,
-//   document.getElementById('root')
-// );
-export default injectSheet(styles)(Board);
+ReactDOM.render(
+  <Board />,
+  document.getElementById('root')
+);
+// export default injectSheet(styles)(Board);
