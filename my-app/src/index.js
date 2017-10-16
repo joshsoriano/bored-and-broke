@@ -1,45 +1,44 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
+import injectSheet from 'react-jss';
 import './index.css';
+import Homepage from './Homepage.js';
 
-class Square extends React.Component {
-  render() {
-    return (
-      <button className="square">
-        {/* TODO */}
-      </button>
-    );
-  }
-}
+const styles = {
+    main: {
+        backgroundColor: '#63d8ed',
+        width: '43px',
+        textAlign: 'center',
+    },
+};
+
 
 class Board extends React.Component {
-  renderSquare(i) {
-    return <Square />;
-  }
-
   render() {
     const status = 'Welcome to:';
-
     return (
-      <div>
-        <div className="status">{status}</div>
-        <div className="board-row">
-          <span>
-          Bored and Broke!
-          </span>
-        </div>
-        <div className="new-title">
-          <span>This is our project</span>
-        </div>
-      </div>
-    );
+          <div>
+            <div className={styles.main}>{status}</div>
+            <div className="board-row">
+              <span>
+              Bored and Broke!
+              </span>
+            </div>
+            <div className="new-title">
+              <span>This is our project</span>
+            </div>
+            <Homepage />
+          </div>
+      );
+    }
   }
-}
+
 
 
 // ========================================
 
-ReactDOM.render(
-  <Board />,
-  document.getElementById('root')
-);
+// ReactDOM.render(
+//   <Board />,
+//   document.getElementById('root')
+// );
+export default injectSheet(styles)(Board);
