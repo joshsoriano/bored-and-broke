@@ -1,8 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import injectSheet from 'react-jss';
-import './index.css';
+// import './index.css';
 import Homepage from './Homepage.js';
+import PropTypes from 'prop-types';
+
+const propTypes = {
+    classes: PropTypes.object.isRequired,
+};
 
 
 const styles = {
@@ -15,9 +20,10 @@ const styles = {
 
 class BoredAndBroke extends React.Component {
   render() {
-    const status = 'This is our project:';
+    // const status = 'This is our project:';
+    const { classes } = this.props;
     return (
-          <div className={styles.main}>
+          <div className={ classes.main }>
             <span>This is our project</span>
             <div>
                 <Homepage />
@@ -28,8 +34,12 @@ class BoredAndBroke extends React.Component {
   }
 
 
+BoredAndBroke.propTypes = propTypes;
+
 ReactDOM.render(
-  <BoredAndBroke />,
+  <BoredAndBroke
+    classes={styles.main}
+  />,
   document.getElementById('root')
 );
 // export default injectSheet(styles)(BoredAndBroke);
