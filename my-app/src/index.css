@@ -1,4 +1,4 @@
-body {
+/*body {
   font: 14px "Century Gothic", Futura, sans-serif;
   margin: 20px;
 }
@@ -15,9 +15,15 @@ ol, ul {
 
 .status {
   margin-bottom: 10px;
+}*/
+
+.main {
+    background-Color: '#63d8ed';
+    width: '43px';
+    text-align: 'center';
 }
 
-.square {
+/*.square {
   background: #fff;
   border: 1px solid #999;
   float: left;
@@ -47,4 +53,4 @@ ol, ul {
 
 .game-info {
   margin-left: 20px;
-}
+}*/

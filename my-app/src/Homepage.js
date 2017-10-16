@@ -1,11 +1,10 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
-// import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 
-// const propTypes = {
-//
-// };
+const propTypes = {
+    classes: PropTypes.object.isRequired,
+};
 
 const styles = {
     main: {
@@ -15,36 +14,20 @@ const styles = {
     },
 };
 
-class Square extends React.Component {
-  render() {
-    return (
-      <button className="square">
-        {/* TODO */}
-      </button>
-    );
-  }
-}
-
 class Homepage extends React.Component {
-  renderSquare(i) {
-    return <Square />;
-  }
-
   render() {
     const status = 'Welcome to:';
-
+    const { classes } = this.props;
     return (
-      <div>
-        <div className={styles.main}>{status}</div>
-        <div className="board-row">
-          <span>
-          Bored and Broke!
-          </span>
+        <div>
+          <div className={ classes.main }>
+            {status}
+            <br />
+            <span>Bored and Broke!</span>
+            <br />
+            <span>This is our project</span>
+          </div>
         </div>
-        <div className="new-title">
-          <span>This is our project</span>
-        </div>
-      </div>
     );
   }
 }

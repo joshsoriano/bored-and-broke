@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Homepage from './Homepage.js';
 
+
 const styles = {
     main: {
         backgroundColor: '#63d8ed',
@@ -11,7 +12,6 @@ const styles = {
         textAlign: 'center',
     },
 };
-
 
 class Board extends React.Component {
   render() {
