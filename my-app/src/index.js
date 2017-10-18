@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 // import injectSheet from 'react-jss';
 // import './index.css';
 import Homepage from './Homepage.js';
+// import Carousel from 'react-bootstrap/lib/Carousel';
+// import Button from 'react-bootstrap/lib/Button';
 import PropTypes from 'prop-types';
 
 const propTypes = {

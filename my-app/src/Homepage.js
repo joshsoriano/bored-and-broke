@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
+import Carousel from 'react-bootstrap/lib/Carousel';
+import Button from 'react-bootstrap/lib/Button';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -95,6 +97,12 @@ class Homepage extends React.Component {
                     <span className={ classes.elementText }>DogDay1</span>
                 </div>
             </div>
+        </div>
+        <div>
+            <Carousel />
+        </div>
+        <div>
+            <Button baStyle="primary" bsSize="large">Click!</Button>
         </div>
       </div>
     );
