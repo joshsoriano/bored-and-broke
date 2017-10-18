@@ -10,6 +10,7 @@
     source: The API e.g. "TicketMaster"
     imageUrl: A url to an image for this activity.
     price: The float price of an activity.
+    description: A string description of the activity.
   }
 */
 
@@ -48,7 +49,6 @@ window.activityRetriever = (() => {
                 "location.address": "Los Angeles, CA",
                 "location.within": "10mi"
             }).done((result) => {
-
                 result.events.map((event) => {
                     let activity = {};
 
@@ -66,6 +66,33 @@ window.activityRetriever = (() => {
                   })
 
             });
+
+            // Add Eventful activities.
+            $.getJSON("http://api.eventful.com/json/events/search?callback=?", {
+                app_key: "XgSXTL5TkHCfnxCm",
+                location: "Los Angeles, CA",
+                date: "Future",
+                within: 10,
+                units: "mi"
+            }).done((result) => {
+                result.events.event.map((event) => {
+                    let activity = {};
+
+                    // Build the activity object.
+                    activity.name = event.title;
+                    activity.date = event.start_time;
+                    activity.location = event.venue_name;
+                    activity.link = event.url;
+                    activity.source = "Eventful";
+                    activity.imageUrl = event.image ? event.image.medium.url : "";  // In case there isn't an image.
+                    // activity.price Not available for this API.
+
+                    // Add it to the result list.
+                    activityList.push(activity);
+                  })
+
+            });
+
 
             // Return final list of activities.
             return activityList;
