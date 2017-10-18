@@ -99,10 +99,18 @@ class Homepage extends React.Component {
             </div>
         </div>
         <div>
-            <Carousel />
+            <Carousel>
+                <Carousel.Item>
+                    <img width={900} height={500} alt="900x500" src="https://github.com/joshsoriano/bored-and-broke/blob/front-end/beachDayexample.png"/>
+                    <Carousel.Caption>
+                        <h3>First slide label</h3>
+                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    </Carousel.Caption>
+                </Carousel.Item>
+            </Carousel>
         </div>
         <div>
-            <Button baStyle="primary" bsSize="large">Click!</Button>
+            <Button bastyle="primary" bsSize="large">Click!</Button>
         </div>
       </div>
     );
