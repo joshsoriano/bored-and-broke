@@ -61,7 +61,7 @@ const styles = {
         padding: '15px',
     },
     space: {
-        marginBottom: '80px',
+        marginBottom: '100px',
     },
 };
 
