@@ -18,7 +18,7 @@ window.activityRetriever = (() => {
     return {
           retrieve: () => {
             // List of JSON activity elements.
-            let result = [];
+            let activityList = [];
 
             // Add TicketMaster activities.
             $.getJSON("https://app.ticketmaster.com/discovery/v2/events.json", {
@@ -39,12 +39,12 @@ window.activityRetriever = (() => {
                   activity.price = event.priceRanges ? event.priceRanges[0].min : 0;
 
                   // Add it to the result list.
-                  result.append(activity);
+                  activityList.push(activity);
                 })
             });
 
             // Return final list of activities.
-            return result;
+            return activityList;
         }
     };
 })();
