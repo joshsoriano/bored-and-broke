@@ -60,6 +60,9 @@ const styles = {
     elementText: {
         padding: '15px',
     },
+    space: {
+        marginBottom: '80px',
+    },
 };
 
 class Homepage extends React.Component {
@@ -98,6 +101,7 @@ class Homepage extends React.Component {
                 </div>
             </div>
         </div>
+        <div className={ classes.space } />
         <div>
             <Carousel>
                 <Carousel.Item>
@@ -109,6 +113,7 @@ class Homepage extends React.Component {
                 </Carousel.Item>
             </Carousel>
         </div>
+        <div className={ classes.space } />
         <div>
             <Button bastyle="primary" bsSize="large">Click!</Button>
         </div>
