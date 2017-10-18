@@ -26,7 +26,6 @@ class BoredAndBroke extends React.Component {
     const { classes } = this.props;
     return (
           <div className={ classes.main }>
-            <span>This is our project</span>
             <div>
                 <Homepage />
             </div>
