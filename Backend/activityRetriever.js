@@ -10,7 +10,6 @@
     source: The API e.g. "TicketMaster"
     imageUrl: A url to an image for this activity.
     price: The float price of an activity.
-    description: A string description of the activity.
   }
 */
 
@@ -64,7 +63,6 @@ window.activityRetriever = (() => {
                     // Add it to the result list.
                     activityList.push(activity);
                   })
-
             });
 
             // Add Eventful activities.
@@ -90,10 +88,7 @@ window.activityRetriever = (() => {
                     // Add it to the result list.
                     activityList.push(activity);
                   })
-
             });
-
-
             // Return final list of activities.
             return activityList;
         }
