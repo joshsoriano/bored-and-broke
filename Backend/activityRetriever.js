@@ -43,6 +43,30 @@ window.activityRetriever = (() => {
                 })
             });
 
+            // Add EventBrite activities.
+            $.getJSON("https://www.eventbriteapi.com/v3/events/search/?token=WJKCHNMPIP6DBF5S3XQF", {
+                "location.address": "Los Angeles, CA",
+                "location.within": "10mi"
+            }).done((result) => {
+
+                result.events.map((event) => {
+                    let activity = {};
+
+                    // Build the activity object.
+                    activity.name = event.name.text;
+                    activity.date = event.start.local;
+                    // activity.location This API doesn't provide location info.
+                    activity.link = event.url;
+                    activity.source = "EventBrite";
+                    activity.imageUrl = event.logo ? event.logo.url : ""; // In case there isn't a logo.
+                    // activity.price This API doesn't provide price either.
+
+                    // Add it to the result list.
+                    activityList.push(activity);
+                  })
+
+            });
+
             // Return final list of activities.
             return activityList;
         }
