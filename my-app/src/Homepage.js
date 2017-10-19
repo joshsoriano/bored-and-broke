@@ -72,7 +72,7 @@ class Homepage extends React.Component {
         <div className={ classes.homepageSettings }>
             <div className={ classes.zipAndCity }>90045 <span>⬇️</span> </div>
             <div className={ classes.pickRadius }>pick Radius</div>
-            <div className={ classes.priceRange }> $0  $50</div>
+            <div className={ classes.priceRange }> $0-$50</div>
         </div>
         <div className={ classes.titleContainer }>
             <span className={ classes.title }>Bored and Broke</span>
