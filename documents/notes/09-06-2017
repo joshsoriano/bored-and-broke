@@ -1,0 +1,20 @@
+Bored & Broke (+ Tinder)
+
+Step 1.) User gives their location and their price range and we hit APIs to bring all the activities (events, hikes, venues, etc.) within their price range up to them.
+-will not include the prices of gas or offer public transit options, but will include the
+parking stuff
+
+Step 2.) Plans:
+-”like” an activity --> pool of other people that liked the event and you see their profiles
+and can go/coordinate with them to go to the events
+-carpools 
+
+Step 3.) Plans:
+-chat with people (connect to Facebook)
+-matching with people
+
+-V2 Plans:
+-Possibly will later make an App later
+
+-Everyone make a list of their interests/
+-Make a git repo --- Josh
