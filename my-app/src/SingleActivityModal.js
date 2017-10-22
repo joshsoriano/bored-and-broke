@@ -67,7 +67,7 @@ const styles = {
     },
 };
 
-class Homepage extends React.Component {
+class SingleActivityModal extends React.Component {
   render() {
     const { classes } = this.props;
     return (
@@ -98,5 +98,5 @@ class Homepage extends React.Component {
     );
   }
 }
-Homepage.propTypes = propTypes;
-export default injectSheet(styles)(Homepage);
+SingleActivityModal.propTypes = propTypes;
+export default injectSheet(styles)(SingleActivityModal);
