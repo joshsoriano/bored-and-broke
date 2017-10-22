@@ -6,7 +6,7 @@ import Homepage from './Homepage.js';
 // import LoginCreateAccount from './LoginCreateAccount.js';
 // import SavedActivities from './SavedActivities.js';
 // import Settings from './Settings.js';
-import SingleActivity from './SingleActivity.js';
+// import SingleActivity from './SingleActivity.js';
 import PropTypes from 'prop-types';
 
 const propTypes = {
@@ -31,9 +31,7 @@ class BoredAndBroke extends React.Component {
             <div>
                 <Homepage />
             </div>
-            <div>
-                <SingleActivity />
-            </div>
+
          </div>
       );
     }

@@ -14,8 +14,8 @@ const styles = {
     main: {
         backgroundColor: '#63d8ed',
         textAlign: 'center',
-        height: '300px',
-        // marginLeft: '50px',
+        height: '900px',
+        // height: '100%',
     },
     titleContainer: {
         paddingTop: '20px',
@@ -51,8 +51,9 @@ const styles = {
     resultsContainer: {
         paddingTop: '20px',
     },
-    firstRow: {
+    row: {
         display: 'flex',
+        marginBottom: '70px',
     },
     element: {
         // border: '1px solid white',
@@ -88,7 +89,35 @@ class Homepage extends React.Component {
             <span className={ classes.title }>Bored and Broke</span>
         </div>
         <div className={ classes.resultsContainer }>
-            <div className={ classes.firstRow }>
+            <div className={ classes.row }>
+                <div className={ classes.element }>
+                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                </div>
+                <div className={ classes.element }>
+                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                </div>
+                <div className={ classes.element }>
+                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                </div>
+                <div className={ classes.element }>
+                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                </div>
+            </div>
+            <div className={ classes.row }>
+                <div className={ classes.element }>
+                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                </div>
+                <div className={ classes.element }>
+                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                </div>
+                <div className={ classes.element }>
+                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                </div>
+                <div className={ classes.element }>
+                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                </div>
+            </div>
+            <div className={ classes.row }>
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
                 </div>
