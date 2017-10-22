@@ -17,10 +17,10 @@ const defaultProps = {
 const styles = {
     main: {
       position: 'relative',
-      height: '300px',
+      height: '400px',
       width: '450px',
       margin: 'auto',
-      background: 'white',
+      background: 'blue',
     },
     titleTextContainer: {
       paddingBottom: '4px',

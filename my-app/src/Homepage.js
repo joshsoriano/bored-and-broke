@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import Carousel from 'react-bootstrap/lib/Carousel';
 import Button from 'react-bootstrap/lib/Button';
+import eventExample from './eventExample.png';
+
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -53,13 +55,16 @@ const styles = {
         display: 'flex',
     },
     element: {
-        border: '1px solid white',
+        // border: '1px solid white',
         marginLeft: '80px',
         marginRight: '80px',
+        // width: '20px',
+        // height: '20px',
+
     },
-    elementText: {
-        padding: '15px',
-    },
+    // elementText: {
+    //     padding: '15px',
+    // },
     space: {
         marginBottom: '100px',
     },
@@ -85,19 +90,16 @@ class Homepage extends React.Component {
         <div className={ classes.resultsContainer }>
             <div className={ classes.firstRow }>
                 <div className={ classes.element }>
-                    <span className={ classes.elementText }>Concert1</span>
+                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
                 </div>
                 <div className={ classes.element }>
-                    <span className={ classes.elementText }>Hike1</span>
+                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
                 </div>
                 <div className={ classes.element }>
-                    <span className={ classes.elementText }>BeachDay1</span>
+                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
                 </div>
                 <div className={ classes.element }>
-                    <span className={ classes.elementText }>Concert2</span>
-                </div>
-                <div className={ classes.element }>
-                    <span className={ classes.elementText }>DogDay1</span>
+                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
                 </div>
             </div>
         </div>
