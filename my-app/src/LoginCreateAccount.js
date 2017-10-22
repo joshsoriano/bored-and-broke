@@ -27,7 +27,7 @@ const styles = {
         marginRight: '15px',
     },
     instructions: {
-        marginBottom: '20px',
+        marginBottom: '50px',
     },
     formInput: {
         width: '500px',

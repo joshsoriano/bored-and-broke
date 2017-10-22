@@ -4,6 +4,7 @@ import injectSheet from 'react-jss';
 import Carousel from 'react-bootstrap/lib/Carousel';
 import Button from 'react-bootstrap/lib/Button';
 import eventExample from './eventExample.png';
+import logo from './logo.png';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -17,8 +18,8 @@ const defaultProps = {
 const styles = {
     main: {
       position: 'relative',
-      height: '400px',
-      width: '550px',
+      height: '600px',
+      width: '650px',
       margin: 'auto',
       background: '#63d8ed',
       marginTop: '100px',
@@ -94,7 +95,32 @@ class SingleActivityModal extends React.Component {
             <Button bastyle="primary" bsSize="large">{ this.props.onRequestClose }Previous </Button>
             <Button bastyle="primary" bsSize="large">{ this.props.onRequestClose }Next> </Button>
           </div>
+          <div>
+            <Carousel>
+                <Carousel.Item>
+                  <img width={300} height={300} align='middle' src={eventExample}/>
+                  <Carousel.Caption>
+                    <h3>First slide label</h3>
+                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                  </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img width={200} height={200} src={logo}/>
+                  <Carousel.Caption>
+                    <h3>Second slide label</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img width={200} height={200} alt="900x500" src="/assets/carousel.png"/>
+                  <Carousel.Caption>
+                    <h3>Third slide label</h3>
+                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                  </Carousel.Caption>
+                </Carousel.Item>
+            </Carousel>
         </div>
+    </div>
     );
   }
 }
