@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 // import injectSheet from 'react-jss';
 // import './index.css';
 import Homepage from './Homepage.js';
+// import LoginCreateAccount from './LoginCreateAccount.js';
+// import SavedActivities from './SavedActivities.js';
+// import Settings from './Settings.js';
+import SingleActivity from './SingleActivity.js';
+
 // import Carousel from 'react-bootstrap/lib/Carousel';
 // import Button from 'react-bootstrap/lib/Button';
 import PropTypes from 'prop-types';
@@ -28,6 +33,9 @@ class BoredAndBroke extends React.Component {
           <div className={ classes.main }>
             <div>
                 <Homepage />
+            </div>
+            <div>
+                <SingleActivity />
             </div>
          </div>
       );

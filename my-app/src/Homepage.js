@@ -12,7 +12,7 @@ const styles = {
     main: {
         backgroundColor: '#63d8ed',
         textAlign: 'center',
-        height: '600px',
+        height: '300px',
         // marginLeft: '50px',
     },
     titleContainer: {
@@ -100,18 +100,6 @@ class Homepage extends React.Component {
                     <span className={ classes.elementText }>DogDay1</span>
                 </div>
             </div>
-        </div>
-        <div className={ classes.space } />
-        <div>
-            <Carousel>
-                <Carousel.Item>
-                    <img width={900} height={500} alt="900x500" src="https://github.com/joshsoriano/bored-and-broke/blob/front-end/beachDayexample.png"/>
-                    <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-            </Carousel>
         </div>
         <div className={ classes.space } />
         <div>
