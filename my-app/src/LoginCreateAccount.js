@@ -45,7 +45,7 @@ class LoginCreateAccount extends React.Component {
             <div className={ classes.user }>Jane Doe ⬇️ </div>
         </div>
         <div className={ classes.instructions }>
-            <span>Please enter your information below. Feel free to change it whenever!</span>
+            <span>For our new users, we are so excited to have you! For our returning B&B users, thanks for coming back, we missed you!</span>
         </div>
         <div className={ classes.formInput }>
             <Form horizontal>
