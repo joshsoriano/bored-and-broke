@@ -4,7 +4,7 @@ import injectSheet from 'react-jss';
 import Carousel from 'react-bootstrap/lib/Carousel';
 import Button from 'react-bootstrap/lib/Button';
 import eventExample from './eventExample.png';
-
+import logo from './logo.png';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -24,7 +24,7 @@ const styles = {
     },
     title: {
         color: '#efedff',
-        fontWeight: '500',
+        // fontWeight: '500',
         fontSize: '24px',
     },
     navBar: {
@@ -77,7 +77,7 @@ class Homepage extends React.Component {
     return (
       <div className={ classes.main }>
         <div className={ classes.navBar }>
-            <span className={ classes.logo }>Bored and Broke</span>
+            <img src={logo} className={ classes.envelopeImage } height='60px' />
             <div className={ classes.user }>Jane Doe ⬇️ </div>
         </div>
         <div className={ classes.homepageSettings }>
@@ -86,7 +86,7 @@ class Homepage extends React.Component {
             <div className={ classes.priceRange }> $0  $50</div>
         </div>
         <div className={ classes.titleContainer }>
-            <span className={ classes.title }>Bored and Broke</span>
+            <span className={ classes.title }>activities we found for you:</span>
         </div>
         <div className={ classes.resultsContainer }>
             <div className={ classes.row }>
