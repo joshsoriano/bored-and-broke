@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 // import './index.css';
 import Homepage from './Homepage.js';
 import PropTypes from 'prop-types';
+import Slider from './Slider.js';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -27,6 +28,7 @@ class BoredAndBroke extends React.Component {
             <span>This is our project, welcome!</span>
             <div>
                 <Homepage />
+                <Slider />
             </div>
          </div>
       );
