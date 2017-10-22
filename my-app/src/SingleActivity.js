@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import Carousel from 'react-bootstrap/lib/Carousel';
 import Button from 'react-bootstrap/lib/Button';
+import eventExample from './eventExample.js';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -147,9 +148,9 @@ class Homepage extends React.Component {
             // <Button onClick={ this.props.onRequestClose } />
             <Button bastyle="primary" bsSize="large">{ this.props.onRequestClose }</Button>
           </div>
-        //   <div className={ classes.imageContainer }>
-        //     <img alt="" src="//cdn.joinhoney.com/images/no-email.svg" className={ classes.envelopeImage } />
-        //   </div>
+          <div className={ classes.imageContainer }>
+            <eventExample />
+          </div>
           <div className={ classes.titleTextContainer }>
             <span className={ classes.titleText }>
               Oops, we don’t have your email yet.
