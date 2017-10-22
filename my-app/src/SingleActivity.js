@@ -18,9 +18,10 @@ const styles = {
     main: {
       position: 'relative',
       height: '400px',
-      width: '450px',
+      width: '550px',
       margin: 'auto',
-      background: 'blue',
+      background: '#63d8ed',
+      marginTop: '100px',
     },
     titleTextContainer: {
       paddingBottom: '4px',
@@ -28,7 +29,7 @@ const styles = {
       display: 'flex',
     },
     titleText: {
-      color: '#b5ccbb',
+      color: 'black',
       fontWeight: '500',
       fontSize: '18px',
     },
@@ -40,7 +41,7 @@ const styles = {
       marginRight: '42px',
     },
     descriptionText: {
-      color: '#b5ccbb',
+      color: 'black',
       fontSize: '14px',
     },
     link: {

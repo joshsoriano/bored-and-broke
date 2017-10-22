@@ -41,12 +41,13 @@ const styles = {
     homepageSettings: {
         display: 'flex',
         justifyContent: 'center',
+        marginBottom: '10px',
     },
     zipAndCity: {
-        marginRight: '100px',
+        marginRight: '120px',
     },
     pickRadius: {
-        marginRight: '100px',
+        marginRight: '120px',
     },
     resultsContainer: {
         paddingTop: '20px',
@@ -83,7 +84,7 @@ class Homepage extends React.Component {
         <div className={ classes.homepageSettings }>
             <div className={ classes.zipAndCity }>90045 ⬇️ </div>
             <div className={ classes.pickRadius }>pick Radius</div>
-            <div className={ classes.priceRange }> $0  $50</div>
+            <div className={ classes.priceRange }> $0 to $50</div>
         </div>
         <div className={ classes.titleContainer }>
             <span className={ classes.title }>activities we found for you:</span>

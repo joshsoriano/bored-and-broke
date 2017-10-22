@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import injectSheet from 'react-jss';
 // import './index.css';
-import Homepage from './Homepage.js';
+// import Homepage from './Homepage.js';
 // import LoginCreateAccount from './LoginCreateAccount.js';
 // import SavedActivities from './SavedActivities.js';
 // import Settings from './Settings.js';
-// import SingleActivity from './SingleActivity.js';
+import SingleActivity from './SingleActivity.js';
 import PropTypes from 'prop-types';
 
 const propTypes = {
@@ -29,7 +29,7 @@ class BoredAndBroke extends React.Component {
     return (
           <div className={ classes.main }>
             <div>
-                <Homepage />
+                <SingleActivity />
             </div>
 
          </div>
