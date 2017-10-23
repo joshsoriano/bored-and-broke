@@ -3,10 +3,19 @@
   "version": "1.0.0",
   "description": "senior project",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "react": "^16.0.0",
+    "react-bootstrap": "^0.31.3",
+    "react-dom": "^16.0.0",
+    "react-jss": "^7.2.0",
+    "react-scripts": "1.0.14"
+  },
   "devDependencies": {},
   "scripts": {
-    "test": "mocha"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "repository": {
     "type": "git",
