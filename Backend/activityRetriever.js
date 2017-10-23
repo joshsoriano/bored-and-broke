@@ -10,6 +10,7 @@
     source: The API e.g. "TicketMaster"
     imageUrl: A url to an image for this activity.
     price: The float price of an activity.
+    description: A string description of the activity.
   }
 */
 
@@ -63,6 +64,7 @@ window.activityRetriever = (() => {
                     // Add it to the result list.
                     activityList.push(activity);
                   })
+
             });
 
             // Add Eventful activities.
@@ -88,7 +90,35 @@ window.activityRetriever = (() => {
                     // Add it to the result list.
                     activityList.push(activity);
                   })
+
             });
+
+            $.getJSON("https://api.meetup.com/find/events?callback=?", {
+                sign: "true",
+                key: "22a3796b674b1237667d2f45252f",
+                lat: 34.052235,
+                lon: -118.243683,
+                radius: 10
+            }).done((result) => {
+              result.data.map((event) => {
+                  let activity = {};
+
+                  // Build the activity object.
+                  activity.name = event.name;
+                  activity.date = event.time;
+                  activity.location = event.group.localized_location; // Use the first venue name available.
+                  activity.link = event.link;
+                  activity.source = "Meetup";
+                  // activity.imageUrl = no image url given
+                  // activity.price = no price given
+                  activity.description = event.description;
+
+                  // Add it to the result list.
+                  activityList.push(activity);
+                })
+            });
+
+
             // Return final list of activities.
             return activityList;
         }
