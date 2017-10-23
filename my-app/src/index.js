@@ -4,10 +4,10 @@ import ReactDOM from 'react-dom';
 // import './index.css';
 import PropTypes from 'prop-types';
 // import Homepage from './Homepage.js';
-// import LoginCreateAccount from './LoginCreateAccount.js';
+import LoginCreateAccount from './LoginCreateAccount.js';
 // import SavedActivities from './SavedActivities.js';
 // import Settings from './Settings.js';
-import SingleActivityModal from './SingleActivityModal.js';
+// import SingleActivityModal from './SingleActivityModal.js';
 
 
 const propTypes = {
@@ -30,7 +30,7 @@ class BoredAndBroke extends React.Component {
     return (
           <div className={ classes.main }>
             <div>
-                <SingleActivityModal />
+                <LoginCreateAccount />
             </div>
 
          </div>
