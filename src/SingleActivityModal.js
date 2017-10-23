@@ -4,7 +4,7 @@ import injectSheet from 'react-jss';
 import Carousel from 'react-bootstrap/lib/Carousel';
 import Button from 'react-bootstrap/lib/Button';
 import eventExample from './eventExample.png';
-import logo from './logo.png';
+import logo_black from './images/logo-black.png';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -98,14 +98,14 @@ class SingleActivityModal extends React.Component {
           <div>
             <Carousel>
                 <Carousel.Item>
-                  <img width={300} height={300} align='middle' src={eventExample}/>
+                  <img width={300} height={300} align="middle" src={eventExample}/>
                   <Carousel.Caption>
                     <h3>First slide label</h3>
                     <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                   </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
-                  <img width={200} height={200} src={logo}/>
+                  <img width={200} height={200} src={logo_black}/>
                   <Carousel.Caption>
                     <h3>Second slide label</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>

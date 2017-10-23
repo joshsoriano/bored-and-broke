@@ -5,7 +5,7 @@ import Carousel from 'react-bootstrap/lib/Carousel';
 import Button from 'react-bootstrap/lib/Button';
 import {Form, FormGroup, ControlLabel, FormControl, Col, Checkbox} from 'react-bootstrap'
 import eventExample from './eventExample.png';
-import logo from './logo.png';
+import logo_black from './images/logo-black.png';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -41,7 +41,7 @@ class Settings extends React.Component {
     return (
       <div className={ classes.main }>
         <div className={ classes.navBar }>
-            <img src={logo} className={ classes.envelopeImage } height='60px' />
+            <img src={logo_black} className={ classes.envelopeImage } height='60px' />
             <div className={ classes.user }>Jane Doe ⬇️ </div>
         </div>
         <div className={ classes.instructions }>
