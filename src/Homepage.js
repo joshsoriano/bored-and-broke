@@ -4,7 +4,7 @@ import injectSheet from 'react-jss';
 import Carousel from 'react-bootstrap/lib/Carousel';
 import Button from 'react-bootstrap/lib/Button';
 import eventExample from './eventExample.png';
-import logo from './logo.png';
+import logo_black from './images/logo-black.png';
 import Slider from './Slider.js';
 
 const propTypes = {
@@ -33,7 +33,7 @@ const styles = {
         justifyContent: 'space-between',
         paddingTop: '15px',
     },
-    logo: {
+    logo_black: {
         paddingLeft: '10px',
     },
     user: {
@@ -79,7 +79,9 @@ class Homepage extends React.Component {
     return (
       <div className={ classes.main }>
         <div className={ classes.navBar }>
-            <img src={logo} className={ classes.envelopeImage } height='60px' />
+            <div className={ classes.logo_black }>
+                <img src={logo_black} className={ classes.envelopeImage } height='40px' />
+            </div>
             <div className={ classes.user }>Jane Doe ⬇️ </div>
         </div>
         <div className={ classes.homepageSettings }>
