@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
+import logo_black from './images/logo-black.png';
 
 import Slider from './Slider.js';
 import { Col } from 'react-bootstrap';
@@ -71,7 +72,12 @@ class Homepage extends React.Component {
 
       <div className={ classes.main }>
         <div className={ classes.navBar }>
-            <span className={ classes.logo }>Bored and Broke</span>
+            <div className={ classes.logo }>
+                <Col xs={4}>
+                    <img src={logo_black} alt="Logo" className="img-responsive" style={{alignSelf: 'middle', width: 200}} />
+                </Col>
+            </div>
+
             <div className={ classes.user }>Jane Doe ⬇️ </div>
         </div>
         <div className={ classes.homepageSettings }>
