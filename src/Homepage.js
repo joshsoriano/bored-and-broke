@@ -4,8 +4,7 @@ import injectSheet from 'react-jss';
 import Carousel from 'react-bootstrap/lib/Carousel';
 import Button from 'react-bootstrap/lib/Button';
 import eventExample from './eventExample.png';
-import logo_black from './images/logo-black.png';
-import Slider from './Slider.js';
+import logo from './logo.png';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -33,7 +32,7 @@ const styles = {
         justifyContent: 'space-between',
         paddingTop: '15px',
     },
-    logo_black: {
+    logo: {
         paddingLeft: '10px',
     },
     user: {
@@ -79,19 +78,13 @@ class Homepage extends React.Component {
     return (
       <div className={ classes.main }>
         <div className={ classes.navBar }>
-            <div className={ classes.logo_black }>
-                <img src={logo_black} className={ classes.envelopeImage } height='40px' />
-            </div>
+            <img src={logo} className={ classes.envelopeImage } height='60px' />
             <div className={ classes.user }>Jane Doe ⬇️ </div>
         </div>
         <div className={ classes.homepageSettings }>
             <div className={ classes.zipAndCity }>90045 <span>⬇️</span> </div>
-            <div className={ classes.pickRadius }>pick Radius
-                <Slider />
-            </div>
-            <div className={ classes.priceRange }> $0 to $50
-                <Slider />
-            </div>
+            <div className={ classes.pickRadius }>pick Radius</div>
+            <div className={ classes.priceRange }> $0 to $50</div>
         </div>
         <div className={ classes.titleContainer }>
             <span className={ classes.title }>activities we found for you:</span>
