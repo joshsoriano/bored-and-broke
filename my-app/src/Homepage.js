@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-import Carousel from 'react-bootstrap/lib/Carousel';
-import Button from 'react-bootstrap/lib/Button';
-import eventExample from './eventExample.png';
-import logo from './logo.png';
+import logo_black from './images/logo-black.png';
+
+import Slider from './Slider.js';
+import { Col } from 'react-bootstrap';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -14,8 +14,8 @@ const styles = {
     main: {
         backgroundColor: '#63d8ed',
         textAlign: 'center',
-        height: '900px',
-        // height: '100%',
+        height: '600px',
+        // marginLeft: '50px',
     },
     titleContainer: {
         paddingTop: '20px',
@@ -24,7 +24,7 @@ const styles = {
     },
     title: {
         color: '#efedff',
-        // fontWeight: '500',
+        fontWeight: '500',
         fontSize: '24px',
     },
     navBar: {
@@ -41,34 +41,26 @@ const styles = {
     homepageSettings: {
         display: 'flex',
         justifyContent: 'center',
-        marginBottom: '10px',
     },
     zipAndCity: {
-        marginRight: '120px',
+        marginRight: '100px',
     },
     pickRadius: {
-        marginRight: '120px',
+        marginRight: '100px',
     },
     resultsContainer: {
         paddingTop: '20px',
     },
-    row: {
+    firstRow: {
         display: 'flex',
-        marginBottom: '70px',
     },
     element: {
-        // border: '1px solid white',
+        border: '1px solid white',
         marginLeft: '80px',
         marginRight: '80px',
-        // width: '20px',
-        // height: '20px',
-
     },
-    // elementText: {
-    //     padding: '15px',
-    // },
-    space: {
-        marginBottom: '100px',
+    elementText: {
+        padding: '15px',
     },
 };
 
@@ -76,66 +68,50 @@ class Homepage extends React.Component {
   render() {
     const { classes } = this.props;
     return (
+
+
       <div className={ classes.main }>
         <div className={ classes.navBar }>
-            <img src={logo} className={ classes.envelopeImage } height='60px' />
+            <div className={ classes.logo }>
+                <Col xs={4}>
+                    <img src={logo_black} alt="Logo" className="img-responsive" style={{alignSelf: 'middle', width: 200}} />
+                </Col>
+            </div>
+
             <div className={ classes.user }>Jane Doe ⬇️ </div>
         </div>
         <div className={ classes.homepageSettings }>
             <div className={ classes.zipAndCity }>90045 <span>⬇️</span> </div>
-            <div className={ classes.pickRadius }>pick Radius</div>
-            <div className={ classes.priceRange }> $0 to $50</div>
+            <div className={ classes.pickRadius }>pick Radius
+                <Col xs={6} md={4}>
+                    <Slider />
+                </Col>
+            </div>
+            <div className={ classes.priceRange }> $0-$50
+            </div>
+
         </div>
         <div className={ classes.titleContainer }>
-            <span className={ classes.title }>activities we found for you:</span>
+            <span className={ classes.title }>Bored and Broke</span>
         </div>
         <div className={ classes.resultsContainer }>
-            <div className={ classes.row }>
+            <div className={ classes.firstRow }>
                 <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <span className={ classes.elementText }>Concert1</span>
                 </div>
                 <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <span className={ classes.elementText }>Hike1</span>
                 </div>
                 <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <span className={ classes.elementText }>BeachDay1</span>
                 </div>
                 <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                </div>
-            </div>
-            <div className={ classes.row }>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <span className={ classes.elementText }>Concert2</span>
                 </div>
                 <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                </div>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                </div>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <span className={ classes.elementText }>DogDay1</span>
                 </div>
             </div>
-            <div className={ classes.row }>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                </div>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                </div>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                </div>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                </div>
-            </div>
-        </div>
-        <div className={ classes.space } />
-        <div>
-            <Button bastyle="primary" bsSize="large">Click Me!!!!</Button>
         </div>
       </div>
     );
