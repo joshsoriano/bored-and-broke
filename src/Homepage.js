@@ -5,6 +5,9 @@ import Carousel from 'react-bootstrap/lib/Carousel';
 import Button from 'react-bootstrap/lib/Button';
 import eventExample from './eventExample.png';
 import logo from './logo.png';
+import BBNavbar from './Navbar.js';
+
+
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -26,11 +29,6 @@ const styles = {
         color: '#efedff',
         // fontWeight: '500',
         fontSize: '24px',
-    },
-    navBar: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        paddingTop: '15px',
     },
     logo: {
         paddingLeft: '10px',
@@ -78,8 +76,7 @@ class Homepage extends React.Component {
     return (
       <div className={ classes.main }>
         <div className={ classes.navBar }>
-            <img src={logo} className={ classes.envelopeImage } height='60px' />
-            <div className={ classes.user }>Jane Doe ⬇️ </div>
+            <BBNavbar />
         </div>
         <div className={ classes.homepageSettings }>
             <div className={ classes.zipAndCity }>90045 <span>⬇️</span> </div>
