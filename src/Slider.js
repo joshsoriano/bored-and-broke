@@ -6,7 +6,7 @@ class Slider extends React.Component {
         super(props);
         this.state = {value: 50};
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(event) {
@@ -14,17 +14,15 @@ class Slider extends React.Component {
         this.setState({value: event.target.value});
     }
 
-    handleSubmit(event) {
-        event.preventDefualt();
-    }
+    // handleSubmit(event) {
+    //     event.preventDefualt();
+    // }
 
     render() {
         return (
             <div id="slidecontainer">
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                    <input type="range" min="1" max="100" id="radius" value={this.state.value} onChange={this.handleChange} /> {this.state.value} </label>
-                </form>
+                <label>
+                <input type="range" min="0" max="100" id="radius" value={this.state.value} onChange={this.handleChange} /> {this.state.value} </label>
             </div>
         );
     }
