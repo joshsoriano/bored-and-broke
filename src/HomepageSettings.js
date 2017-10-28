@@ -1,5 +1,6 @@
 import React from 'react';
 import Slider from './Slider.js';
+import { Row, Col } from 'react-bootstrap';
 
 class HomepageSettings extends React.Component {
     constructor(props) {
@@ -16,31 +17,29 @@ class HomepageSettings extends React.Component {
 
     handleSubmit(event) {
         console.log('zip' + this.state.value);
+        console.log(this.Slider.state.value);
         event.preventDefualt();
     }
 
     render() {
         return (
-            <div class="container">
-                <form onSubmit={this.handleSubmit}>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <span> Zipcode: </span>
-                            <input id="zipcodeInput" placeholder="Enter Zipcode" value={this.state.value} onChange={this.handleChange} />
-                        </div>
-                        <div class="col-sm-4"> Pick Radius:
-                            <Slider />
-                        </div>
-                        <div class="col-sm-4"> $0 to $100
-                            <Slider />
-                        </div>
-
-                    </div>
-                    <div>
-                        <button type="submit">Search</button>
-                    </div>
-                </form>
-            </div>
+            <form onSubmit={this.handleSubmit}>
+                <Row>
+                    <Col sm={4}>
+                        <span> Zipcode: </span>
+                        <input id="zipcodeInput" placeholder="Enter Zipcode" value={this.state.value} onChange={this.handleChange} />
+                    </Col>
+                    <Col sm={4}> Pick Radius:
+                        <Slider />
+                    </Col>
+                    <Col sm={4}> $0 to $100
+                        <Slider />
+                    </Col>
+                </Row>
+                <div>
+                    <button type="submit">Search</button>
+                </div>
+            </form>
         );
     }
 
