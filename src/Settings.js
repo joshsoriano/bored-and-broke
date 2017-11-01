@@ -6,6 +6,8 @@ import Button from 'react-bootstrap/lib/Button';
 import {Form, FormGroup, ControlLabel, FormControl, Col, Checkbox} from 'react-bootstrap'
 import eventExample from './eventExample.png';
 import logo from './logo.png';
+import NavigationBar from './NavigationBar.js';
+
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -17,11 +19,6 @@ const styles = {
         textAlign: 'center',
         height: '900px',
         // height: '100%',
-    },
-    navBar: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        paddingTop: '15px',
     },
     user: {
         marginRight: '15px',
@@ -40,10 +37,7 @@ class Settings extends React.Component {
     const { classes } = this.props;
     return (
       <div className={ classes.main }>
-        <div className={ classes.navBar }>
-            <img src={logo} className={ classes.envelopeImage } height='60px' />
-            <div className={ classes.user }>Jane Doe ⬇️ </div>
-        </div>
+        <NavigationBar />
         <div className={ classes.instructions }>
             <span>Please enter your information below. Feel free to change it whenever!</span>
         </div>

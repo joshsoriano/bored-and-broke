@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/lib/Button';
 import eventExample from './eventExample.png';
 import logo_black from './images/logo-black.png';
 import Slider from './Slider.js';
+import NavigationBar from './NavigationBar.js';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -21,17 +22,11 @@ const styles = {
     titleContainer: {
         paddingTop: '20px',
         paddingBottom: '20px',
-
     },
     title: {
         color: '#efedff',
         // fontWeight: '500',
         fontSize: '24px',
-    },
-    navBar: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        paddingTop: '15px',
     },
     logo_black: {
         paddingLeft: '10px',
@@ -78,12 +73,7 @@ class Homepage extends React.Component {
     const { classes } = this.props;
     return (
       <div className={ classes.main }>
-        <div className={ classes.navBar }>
-            <div className={ classes.logo_black }>
-                <img src={logo_black} className={ classes.envelopeImage } height='40px' />
-            </div>
-            <div className={ classes.user }>Jane Doe ⬇️ </div>
-        </div>
+        <NavigationBar />
         <div className={ classes.homepageSettings }>
             <div className={ classes.zipAndCity }>90045 <span>⬇️</span> </div>
             <div className={ classes.pickRadius }>pick Radius
