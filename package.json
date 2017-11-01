@@ -4,9 +4,8 @@
   "description": "senior project",
   "main": "index.js",
   "dependencies": {
-    "bootstrap": "^3.3.7",
     "react": "^16.0.0",
-    "react-bootstrap": "^0.31.5",
+    "react-bootstrap": "^0.31.3",
     "react-dom": "^16.0.0",
     "react-jss": "^7.2.0",
     "react-scripts": "1.0.14"

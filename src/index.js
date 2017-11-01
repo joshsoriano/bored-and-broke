@@ -8,10 +8,6 @@ import Homepage from './Homepage.js';
 // import SavedActivities from './SavedActivities.js';
 // import Settings from './Settings.js';
 // import SingleActivityModal from './SingleActivityModal.js';
-<<<<<<< HEAD
-import 'bootstrap/dist/css/bootstrap.css';
-=======
->>>>>>> 780432d78f174eb654578967ade6a414a6738184
 
 
 const propTypes = {
