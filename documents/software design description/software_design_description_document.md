@@ -38,7 +38,7 @@ The PostgreSQL database runs through the AWS Relational Database Service (RDS). 
 
 ### 6.2.3 Architectural Design Diagrams
 #### UML Case Diagram
-![Case Diagram](UML Case Diagram.png)
+![Case Diagram](UML Case Diagram.PNG)
 #### State Diagram
 ![State Diagram](stateDiagram.png)
 #### Class Diagram
