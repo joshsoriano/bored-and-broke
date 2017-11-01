@@ -21,7 +21,7 @@ The server hosts the web application as well as all the information stored withi
 Since Bored and Broke is a web based application, a wired or wireless connection will be needed in order to access the application via a web browser.
 
 ## 6.2 Architectural Design
-The overall design of our system is split up into four sets, the Web Frontend, Backend, AWS Elastic Beanstalk, and AWS RDS (PostgreSQL DB). The Web Frontend set of class definitions includes the display of the Login page, Homepage, Saved Activities, Activity Modal, and Settings page. The Backend set includes verifying the User’s Facebook login information, getting the activities from the various APIs, adding these activities to the database, displaying all of the activities, get a single activity, getting the saved activities, getting the user’s settings, changing or setting the user’s settings, and opening the database connection. The AWS Elastic Beanstalk set will include loading, building and deploying our web application. The AWS RDS set will include connecting to the web application. The Web Frontend set is connected to the Backend set and AWS Elastic Beanstalk set, the Backend set is connected to the Web Frontend, AWS Elastic Beanstalk and AWS RDS, the AWS set is connected to the Web Frontend and the Backend, and the AWS RDS is connected to the Backend.
+The overall design of our system is split up into four sets, the Web Frontend, Backend, AWS Elastic Beanstalk, and AWS RDS (PostgreSQL DB). The Web Frontend set of class definitions includes the display of the Login page, Homepage, Saved Activities, Activity Modal, and Settings page. The Backend set includes verifying the User’s Facebook login information, getting the activities from the various APIs, adding these activities to the database, displaying all of the activities, getting a single activity, getting the user’s saved activities, getting the user’s settings, changing or setting the user’s settings, and opening the database connection. The AWS Elastic Beanstalk set will include loading, building and deploying our web application. The AWS RDS set will include connecting to the web application. The Web Frontend set is connected to the Backend set and AWS Elastic Beanstalk set. The Backend set is connected to the Web Frontend, AWS Elastic Beanstalk and AWS RDS. The AWS set is connected to the Web Frontend and the Backend. The AWS RDS is connected to the Backend.
 
 ### 6.2.1 Major Software Components
 #### 6.2.1.1 - Web Frontend
@@ -38,6 +38,7 @@ The PostgreSQL database runs through the AWS Relational Database Service (RDS). 
 
 ### 6.2.3 Architectural Design Diagrams
 #### UML Case Diagram
+![Case Diagram](UML Case Diagram.png)
 #### State Diagram
 ![State Diagram](stateDiagram.png)
 #### Class Diagram
