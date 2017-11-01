@@ -41,6 +41,6 @@ The PostgreSQL database runs through the AWS Relational Database Service (RDS). 
 #### State Diagram
 ![State Diagram](stateDiagram.png)
 #### Class Diagram
-![Class Diagram](architectureClassDiagram.png)
+![Class Diagram](architectureClassDiagrams.png)
 
 
