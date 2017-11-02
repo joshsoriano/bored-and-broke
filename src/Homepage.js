@@ -4,7 +4,7 @@ import injectSheet from 'react-jss';
 import Carousel from 'react-bootstrap/lib/Carousel';
 import Button from 'react-bootstrap/lib/Button';
 import eventExample from './eventExample.png';
-import logo_black from './images/logo-black.png';
+import logo_offwhite from './images/logo-offwhite.png';
 import Slider from './Slider.js';
 
 const propTypes = {
@@ -13,7 +13,7 @@ const propTypes = {
 
 const styles = {
     main: {
-        backgroundColor: '#63d8ed',
+        backgroundColor: '#2C3E50',
         textAlign: 'center',
         height: '900px',
         // height: '100%',
@@ -24,7 +24,7 @@ const styles = {
 
     },
     title: {
-        color: '#efedff',
+        color: '#ECF0F1',
         // fontWeight: '500',
         fontSize: '24px',
     },
@@ -33,11 +33,13 @@ const styles = {
         justifyContent: 'space-between',
         paddingTop: '15px',
     },
-    logo_black: {
+    logo_offwhite: {
         paddingLeft: '10px',
+        color: '#ECF0F1'
     },
     user: {
         paddingRight: '10px',
+        color: '#ECF0F1'
     },
     homepageSettings: {
         display: 'flex',
@@ -46,28 +48,28 @@ const styles = {
     },
     zipAndCity: {
         marginRight: '120px',
+        color: '#ECF0F1'
     },
     pickRadius: {
         marginRight: '120px',
+        color: '#ECF0F1'
+    },
+    priceRange: {
+        color: '#ECF0F1'
     },
     resultsContainer: {
         paddingTop: '20px',
+        // justifyContent: 'center',
     },
     row: {
         display: 'flex',
         marginBottom: '70px',
     },
-    element: {
-        // border: '1px solid white',
+    element:
+    {
         marginLeft: '80px',
         marginRight: '80px',
-        // width: '20px',
-        // height: '20px',
-
     },
-    // elementText: {
-    //     padding: '15px',
-    // },
     space: {
         marginBottom: '100px',
     },
@@ -79,8 +81,8 @@ class Homepage extends React.Component {
     return (
       <div className={ classes.main }>
         <div className={ classes.navBar }>
-            <div className={ classes.logo_black }>
-                <img src={logo_black} className={ classes.envelopeImage } height='40px' />
+            <div className={ classes.logo_offwhite }>
+                <img src={logo_offwhite} className={ classes.envelopeImage } height='40px' />
             </div>
             <div className={ classes.user }>Jane Doe ⬇️ </div>
         </div>
