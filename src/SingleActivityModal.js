@@ -21,7 +21,7 @@ const styles = {
       height: '600px',
       width: '650px',
       margin: 'auto',
-      background: '#63d8ed',
+      background: '#1ABC9C',
       marginTop: '100px',
     },
     titleTextContainer: {

@@ -35,11 +35,11 @@ const styles = {
     },
     logo_offwhite: {
         paddingLeft: '10px',
-        color: '#ECF0F1'
+        color: '#ECF0F1',
     },
     user: {
         paddingRight: '10px',
-        color: '#ECF0F1'
+        color: '#ECF0F1',
     },
     homepageSettings: {
         display: 'flex',
@@ -48,14 +48,14 @@ const styles = {
     },
     zipAndCity: {
         marginRight: '120px',
-        color: '#ECF0F1'
+        color: '#16A085',
     },
     pickRadius: {
         marginRight: '120px',
-        color: '#ECF0F1'
+        color: '#16A085',
     },
     priceRange: {
-        color: '#ECF0F1'
+        color: '#16A085',
     },
     resultsContainer: {
         paddingTop: '20px',
