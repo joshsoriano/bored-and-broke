@@ -1,23 +1,29 @@
 import React from 'react';
-import Slider from './Slider.js';
 import { Row, Col } from 'react-bootstrap';
 
 class HomepageSettings extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {value: ''};
-
+        this.state = {
+            zipcode: '',
+            distance: 45,
+            price: 0
+        };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(event) {
-        this.setState({value: event.target.value});
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
+
+        this.setState({
+            [name]: value
+        });
     }
 
     handleSubmit(event) {
-        console.log('zip' + this.state.value);
-        console.log(this.Slider.state.value);
         event.preventDefualt();
     }
 
@@ -27,13 +33,33 @@ class HomepageSettings extends React.Component {
                 <Row>
                     <Col sm={4}>
                         <span> Zipcode: </span>
-                        <input id="zipcodeInput" placeholder="Enter Zipcode" value={this.state.value} onChange={this.handleChange} />
+                        <input
+                            name="zipcode"
+                            placeholder="Enter Zipcode"
+                            value={this.state.zipcode}
+                            onChange={this.handleChange} />
                     </Col>
                     <Col sm={4}> Pick Radius:
-                        <Slider />
+                        <div id="slidecontainer">
+                            <label>
+                                <input type="range" min="0" max="100"
+                                name="distance"
+                                value={this.state.distance}
+                                onChange={this.handleChange} />
+                                {this.state.distance} miles
+                            </label>
+                        </div>
                     </Col>
                     <Col sm={4}> $0 to $100
-                        <Slider />
+                        <div id="slidecontainer">
+                            <label>
+                                <input type="range" min="0" max="100"
+                                name="price"
+                                value={this.state.price}
+                                onChange={this.handleChange} />
+                                ${this.state.price}
+                            </label>
+                        </div>
                     </Col>
                 </Row>
                 <div>
@@ -42,6 +68,6 @@ class HomepageSettings extends React.Component {
             </form>
         );
     }
-
 }
+
 export default HomepageSettings;
