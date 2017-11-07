@@ -55,10 +55,10 @@ const styles = {
     },
     pickRadius: {
         marginRight: '120px',
-        color: '#16A085',
+        color: '#ECF0F1',
     },
     priceRange: {
-        color: '#16A085',
+        color: '#ECF0F1',
     },
     resultsContainer: {
         paddingTop: '20px',
