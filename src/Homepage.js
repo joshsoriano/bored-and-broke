@@ -15,7 +15,7 @@ const propTypes = {
 
 const styles = {
     main: {
-        backgroundColor: '#2C3E50',
+        backgroundColor: '#ECF0F1',
         textAlign: 'center',
         height: '900px',
         // height: '100%',

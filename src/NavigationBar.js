@@ -17,31 +17,40 @@ const propTypes = {
 };
 
 const styles = {
-    logoLink: {
-        marginLeft: '-10px',
+    navbar: {
+        backgroundColor: '#2C3E50',
+        height: '75px',
+        border: 'none',
     },
-    
+    navbarContent: {
+        marginTop: '12.5px',
+    },
+    logoLink: {
+        marginTop: '8px',
+    }
 }
 
 class NavigationBar extends React.Component {
     render() {
+        const { classes } = this.props;
         return(
-            <Navbar inverse collapseOnSelect>
+            <Navbar inverse collapseOnSelect className={classes.navbar}>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <a className="logoLink" href="#">
-                            <img className="logo" src={logo} width="150px" alt="user pic" />
+                        <a className={classes.logoLink} href="#">
+                            <img className={classes.logo} src={logo} height="30px" alt="user pic" />
                         </a>
                     </Navbar.Brand>
                     <Navbar.Toggle />
                     </Navbar.Header>
-                <Navbar.Collapse>
+                <Navbar.Collapse className={classes.navbarContent}>
                     <Nav pullRight>
                         <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-                            <MenuItem eventKey={3.1}>Settings</MenuItem>
+                            <MenuItem eventKey={3.1}>My Feed</MenuItem>
                             <MenuItem eventKey={3.2}>My Saved Activities</MenuItem>
+                            <MenuItem eventKey={3.3}>Settings</MenuItem>
                             <MenuItem divider />
-                            <MenuItem eventKey={3.3}>Log Out</MenuItem>
+                            <MenuItem eventKey={3.4}>Log Out</MenuItem>
                         </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>
