@@ -29,16 +29,7 @@ const styles = {
         // fontWeight: '500',
         fontSize: '24px',
     },
-<<<<<<< HEAD
-    logo_black: {
-=======
-    navBar: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        paddingTop: '15px',
-    },
     logo_offwhite: {
->>>>>>> ee305e05c42e561b34ad2ca47144bf954c389a62
         paddingLeft: '10px',
         color: '#ECF0F1',
     },
