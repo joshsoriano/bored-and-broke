@@ -76,16 +76,7 @@ class Homepage extends React.Component {
     const { classes } = this.props;
     return (
       <div className={ classes.main }>
-<<<<<<< HEAD
         <NavigationBar />
-=======
-        <div className={ classes.navBar }>
-            <div className={ classes.logo_offwhite }>
-                <img src={logo_offwhite} className={ classes.envelopeImage } height='40px' />
-            </div>
-            <div className={ classes.user }>Jane Doe ⬇️ </div>
-        </div>
->>>>>>> ee305e05c42e561b34ad2ca47144bf954c389a62
         <div className={ classes.homepageSettings }>
             <HomepageSettings />
         </div>
