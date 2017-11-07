@@ -10,7 +10,12 @@ import NavDropdown from 'react-bootstrap/lib/NavDropdown'
 import MenuItem from 'react-bootstrap/lib/MenuItem'
 import Image from 'react-bootstrap/lib/Image'
 import logo from './images/logo-white.png'
+import SavedActivities from './SavedActivities.js';
 
+
+const LINKS = [
+    { to: './SavedActivities.js', title: 'SAVED_ACTIVITIES'},
+];
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -23,7 +28,7 @@ const styles = {
         border: 'none',
     },
     navbarContent: {
-        marginTop: '12.5px',  
+        marginTop: '12.5px',
     },
     logoLink: {
         marginTop: '8px',
@@ -31,6 +36,18 @@ const styles = {
 }
 
 class NavigationBar extends React.Component {
+    constructor(props) {
+        super(props);
+        this.onNavItemClick = this.onNavItemClick.bind(this);
+        // this.state = {
+        //
+        // };
+    }
+
+    onNavItemClick() {
+        this.context.router.push()
+    }
+
     render() {
         const { classes } = this.props;
         return(
@@ -46,7 +63,7 @@ class NavigationBar extends React.Component {
                 <Navbar.Collapse className={classes.navbarContent}>
                     <Nav pullRight>
                         <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-                            <MenuItem eventKey={3.1}>My Feed</MenuItem>
+                            <MenuItem onClick={ this.onNavItemClick } eventKey={3.1}>My Feed</MenuItem>
                             <MenuItem eventKey={3.2}>My Saved Activities</MenuItem>
                             <MenuItem eventKey={3.3}>Settings</MenuItem>
                             <MenuItem divider />
