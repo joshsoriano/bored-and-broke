@@ -6,7 +6,6 @@ import Button from 'react-bootstrap/lib/Button';
 import eventExample from './eventExample.png';
 import logo_offwhite from './images/logo-offwhite.png';
 // import Slider from './Slider.js';
-// import logo_black from './images/logo-black.png';
 // import Slider from './Slider.js';
 import HomepageSettings from './HomepageSettings.js';
 
