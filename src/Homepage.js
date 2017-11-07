@@ -5,8 +5,8 @@ import Carousel from 'react-bootstrap/lib/Carousel';
 import Button from 'react-bootstrap/lib/Button';
 import eventExample from './eventExample.png';
 import logo_black from './images/logo-black.png';
-import Slider from './Slider.js';
 import NavigationBar from './NavigationBar.js';
+import HomepageSettings from './HomepageSettings.js';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -75,13 +75,7 @@ class Homepage extends React.Component {
       <div className={ classes.main }>
         <NavigationBar />
         <div className={ classes.homepageSettings }>
-            <div className={ classes.zipAndCity }>90045 <span>⬇️</span> </div>
-            <div className={ classes.pickRadius }>pick Radius
-                <Slider />
-            </div>
-            <div className={ classes.priceRange }> $0 to $50
-                <Slider />
-            </div>
+            <HomepageSettings />
         </div>
         <div className={ classes.titleContainer }>
             <span className={ classes.title }>activities we found for you:</span>
