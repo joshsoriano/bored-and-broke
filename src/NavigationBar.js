@@ -21,7 +21,6 @@ const styles = {
         marginLeft: '-10px',
     },
     
-    
 }
 
 class NavigationBar extends React.Component {
