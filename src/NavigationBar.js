@@ -41,7 +41,6 @@ class NavigationBar extends React.Component {
                             <img className={classes.logo} src={logo} height="30px" alt="user pic" />
                         </a>
                     </Navbar.Brand>
-                    <Navbar.Toggle />
                     </Navbar.Header>
                 <Navbar.Collapse className={classes.navbarContent}>
                     <Nav pullRight>
