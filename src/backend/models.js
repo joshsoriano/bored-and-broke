@@ -29,12 +29,15 @@ module.exports = (() => {
 
    // Self incrementing primary key.
    id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
+   // We can check that it has been 24 hours since the last time activities
+   // have been added to the database.
+   date_added: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
    name: { type: Sequelize.STRING },
    date: { type: Sequelize.STRING },
    location: { type: Sequelize.STRING },
    image_url: { type: Sequelize.STRING },
    link: { type: Sequelize.STRING },
-   price: { Sequelize.INTEGER }
+   price: { type: Sequelize.DOUBLE}
 
   })
 

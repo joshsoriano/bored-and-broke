@@ -4,6 +4,7 @@
 
 module.exports = (() => {
     const Sequelize = require('sequelize');
+    const Models = require('./models');
 
     // Connect to the database.
     const sequelize = new Sequelize('ebdb', 'boredandbroke', 'put password here', {
@@ -53,6 +54,12 @@ module.exports = (() => {
           isUser: (userId) => {
             // Returns true if the user exists in the User table of the database.
             return false;
+          },
+
+          sync: () => {
+            // Creates the tables according to the models defined in models.js
+            // if they do not exist already.
+            Models.sync();
           }
     };
 })();
