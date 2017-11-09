@@ -45,7 +45,7 @@ class NavigationBar extends React.Component {
     }
 
     onNavItemClick() {
-        this.context.router.push()
+        this.context.router.push('./SavedActivities');
     }
 
     render() {
