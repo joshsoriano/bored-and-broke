@@ -10,7 +10,8 @@ import NavDropdown from 'react-bootstrap/lib/NavDropdown'
 import MenuItem from 'react-bootstrap/lib/MenuItem'
 import Image from 'react-bootstrap/lib/Image'
 import logo from './images/logo-white.png'
-import SavedActivities from './SavedActivities.js';
+import SavedActivities from './SavedActivities.js'
+import { BrowserRouter, Route, Link, Redirect } from 'react-router-dom'
 
 
 const LINKS = [
@@ -46,6 +47,11 @@ class NavigationBar extends React.Component {
 
     onNavItemClick() {
         this.context.router.push('./SavedActivities');
+        // <Redirect to='/SavedActivities'/>
+        <Route exact path="/" render={() => (
+            <Redirect to="/SavedActivities"/>
+        )}/>
+            // {() => hashHistory.push(`/mySite/accountview?id=${account.AccountName}`)}
     }
 
     render() {
