@@ -11,7 +11,7 @@ import MenuItem from 'react-bootstrap/lib/MenuItem'
 import Image from 'react-bootstrap/lib/Image'
 import logo from './images/logo-white.png'
 import SavedActivities from './SavedActivities.js'
-import { BrowserRouter, Route, Link, Redirect } from 'react-router-dom'
+// import { BrowserRouter, Route, Link, Redirect } from 'react-router-dom'
 
 
 const LINKS = [
@@ -39,20 +39,21 @@ const styles = {
 class NavigationBar extends React.Component {
     constructor(props) {
         super(props);
-        this.onNavItemClick = this.onNavItemClick.bind(this);
+        // this.onNavItemClick = this.onNavItemClick.bind(this);
         // this.state = {
         //
         // };
     }
 
-    onNavItemClick() {
-        this.context.router.push('./SavedActivities');
-        // <Redirect to='/SavedActivities'/>
-        <Route exact path="/" render={() => (
-            <Redirect to="/SavedActivities"/>
-        )}/>
-            // {() => hashHistory.push(`/mySite/accountview?id=${account.AccountName}`)}
-    }
+    // onNavItemClick() {
+    //     this.context.router.push('./SavedActivities');
+    //     // <Redirect to='/SavedActivities'/>
+    //     <Route exact path="/" render={() => (
+    //         <Redirect to="/SavedActivities"/>
+    //     )}/>
+    //         // {() => hashHistory.push(`/mySite/accountview?id=${account.AccountName}`)}
+    // }
+    // onClick={ this.onNavItemClick }
 
     render() {
         const { classes } = this.props;
@@ -69,7 +70,7 @@ class NavigationBar extends React.Component {
                 <Navbar.Collapse className={classes.navbarContent}>
                     <Nav pullRight>
                         <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-                            <MenuItem onClick={ this.onNavItemClick } eventKey={3.1}>My Feed</MenuItem>
+                            <MenuItem eventKey={3.1}>My Feed</MenuItem>
                             <MenuItem eventKey={3.2}>My Saved Activities</MenuItem>
                             <MenuItem eventKey={3.3}>Settings</MenuItem>
                             <MenuItem divider />
