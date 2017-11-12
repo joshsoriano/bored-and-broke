@@ -8,8 +8,6 @@ import Homepage from './Homepage.js';
 import LoginCreateAccount from './LoginCreateAccount.js';
 import SavedActivities from './SavedActivities.js';
 import Settings from './Settings.js';
-// import SingleActivityModal from './SingleActivityModal.js';
-
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -43,7 +41,7 @@ class BoredAndBroke extends React.Component {
                      <li><Link to="/Settings">Settings</Link></li>
                      <li><Link to="/LoginCreateAccount">LoginCreateAccount</Link></li>
                  </ul>
-                 
+
                  <Route path="/Homepage" component={Homepage}/>
                  <Route path="/SavedActivities" component={SavedActivities}/>
                  <Route path="/Settings" component={Settings}/>

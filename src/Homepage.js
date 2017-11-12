@@ -8,6 +8,7 @@ import logo_black from './images/logo-black.png';
 import NavigationBar from './NavigationBar.js';
 import logo_offwhite from './images/logo-offwhite.png';
 import HomepageSettings from './HomepageSettings.js';
+import SingleActivityModal from './SingleActivityModal.js';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -127,9 +128,12 @@ class Homepage extends React.Component {
                 </div>
             </div>
         </div>
+        <div>
+            <SingleActivityModal /> 
+        </div>
         <div className={ classes.space } />
         <div>
-            <Button bastyle="primary" bsSize="large">Click Me!!!!</Button>
+            <Button bastyle="primary" bsSize="large">See More</Button>
         </div>
       </div>
     );
