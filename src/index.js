@@ -24,31 +24,6 @@ const styles = {
     },
 };
 
-// const Test = () => (
-//     <Router>
-//         <div>
-//             <ul>
-//                 <li><Link to="/Homepage">Homepage</Link></li>
-//                 <li><Link to="/SavedActivities">SavedActivities</Link></li>
-//                 <li><Link to="/Settings">Settings</Link></li>
-//                 <li><Link to="/LoginCreateAccount">LoginCreateAccount</Link></li>
-//             </ul>
-//
-//             <hr />
-//
-//             <Route exact path="/" component={Homepage}/>
-//             <Route path="/about" component={SavedActivities}/>
-//             <Route path="/topics" component={Settings}/>
-//             <Route path="/LoginCreateAccount" component={LoginCreateAccount}/>
-//         </div>
-//     </Router>
-// )
-
-// const TestTopics = ({ match }) => (
-//     <div>
-//         <h2
-// )
-
 class BoredAndBroke extends React.Component {
   render() {
     // const status = 'This is our project:';
@@ -68,10 +43,7 @@ class BoredAndBroke extends React.Component {
                      <li><Link to="/Settings">Settings</Link></li>
                      <li><Link to="/LoginCreateAccount">LoginCreateAccount</Link></li>
                  </ul>
-
-                 <hr />
-
-                //  <Route exact path="./" component={Homepage}/>
+                 
                  <Route path="/Homepage" component={Homepage}/>
                  <Route path="/SavedActivities" component={SavedActivities}/>
                  <Route path="/Settings" component={Settings}/>
