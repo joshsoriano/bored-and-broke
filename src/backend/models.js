@@ -37,7 +37,8 @@ module.exports = (() => {
    location: { type: Sequelize.STRING },
    image_url: { type: Sequelize.STRING },
    link: { type: Sequelize.STRING },
-   price: { type: Sequelize.DOUBLE}
+   price: { type: Sequelize.DOUBLE },
+   description: { type: Sequelize.STRING }
 
   })
 

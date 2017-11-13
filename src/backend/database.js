@@ -20,7 +20,9 @@ module.exports = (() => {
 
           getFutureActivities: (priceLimit, location="Los Angeles") => {
             // Return an array of activities that occur in the future from the database.
-            return [];
+
+            // DEMO PURPOSES ONLY!!!
+            return activityRetriever.retrieve();
           },
 
           getSavedActivities: (userId) => {
@@ -56,10 +58,10 @@ module.exports = (() => {
             return false;
           },
 
-          sync: () => {
+          sync: (sequelize) => {
             // Creates the tables according to the models defined in models.js
             // if they do not exist already.
-            Models.sync();
+            Models.sync(sequelize);
           }
     };
 })();
