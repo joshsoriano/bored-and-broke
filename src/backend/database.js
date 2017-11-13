@@ -62,6 +62,7 @@ module.exports = (() => {
             // Creates the tables according to the models defined in models.js
             // if they do not exist already.
             Models.sync(sequelize);
+
           }
     };
 })();
