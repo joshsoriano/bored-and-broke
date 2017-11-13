@@ -1,3 +1,4 @@
+/*global FB*/
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
@@ -20,12 +21,39 @@ const styles = {
     logoLink: {
         marginLeft: '-10px',
     },
-    
-    
+
+
 }
 
 class NavigationBar extends React.Component {
     render() {
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId            : '1960748417506782',
+            autoLogAppEvents : true,
+            xfbml            : true,
+            version          : 'v2.11'
+          });
+        };
+
+        (function(d, s, id){
+           var js, fjs = d.getElementsByTagName(s)[0];
+           if (d.getElementById(id)) {return;}
+           js = d.createElement(s); js.id = id;
+           js.src = "https://connect.facebook.net/en_US/sdk.js";
+           fjs.parentNode.insertBefore(js, fjs);
+         }(document, 'script', 'facebook-jssdk'));
+
+         function fbLogoutUser() {
+            FB.getLoginStatus(function(response) {
+                if (response && response.status === 'connected') {
+                    FB.logout(function(response) {
+                        document.location.reload();
+                    });
+                }
+            });
+        }
+
         return(
             <Navbar inverse collapseOnSelect>
                 <Navbar.Header>
@@ -42,7 +70,7 @@ class NavigationBar extends React.Component {
                             <MenuItem eventKey={3.1}>Settings</MenuItem>
                             <MenuItem eventKey={3.2}>My Saved Activities</MenuItem>
                             <MenuItem divider />
-                            <MenuItem eventKey={3.3}>Log Out</MenuItem>
+                            <MenuItem eventKey={3.3} onClick={() => fbLogoutUser()}>Log Out</MenuItem>
                         </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>
