@@ -43,7 +43,6 @@ class Settings extends React.Component {
         <NavigationBar />
         <div className={ classes.navBar }>
             <img src={logo_offwhite} className={ classes.envelopeImage } height='60px' />
-            <div className={ classes.user }>Jane Doe ⬇️ </div>
         </div>
         <div className={ classes.instructions }>
             <span>Please enter your information below. Feel free to change it whenever!</span>

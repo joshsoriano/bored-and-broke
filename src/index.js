@@ -56,7 +56,7 @@ class BoredAndBroke extends React.Component {
 
                  <Route exact path="/" render={() => (
                      <LoginCreateAccount/>
-                 )}/>
+                 )}/> 
                  <Route path="/Homepage" component={Homepage}/>
                  <Route path="/SavedActivities" component={SavedActivities}/>
                  <Route path="/Settings" component={Settings}/>

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-// import Carousel from 'react-bootstrap/lib/Carousel';
 import Button from 'react-bootstrap/lib/Button';
 import eventExample from './eventExample.png';
 import logo_black from './images/logo-black.png';
@@ -62,8 +61,7 @@ const styles = {
         display: 'flex',
         marginBottom: '70px',
     },
-    element:
-    {
+    element: {
         marginLeft: '80px',
         marginRight: '80px',
     },
