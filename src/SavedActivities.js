@@ -5,7 +5,9 @@ import Carousel from 'react-bootstrap/lib/Carousel';
 import Button from 'react-bootstrap/lib/Button';
 import {Form, FormGroup, ControlLabel, FormControl, Col, Checkbox} from 'react-bootstrap'
 import eventExample from './eventExample.png';
-import logo from './logo.png';
+// import logo from './logo.png';
+import NavigationBar from './NavigationBar.js';
+import logo_offwhite from './images/logo-offwhite.png';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -13,7 +15,7 @@ const propTypes = {
 
 const styles = {
     main: {
-        backgroundColor: '#63d8ed',
+        backgroundColor: '#2C3E50',
         textAlign: 'center',
         height: '900px',
         // height: '100%',
@@ -25,14 +27,17 @@ const styles = {
     },
     user: {
         marginRight: '15px',
+        color: '#ECF0F1',
     },
     instructions: {
         marginBottom: '50px',
+        color: '#ECF0F1',
     },
-    formInput: {
-        width: '500px',
-        margin: 'auto',
-    },
+    // formInput: {
+    //     width: '500px',
+    //     margin: 'auto',
+    //     color: '#ECF0F1',
+    // },
     row: {
         display: 'flex',
         marginBottom: '70px',
@@ -52,10 +57,7 @@ class SavedActivities extends React.Component {
     const { classes } = this.props;
     return (
       <div className={ classes.main }>
-        <div className={ classes.navBar }>
-            <img src={logo} className={ classes.envelopeImage } height='60px' />
-            <div className={ classes.user }>Jane Doe ⬇️ </div>
-        </div>
+        <NavigationBar />
         <div className={ classes.instructions }>
             <span>Here are the activities you have saved so far:</span>
         </div>
