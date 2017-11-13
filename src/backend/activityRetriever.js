@@ -10,6 +10,7 @@
     source: The API e.g. "TicketMaster"
     imageUrl: A url to an image for this activity.
     price: The float price of an activity.
+    description: String description of the actiivty.
   }
 */
 
@@ -35,6 +36,7 @@ window.activityRetriever = (() => {
                   activity.location = event._embedded.venues[0].name; // Use the first venue name available.
                   activity.link = event.url;
                   activity.source = "TicketMaster";
+                  activity.description = "Click the link for more information.";
                   activity.imageUrl = event.images[0].url; // Use the first image available.
                   activity.price = event.priceRanges ? event.priceRanges[0].min : 0;
 
@@ -57,6 +59,7 @@ window.activityRetriever = (() => {
                     // activity.location This API doesn't provide location info.
                     activity.link = event.url;
                     activity.source = "EventBrite";
+                    activity.description = "Click the link for more information.";
                     activity.imageUrl = event.logo ? event.logo.url : ""; // In case there isn't a logo.
                     // activity.price This API doesn't provide price either.
 
@@ -82,6 +85,7 @@ window.activityRetriever = (() => {
                     activity.location = event.venue_name;
                     activity.link = event.url;
                     activity.source = "Eventful";
+                    activity.description = event.description;
                     activity.imageUrl = event.image ? event.image.medium.url : "";  // In case there isn't an image.
                     // activity.price Not available for this API.
 

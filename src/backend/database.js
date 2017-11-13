@@ -4,6 +4,7 @@
 
 module.exports = (() => {
     const Sequelize = require('sequelize');
+    const Models = require('./models');
 
     // Connect to the database.
     const sequelize = new Sequelize('ebdb', 'boredandbroke', 'put password here', {
@@ -19,7 +20,9 @@ module.exports = (() => {
 
           getFutureActivities: (priceLimit, location="Los Angeles") => {
             // Return an array of activities that occur in the future from the database.
-            return [];
+
+            // DEMO PURPOSES ONLY!!!
+            return activityRetriever.retrieve();
           },
 
           getSavedActivities: (userId) => {
@@ -53,6 +56,13 @@ module.exports = (() => {
           isUser: (userId) => {
             // Returns true if the user exists in the User table of the database.
             return false;
+          },
+
+          sync: (sequelize) => {
+            // Creates the tables according to the models defined in models.js
+            // if they do not exist already.
+            Models.sync(sequelize);
+
           }
     };
 })();
