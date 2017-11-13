@@ -20,11 +20,11 @@ const defaultProps = {
 const styles = {
     main: {
       position: 'relative',
-      height: '600px',
-      width: '650px',
-      margin: 'auto',
+      height: '100px',
+      width: '100px',
+    //   margin: 'auto',
       background: '#1ABC9C',
-      marginTop: '100px',
+    //   marginTop: '100px',
     },
     titleTextContainer: {
       paddingBottom: '4px',
@@ -113,10 +113,10 @@ class SingleActivityModal extends React.Component {
         let close = () => this.setState({ show: false });
 
         return (
-            <div className="modalContainer" style={{ height: 200 }}>
+            <div className="modalContainer" style={{ height: 50 }}>
                 <Button
                     bsStyle="primary"
-                    bsSize="large"
+                    bsSize="small"
                     onClick={() => this.setState({ show: true })}
                 >
                     More Info
