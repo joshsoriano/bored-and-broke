@@ -11,6 +11,7 @@ import MenuItem from 'react-bootstrap/lib/MenuItem'
 import Image from 'react-bootstrap/lib/Image'
 import logo from './images/logo-white.png'
 import SavedActivities from './SavedActivities.js'
+import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 // import { BrowserRouter, Route, Link, Redirect } from 'react-router-dom'
 
 
@@ -55,6 +56,16 @@ class NavigationBar extends React.Component {
     // }
     // onClick={ this.onNavItemClick }
 
+    // <Router>
+    //     <div>
+    //         <ul>
+    //             <li><Link to="/SavedActivities">SavedActivities</Link></li>
+    //         </ul>
+    //         <Route path="/SavedActivities" component={SavedActivities}/>
+    //     </div>
+    // </Router>
+
+
     render() {
         const { classes } = this.props;
         return(
@@ -69,9 +80,13 @@ class NavigationBar extends React.Component {
                     </Navbar.Header>
                 <Navbar.Collapse className={classes.navbarContent}>
                     <Nav pullRight>
-                        <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-                            <MenuItem eventKey={3.1}>My Feed</MenuItem>
-                            <MenuItem eventKey={3.2}>My Saved Activities</MenuItem>
+                        <NavDropdown eventKey={3} title="User" id="basic-nav-dropdown">
+                            <MenuItem eventKey={3.1}>
+                                My Feed
+                            </MenuItem>
+                            <MenuItem eventKey={3.2}>
+                                Saved Activities
+                            </MenuItem>
                             <MenuItem eventKey={3.3}>Settings</MenuItem>
                             <MenuItem divider />
                             <MenuItem eventKey={3.4}>Log Out</MenuItem>
