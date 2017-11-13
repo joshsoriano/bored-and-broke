@@ -87,6 +87,7 @@ class Homepage extends React.Component {
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
                     <SingleActivityModal />
+                    window.activityRetriever.retrieve();
                 </div>
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
