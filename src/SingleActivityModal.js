@@ -140,10 +140,48 @@ class SingleActivityModal extends React.Component {
                     aria-labelledby="contained-modal-title"
                 >
                     <Modal.Header closeButton>
-                        <Modal.Title id="contained-modal-title">Contained Modal</Modal.Title>
+                        <Modal.Title id="contained-modal-title"> We are so glad you are excited about the event!</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        Elit est explicabo ipsum eaque dolorem blanditiis doloribus sed id ipsam, beatae, rem fuga id earum? Inventore et facilis obcaecati.
+                        <div className={ classes.descriptionTextContainer }>
+                          <span className={ classes.descriptionText }>
+                            We know you will love the activity. Please
+                            see more information here at&nbsp;
+                            <a href="mailto:yourfriends@joinhoney.com">
+                              <span className={ classes.link }>facebook.com</span>
+                            </a>
+                            &nbsp;to browse more events, or see a previous one, please use the arrows below.
+                          </span>
+                        </div>
+                        <div className={ classes.buttonContainer }>
+                          <Button bastyle="primary" bsSize="large">{ this.props.onRequestClose }Previous </Button>
+                          <Button bastyle="primary" bsSize="large">{ this.props.onRequestClose }Next> </Button>
+                        </div>
+                        <div className={ carouselClasses }>
+                          <Carousel>
+                              <Carousel.Item>
+                                <img width={300} height={300} align="middle" src={eventExample}/>
+                                <Carousel.Caption>
+                                  <h3>First slide label</h3>
+                                  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                </Carousel.Caption>
+                              </Carousel.Item>
+                              <Carousel.Item>
+                                <img width={200} height={200} src={logo_black}/>
+                                <Carousel.Caption>
+                                  <h3>Second slide label</h3>
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </Carousel.Caption>
+                              </Carousel.Item>
+                              <Carousel.Item>
+                                <img width={200} height={200} alt="900x500" src="/assets/carousel.png"/>
+                                <Carousel.Caption>
+                                  <h3>Third slide label</h3>
+                                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                                </Carousel.Caption>
+                              </Carousel.Item>
+                          </Carousel>
+                        </div>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button onClick={close}>Close</Button>
@@ -157,7 +195,7 @@ class SingleActivityModal extends React.Component {
     }
 }
 
-
+//
 //     return (
 //         <div className={ classes.main }>
 //           <div className={ classes.imageContainer }>
