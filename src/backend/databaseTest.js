@@ -1,2 +1,2 @@
 const database = require('./database');
-console.log(database.isUser());
+console.log(database.getFutureActivities());
