@@ -18,7 +18,7 @@ const styles = {
     main: {
         backgroundColor: '#ECF0F1',
         textAlign: 'center',
-        height: '900px',
+        // height: '900px',
         // height: '100%',
     },
     titleContainer: {
