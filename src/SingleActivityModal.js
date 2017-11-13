@@ -10,6 +10,8 @@ import logo_black from './images/logo-black.png';
 const propTypes = {
     classes: PropTypes.object.isRequired,
     onRequestClose: PropTypes.func,
+    showModal: PropTypes.bool,
+
 };
 
 const defaultProps = {
@@ -77,7 +79,7 @@ const styles = {
 
 class SingleActivityModal extends React.Component {
   render() {
-    const { classes } = this.props;
+    const { classes, showModal } = this.props;
     const isTimeForUsers = true; // when true, no carousel (because opacity is turned to 0. When false, carousel is there)
 
     // const taglineClasses = classNames({

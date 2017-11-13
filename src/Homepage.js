@@ -129,7 +129,9 @@ class Homepage extends React.Component {
             </div>
         </div>
         <div>
-            <SingleActivityModal /> 
+            <SingleActivityModal
+                showModal={ true }
+            />
         </div>
         <div className={ classes.space } />
         <div>
