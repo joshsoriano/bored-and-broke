@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 // import injectSheet from 'react-jss';
 // import './index.css';
 import PropTypes from 'prop-types';
@@ -22,9 +22,11 @@ const styles = {
     },
 };
 
+
 class BoredAndBroke extends React.Component {
   render() {
     // const status = 'This is our project:';
+    const loggedIn = true;
     const { classes } = this.props;
     return (
         //   <div className={ classes.main }>
@@ -33,6 +35,16 @@ class BoredAndBroke extends React.Component {
         //     </div>
          //
         //  </div>
+//would go right below ul tag:
+//  <Route path="/Homepage" component={Homepage}/>
+//  <Route exact path="/" render={() => (
+//    loggedIn ? (
+//      <Redirect to="/Homepage"/>
+//    ) : (
+//      <LoginCreateAccount/>
+//    )
+//  )}/>
+
          <Router>
              <div>
                  <ul>
@@ -42,6 +54,9 @@ class BoredAndBroke extends React.Component {
                      <li><Link to="/LoginCreateAccount">LoginCreateAccount</Link></li>
                  </ul>
 
+                 <Route exact path="/" render={() => (
+                     <LoginCreateAccount/>
+                 )}/>
                  <Route path="/Homepage" component={Homepage}/>
                  <Route path="/SavedActivities" component={SavedActivities}/>
                  <Route path="/Settings" component={Settings}/>
