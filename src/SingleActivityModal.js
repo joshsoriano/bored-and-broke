@@ -11,8 +11,6 @@ import logo_black from './images/logo-black.png';
 const propTypes = {
     classes: PropTypes.object.isRequired,
     onRequestClose: PropTypes.func,
-    showModal: PropTypes.bool,
-
 };
 
 const defaultProps = {
@@ -104,7 +102,6 @@ class SingleActivityModal extends React.Component {
     render() {
         const { classes, showModal } = this.props;
         const isTimeForUsers = true; // when true, no carousel (because opacity is turned to 0. When false, carousel is there)
-
         // const taglineClasses = classNames({
         //     [classes.tagLine]: true,
         // });
@@ -112,14 +109,6 @@ class SingleActivityModal extends React.Component {
         const carouselClasses = classNames({
             [classes.carouselOn]: isTimeForUsers,
         });
-
-        // To be used below:
-        // <div className={ taglineClasses }>
-        //   <span>Please input your tagline for the event!</span>
-        // </div>
-        // getInitialState() {
-        //    return { show: false };
-        // },
 
         let close = () => this.setState({ show: false });
 
@@ -130,7 +119,7 @@ class SingleActivityModal extends React.Component {
                     bsSize="large"
                     onClick={() => this.setState({ show: true })}
                 >
-                    Launch contained modal
+                    More Info
                 </Button>
 
                 <Modal
@@ -188,67 +177,9 @@ class SingleActivityModal extends React.Component {
                     </Modal.Footer>
                 </Modal>
             </div>
-//         );
-//     },
-// });
         );
     }
 }
-
-//
-//     return (
-//         <div className={ classes.main }>
-//           <div className={ classes.imageContainer }>
-//             <img src={eventExample} className={ classes.envelopeImage } />
-//           </div>
-//           <div className={ classes.titleTextContainer }>
-//             <span className={ classes.titleText }>
-//               We are so glad you are excited about the event!
-//             </span>
-//           </div>
-//           <div className={ classes.descriptionTextContainer }>
-//             <span className={ classes.descriptionText }>
-//               We know you will love the activity. Please
-//               see more information here at&nbsp;
-//               <a href="mailto:yourfriends@joinhoney.com">
-//                 <span className={ classes.link }>facebook.com</span>
-//               </a>
-//               &nbsp;to browse more events, or see a previous one, please use the arrows below.
-//             </span>
-//           </div>
-//           <div className={ classes.buttonContainer }>
-//             <Button bastyle="primary" bsSize="large">{ this.props.onRequestClose }Previous </Button>
-//             <Button bastyle="primary" bsSize="large">{ this.props.onRequestClose }Next> </Button>
-//           </div>
-//           <div className={ carouselClasses }>
-//             <Carousel>
-//                 <Carousel.Item>
-//                   <img width={300} height={300} align="middle" src={eventExample}/>
-//                   <Carousel.Caption>
-//                     <h3>First slide label</h3>
-//                     <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-//                   </Carousel.Caption>
-//                 </Carousel.Item>
-//                 <Carousel.Item>
-//                   <img width={200} height={200} src={logo_black}/>
-//                   <Carousel.Caption>
-//                     <h3>Second slide label</h3>
-//                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-//                   </Carousel.Caption>
-//                 </Carousel.Item>
-//                 <Carousel.Item>
-//                   <img width={200} height={200} alt="900x500" src="/assets/carousel.png"/>
-//                   <Carousel.Caption>
-//                     <h3>Third slide label</h3>
-//                     <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-//                   </Carousel.Caption>
-//                 </Carousel.Item>
-//             </Carousel>
-//         </div>
-//     </div>
-//     );
-//   }
-// }
 
 
 SingleActivityModal.propTypes = propTypes;

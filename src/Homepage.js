@@ -88,50 +88,57 @@ class Homepage extends React.Component {
             <div className={ classes.row }>
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
                 </div>
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
                 </div>
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
                 </div>
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
                 </div>
             </div>
             <div className={ classes.row }>
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
                 </div>
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
                 </div>
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
                 </div>
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
                 </div>
             </div>
             <div className={ classes.row }>
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
                 </div>
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
                 </div>
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
                 </div>
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
                 </div>
             </div>
-        </div>
-        <div>
-            <SingleActivityModal
-                showModal={ true }
-            />
         </div>
         <div className={ classes.space } />
         <div>
