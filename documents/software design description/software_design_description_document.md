@@ -92,6 +92,8 @@ This CSU displays a singular activity using the data from a singular Activity da
 ### 6.3.4 Detailed Design Diagrams Section
 #### UML Case Diagram
 ![Case Diagram](UMLCaseDiagram.png)
+#### UML Package Diagram
+![Package Diagram](umlPackageDiagram.png)
 #### Data Flow Diagram
 ![State Diagram](stateDiagram.png)
 #### Class Diagram
