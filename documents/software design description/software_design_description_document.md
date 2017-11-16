@@ -75,105 +75,105 @@ The following sections provide the details of all classes used in the Bored and 
 * Methods:
   * retrieve(): sends requests for the events from each of the APIs (Ticketmaster, Eventbrite, Eventful) and populates a JSON object for each event.
 #### 6.3.1.2  Deduplicator
-Fields:
-* Sequelize: supports database queries.
-Methods:
-* getDeDups(): removes duplicates from the array of activities.
+* Fields:
+  * Sequelize: supports database queries.
+* Methods:
+  * getDeDups(): removes duplicates from the array of activities.
 #### 6.3.1.3  Models
-Fields:
-* Activity: defines the activity (activities populated from various APIs) model.
-* Tagline: defines the tagline (taglines created by users) model.
-* User: defines the user (users of Bored & Broke) model.
-* Sequelize: supports database queries.
-Methods:
-* sync(): creates the tables in the database if they do not already exist.
+* Fields:
+  * Activity: defines the activity (activities populated from various APIs) model.
+  * Tagline: defines the tagline (taglines created by users) model.
+  * User: defines the user (users of Bored & Broke) model.
+  * Sequelize: supports database queries.
+* Methods:
+  * sync(): creates the tables in the database if they do not already exist.
 #### 6.3.1.4  Database
-Fields:
-* activityRetriever: (from above)
-* Sequelize: supports database queries.
-Methods:
-* getActivity(): returns an activity object from the database.
-* getFutureActivities(): returns an array of activities that occur in the future from the database.
-* getSavedActivities(): returns an array of activities that have been saved by a user.
-* saveActivity(): store userID, activityID, and tagline in the database.
-* addActivities(): store activity objects in the database (already de-duplicated).
-* getUserSettings(): return a user object.
-* setUserSettings(): store a user’s information to the database.
-* isUser(): returns true if the user exists in the user table of the database.
-* sync(): creates the tables according to the models defined in Models if they do not already exist.
+* Fields:
+  * activityRetriever: (from above)
+  * Sequelize: supports database queries.
+* Methods:
+  * getActivity(): returns an activity object from the database.
+  * getFutureActivities(): returns an array of activities that occur in the future from the database.
+  * getSavedActivities(): returns an array of activities that have been saved by a user.
+  * saveActivity(): store userID, activityID, and tagline in the database.
+  * addActivities(): store activity objects in the database (already de-duplicated).
+  * getUserSettings(): return a user object.
+  * setUserSettings(): store a user’s information to the database.
+  * isUser(): returns true if the user exists in the user table of the database.
+  * sync(): creates the tables according to the models defined in Models if they do not already exist.
 #### 6.3.1.5  LoginButton
-Fields:
-* styles: defines the CSS for the LoginButton.
-* propTypes: defines the propTypes for the LoginButton.
-Methods:
-* checkLoginState(): checks whether the user is logged in or not.
-* statusChangeCallback(): deals with a change in user login status.
-* window.fbAsyncInit(): initializes the Facebook login connection.
-* getLoginStatus(): checks whether the user is logged in or not.
-* testAPI(): tests the connection to the Facebook login module.
-* render(): renders the login button to the page.
+* Fields:
+  * styles: defines the CSS for the LoginButton.
+  * propTypes: defines the propTypes for the LoginButton.
+* Methods:
+  * checkLoginState(): checks whether the user is logged in or not.
+  * statusChangeCallback(): deals with a change in user login status.
+  * window.fbAsyncInit(): initializes the Facebook login connection.
+  * getLoginStatus(): checks whether the user is logged in or not.
+  * testAPI(): tests the connection to the Facebook login module.
+  * render(): renders the login button to the page.
 #### 6.3.1.6  HomepageSettings
-Fields:
-* None
-Methods:
-* constructor(): creates the initial values for the zip code, distance, and price.
-* handleChange(): updates the zip code, distance, and price values with the user-inputted values.
-* handleSubmit(): submits the zip code, distance, and price values when the user chooses to do so.
-* render(): renders the zip code input box, distance slider, and price slider to the page.
+* Fields:
+  * None
+* Methods:
+  * constructor(): creates the initial values for the zip code, distance, and price.
+  * handleChange(): updates the zip code, distance, and price values with the user-inputted values.
+  * handleSubmit(): submits the zip code, distance, and price values when the user chooses to do so.
+  * render(): renders the zip code input box, distance slider, and price slider to the page.
 #### 6.3.1.7  SingleActivityModal
-Fields:
-* styles: defines the CSS for the SingleActivityModal.
-* propTypes: defines the propTypes for the SingleActivityModal.
-* defaultProps: defines the default properties for the SingleActivityModal.
-Methods:
-* constructor(): initializes state.
-* close(): closes the modal.
-* render(): renders the modal to the page.
+* Fields:
+  * styles: defines the CSS for the SingleActivityModal.
+  * propTypes: defines the propTypes for the SingleActivityModal.
+  * defaultProps: defines the default properties for the SingleActivityModal.
+* Methods:
+  * constructor(): initializes state.
+  * close(): closes the modal.
+  * render(): renders the modal to the page.
 #### 6.3.1.8  NavigationBar
-Fields:
-* styles: defines the CSS for the NavigationBar.
-* propTypes: defines the propTypes for the NavigationBar.
-Methods:
-* render(): renders the navigation bar to the page.
+* Fields:
+  * styles: defines the CSS for the NavigationBar.
+  * propTypes: defines the propTypes for the NavigationBar.
+* Methods:
+  * render(): renders the navigation bar to the page.
 #### 6.3.1.9  SavedActivities
-Fields:
-* styles: defines the CSS for the SavedActivities.
-* propTypes: defines the propTypes for the SavedActivities.
-Methods:
-* render(): renders the page displaying all of the user’s saved activities.
+* Fields:
+  * styles: defines the CSS for the SavedActivities.
+  * propTypes: defines the propTypes for the SavedActivities.
+* Methods:
+  * render(): renders the page displaying all of the user’s saved activities.
 #### 6.3.1.10  Settings
-Fields:
-* styles: defines the CSS for the Settings.
-* propTypes: defines the propTypes for the Settings.
-Methods:
-* render(): renders the settings page to the browser.
+* Fields:
+  * styles: defines the CSS for the Settings.
+  * propTypes: defines the propTypes for the Settings.
+* Methods:
+  * render(): renders the settings page to the browser.
 #### 6.3.1.11  LoginCreateAccount
-Fields:
-* styles: defines the CSS for the LoginCreateAccount.
-* propTypes: defines the propTypes for the LoginCreateAccount.
-* LoginButton: (from above)
-Methods:
-* render(): renders the LoginButton along with the other aspects of the login page to the browser.
+* Fields:
+  * styles: defines the CSS for the LoginCreateAccount.
+  * propTypes: defines the propTypes for the LoginCreateAccount.
+  * LoginButton: (from above)
+* Methods:
+  * render(): renders the LoginButton along with the other aspects of the login page to the browser.
 #### 6.3.1.12  Homepage
-Fields:
-* styles: defines the CSS for the Homepage.
-* propTypes: defines the propTypes for the Homepage.
-* NavigationBar: (from above)
-* HomepageSettings: (from above)
-* TitleContainer: holds the title of the page.
-* SingleActivityModal: (from above)
-Methods:
-* render(): renders the final homepage consisting of the NavigationBar, HomepageSettings, TitleContainer, and many SingleActivityModals.
+* Fields:
+  * styles: defines the CSS for the Homepage.
+  * propTypes: defines the propTypes for the Homepage.
+  * NavigationBar: (from above)
+  * HomepageSettings: (from above)
+  * TitleContainer: holds the title of the page.
+  * SingleActivityModal: (from above)
+* Methods:
+  * render(): renders the final homepage consisting of the NavigationBar, HomepageSettings, TitleContainer, and many SingleActivityModals.
 #### 6.3.1.13  Index
-Fields:
-* Homepage: (from above)
-* LoginCreateAccount: (from above)
-* SavedActivities: (from above)
-* Settings: (from above)
-* propTypes: defines the propTypes for the Index.
-* styles: defines the CSS for the Index.
-Methods:
-* render(): renders the correct page to the browser.
+* Fields:
+  * Homepage: (from above)
+  * LoginCreateAccount: (from above)
+  * SavedActivities: (from above)
+  * Settings: (from above)
+  * propTypes: defines the propTypes for the Index.
+  * styles: defines the CSS for the Index.
+* Methods:
+  * render(): renders the correct page to the browser.
 
 ### 6.3.2 Detailed Interface Descriptions
 #### 6.3.2.1 Login/Create Account Page CSU
