@@ -37,26 +37,30 @@ class BoredAndBroke extends React.Component {
         //  </div>
 //would go right below ul tag:
 //  <Route path="/Homepage" component={Homepage}/>
-//  <Route exact path="/" render={() => (
-//    loggedIn ? (
-//      <Redirect to="/Homepage"/>
-//    ) : (
-//      <LoginCreateAccount/>
-//    )
-//  )}/>
+ // <Route exact path="/" render={() => (
+ //   loggedIn ? (
+ //     <Redirect to="/Homepage"/>
+ //   ) : (
+ //     <LoginCreateAccount/>
+ //   )
+ // )}/>
 
          <Router>
              <div>
-                 <ul>
-                     <li><Link to="/Homepage">Homepage</Link></li>
-                     <li><Link to="/SavedActivities">SavedActivities</Link></li>
-                     <li><Link to="/Settings">Settings</Link></li>
-                     <li><Link to="/LoginCreateAccount">LoginCreateAccount</Link></li>
-                 </ul>
+             <ul>
+                 <li><Link to="/Homepage">Homepage</Link></li>
+                 <li><Link to="/SavedActivities">SavedActivities</Link></li>
+                 <li><Link to="/Settings">Settings</Link></li>
+                 <li><Link to="/LoginCreateAccount">LoginCreateAccount</Link></li>
+             </ul>
 
                  <Route exact path="/" render={() => (
-                     <LoginCreateAccount/>
-                 )}/> 
+                   loggedIn ? (
+                     <Redirect to="/Homepage"/>
+                   ) : (
+                     <Redirect to="/LoginCreateAccount"/>
+                   )
+                 )}/>
                  <Route path="/Homepage" component={Homepage}/>
                  <Route path="/SavedActivities" component={SavedActivities}/>
                  <Route path="/Settings" component={Settings}/>

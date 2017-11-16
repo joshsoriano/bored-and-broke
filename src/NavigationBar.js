@@ -10,7 +10,7 @@ import NavDropdown from 'react-bootstrap/lib/NavDropdown'
 import MenuItem from 'react-bootstrap/lib/MenuItem'
 import Image from 'react-bootstrap/lib/Image'
 import logo from './images/logo-white.png'
-import SavedActivities from './SavedActivities.js'
+// import SavedActivities from './SavedActivities.js'
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 // import { BrowserRouter, Route, Link, Redirect } from 'react-router-dom'
 
@@ -26,7 +26,7 @@ const propTypes = {
 const styles = {
     navbar: {
         backgroundColor: '#2C3E50',
-        height: '75px',
+        height: '100px',
         border: 'none',
     },
     navbarContent: {
@@ -69,31 +69,40 @@ class NavigationBar extends React.Component {
     render() {
         const { classes } = this.props;
         return(
-            <Navbar inverse collapseOnSelect className={classes.navbar}>
-                <Navbar.Header>
-                    <Navbar.Brand>
-                        <a className={classes.logoLink} href="#">
-                            <img className={classes.logo} src={logo} height="30px" alt="user pic" />
-                        </a>
-                    </Navbar.Brand>
-                    <Navbar.Toggle />
-                    </Navbar.Header>
-                <Navbar.Collapse className={classes.navbarContent}>
-                    <Nav pullRight>
-                        <NavDropdown eventKey={3} title="User" id="basic-nav-dropdown">
-                            <MenuItem eventKey={3.1}>
-                                My Feed
-                            </MenuItem>
-                            <MenuItem eventKey={3.2}>
-                                Saved Activities
-                            </MenuItem>
-                            <MenuItem eventKey={3.3}>Settings</MenuItem>
-                            <MenuItem divider />
-                            <MenuItem eventKey={3.4}>Log Out</MenuItem>
-                        </NavDropdown>
-                    </Nav>
-                </Navbar.Collapse>
-            </Navbar>
+            <div>
+
+                <Navbar inverse collapseOnSelect className={classes.navbar}>
+                    <Navbar.Header>
+                        <Navbar.Brand>
+                            <a className={classes.logoLink} href="#">
+                                <img className={classes.logo} src={logo} height="30px" alt="user pic" />
+                            </a>
+                        </Navbar.Brand>
+                        <Navbar.Toggle />
+                        </Navbar.Header>
+                    <Navbar.Collapse className={classes.navbarContent}>
+                        <Nav pullRight>
+                            <NavDropdown eventKey={3} title="User" id="basic-nav-dropdown">
+                                <MenuItem eventKey={3.1}>
+                                    <Link to="/Homepage">Homepage</Link>
+                                </MenuItem>
+                                <MenuItem eventKey={3.2}>
+                                    <Link to="/SavedActivities">SavedActivities</Link>
+                                </MenuItem>
+                                <MenuItem eventKey={3.3}>
+                                    <Link to="/Settings">Settings</Link>
+                                </MenuItem>
+                                <MenuItem divider />
+                                <MenuItem eventKey={3.4}>
+                                    <Link to="/LoginCreateAccount">Log Out</Link>
+                                </MenuItem>
+                            </NavDropdown>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Navbar>
+            </div>
+
+
         );
     }
 };
