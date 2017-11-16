@@ -45,22 +45,136 @@ The PostgreSQL database runs through the AWS Relational Database Service (RDS). 
 ![Class Diagram](architectureClassDiagrams.png)
 
 ## 6.3 CSC and CSU Descriptions Section
+### Web Frontend CSC
+The Web Frontend CSC is the component that is the interface for the application. It consists of four pages and multiple activity modals. It will include the ability to create an account, adjust user settings, navigate through activities, save activities, and direct users to other user’s facebook pages.
+* Login/Create Account Page CSU -- This unit will handle user login or account creation.
+* Settings Page CSU -- After creating an account with Facebook, first-time users will be shown a summary of the account information populated with information pulled from their public Facebook profile.
+* Homepage CSU -- The unit will be responsible for the organization and navigation of the activities. The page will also consist of ways to adjust specific settings and travel to other pages in the web frontend.
+* Single Activity Modal CSU -- Holds information about a specific activity
+* Saved Activities Page CSU -- Shows the user’s activities that they have saved through the Single Activity Modal.
+### Database CSC
+The Database CSC will hold the user’s account information, as well as user’s saved activities.
+* Queries CSU -- Units that will run queries on stored data
+* Indexing CSU -- Units that will index stored data
+* Saving CSU -- Units that will store data
+### Server CSC
+The Server CSC will allow the user interface to interact with the database as well as various API’s. It will handle the transfer of information between the user and the database.
+* API Request CSU -- Activity information will be requested from various API’s using the user’s location and price range data
+* Login Verification CSU -- The username and password of a user will be verified during login
+* User Info Update CSU -- The user will be able to set and update their personal information, such as their price range, location and name.
+* Retrieve Activity Info CSU -- Information for a specific activity can be retrieved from the database
+* User Info View CSU -- The user will be able to see their own information, such as their price range and name and the events they saved when they are logged in to the application
+* Save Activity CSU -- An activity, including its information, can be saved to the database so that it can be retrieved later.
+Collectively, the Web Frontend CSC, Database CSC and Server CSC are the Bored&Broke CSCI.
+
 ### 6.3.1 Detailed Class Descriptions
-The following sections provide the details of all classes used in the Bored and Broke application.
-Classes:
-* Homepage
-* HomepageSettings
-* Index
-* LoginButton
-* LoginCreateAccount
-* NavigationBar
-* SavedActivities
-* Settings
-* SingleActivityModal
-* activityRetriever
-* Database
-* Deduplicator
-* Models
+The following sections provide the details of all classes used in the Bored and Broke application. Each class is defined by its fields and methods, which are described in detail below.
+#### 6.3.1.1  activityRetriever
+Fields:
+* None
+Methods:
+* retrieve(): sends requests for the events from each of the APIs (Ticketmaster, Eventbrite, Eventful) and populates a JSON object for each event.
+#### 6.3.1.2  Deduplicator
+Fields:
+* Sequelize: supports database queries.
+Methods:
+* getDeDups(): removes duplicates from the array of activities.
+#### 6.3.1.3  Models
+Fields:
+* Activity: defines the activity (activities populated from various APIs) model.
+* Tagline: defines the tagline (taglines created by users) model.
+* User: defines the user (users of Bored & Broke) model.
+* Sequelize: supports database queries.
+Methods:
+* sync(): creates the tables in the database if they do not already exist.
+#### 6.3.1.4  Database
+Fields:
+* activityRetriever: (from above)
+* Sequelize: supports database queries.
+Methods:
+* getActivity(): returns an activity object from the database.
+* getFutureActivities(): returns an array of activities that occur in the future from the database.
+* getSavedActivities(): returns an array of activities that have been saved by a user.
+* saveActivity(): store userID, activityID, and tagline in the database.
+* addActivities(): store activity objects in the database (already de-duplicated).
+* getUserSettings(): return a user object.
+* setUserSettings(): store a user’s information to the database.
+* isUser(): returns true if the user exists in the user table of the database.
+* sync(): creates the tables according to the models defined in Models if they do not already exist.
+#### 6.3.1.5  LoginButton
+Fields:
+* styles: defines the CSS for the LoginButton.
+* propTypes: defines the propTypes for the LoginButton.
+Methods:
+* checkLoginState(): checks whether the user is logged in or not.
+* statusChangeCallback(): deals with a change in user login status.
+* window.fbAsyncInit(): initializes the Facebook login connection.
+* getLoginStatus(): checks whether the user is logged in or not.
+* testAPI(): tests the connection to the Facebook login module.
+* render(): renders the login button to the page.
+#### 6.3.1.6  HomepageSettings
+Fields:
+* None
+Methods:
+* constructor(): creates the initial values for the zip code, distance, and price.
+* handleChange(): updates the zip code, distance, and price values with the user-inputted values.
+* handleSubmit(): submits the zip code, distance, and price values when the user chooses to do so.
+* render(): renders the zip code input box, distance slider, and price slider to the page.
+#### 6.3.1.7  SingleActivityModal
+Fields:
+* styles: defines the CSS for the SingleActivityModal.
+* propTypes: defines the propTypes for the SingleActivityModal.
+* defaultProps: defines the default properties for the SingleActivityModal.
+Methods:
+* constructor(): initializes state.
+* close(): closes the modal.
+* render(): renders the modal to the page.
+#### 6.3.1.8  NavigationBar
+Fields:
+* styles: defines the CSS for the NavigationBar.
+* propTypes: defines the propTypes for the NavigationBar.
+Methods:
+* render(): renders the navigation bar to the page.
+#### 6.3.1.9  SavedActivities
+Fields:
+* styles: defines the CSS for the SavedActivities.
+* propTypes: defines the propTypes for the SavedActivities.
+Methods:
+* render(): renders the page displaying all of the user’s saved activities.
+#### 6.3.1.10  Settings
+Fields:
+* styles: defines the CSS for the Settings.
+* propTypes: defines the propTypes for the Settings.
+Methods:
+* render(): renders the settings page to the browser.
+#### 6.3.1.11  LoginCreateAccount
+Fields:
+* styles: defines the CSS for the LoginCreateAccount.
+* propTypes: defines the propTypes for the LoginCreateAccount.
+* LoginButton: (from above)
+Methods:
+* render(): renders the LoginButton along with the other aspects of the login page to the browser.
+#### 6.3.1.12  Homepage
+Fields:
+* styles: defines the CSS for the Homepage.
+* propTypes: defines the propTypes for the Homepage.
+* NavigationBar: (from above)
+* HomepageSettings: (from above)
+* TitleContainer: holds the title of the page.
+* SingleActivityModal: (from above)
+Methods:
+* render(): renders the final homepage consisting of the NavigationBar, HomepageSettings, TitleContainer, and many SingleActivityModals.
+#### 6.3.1.13  Index
+Fields:
+* Homepage: (from above)
+* LoginCreateAccount: (from above)
+* SavedActivities: (from above)
+* Settings: (from above)
+* propTypes: defines the propTypes for the Index.
+* styles: defines the CSS for the Index.
+Methods:
+* render(): renders the correct page to the browser.
+
 ### 6.3.2 Detailed Interface Descriptions
 #### 6.3.2.1 Login/Create Account Page CSU
 The user will create an account by logging in through their Facebook account, interfacing with Facebook’s
@@ -90,7 +204,6 @@ This CSU displays many Activity data structures. The Activity structures are fil
 #### 6.3.3.4 Single Activity Modal CSU:
 This CSU displays a singular activity using the data from a singular Activity data structure, which is described above in 6.3.3.3. It also displays other users who have shown interest in the activity, which is passed to the frontend in a User data structure (described in  6.3.3.1).
 
-### 6.3.3 Detailed Data Structure Descriptions Section
 ### 6.3.4 Detailed Design Diagrams Section
 #### UML Case Diagram
 ![Case Diagram](UMLCaseDiagram.png)
