@@ -10,9 +10,7 @@ import NavDropdown from 'react-bootstrap/lib/NavDropdown'
 import MenuItem from 'react-bootstrap/lib/MenuItem'
 import Image from 'react-bootstrap/lib/Image'
 import logo from './images/logo-white.png'
-// import SavedActivities from './SavedActivities.js'
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
-// import { BrowserRouter, Route, Link, Redirect } from 'react-router-dom'
 import LoginCreateAccount from './LoginCreateAccount.js';
 import SavedActivities from './SavedActivities.js';
 import Settings from './Settings.js';
@@ -74,7 +72,6 @@ class NavigationBar extends React.Component {
         const { classes } = this.props;
         return(
             <div>
-
                 <Navbar inverse collapseOnSelect className={classes.navbar}>
                     <Navbar.Header>
                     <Navbar.Brand>
