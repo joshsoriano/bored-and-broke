@@ -1,10 +1,11 @@
 /**
   This file handles all database interactions.
 */
+import Sequelize from 'sequelize';
+import * as Models from './models.js';
 
-module.exports = (() => {
-    const Sequelize = require('sequelize');
-    const Models = require('./models');
+export class database {
+    const Op = Sequelize.Op
 
     // Connect to the database.
     const sequelize = new Sequelize('ebdb', 'boredandbroke', 'put password here', {
@@ -12,111 +13,144 @@ module.exports = (() => {
       dialect: 'postgres'
     });
 
-    return {
-          getActivity: (activityId) => {
-            // Return activity object from the database.
-            Models.Activity.findOne({
-              where: {
-                id: activityId
-              }
-            });
-            // TODO: parse into Activity object.
-            return {};
-          },
+    getActivity(activityId) {
+      // Return activity object from the database.
+      Models.Activity.findOne({
+        where: {
+          id: activityId
+        }
+      }).then((activity) => {
+        // Parse into activity object.
+      });
 
-          getFutureActivities: (priceLimit, location="Los Angeles") => {
-            // Return an array of activities that occur in the future from the database.
-            return [];
-          },
+      return {};
+    }
 
-          getSavedActivities: (userId) => {
-            // Return an array of activities that have been saved by a user.
-            Models.Tagline.findAll({
-              where: {
-                user_id: userId
-              }
-            });
+    getFutureActivities(priceLimit) {
+      // Return an array of activities that occur in the future from the database.
 
-            // Parse into activity objects.
-            return [];
-          },
+      // Convert today's date to an YYYYMMDD integer.
+      let today = new Date();
+      let dd = today.getDate();
+      let mm = today.getMonth() + 1; // January is 0.
+      let yyyy = today.getFullYear();
+      let yyyymmdd = Number.parseInt(yyyy + mm + dd);
 
-          getTagline: (userId, activityId) => {
-            // Get a user's tagline for an event.
-            let tagline = Models.Tagline.findOne({
-              attributes: ['tagline'],
-              where: {
-                user_id: userId,
-                activity_id: activityId
-              }
-            });
-            return tagline;
-          },
+      Models.Activity.findAll({
+        where: {
+          price: { [Op.lte]: priceLimit },
+          date: { [Op.gte]: yyyymmdd }
+        }
+      }).then((activities) => {
+          // Parse the results into Activity objects.
+      });
 
-          saveActivity: (userId, activityId, tagline) => {
-            // Store userId, activityId, and tagline in the database.
-            // First, remove all single quotes. Single quotes will mess up PostGres.
-            let parsedTag = tagline.replace("'", "");
-            Models.Tagline.create({
-              user_id: userId,
-              activty_id: activityId,
-              tagline: parsedTag
-            });
-          },
+      return [];
+    }
 
-          unsaveActivity: (userId, activityId) => {
-            // Remove tagline row for this userId and activityId in the database.
-            Models.Tagline.destroy({
-              where: {
-                user_id: userId,
-                activity_id: activityId
-              }
-            });
-          },
+    getSavedActivities (userId) {
+      // Return an array of activities that have been saved by a user.
+      Models.Tagline.findAll({
+        where: {
+          user_id: userId
+        }
+      }).then((activities) => {
+          // Parse the results into Activity objects.
+      });
 
-          addActivities: (location="Los Angeles") => {
-            // Store activity objects in the database.
-            // The activities should be de-duplicated before storing.
+      return [];
+    }
 
-          },
+    getTagline (userId, activityId) {
+      // Get a user's tagline for an event.
+      return Models.Tagline.findOne({
+        attributes: ['tagline'],
+        where: {
+          user_id: userId,
+          activity_id: activityId
+        }
+      });
+    }
 
-          getUserSettings: (userId) => {
-            // Return a user object.
-            return {};
+    saveActivity: (userId, activityId, tagline) => {
+      // Store userId, activityId, and tagline in the database.
+      // First, remove all single quotes. Single quotes will mess up PostGres.
+      let parsedTag = tagline.replace(/'/g, '');
+      Models.Tagline.create({
+        user_id: userId,
+        activty_id: activityId,
+        tagline: parsedTag
+      });
+    }
 
-          },
+    unsaveActivity(userId, activityId) {
+      // Remove tagline row for this userId and activityId in the database.
+      Models.Tagline.destroy({
+        where: {
+          user_id: userId,
+          activity_id: activityId
+        }
+      });
+    }
 
-          setUserSettings: (userObj) => {
-            // Store a user's information to the database.
-            // This either writes or re-writes a row in the User table.
+    addActivities() {
+      // Store activity objects in the database.
+      // The activities should be de-duplicated before storing.
+    }
 
-          },
+    getUserSettings(userId) {
+      // Return a user object.
+      return {};
+    }
 
-          isUser: (userId) => {
-            // Returns true if the user exists in the User table of the database.
-            return false;
-          },
+    setUserSettings(userObj) {
+      // Store a user's information to the database.
+      // This either writes or re-writes a row in the User table.
 
-          removeUser: (userId) => {
-            // Remove a user from the Users table of the database.
-            Models.User.destroy({
-              where: {
-                id: userId
-              }
-            });
+    }
 
-            // Also remove their taglines.
-            Models.Tagline.destroy({
-              where: {
-                user_id: userId
-              }
-            });
-          },
+    isUser(userId) {
+      // Returns true if the user exists in the User table of the database.
+      return false;
+    }
 
-          sync: (sequelize) => {
-            // Creates the tables according to the models defined in models.js
-            // if they do not exist already.
-            Models.sync(sequelize);
-          }
-    };
-})();
+    removeUser(userId){
+      // Remove a user from the Users table of the database.
+      Models.User.destroy({
+        where: {
+          id: userId
+        }
+      });
+
+      // Also remove their taglines.
+      Models.Tagline.destroy({
+        where: {
+          user_id: userId
+        }
+      });
+    }
+
+    daysSinceUpdated() {
+      // Returns the number of days since activities have been added to the
+      // activity table.
+
+      // Convert today's date to an YYYYMMDD integer.
+      let date = new Date();
+      let dd = date.getDate();
+      let mm = date.getMonth() + 1; // January is 0.
+      let yyyy = date.getFullYear();
+      let today = Number.parseInt(yyyy + mm + dd);
+
+      let days = 0;
+      Models.Activity.max('last_updated').then((max) => {
+        days = today - last;
+      });
+      return days;
+    }
+
+    sync(sequelize) {
+      // Creates the tables according to the models defined in models.js
+      // if they do not exist already.
+      Models.sync(sequelize);
+    }
+};
