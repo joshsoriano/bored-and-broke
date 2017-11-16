@@ -62,21 +62,23 @@ Classes:
 * Deduplicator
 * Models
 ### 6.3.2 Detailed Interface Descriptions
-
-#### 6.3.2.1 Login/Create Account Page CSU: The user will create an account
-by logging in through their Facebook account, interfacing with Facebook’s
+#### 6.3.2.1 Login/Create Account Page CSU
+The user will create an account by logging in through their Facebook account, interfacing with Facebook’s
 API. A returning user will also login in the same way.
-#### 6.3.2.2 Settings Page CSU: When our user updates their settings they will be
-interfacing with the user table of our database.
-#### 6.3.2.3 Homepage CSU: Here the user interfaces with our API calls that return
-the events which match their specifications
-#### 6.3.2.4 Single Activity Modal CSU:
-This CSU again involves interfacing with the
-API’s to get event information. The user will also be interfacing with our user
-database which holds information about every other user who saved this event.
-The user will also be interfacing with the Facebook API if he/she chooses to
-message one of the other users who saved the event (since the messaging is
-done through Facebook)
+#### 6.3.2.2 Settings Page CSU
+When our user updates their settings they will be interfacing with the “user” table of our Postgres database.
+#### 6.3.2.3 Homepage CSU
+Here the user interfaces with our API’s to return the events which match their specifications.
+#### 6.3.2.4 Single Activity Modal CSU
+This CSU again involves interfacing with the API’s to get event information. The user will also be interfacing with our “user”
+table in our Postgres database which holds information about every other user
+who saved this event. The user will also be interfacing with the Facebook API if
+he/she chooses to message one of the other users who saved the event (since
+the messaging is done through Facebook).
+#### 6.3.2.5 Database CSU
+Our Postgres database interfaces with the
+activityRetriever() function which calls our APIs to pull activities for our users.
+The database also interfaces with our frontend by providing us with saved user data (user’s name, if they have created an account already, their saved preferences, etc.)
 
 ### 6.3.3 Detailed Data Structure Descriptions Section
 #### 6.3.3.1 Login/Create Account Page CSU:
@@ -101,6 +103,8 @@ This CSU displays a singular activity using the data from a singular Activity da
 
 ## 6.4  Database Design and Description Section
 ### 6.4.1  Database Design ER Diagram Section
+![Database Design ER Diagram](databaseERdiagram.png)
+
 ### 6.4.2  Database Access Section
 Bored&Broke takes advantage of the AWS Relational Database Service (RDS) which allows for easy database setup and connection to the elastic beanstalk environment. The frontend of the website will access the database through use of Sequelize, which is an Object/Relational Mapper. Sequelize is a javascript library; therefore, database tables can be created and queries can be ran through javascript.
 
