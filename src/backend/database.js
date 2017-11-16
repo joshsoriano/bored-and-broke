@@ -4,6 +4,8 @@ import * as Models from './models.js';
 /**
   This file handles all database interactions.
 */
+import Sequelize from 'sequelize';
+import * as Models from './models.js';
 
 export class database {
 

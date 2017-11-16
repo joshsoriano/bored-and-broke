@@ -75,7 +75,7 @@ export class models {
      });
 
   }
-  
+
   sync() {
     this.sequelize.sync();
   }
