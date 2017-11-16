@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-import Carousel from 'react-bootstrap/lib/Carousel';
 import Button from 'react-bootstrap/lib/Button';
 import eventExample from './eventExample.png';
 import logo_black from './images/logo-black.png';
 import NavigationBar from './NavigationBar.js';
 import logo_offwhite from './images/logo-offwhite.png';
 import HomepageSettings from './HomepageSettings.js';
+import SingleActivityModal from './SingleActivityModal.js';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -15,9 +15,9 @@ const propTypes = {
 
 const styles = {
     main: {
-        backgroundColor: '#2C3E50',
+        backgroundColor: '#ECF0F1',
         textAlign: 'center',
-        height: '900px',
+        // height: '900px',
         // height: '100%',
     },
     titleContainer: {
@@ -61,8 +61,7 @@ const styles = {
         display: 'flex',
         marginBottom: '70px',
     },
-    element:
-    {
+    element: {
         marginLeft: '80px',
         marginRight: '80px',
     },
@@ -87,49 +86,61 @@ class Homepage extends React.Component {
             <div className={ classes.row }>
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
                 </div>
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
                 </div>
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
                 </div>
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                </div>
-            </div>
-            <div className={ classes.row }>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                </div>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                </div>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                </div>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
                 </div>
             </div>
             <div className={ classes.row }>
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
                 </div>
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
                 </div>
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
                 </div>
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
+                </div>
+            </div>
+            <div className={ classes.row }>
+                <div className={ classes.element }>
+                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
+                </div>
+                <div className={ classes.element }>
+                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
+                </div>
+                <div className={ classes.element }>
+                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
+                </div>
+                <div className={ classes.element }>
+                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
                 </div>
             </div>
         </div>
         <div className={ classes.space } />
         <div>
-            <Button bastyle="primary" bsSize="large">Click Me!!!!</Button>
+            <Button bastyle="primary" bsSize="large">See More</Button>
         </div>
       </div>
     );
