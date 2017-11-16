@@ -13,6 +13,10 @@ import logo from './images/logo-white.png'
 // import SavedActivities from './SavedActivities.js'
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 // import { BrowserRouter, Route, Link, Redirect } from 'react-router-dom'
+import LoginCreateAccount from './LoginCreateAccount.js';
+import SavedActivities from './SavedActivities.js';
+import Settings from './Settings.js';
+import Homepage from './Homepage.js';
 
 
 const LINKS = [
@@ -26,7 +30,7 @@ const propTypes = {
 const styles = {
     navbar: {
         backgroundColor: '#2C3E50',
-        height: '100px',
+        height: '75px',
         border: 'none',
     },
     navbarContent: {
@@ -73,11 +77,11 @@ class NavigationBar extends React.Component {
 
                 <Navbar inverse collapseOnSelect className={classes.navbar}>
                     <Navbar.Header>
-                        <Navbar.Brand>
-                            <a className={classes.logoLink} href="#">
-                                <img className={classes.logo} src={logo} height="30px" alt="user pic" />
-                            </a>
-                        </Navbar.Brand>
+                    <Navbar.Brand>
+                        <a className={classes.logoLink} href="#">
+                            <img className={classes.logo} src={logo} height="30px" alt="user pic" />
+                        </a>
+                    </Navbar.Brand>
                         <Navbar.Toggle />
                         </Navbar.Header>
                     <Navbar.Collapse className={classes.navbarContent}>
