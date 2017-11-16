@@ -14,7 +14,7 @@
   }
 */
 
-window.activityRetriever = (() => {
+window.activity = (() => {
 
     return {
           retrieve: () => {
