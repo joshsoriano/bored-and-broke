@@ -4,7 +4,7 @@
   models if the tables haven't been created already.
 */
 
-module.exports = (() => {
+export class models {
 
   const Sequelize = require('sequelize');
 
@@ -22,7 +22,7 @@ module.exports = (() => {
    name: { type: Sequelize.STRING },
    bio: { type: Sequelize.STRING }
 
-  })
+   });
 
   // Define the Activity model.
   const Activity = sequelize.define('activity', {
@@ -31,16 +31,16 @@ module.exports = (() => {
    id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
    // We can check that it has been 24 hours since the last time activities
    // have been added to the database.
-   date_added: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
+   date_added: { type: Sequelize.INTEGER }, // YYYYMMDD syntax.
    name: { type: Sequelize.STRING },
-   date: { type: Sequelize.STRING },
+   date: { type: Sequelize.INTEGER }, // YYYYMMDD syntax.
    location: { type: Sequelize.STRING },
    image_url: { type: Sequelize.STRING },
    link: { type: Sequelize.STRING },
    price: { type: Sequelize.DOUBLE },
    description: { type: Sequelize.STRING }
 
-  })
+   });
 
   // Define the Tagline model. This can be used to query for a user's saved
   // activities, since a Tagline entry is created every time a user saves an
@@ -71,13 +71,9 @@ module.exports = (() => {
    },
    tagline: { type: Sequelize.STRING }
 
-  })
+   });
 
-  return {
-    // Sync creates the tables defined by the models if they don't exist in the
-    // database already.
-    sync: () => {
-      sequelize.sync();
-    }
+  sync() {
+    sequelize.sync();
   }
 })();
