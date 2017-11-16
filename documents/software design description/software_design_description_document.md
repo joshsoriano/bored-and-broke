@@ -70,10 +70,10 @@ Collectively, the Web Frontend CSC, Database CSC and Server CSC are the Bored&Br
 ### 6.3.1 Detailed Class Descriptions
 The following sections provide the details of all classes used in the Bored and Broke application. Each class is defined by its fields and methods, which are described in detail below.
 #### 6.3.1.1  activityRetriever
-Fields:
-* None
-Methods:
-* retrieve(): sends requests for the events from each of the APIs (Ticketmaster, Eventbrite, Eventful) and populates a JSON object for each event.
+* Fields:
+  * None
+* Methods:
+  * retrieve(): sends requests for the events from each of the APIs (Ticketmaster, Eventbrite, Eventful) and populates a JSON object for each event.
 #### 6.3.1.2  Deduplicator
 Fields:
 * Sequelize: supports database queries.
