@@ -1,13 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-import Carousel from 'react-bootstrap/lib/Carousel';
 import Button from 'react-bootstrap/lib/Button';
 import eventExample from './eventExample.png';
 import logo_black from './images/logo-black.png';
 import NavigationBar from './NavigationBar.js';
 import logo_offwhite from './images/logo-offwhite.png';
 import HomepageSettings from './HomepageSettings.js';
+import SingleActivityModal from './SingleActivityModal.js';
+// import LoginCreateAccount from './LoginCreateAccount.js';
+// import SavedActivities from './SavedActivities.js';
+// import Settings from './Settings.js';
+// import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -17,7 +21,7 @@ const styles = {
     main: {
         backgroundColor: '#ECF0F1',
         textAlign: 'center',
-        height: '900px',
+        // height: '900px',
         // height: '100%',
     },
     titleContainer: {
@@ -61,8 +65,7 @@ const styles = {
         display: 'flex',
         marginBottom: '70px',
     },
-    element:
-    {
+    element: {
         marginLeft: '80px',
         marginRight: '80px',
     },
@@ -74,6 +77,27 @@ const styles = {
 class Homepage extends React.Component {
   render() {
     const { classes } = this.props;
+
+    // const routing =
+    //     (<Router>
+    //         <div>
+    //             <ul>
+    //                 <li><Link to="/Homepage">Homepage</Link></li>
+    //                 <li><Link to="/SavedActivities">SavedActivities</Link></li>
+    //                 <li><Link to="/Settings">Settings</Link></li>
+    //                 <li><Link to="/LoginCreateAccount">LoginCreateAccount</Link></li>
+    //             </ul>
+    //
+    //             <Route exact path="/" render={() => (
+    //                 <LoginCreateAccount/>
+    //             )}/>
+    //             <Route path="/Homepage" component={Homepage}/>
+    //             <Route path="/SavedActivities" component={SavedActivities}/>
+    //             <Route path="/Settings" component={Settings}/>
+    //             <Route path="/LoginCreateAccount" component={LoginCreateAccount}/>
+    //         </div>
+    //     </Router>);
+
     return (
       <div className={ classes.main }>
         <NavigationBar />
@@ -87,49 +111,61 @@ class Homepage extends React.Component {
             <div className={ classes.row }>
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
                 </div>
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
                 </div>
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
                 </div>
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                </div>
-            </div>
-            <div className={ classes.row }>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                </div>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                </div>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                </div>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
                 </div>
             </div>
             <div className={ classes.row }>
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
                 </div>
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
                 </div>
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
                 </div>
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
+                </div>
+            </div>
+            <div className={ classes.row }>
+                <div className={ classes.element }>
+                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
+                </div>
+                <div className={ classes.element }>
+                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
+                </div>
+                <div className={ classes.element }>
+                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
+                </div>
+                <div className={ classes.element }>
+                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+                    <SingleActivityModal />
                 </div>
             </div>
         </div>
         <div className={ classes.space } />
         <div>
-            <Button bastyle="primary" bsSize="large">Click Me!!!!</Button>
+            <Button bastyle="primary" bsSize="large">See More</Button>
         </div>
       </div>
     );
