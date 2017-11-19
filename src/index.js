@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Redirect, Switch } from 'react-router-dom';
 // import injectSheet from 'react-jss';
 // import './index.css';
 import PropTypes from 'prop-types';
@@ -47,25 +47,27 @@ class BoredAndBroke extends React.Component {
 
          <Router>
              <div>
-             <ul>
-                 <li><Link to="/Homepage">Homepage</Link></li>
-                 <li><Link to="/SavedActivities">SavedActivities</Link></li>
-                 <li><Link to="/Settings">Settings</Link></li>
-                 <li><Link to="/LoginCreateAccount">LoginCreateAccount</Link></li>
-             </ul>
+                 <ul>
+                     <li><Link to="/Homepage">Homepage</Link></li>
+                     <li><Link to="/SavedActivities">SavedActivities</Link></li>
+                     <li><Link to="/Settings">Settings</Link></li>
+                     <li><Link to="/LoginCreateAccount">LoginCreateAccount</Link></li>
+                 </ul>
 
-                 <Route exact path="/" render={() => (
-                   loggedIn ? (
-                     <Redirect to="/Homepage"/>
-                   ) : (
-                     <Redirect to="/LoginCreateAccount"/>
-                   )
-                 )}/>
-                 <Route path="/Homepage" component={Homepage}/>
-                 <Route path="/SavedActivities" component={SavedActivities}/>
-                 <Route path="/Settings" component={Settings}/>
-                 <Route path="/LoginCreateAccount" component={LoginCreateAccount}/>
-             </div>
+                 <Switch>
+                     <Route exact path="/" render={() => (
+                       loggedIn ? (
+                         <Redirect to="/Homepage"/>
+                       ) : (
+                         <Redirect to="/LoginCreateAccount"/>
+                       )
+                     )}/>
+                     <Route path="/Homepage" component={Homepage}/>
+                     <Route path="/SavedActivities" component={SavedActivities}/>
+                     <Route path="/Settings" component={Settings}/>
+                     <Route path="/LoginCreateAccount" component={LoginCreateAccount}/>
+                </Switch>
+            </div>
          </Router>
       );
     }
