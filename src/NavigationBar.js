@@ -36,6 +36,9 @@ const styles = {
     },
     logoLink: {
         marginTop: '8px',
+    },
+    space: {
+        marginBottom: '5px',
     }
 }
 
@@ -85,7 +88,9 @@ class NavigationBar extends React.Component {
                         <Nav pullRight>
                             <NavDropdown eventKey={3} title="User" id="basic-nav-dropdown">
                                 <Link to="/Homepage">Homepage</Link>
+                                <div className={ classes.space } />
                                 <Link to="/SavedActivities">SavedActivities</Link>
+                                <div className={ classes.space } />
                                 <Link to="/Settings">Settings</Link>
                                 <MenuItem divider />
                                 <Link to="/LoginCreateAccount">Log Out</Link>
