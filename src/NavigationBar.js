@@ -84,19 +84,19 @@ class NavigationBar extends React.Component {
                     <Navbar.Collapse className={classes.navbarContent}>
                         <Nav pullRight>
                             <NavDropdown eventKey={3} title="User" id="basic-nav-dropdown">
-                                <MenuItem eventKey={3.1}>
-                                    <Link to="/Homepage">Homepage</Link>
-                                </MenuItem>
-                                <MenuItem eventKey={3.2}>
-                                    <Link to="/SavedActivities">SavedActivities</Link>
-                                </MenuItem>
-                                <MenuItem eventKey={3.3}>
-                                    <Link to="/Settings">Settings</Link>
-                                </MenuItem>
+
+                                <Link to="/Homepage">Homepage</Link>
+
+
+                                <Link to="/SavedActivities">SavedActivities</Link>
+
+
+                                <Link to="/Settings">Settings</Link>
+
                                 <MenuItem divider />
-                                <MenuItem eventKey={3.4}>
+
                                     <Link to="/LoginCreateAccount">Log Out</Link>
-                                </MenuItem>
+                                
                             </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>
