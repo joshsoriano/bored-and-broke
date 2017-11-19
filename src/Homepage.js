@@ -8,6 +8,10 @@ import NavigationBar from './NavigationBar.js';
 import logo_offwhite from './images/logo-offwhite.png';
 import HomepageSettings from './HomepageSettings.js';
 import SingleActivityModal from './SingleActivityModal.js';
+// import LoginCreateAccount from './LoginCreateAccount.js';
+// import SavedActivities from './SavedActivities.js';
+// import Settings from './Settings.js';
+// import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -73,6 +77,27 @@ const styles = {
 class Homepage extends React.Component {
   render() {
     const { classes } = this.props;
+
+    // const routing =
+    //     (<Router>
+    //         <div>
+    //             <ul>
+    //                 <li><Link to="/Homepage">Homepage</Link></li>
+    //                 <li><Link to="/SavedActivities">SavedActivities</Link></li>
+    //                 <li><Link to="/Settings">Settings</Link></li>
+    //                 <li><Link to="/LoginCreateAccount">LoginCreateAccount</Link></li>
+    //             </ul>
+    //
+    //             <Route exact path="/" render={() => (
+    //                 <LoginCreateAccount/>
+    //             )}/>
+    //             <Route path="/Homepage" component={Homepage}/>
+    //             <Route path="/SavedActivities" component={SavedActivities}/>
+    //             <Route path="/Settings" component={Settings}/>
+    //             <Route path="/LoginCreateAccount" component={LoginCreateAccount}/>
+    //         </div>
+    //     </Router>);
+
     return (
       <div className={ classes.main }>
         <NavigationBar />
