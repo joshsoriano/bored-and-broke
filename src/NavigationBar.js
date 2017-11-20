@@ -51,25 +51,6 @@ class NavigationBar extends React.Component {
         // };
     }
 
-    // onNavItemClick() {
-    //     this.context.router.push('./SavedActivities');
-    //     // <Redirect to='/SavedActivities'/>
-    //     <Route exact path="/" render={() => (
-    //         <Redirect to="/SavedActivities"/>
-    //     )}/>
-    //         // {() => hashHistory.push(`/mySite/accountview?id=${account.AccountName}`)}
-    // }
-    // onClick={ this.onNavItemClick }
-
-    // <Router>
-    //     <div>
-    //         <ul>
-    //             <li><Link to="/SavedActivities">SavedActivities</Link></li>
-    //         </ul>
-    //         <Route path="/SavedActivities" component={SavedActivities}/>
-    //     </div>
-    // </Router>
-
 
     render() {
         const { classes } = this.props;
