@@ -7,6 +7,8 @@ import { Form, FormGroup, ControlLabel, FormControl, Col, Checkbox } from 'react
 import eventExample from './eventExample.png';
 import NavigationBar from './NavigationBar.js';
 import logo_offwhite from './images/logo-offwhite.png';
+import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
+
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -14,10 +16,9 @@ const propTypes = {
 
 const styles = {
     main: {
-        backgroundColor: '#2C3E50',
+        backgroundColor: '#16A085',
         textAlign: 'center',
         height: '900px',
-        // height: '100%',
     },
     user: {
         marginRight: '15px',
@@ -36,8 +37,14 @@ const styles = {
     deavtivate: {
         display: 'block',
         marginTop: '15px',
-        color: 'red',
+        color: '#E74C3C',
         fontWeight: 'bold'
+    },
+    save: {
+        fontWeight: 'bold',
+        color: '#2C3E50',
+        backgroundColor: '#ECF0F1',
+        marginTop: '15px'
     }
 };
 
@@ -85,7 +92,13 @@ class Settings extends React.Component {
                     No longer want to use Bored&Broke?
                   </Col>
                   <Col sm={4}>
-                    <span className={ classes.deavtivate } href="">Deactivate Account</span>
+                    <Link className={ classes.deavtivate } to="/LoginCreateAccount">Deactivate Account</Link>
+                  </Col>
+                </FormGroup>
+
+                <FormGroup controlId="formHorizontalSave" >
+                  <Col smOffset={2} sm={10}>
+                    <Button bsSize="small" className={ classes.save } href="/Homepage">Save</Button>
                   </Col>
                 </FormGroup>
 
