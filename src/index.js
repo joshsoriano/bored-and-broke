@@ -30,21 +30,16 @@ class BoredAndBroke extends React.Component {
     const loggedIn = true;
     const { classes } = this.props;
     return (
-        //   <div className={ classes.main }>
-        //     <div>
-        //         <Homepage />
-        //     </div>
-         //
-        //  </div>
-//would go right below ul tag:
-//  <Route path="/Homepage" component={Homepage}/>
- // <Route exact path="/" render={() => (
- //   loggedIn ? (
- //     <Redirect to="/Homepage"/>
- //   ) : (
- //     <LoginCreateAccount/>
- //   )
- // )}/>
+
+// note: may not need the <Switch> to wrap the route below
+// <Route exact path="/" render={() => (
+//   loggedIn ? (
+//     <Redirect to="/Homepage"/>
+//   ) : (
+//     <Redirect to="/LoginCreateAccount"/>
+//   )
+// )}/>
+
 
          <Router>
              <div>
@@ -56,13 +51,6 @@ class BoredAndBroke extends React.Component {
                  </ul>
 
                  <Switch>
-                     <Route exact path="/" render={() => (
-                       loggedIn ? (
-                         <Redirect to="/Homepage"/>
-                       ) : (
-                         <Redirect to="/LoginCreateAccount"/>
-                       )
-                     )}/>
                      <Route path="/Homepage" component={Homepage}/>
                      <Route path="/SavedActivities" component={SavedActivities}/>
                      <Route path="/Settings" component={Settings}/>

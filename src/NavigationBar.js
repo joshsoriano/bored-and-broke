@@ -1,3 +1,4 @@
+/*global FB*/
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
@@ -36,6 +37,9 @@ const styles = {
     },
     logoLink: {
         marginTop: '8px',
+    },
+    space: {
+        marginBottom: '5px',
     }
 }
 
@@ -47,6 +51,33 @@ class NavigationBar extends React.Component {
 
     render() {
         const { classes } = this.props;
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId            : '1960748417506782',
+            autoLogAppEvents : true,
+            xfbml            : true,
+            version          : 'v2.11'
+          });
+        };
+
+        (function(d, s, id){
+           var js, fjs = d.getElementsByTagName(s)[0];
+           if (d.getElementById(id)) {return;}
+           js = d.createElement(s); js.id = id;
+           js.src = "https://connect.facebook.net/en_US/sdk.js";
+           fjs.parentNode.insertBefore(js, fjs);
+         }(document, 'script', 'facebook-jssdk'));
+
+         function fbLogoutUser() {
+            FB.getLoginStatus(function(response) {
+                if (response && response.status === 'connected') {
+                    FB.logout(function(response) {
+                        document.location.reload();
+                    });
+                }
+            });
+        }
+
         return(
             <div>
                 <Navbar inverse collapseOnSelect className={classes.navbar}>
@@ -62,7 +93,9 @@ class NavigationBar extends React.Component {
                         <Nav pullRight>
                             <NavDropdown eventKey={3} title="User" id="basic-nav-dropdown">
                                 <Link to="/Homepage">Homepage</Link>
+                                <div className={ classes.space } />
                                 <Link to="/SavedActivities">SavedActivities</Link>
+                                <div className={ classes.space } />
                                 <Link to="/Settings">Settings</Link>
                                 <MenuItem divider />
                                 <Link to="/LoginCreateAccount">Log Out</Link>
