@@ -48,8 +48,11 @@ class BoredAndBroke extends React.Component {
                      <li><Link to="/Settings">Settings</Link></li>
                      <li><Link to="/LoginCreateAccount">LoginCreateAccount</Link></li>
                  </ul>
-                 
+
                  <Switch>
+                     <Route exact path="/" render={() => (
+                         <LoginCreateAccount/>
+                     )}/>
                      <Route path="/Homepage" component={Homepage}/>
                      <Route path="/SavedActivities" component={SavedActivities}/>
                      <Route path="/Settings" component={Settings}/>
