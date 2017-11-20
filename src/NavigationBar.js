@@ -1,3 +1,4 @@
+/*global FB*/
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
@@ -51,28 +52,36 @@ class NavigationBar extends React.Component {
         // };
     }
 
-    // onNavItemClick() {
-    //     this.context.router.push('./SavedActivities');
-    //     // <Redirect to='/SavedActivities'/>
-    //     <Route exact path="/" render={() => (
-    //         <Redirect to="/SavedActivities"/>
-    //     )}/>
-    //         // {() => hashHistory.push(`/mySite/accountview?id=${account.AccountName}`)}
-    // }
-    // onClick={ this.onNavItemClick }
-
-    // <Router>
-    //     <div>
-    //         <ul>
-    //             <li><Link to="/SavedActivities">SavedActivities</Link></li>
-    //         </ul>
-    //         <Route path="/SavedActivities" component={SavedActivities}/>
-    //     </div>
-    // </Router>
-
 
     render() {
         const { classes } = this.props;
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId            : '1960748417506782',
+            autoLogAppEvents : true,
+            xfbml            : true,
+            version          : 'v2.11'
+          });
+        };
+
+        (function(d, s, id){
+           var js, fjs = d.getElementsByTagName(s)[0];
+           if (d.getElementById(id)) {return;}
+           js = d.createElement(s); js.id = id;
+           js.src = "https://connect.facebook.net/en_US/sdk.js";
+           fjs.parentNode.insertBefore(js, fjs);
+         }(document, 'script', 'facebook-jssdk'));
+
+         function fbLogoutUser() {
+            FB.getLoginStatus(function(response) {
+                if (response && response.status === 'connected') {
+                    FB.logout(function(response) {
+                        document.location.reload();
+                    });
+                }
+            });
+        }
+
         return(
             <div>
                 <Navbar inverse collapseOnSelect className={classes.navbar}>
