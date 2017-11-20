@@ -147,7 +147,7 @@ class LoginButton extends React.Component {
   }
 
   redirectLoggedInUser() {
-    window.location = "/Homepage";
+    window.location = "/Loading";
   }
 
   // This is called with the results from from FB.getLoginStatus().
@@ -189,7 +189,7 @@ class LoginButton extends React.Component {
         console.log('Welcome!  Fetching your information.... ');
         FB.api('/me', function(response) {
           console.log('Good to see you, ' + response.name + '.');
-          window.location = "/Homepage";
+          window.location = "/Loading";
         });
       } else {
        console.log('User cancelled login or did not fully authorize.');
