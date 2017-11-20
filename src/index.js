@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Redirect, Switch } from 'react-router-dom';
 // import injectSheet from 'react-jss';
 // import './index.css';
 import PropTypes from 'prop-types';
@@ -29,21 +29,16 @@ class BoredAndBroke extends React.Component {
     const loggedIn = true;
     const { classes } = this.props;
     return (
-        //   <div className={ classes.main }>
-        //     <div>
-        //         <Homepage />
-        //     </div>
-         //
-        //  </div>
-//would go right below ul tag:
-//  <Route path="/Homepage" component={Homepage}/>
-//  <Route exact path="/" render={() => (
-//    loggedIn ? (
-//      <Redirect to="/Homepage"/>
-//    ) : (
-//      <LoginCreateAccount/>
-//    )
-//  )}/>
+
+// note: may not need the <Switch> to wrap the route below
+// <Route exact path="/" render={() => (
+//   loggedIn ? (
+//     <Redirect to="/Homepage"/>
+//   ) : (
+//     <Redirect to="/LoginCreateAccount"/>
+//   )
+// )}/>
+
 
          <Router>
              <div>
@@ -54,14 +49,13 @@ class BoredAndBroke extends React.Component {
                      <li><Link to="/LoginCreateAccount">LoginCreateAccount</Link></li>
                  </ul>
 
-                 <Route exact path="/" render={() => (
-                     <LoginCreateAccount/>
-                 )}/>
-                 <Route path="/Homepage" component={Homepage}/>
-                 <Route path="/SavedActivities" component={SavedActivities}/>
-                 <Route path="/Settings" component={Settings}/>
-                 <Route path="/LoginCreateAccount" component={LoginCreateAccount}/>
-             </div>
+                 <Switch>
+                     <Route path="/Homepage" component={Homepage}/>
+                     <Route path="/SavedActivities" component={SavedActivities}/>
+                     <Route path="/Settings" component={Settings}/>
+                     <Route path="/LoginCreateAccount" component={LoginCreateAccount}/>
+                </Switch>
+            </div>
          </Router>
       );
     }
