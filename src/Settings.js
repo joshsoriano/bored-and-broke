@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-import Carousel from 'react-bootstrap/lib/Carousel';
+// import Carousel from 'react-bootstrap/lib/Carousel';
 import Button from 'react-bootstrap/lib/Button';
-import {Form, FormGroup, ControlLabel, FormControl, Col, Checkbox} from 'react-bootstrap'
+import { Form, FormGroup, ControlLabel, FormControl, Col, Checkbox } from 'react-bootstrap'
 import eventExample from './eventExample.png';
 import NavigationBar from './NavigationBar.js';
 import logo_offwhite from './images/logo-offwhite.png';
@@ -33,7 +33,14 @@ const styles = {
         margin: 'auto',
         color: '#ECF0F1',
     },
+    bio: {
+        height: '100px'
+    }
 };
+
+// <div className={ classes.navBar }>
+//     <img src={logo_offwhite} className={ classes.envelopeImage } height='60px' />
+// </div>
 
 class Settings extends React.Component {
   render() {
@@ -41,15 +48,13 @@ class Settings extends React.Component {
     return (
       <div className={ classes.main }>
         <NavigationBar />
-        <div className={ classes.navBar }>
-            <img src={logo_offwhite} className={ classes.envelopeImage } height='60px' />
-        </div>
+
         <div className={ classes.instructions }>
             <span>Please enter your information below. Feel free to change it whenever!</span>
         </div>
         <div className={ classes.formInput }>
             <Form horizontal>
-                <FormGroup controlId="formHorizontalEmail">
+                <FormGroup controlId="formHorizontalName">
                   <Col componentClass={ControlLabel} sm={2}>
                     Name
                   </Col>
@@ -58,12 +63,21 @@ class Settings extends React.Component {
                   </Col>
                 </FormGroup>
 
-                <FormGroup controlId="formHorizontalPassword">
+                <FormGroup controlId="formHorizontalEmail">
+                  <Col componentClass={ControlLabel} sm={4}>
+                    Email associated with this account
+                  </Col>
+                  <Col sm={8}>
+                    <FormControl type="Email" placeholder="Email" disabled="true"/>
+                  </Col>
+                </FormGroup>
+
+                <FormGroup controlId="formHorizontalBio">
                   <Col componentClass={ControlLabel} sm={2}>
-                    Password
+                    Bio
                   </Col>
                   <Col sm={10}>
-                    <FormControl type="password" placeholder="Password" />
+                    <FormControl className={ classes.bio } type="Bio" placeholder="Talk about yourself!"/>
                   </Col>
                 </FormGroup>
 
