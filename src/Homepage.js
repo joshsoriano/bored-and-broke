@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import NavigationBar from './NavigationBar.js';
 import HomepageSettings from './HomepageSettings.js';
-import Activity from './Activity.js';
+import SingleActivityModal from './SingleActivityModal.js';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
