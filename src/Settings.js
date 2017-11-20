@@ -33,14 +33,13 @@ const styles = {
         margin: 'auto',
         color: '#ECF0F1',
     },
-    bio: {
-        height: '100px'
+    deavtivate: {
+        display: 'block',
+        marginTop: '15px',
+        color: 'red',
+        fontWeight: 'bold'
     }
 };
-
-// <div className={ classes.navBar }>
-//     <img src={logo_offwhite} className={ classes.envelopeImage } height='60px' />
-// </div>
 
 class Settings extends React.Component {
   render() {
@@ -77,23 +76,19 @@ class Settings extends React.Component {
                     Bio
                   </Col>
                   <Col sm={10}>
-                    <FormControl className={ classes.bio } type="Bio" placeholder="Talk about yourself!"/>
+                    <textarea className="form-control" rows="3" placeholder="Talk about yourself!"></textarea>
                   </Col>
                 </FormGroup>
 
-                <FormGroup>
-                  <Col smOffset={2} sm={10}>
-                    <Checkbox>Remember me</Checkbox>
+                <FormGroup controlId="formHorizontalDeactivate" >
+                  <Col componentClass={ControlLabel} sm={4}>
+                    No longer want to use Bored&Broke?
+                  </Col>
+                  <Col sm={4}>
+                    <span className={ classes.deavtivate } href="">Deactivate Account</span>
                   </Col>
                 </FormGroup>
 
-                <FormGroup>
-                  <Col smOffset={2} sm={10}>
-                    <Button type="submit">
-                      Sign in
-                    </Button>
-                  </Col>
-                </FormGroup>
             </Form>
         </div>
       </div>
