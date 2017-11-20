@@ -1,6 +1,3 @@
-import Sequelize from 'sequelize';
-import * as Models from './models.js';
-
 /**
   This file handles all database interactions.
 */
@@ -12,7 +9,7 @@ export class database {
     database() {
       this.Op = Sequelize.Op;
       // Connect to the database.
-      this.sequelize = new Sequelize('ebdb', 'boredandbroke', 'put password here', {
+      this.sequelize = new Sequelize('ebdb', 'boredandbroke', 'BoredBrokeAndAlone401', {
         host: 'aa7h0812c86b9x.cinowngvasql.us-east-2.rds.amazonaws.com',
         dialect: 'postgres'
       });

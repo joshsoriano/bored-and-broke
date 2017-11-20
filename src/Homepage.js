@@ -10,6 +10,7 @@ import NavigationBar from './NavigationBar.js';
 import logo_offwhite from './images/logo-offwhite.png';
 import HomepageSettings from './HomepageSettings.js';
 import SingleActivityModal from './SingleActivityModal.js';
+// import database from './backend/database.js';
 // import LoginCreateAccount from './LoginCreateAccount.js';
 // import SavedActivities from './SavedActivities.js';
 // import Settings from './Settings.js';
