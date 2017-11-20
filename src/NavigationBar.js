@@ -10,7 +10,16 @@ import NavDropdown from 'react-bootstrap/lib/NavDropdown'
 import MenuItem from 'react-bootstrap/lib/MenuItem'
 import Image from 'react-bootstrap/lib/Image'
 import logo from './images/logo-white.png'
+import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
+import LoginCreateAccount from './LoginCreateAccount.js';
+import SavedActivities from './SavedActivities.js';
+import Settings from './Settings.js';
+import Homepage from './Homepage.js';
 
+
+const LINKS = [
+    { to: './SavedActivities.js', title: 'SAVED_ACTIVITIES'},
+];
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -27,34 +36,71 @@ const styles = {
     },
     logoLink: {
         marginTop: '8px',
+    },
+    space: {
+        marginBottom: '5px',
     }
 }
 
 class NavigationBar extends React.Component {
+    constructor(props) {
+        super(props);
+        // this.onNavItemClick = this.onNavItemClick.bind(this);
+        // this.state = {
+        //
+        // };
+    }
+
+    // onNavItemClick() {
+    //     this.context.router.push('./SavedActivities');
+    //     // <Redirect to='/SavedActivities'/>
+    //     <Route exact path="/" render={() => (
+    //         <Redirect to="/SavedActivities"/>
+    //     )}/>
+    //         // {() => hashHistory.push(`/mySite/accountview?id=${account.AccountName}`)}
+    // }
+    // onClick={ this.onNavItemClick }
+
+    // <Router>
+    //     <div>
+    //         <ul>
+    //             <li><Link to="/SavedActivities">SavedActivities</Link></li>
+    //         </ul>
+    //         <Route path="/SavedActivities" component={SavedActivities}/>
+    //     </div>
+    // </Router>
+
+
     render() {
         const { classes } = this.props;
         return(
-            <Navbar inverse collapseOnSelect className={classes.navbar}>
-                <Navbar.Header>
+            <div>
+                <Navbar inverse collapseOnSelect className={classes.navbar}>
+                    <Navbar.Header>
                     <Navbar.Brand>
                         <a className={classes.logoLink} href="#">
                             <img className={classes.logo} src={logo} height="30px" alt="user pic" />
                         </a>
                     </Navbar.Brand>
-                    <Navbar.Toggle />
-                    </Navbar.Header>
-                <Navbar.Collapse className={classes.navbarContent}>
-                    <Nav pullRight>
-                        <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-                            <MenuItem eventKey={3.1}>My Feed</MenuItem>
-                            <MenuItem eventKey={3.2}>My Saved Activities</MenuItem>
-                            <MenuItem eventKey={3.3}>Settings</MenuItem>
-                            <MenuItem divider />
-                            <MenuItem eventKey={3.4}>Log Out</MenuItem>
-                        </NavDropdown>
-                    </Nav>
-                </Navbar.Collapse>
-            </Navbar>
+                        <Navbar.Toggle />
+                        </Navbar.Header>
+                    <Navbar.Collapse className={classes.navbarContent}>
+                        <Nav pullRight>
+                            <NavDropdown eventKey={3} title="User" id="basic-nav-dropdown">
+                                <Link to="/Homepage">Homepage</Link>
+                                <div className={ classes.space } />
+                                <Link to="/SavedActivities">SavedActivities</Link>
+                                <div className={ classes.space } />
+                                <Link to="/Settings">Settings</Link>
+                                <MenuItem divider />
+                                <Link to="/LoginCreateAccount">Log Out</Link>
+                            </NavDropdown>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Navbar>
+            </div>
+
+
         );
     }
 };
