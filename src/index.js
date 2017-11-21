@@ -8,6 +8,7 @@ import Homepage from './Homepage.js';
 import LoginCreateAccount from './LoginCreateAccount.js';
 import SavedActivities from './SavedActivities.js';
 import Settings from './Settings.js';
+import Loading from './Loading.js';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -57,6 +58,7 @@ class BoredAndBroke extends React.Component {
                      <Route path="/SavedActivities" component={SavedActivities}/>
                      <Route path="/Settings" component={Settings}/>
                      <Route path="/LoginCreateAccount" component={LoginCreateAccount}/>
+                     <Route path="/Loading" component={Loading}/>
                 </Switch>
             </div>
          </Router>
