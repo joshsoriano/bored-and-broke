@@ -34,6 +34,9 @@ const styles = {
         margin: 'auto',
         color: '#ECF0F1',
     },
+    email: {
+        color: '#ababab'
+    },
     deavtivate: {
         display: 'block',
         marginTop: '15px',
@@ -70,11 +73,13 @@ class Settings extends React.Component {
                 </FormGroup>
 
                 <FormGroup controlId="formHorizontalEmail">
-                  <Col componentClass={ControlLabel} sm={4}>
+                  <Col componentClass={ControlLabel} sm={6}>
                     Email associated with this account
                   </Col>
-                  <Col sm={8}>
-                    <FormControl type="Email" placeholder="Email" disabled="true"/>
+                  <Col sm={6}>
+                    <FormControl.Static className={ classes.email }>
+                      email@example.com
+                    </FormControl.Static>
                   </Col>
                 </FormGroup>
 
@@ -88,10 +93,10 @@ class Settings extends React.Component {
                 </FormGroup>
 
                 <FormGroup controlId="formHorizontalDeactivate" >
-                  <Col componentClass={ControlLabel} sm={4}>
+                  <Col componentClass={ControlLabel} sm={6}>
                     No longer want to use Bored&Broke?
                   </Col>
-                  <Col sm={4}>
+                  <Col sm={6}>
                     <Link className={ classes.deavtivate } to="/LoginCreateAccount">Deactivate Account</Link>
                   </Col>
                 </FormGroup>
