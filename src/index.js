@@ -39,16 +39,17 @@ class BoredAndBroke extends React.Component {
 //     <Redirect to="/LoginCreateAccount"/>
 //   )
 // )}/>
+// before the switch statement:
+// <ul>
+//     <li><Link to="/Homepage">Homepage</Link></li>
+//     <li><Link to="/SavedActivities">SavedActivities</Link></li>
+//     <li><Link to="/Settings">Settings</Link></li>
+//     <li><Link to="/LoginCreateAccount">LoginCreateAccount</Link></li>
+// </ul>
 
 
          <Router>
              <div>
-                 <ul>
-                     <li><Link to="/Homepage">Homepage</Link></li>
-                     <li><Link to="/SavedActivities">SavedActivities</Link></li>
-                     <li><Link to="/Settings">Settings</Link></li>
-                     <li><Link to="/LoginCreateAccount">LoginCreateAccount</Link></li>
-                 </ul>
 
                  <Switch>
                      <Route exact path="/" render={() => (
