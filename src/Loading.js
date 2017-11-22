@@ -5,15 +5,22 @@ import eventExample from './eventExample.png';
 import NavigationBar from './NavigationBar.js';
 import logo_offwhite from './images/logo-offwhite.png';
 
+
 const propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-const styles = {
-
-};
+const styles = {};
 
 class Loading extends React.Component {
+
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     userID: null
+  //   };
+  // }
+
   render() {
     const { classes } = this.props;
     return (
