@@ -12,6 +12,8 @@ const propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
+// Get "Response" from LoginButton.js 
+
 const styles = {
 
 };
@@ -21,7 +23,7 @@ class Loading extends React.Component {
     const { classes } = this.props;
     return (
      <div>
-     L o a d i n g 
+     L o a d i n g
      </div>
     );
   }

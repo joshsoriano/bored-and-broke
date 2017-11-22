@@ -7,6 +7,8 @@ const propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
+// pass "Response" down from here to Loading.js 
+
 const styles = {};
 
 class LoginButton extends React.Component {
