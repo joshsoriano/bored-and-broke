@@ -7,12 +7,13 @@ import { Form, FormGroup, ControlLabel, FormControl, Col, Checkbox } from 'react
 import eventExample from './eventExample.png';
 import NavigationBar from './NavigationBar.js';
 import logo_offwhite from './images/logo-offwhite.png';
+import LoginButton from './LoginButton.js';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-// Get "Response" from LoginButton.js 
+// Get "Response" from LoginButton.js
 
 const styles = {
 

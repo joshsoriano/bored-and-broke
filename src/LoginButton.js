@@ -5,9 +5,10 @@ import injectSheet from 'react-jss';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
+    responseValue: PropTypes.string,
 };
 
-// pass "Response" down from here to Loading.js 
+// pass "Response" down from here to Loading.js
 
 const styles = {};
 
@@ -143,6 +144,8 @@ class LoginButton extends React.Component {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
     console.log('Successful login for: ' + response.name);
+    // might need to put this elsewhere:
+    this.props.responseValue = response;
     document.getElementById('status').innerHTML =
       'Thanks for logging in, ' + response.name + '!';
     });
@@ -155,7 +158,7 @@ class LoginButton extends React.Component {
   // This is called with the results from from FB.getLoginStatus().
   statusChangeCallback(response) {
     console.log('statusChangeCallback');
-    console.log(response);
+    console.log("The response is this:", response);
     // The response object is returned with a status field that lets the
     // app know the current login status of the person.
     // Full docs on the response object can be found in the documentation
@@ -201,6 +204,7 @@ class LoginButton extends React.Component {
 
   render() {
     return <a href="#" onClick={this.handleClick}>Login</a>
+    console.log(this.props.responseValue);
   }
 }
 
