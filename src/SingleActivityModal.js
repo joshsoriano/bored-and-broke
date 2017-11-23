@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import classNames from 'classnames';
 import Carousel from 'react-bootstrap/lib/Carousel';
+import {Form, FormGroup, ControlLabel, FormControl, Col, Checkbox} from 'react-bootstrap'
 import Modal from 'react-bootstrap/lib/Modal';
 import Button from 'react-bootstrap/lib/Button';
 import eventExample from './eventExample.png';
@@ -20,11 +21,9 @@ const defaultProps = {
 const styles = {
     main: {
       position: 'relative',
-      height: '100px',
+    //   height: '100px',
       width: '100px',
-    //   margin: 'auto',
       background: '#1ABC9C',
-    //   marginTop: '100px',
     },
     titleTextContainer: {
       paddingBottom: '4px',
@@ -89,6 +88,9 @@ const styles = {
     // modalBackdrop {
     //     position: absolute,
     // },
+    taglineStyle: {
+        opacity: 0,
+    },
 };
 
 class SingleActivityModal extends React.Component {
@@ -97,17 +99,25 @@ class SingleActivityModal extends React.Component {
         // this.onNavItemClick = this.onNavItemClick.bind(this);
         this.state = {
             show: false,
+            tagline: false,
         };
     }
+
     render() {
         const { classes, showModal } = this.props;
         const isTimeForUsers = true; // when true, no carousel (because opacity is turned to 0. When false, carousel is there)
         // const taglineClasses = classNames({
         //     [classes.tagLine]: true,
         // });
+        const isActivitySaved = false; // when true, no form for tagline
+        const taglineShow = isActivitySaved;
 
         const carouselClasses = classNames({
             [classes.carouselOn]: isTimeForUsers,
+        });
+
+        const taglineClasses = classNames({
+            [classes.taglineStyle]: taglineShow,
         });
 
         let close = () => this.setState({ show: false });
@@ -170,6 +180,35 @@ class SingleActivityModal extends React.Component {
                                 </Carousel.Caption>
                               </Carousel.Item>
                           </Carousel>
+                        </div>
+                        <div className={ taglineClasses }>
+
+                            <Form horizontal>
+                                <FormGroup controlId="formHorizontalEmail">
+                                  <Col componentClass={ControlLabel} sm={2}>
+                                    Tagline:
+                                  </Col>
+                                  <Col sm={10}>
+                                    <FormControl type="Name" placeholder="What's your vibes?" />
+                                  </Col>
+                                </FormGroup>
+
+                                <FormGroup>
+                                  <Col smOffset={2} sm={10}>
+                                    <Checkbox>Save</Checkbox>
+                                  </Col>
+                                </FormGroup>
+
+                                <FormGroup>
+                                  <Col smOffset={2} sm={10}>
+                                    <Button type="submit">
+                                      Skip
+                                    </Button>
+                                  </Col>
+                                </FormGroup>
+
+
+                            </Form>
                         </div>
                     </Modal.Body>
                     <Modal.Footer>
