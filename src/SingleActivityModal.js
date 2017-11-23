@@ -63,31 +63,18 @@ const styles = {
     buttonContainer: {
         marginTop: '20px',
         display: 'flex',
-        marginLeft: '20px',
-        marginRight: '20px',
-        justifyContent: 'space-between',
+        // marginLeft: '20px',
+        // marginRight: '20px',
+        justifyContent: 'center',
+        marginBottom: '10px',
     },
     carouselOn: {
         opacity: '0',
+        height: '10px',
     },
-    // tagline: {
-    //     opacity: '0',
-    // }
     modalContainer: {
         position: 'relative',
     },
-    // modalContainer {
-    //      position: absolute,
-    // }
-    // modal {
-    //      position: absolute,
-    // },
-    // modalContainer {
-    //      position: absolute,
-    // },
-    // modalBackdrop {
-    //     position: absolute,
-    // },
     taglineStyle: {
         opacity: 0,
     },
@@ -105,15 +92,18 @@ class SingleActivityModal extends React.Component {
 
     render() {
         const { classes, showModal } = this.props;
-        const isTimeForUsers = true; // when true, no carousel (because opacity is turned to 0. When false, carousel is there)
-        // const taglineClasses = classNames({
-        //     [classes.tagLine]: true,
-        // });
-        const isActivitySaved = false; // when true, no form for tagline
-        const taglineShow = isActivitySaved;
+        const date = "01-01-2001";
+        const location = "Keck Lab";
+        const price = "$0";
+
+        const isSecondState = false; // when true, no carousel (because opacity is turned to 0. When false, carousel is there)
+
+        const isFirstState = true; // when true, no form for tagline
+
+        const taglineShow = isFirstState;
 
         const carouselClasses = classNames({
-            [classes.carouselOn]: isTimeForUsers,
+            [classes.carouselOn]: isSecondState,
         });
 
         const taglineClasses = classNames({
@@ -144,22 +134,24 @@ class SingleActivityModal extends React.Component {
                     <Modal.Body>
                         <div className={ classes.descriptionTextContainer }>
                           <span className={ classes.descriptionText }>
-                            We know you will love the activity. Please
-                            see more information here at&nbsp;
-                            <a href="mailto:yourfriends@joinhoney.com">
-                              <span className={ classes.link }>facebook.com</span>
-                            </a>
-                            &nbsp;to browse more events, or see a previous one, please use the arrows below.
+                            Here is some more info! We know you will love the activity! Please press "save" to see more
+                            information.
+                            <br />
+                            <br />
+                            Date: { date }
+                            <br />
+                            Location: { location }
+                            <br />
+                            Price: { price }
                           </span>
                         </div>
                         <div className={ classes.buttonContainer }>
-                          <Button bastyle="primary" bsSize="large">{ this.props.onRequestClose }Previous </Button>
-                          <Button bastyle="primary" bsSize="large">{ this.props.onRequestClose }Next> </Button>
+                          <Button bastyle="primary" bsSize="large">{ this.props.onRequestClose } Save </Button>
                         </div>
                         <div className={ carouselClasses }>
                           <Carousel>
                               <Carousel.Item>
-                                <img width={300} height={300} align="middle" src={eventExample}/>
+                                <img width={300} height={200} align="middle" src={eventExample}/>
                                 <Carousel.Caption>
                                   <h3>First slide label</h3>
                                   <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
@@ -206,8 +198,6 @@ class SingleActivityModal extends React.Component {
                                     </Button>
                                   </Col>
                                 </FormGroup>
-
-
                             </Form>
                         </div>
                     </Modal.Body>
