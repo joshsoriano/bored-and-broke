@@ -96,9 +96,9 @@ class SingleActivityModal extends React.Component {
         const location = "Keck Lab";
         const price = "$0";
 
-        const isSecondState = false; // when true, no carousel (because opacity is turned to 0. When false, carousel is there)
+        const isSecondState = true; // when true, no carousel (because opacity is turned to 0. When false, carousel is there)
 
-        const isFirstState = true; // when true, no form for tagline
+        const isFirstState = false; // when true, no form for tagline
 
         const taglineShow = isFirstState;
 
