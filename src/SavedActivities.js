@@ -65,37 +65,61 @@ class SavedActivities extends React.Component {
           <div className={ classes.row }>
               <div className={ classes.element }>
                   <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                  <SingleActivityModal />
+                  <SingleActivityModal
+                        savedAlready={ false }
+                  >
+                  </SingleActivityModal>
               </div>
               <div className={ classes.element }>
                   <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                  <SingleActivityModal />
+                  <SingleActivityModal
+                        savedAlready={ false }
+                  >
+                  </SingleActivityModal>
               </div>
               <div className={ classes.element }>
                   <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                  <SingleActivityModal />
+                  <SingleActivityModal
+                        savedAlready={ false }
+                  >
+                  </SingleActivityModal>
               </div>
               <div className={ classes.element }>
                   <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                  <SingleActivityModal />
+                  <SingleActivityModal
+                        savedAlready={ false }
+                  >
+                  </SingleActivityModal>
               </div>
           </div>
           <div className={ classes.row }>
               <div className={ classes.element }>
                   <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                  <SingleActivityModal />
+                  <SingleActivityModal
+                        savedAlready={ false }
+                  >
+                  </SingleActivityModal>
               </div>
               <div className={ classes.element }>
                   <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                  <SingleActivityModal />
+                  <SingleActivityModal
+                        savedAlready={ false }
+                  >
+                  </SingleActivityModal>
               </div>
               <div className={ classes.element }>
                   <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                  <SingleActivityModal />
+                  <SingleActivityModal
+                        savedAlready={ false }
+                  >
+                  </SingleActivityModal>
               </div>
               <div className={ classes.element }>
                   <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                  <SingleActivityModal />
+                  <SingleActivityModal
+                        savedAlready={ false }
+                  >
+                  </SingleActivityModal>
               </div>
           </div>
        </div>

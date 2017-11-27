@@ -12,6 +12,7 @@ import logo_black from './images/logo-black.png';
 const propTypes = {
     classes: PropTypes.object.isRequired,
     onRequestClose: PropTypes.func,
+    savedAlready: PropTypes.bool,
 };
 
 const defaultProps = {
@@ -96,7 +97,7 @@ class SingleActivityModal extends React.Component {
         const location = "Keck Lab";
         const price = "$0";
 
-        const isSecondState = true; // when true, no carousel (because opacity is turned to 0. When false, carousel is there)
+        const isSecondState = this.props.savedAlready; // when true, no carousel (because opacity is turned to 0. When false, carousel is there)
 
         const isFirstState = false; // when true, no form for tagline
 
