@@ -77,6 +77,10 @@ const styles = {
     modalContainer: {
         position: 'relative',
     },
+
+    infoBtn: {
+        backgroundColor: '#2d3e4f',
+    }
     // modalContainer {
     //      position: absolute,
     // }
@@ -115,6 +119,7 @@ class SingleActivityModal extends React.Component {
         return (
             <div className="modalContainer" style={{ height: 50 }}>
                 <Button
+                    className = { classes.infoBtn }
                     bsStyle="primary"
                     bsSize="small"
                     onClick={() => this.setState({ show: true })}
@@ -129,17 +134,16 @@ class SingleActivityModal extends React.Component {
                     aria-labelledby="contained-modal-title"
                 >
                     <Modal.Header closeButton>
-                        <Modal.Title id="contained-modal-title"> We are so glad you are excited about the event!</Modal.Title>
+                        <Modal.Title id="contained-modal-title">World Series, Game 7: Dodgers vs. Astros</Modal.Title>
+                        <h5>Date</h5>
+                        <h5>Time</h5>
+                        <h5>Location</h5>
+                        <h5>Price</h5>
                     </Modal.Header>
                     <Modal.Body>
                         <div className={ classes.descriptionTextContainer }>
                           <span className={ classes.descriptionText }>
-                            We know you will love the activity. Please
-                            see more information here at&nbsp;
-                            <a href="mailto:yourfriends@joinhoney.com">
-                              <span className={ classes.link }>facebook.com</span>
-                            </a>
-                            &nbsp;to browse more events, or see a previous one, please use the arrows below.
+                            A Game 7 is one of the rarest treats in sports, and baseball fans have been lucky enough to witness three of the last four World Series go the distance. Not since the 1980s has the World Series gone to a winner-take-all game three times in a four-year span. The Houston Astros look to come into Los Angeles to win it all, while the Dodgers hope to hoist the trophy in front of their hometown.
                           </span>
                         </div>
                         <div className={ classes.buttonContainer }>

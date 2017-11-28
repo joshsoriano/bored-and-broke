@@ -20,6 +20,7 @@ const styles = {
     },
     textDetails: {
         paddingTop: '0px',
+        color: '#2C3E4E',        
     },
 };
 

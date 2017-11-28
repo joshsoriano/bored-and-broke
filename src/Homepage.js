@@ -22,8 +22,6 @@ const styles = {
     main: {
         backgroundColor: '#ECF0F1',
         textAlign: 'center',
-        height: '100vh',
-        paddingBottom: '400px',
     },
     titleContainer: {
         paddingTop: '20px',
@@ -63,7 +61,7 @@ const styles = {
     },
     row: {
         display: 'flex',
-        marginBottom: '70px',
+        marginBottom: '10px',
     },
     element: {
         marginLeft: '80px',
@@ -105,10 +103,18 @@ class Homepage extends React.Component {
             <span className={ classes.title }>Your Activity Feed</span>
         </div>
         <div className={ classes.resultsContainer }>
-            <Activity />
-            <Activity />
-            <Activity />
-            <Activity />
+            <div className={ classes.row }>
+                <Activity />
+                <Activity />
+                <Activity />
+                <Activity />
+            </div>
+            <div className={ classes.row }>
+                <Activity />
+                <Activity />
+                <Activity />
+                <Activity />
+            </div>
         </div>
       </div>
     );
