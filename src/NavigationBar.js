@@ -76,7 +76,8 @@ class NavigationBar extends React.Component {
             FB.getLoginStatus(function(response) {
                 if (response && response.status === 'connected') {
                     FB.logout(function(response) {
-                        document.location.reload();
+                        // document.location.reload();
+                        // console.log("logged out: " + response.status);
                     });
                 }
             });
@@ -102,7 +103,7 @@ class NavigationBar extends React.Component {
                                 <div className={ classes.space } />
                                 <Link to="/Settings">Settings</Link>
                                 <MenuItem divider />
-                                <Link to="/LoginCreateAccount">Log Out</Link>
+                                <Link to="/LoginCreateAccount" onClick={fbLogoutUser}>Log Out</Link>
                             </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>
