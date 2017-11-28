@@ -1,3 +1,4 @@
+/*global FB*/
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link, Redirect, Switch } from 'react-router-dom';
@@ -27,8 +28,45 @@ const styles = {
 class BoredAndBroke extends React.Component {
   render() {
     // const status = 'This is our project:';
-    const loggedIn = true;
+    let loggedIn = true;
     const { classes } = this.props;
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId            : '1960748417506782',
+        autoLogAppEvents : true,
+        xfbml            : true,
+        version          : 'v2.11'
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "https://connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+
+     function checkStatus() {
+       FB.getLoginStatus(function(response) {
+           alert("checked login status");
+           if (response.status === 'connected') {
+             loggedIn = true;
+           }
+         });
+     }
+
+    const PrivateRoute = ({ component: Component, ...rest }) => (
+      <Route {...rest} render={props => (
+        loggedIn ? (
+          <Component {...props}/>
+        ) : (
+          <Redirect to={{
+            pathname: '/LoginCreateAccount'
+          }}/>
+        )
+      )}/>
+    )
     return (
 
 // note: may not need the <Switch> to wrap the route below
@@ -61,11 +99,11 @@ class BoredAndBroke extends React.Component {
                      <Route exact path="/" render={() => (
                          <LoginCreateAccount/>
                      )}/>
-                     <Route path="/Homepage" component={Homepage}/>
-                     <Route path="/SavedActivities" component={SavedActivities}/>
-                     <Route path="/Settings" component={Settings}/>
+                     <PrivateRoute path="/Homepage" component={Homepage}/>
+                     <PrivateRoute path="/SavedActivities" component={SavedActivities}/>
+                     <PrivateRoute path="/Settings" component={Settings}/>
                      <Route path="/LoginCreateAccount" component={LoginCreateAccount}/>
-                     <Route path="/Loading" component={Loading}/>
+                     <PrivateRoute path="/Loading" component={Loading}/>
                 </Switch>
             </div>
          </Router>
