@@ -1,4 +1,6 @@
 import React from 'react';
+import $ from 'jquery';
+import * as activity from './backend/activity.js';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import Button from 'react-bootstrap/lib/Button';
@@ -70,7 +72,28 @@ const styles = {
 };
 
 class Homepage extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { activities: [] };
+  }
+
+  componentDidMount() {
+    this.Homepage();
+  }
+
+  Homepage() {
+    // For demo.
+    this.setState({ activities: activity.retrieve() });
+
+    // Eventually we will use this function to load the activities.
+    // this.setState({ activities: database.getFutureActivities() });
+  }
+
   render() {
+
+    // Map through the activities list here.
+    //
+    //
     const { classes } = this.props;
 
     // const routing =
