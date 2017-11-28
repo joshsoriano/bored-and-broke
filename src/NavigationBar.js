@@ -47,7 +47,7 @@ const styles = {
 }
 
 class NavigationBar extends React.Component {
-    
+
     constructor(props) {
         super(props);
     }
@@ -108,7 +108,10 @@ class NavigationBar extends React.Component {
                                     <Link to="/Settings">Settings</Link>
                                 </span>
                                 <MenuItem divider />
-                                <Link to="/LoginCreateAccount" onClick={fbLogoutUser}>Log Out</Link>
+                                <div className={ classes.space } />
+                                <span className={classes.aNavItem}>
+                                    <Link to="/LoginCreateAccount" onClick={fbLogoutUser}>Log Out</Link>
+                                </span>
                             </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>

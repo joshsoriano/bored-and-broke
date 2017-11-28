@@ -76,28 +76,13 @@ const styles = {
     modalContainer: {
         position: 'relative',
     },
-<<<<<<< HEAD
     taglineStyle: {
         opacity: 0,
     },
-=======
 
     infoBtn: {
         backgroundColor: '#2d3e4f',
     }
-    // modalContainer {
-    //      position: absolute,
-    // }
-    // modal {
-    //      position: absolute,
-    // },
-    // modalContainer {
-    //      position: absolute,
-    // },
-    // modalBackdrop {
-    //     position: absolute,
-    // },
->>>>>>> d386c06fe670e0caf3246bccd5b676bc3cb53ed1
 };
 
 class SingleActivityModal extends React.Component {
@@ -159,19 +144,7 @@ class SingleActivityModal extends React.Component {
                     <Modal.Body>
                         <div className={ classes.descriptionTextContainer }>
                           <span className={ classes.descriptionText }>
-<<<<<<< HEAD
-                            Here is some more info! We know you will love the activity! Please press "save" to see more
-                            information.
-                            <br />
-                            <br />
-                            Date: { date }
-                            <br />
-                            Location: { location }
-                            <br />
-                            Price: { price }
-=======
                             A Game 7 is one of the rarest treats in sports, and baseball fans have been lucky enough to witness three of the last four World Series go the distance. Not since the 1980s has the World Series gone to a winner-take-all game three times in a four-year span. The Houston Astros look to come into Los Angeles to win it all, while the Dodgers hope to hoist the trophy in front of their hometown.
->>>>>>> d386c06fe670e0caf3246bccd5b676bc3cb53ed1
                           </span>
                         </div>
                         <div className={ classes.buttonContainer }>
