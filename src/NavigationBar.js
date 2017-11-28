@@ -40,6 +40,9 @@ const styles = {
     },
     space: {
         marginBottom: '5px',
+    },
+    aNavItem: {
+        marginLeft: '10px',
     }
 }
 
@@ -97,11 +100,17 @@ class NavigationBar extends React.Component {
                     <Navbar.Collapse className={classes.navbarContent}>
                         <Nav pullRight>
                             <NavDropdown eventKey={3} title="User" id="basic-nav-dropdown">
-                                <Link to="/Homepage">Homepage</Link>
+                                <span className={classes.aNavItem}>
+                                    <Link to="/Homepage">Homepage</Link>
+                                </span>
                                 <div className={ classes.space } />
-                                <Link to="/SavedActivities">SavedActivities</Link>
+                                <span className={classes.aNavItem}>
+                                    <Link to="/SavedActivities">SavedActivities</Link>
+                                </span>
                                 <div className={ classes.space } />
-                                <Link to="/Settings">Settings</Link>
+                                <span className={classes.aNavItem}>
+                                    <Link to="/Settings">Settings</Link>
+                                </span>
                                 <MenuItem divider />
                                 <Link to="/LoginCreateAccount" onClick={fbLogoutUser}>Log Out</Link>
                             </NavDropdown>
