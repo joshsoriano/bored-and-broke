@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import classNames from 'classnames';
 import Carousel from 'react-bootstrap/lib/Carousel';
-import {Form, FormGroup, ControlLabel, FormControl, Col, Checkbox} from 'react-bootstrap'
 import Modal from 'react-bootstrap/lib/Modal';
 import Button from 'react-bootstrap/lib/Button';
 import eventExample from './eventExample.png';
@@ -12,7 +11,6 @@ import logo_black from './images/logo-black.png';
 const propTypes = {
     classes: PropTypes.object.isRequired,
     onRequestClose: PropTypes.func,
-    savedAlready: PropTypes.bool,
 };
 
 const defaultProps = {
@@ -22,9 +20,11 @@ const defaultProps = {
 const styles = {
     main: {
       position: 'relative',
-    //   height: '100px',
+      height: '100px',
       width: '100px',
+    //   margin: 'auto',
       background: '#1ABC9C',
+    //   marginTop: '100px',
     },
     titleTextContainer: {
       paddingBottom: '4px',
@@ -64,21 +64,31 @@ const styles = {
     buttonContainer: {
         marginTop: '20px',
         display: 'flex',
-        // marginLeft: '20px',
-        // marginRight: '20px',
-        justifyContent: 'center',
-        marginBottom: '10px',
+        marginLeft: '20px',
+        marginRight: '20px',
+        justifyContent: 'space-between',
     },
     carouselOn: {
         opacity: '0',
-        height: '10px',
     },
+    // tagline: {
+    //     opacity: '0',
+    // }
     modalContainer: {
         position: 'relative',
     },
-    taglineStyle: {
-        opacity: 0,
-    },
+    // modalContainer {
+    //      position: absolute,
+    // }
+    // modal {
+    //      position: absolute,
+    // },
+    // modalContainer {
+    //      position: absolute,
+    // },
+    // modalBackdrop {
+    //     position: absolute,
+    // },
 };
 
 class SingleActivityModal extends React.Component {
@@ -87,28 +97,17 @@ class SingleActivityModal extends React.Component {
         // this.onNavItemClick = this.onNavItemClick.bind(this);
         this.state = {
             show: false,
-            tagline: false,
         };
     }
-
     render() {
         const { classes, showModal } = this.props;
-        const date = "01-01-2001";
-        const location = "Keck Lab";
-        const price = "$0";
-
-        const isSecondState = this.props.savedAlready; // when true, no carousel (because opacity is turned to 0. When false, carousel is there)
-
-        const isFirstState = false; // when true, no form for tagline
-
-        const taglineShow = isFirstState;
+        const isTimeForUsers = true; // when true, no carousel (because opacity is turned to 0. When false, carousel is there)
+        // const taglineClasses = classNames({
+        //     [classes.tagLine]: true,
+        // });
 
         const carouselClasses = classNames({
-            [classes.carouselOn]: isSecondState,
-        });
-
-        const taglineClasses = classNames({
-            [classes.taglineStyle]: taglineShow,
+            [classes.carouselOn]: isTimeForUsers,
         });
 
         let close = () => this.setState({ show: false });
@@ -135,24 +134,22 @@ class SingleActivityModal extends React.Component {
                     <Modal.Body>
                         <div className={ classes.descriptionTextContainer }>
                           <span className={ classes.descriptionText }>
-                            Here is some more info! We know you will love the activity! Please press "save" to see more
-                            information.
-                            <br />
-                            <br />
-                            Date: { date }
-                            <br />
-                            Location: { location }
-                            <br />
-                            Price: { price }
+                            We know you will love the activity. Please
+                            see more information here at&nbsp;
+                            <a href="mailto:yourfriends@joinhoney.com">
+                              <span className={ classes.link }>facebook.com</span>
+                            </a>
+                            &nbsp;to browse more events, or see a previous one, please use the arrows below.
                           </span>
                         </div>
                         <div className={ classes.buttonContainer }>
-                          <Button bastyle="primary" bsSize="large">{ this.props.onRequestClose } Save </Button>
+                          <Button bastyle="primary" bsSize="large">{ this.props.onRequestClose }Previous </Button>
+                          <Button bastyle="primary" bsSize="large">{ this.props.onRequestClose }Next> </Button>
                         </div>
                         <div className={ carouselClasses }>
                           <Carousel>
                               <Carousel.Item>
-                                <img width={300} height={200} align="middle" src={eventExample}/>
+                                <img width={300} height={300} align="middle" src={eventExample}/>
                                 <Carousel.Caption>
                                   <h3>First slide label</h3>
                                   <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
@@ -173,33 +170,6 @@ class SingleActivityModal extends React.Component {
                                 </Carousel.Caption>
                               </Carousel.Item>
                           </Carousel>
-                        </div>
-                        <div className={ taglineClasses }>
-
-                            <Form horizontal>
-                                <FormGroup controlId="formHorizontalEmail">
-                                  <Col componentClass={ControlLabel} sm={2}>
-                                    Tagline:
-                                  </Col>
-                                  <Col sm={10}>
-                                    <FormControl type="Name" placeholder="What's your vibes?" />
-                                  </Col>
-                                </FormGroup>
-
-                                <FormGroup>
-                                  <Col smOffset={2} sm={10}>
-                                    <Checkbox>Save</Checkbox>
-                                  </Col>
-                                </FormGroup>
-
-                                <FormGroup>
-                                  <Col smOffset={2} sm={10}>
-                                    <Button type="submit">
-                                      Skip
-                                    </Button>
-                                  </Col>
-                                </FormGroup>
-                            </Form>
                         </div>
                     </Modal.Body>
                     <Modal.Footer>
