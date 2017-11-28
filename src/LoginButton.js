@@ -2,12 +2,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
+import { Button } from 'react-bootstrap';
+// import { IconButton } from 'react-buttons';
+import fbButton from './images/fb_login.png';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-const styles = {};
+const styles = {
+  loginButton: {
+    cursor: 'pointer',
+  },
+};
 
 class LoginButton extends React.Component {
   /*
@@ -121,9 +128,9 @@ class LoginButton extends React.Component {
       //
       // These three cases are handled in the callback function.
       FB.getLoginStatus(function(response) {
-        this.statusChangeCallback(response);
-      }.bind(this));
-    }.bind(this);
+          this.statusChangeCallback(response);
+        }.bind(this));
+      }.bind(this);
 
     // Load the SDK asynchronously
     (function(d, s, id) {
@@ -147,7 +154,7 @@ class LoginButton extends React.Component {
   }
 
   redirectLoggedInUser() {
-    window.location = "/Homepage";
+    window.location = "/Loading";
   }
 
   // This is called with the results from from FB.getLoginStatus().
@@ -189,7 +196,7 @@ class LoginButton extends React.Component {
         console.log('Welcome!  Fetching your information.... ');
         FB.api('/me', function(response) {
           console.log('Good to see you, ' + response.name + '.');
-          window.location = "/Homepage";
+          window.location = "/Loading";
         });
       } else {
        console.log('User cancelled login or did not fully authorize.');
@@ -198,9 +205,9 @@ class LoginButton extends React.Component {
   }
 
   render() {
-    return <a href="#" onClick={this.handleClick}>Login</a>
+    const { classes } = this.props;
+    return <img src={fbButton} height='50px' onmouseover="" className={ classes.loginButton } onClick={this.handleClick}/>
   }
 }
-
 LoginButton.propTypes = propTypes;
 export default injectSheet(styles)(LoginButton);

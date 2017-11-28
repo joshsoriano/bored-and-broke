@@ -1,0 +1,26 @@
+
+Hi, Bored and Broke team ----
+
+Very nice work on this Preliminary SDD!
+
+Just a couple of things to address:
+
+1) the use case diagram [at least the one I see] only shows the user as an
+   actor.  Where's the other parts of the system that you list, the front
+   end, AWS, etc?
+2) the state diagram looks good; for the detailed version, make sure there
+   are labels on the lines for the actions that move the system from state
+   to state, and that the boxes are named with noun states not verbs.
+   [Also, the boxes are technically supposed to have rounded corners...
+   .....'s all I'm sayin' ]
+3) Double-check your grammar; there are some "funny things" like repeated
+   articles ["the the database"] and tenses that don't match.
+
+Great job overall.
+
+Fix these items in the next release for full credit on the document.
+
+You have 10% out of 10% which is an A-plus.
+
+Regards,
+Prof. Johnson
