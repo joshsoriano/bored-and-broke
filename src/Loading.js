@@ -21,7 +21,7 @@ class Loading extends React.Component {
     const { classes } = this.props;
     return (
      <div>
-     L o a d i n g!! 
+     L o a d i n g 
      </div>
     );
   }
