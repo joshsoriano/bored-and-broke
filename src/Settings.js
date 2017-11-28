@@ -7,6 +7,8 @@ import { Form, FormGroup, ControlLabel, FormControl, Col, Checkbox } from 'react
 import eventExample from './eventExample.png';
 import NavigationBar from './NavigationBar.js';
 import logo_offwhite from './images/logo-offwhite.png';
+import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
+
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -14,10 +16,9 @@ const propTypes = {
 
 const styles = {
     main: {
-        backgroundColor: '#2C3E50',
+        backgroundColor: '#16A085',
         textAlign: 'center',
         height: '900px',
-        // height: '100%',
     },
     user: {
         marginRight: '15px',
@@ -33,14 +34,22 @@ const styles = {
         margin: 'auto',
         color: '#ECF0F1',
     },
-    bio: {
-        height: '100px'
+    email: {
+        color: '#ababab'
+    },
+    deavtivate: {
+        display: 'block',
+        marginTop: '15px',
+        color: '#E74C3C',
+        fontWeight: 'bold'
+    },
+    save: {
+        fontWeight: 'bold',
+        color: '#2C3E50',
+        backgroundColor: '#ECF0F1',
+        marginTop: '15px'
     }
 };
-
-// <div className={ classes.navBar }>
-//     <img src={logo_offwhite} className={ classes.envelopeImage } height='60px' />
-// </div>
 
 class Settings extends React.Component {
   render() {
@@ -64,11 +73,13 @@ class Settings extends React.Component {
                 </FormGroup>
 
                 <FormGroup controlId="formHorizontalEmail">
-                  <Col componentClass={ControlLabel} sm={4}>
+                  <Col componentClass={ControlLabel} sm={6}>
                     Email associated with this account
                   </Col>
-                  <Col sm={8}>
-                    <FormControl type="Email" placeholder="Email" disabled="true"/>
+                  <Col sm={6}>
+                    <FormControl.Static className={ classes.email }>
+                      email@example.com
+                    </FormControl.Static>
                   </Col>
                 </FormGroup>
 
@@ -77,23 +88,25 @@ class Settings extends React.Component {
                     Bio
                   </Col>
                   <Col sm={10}>
-                    <FormControl className={ classes.bio } type="Bio" placeholder="Talk about yourself!"/>
+                    <textarea className="form-control" rows="3" placeholder="Talk about yourself!"></textarea>
                   </Col>
                 </FormGroup>
 
-                <FormGroup>
-                  <Col smOffset={2} sm={10}>
-                    <Checkbox>Remember me</Checkbox>
+                <FormGroup controlId="formHorizontalDeactivate" >
+                  <Col componentClass={ControlLabel} sm={6}>
+                    No longer want to use Bored&Broke?
+                  </Col>
+                  <Col sm={6}>
+                    <Link className={ classes.deavtivate } to="/LoginCreateAccount">Deactivate Account</Link>
                   </Col>
                 </FormGroup>
 
-                <FormGroup>
+                <FormGroup controlId="formHorizontalSave" >
                   <Col smOffset={2} sm={10}>
-                    <Button type="submit">
-                      Sign in
-                    </Button>
+                    <Button bsSize="small" className={ classes.save } href="/Homepage">Save</Button>
                   </Col>
                 </FormGroup>
+
             </Form>
         </div>
       </div>
