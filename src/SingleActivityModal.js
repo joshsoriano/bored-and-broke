@@ -71,7 +71,7 @@ const styles = {
         marginBottom: '10px',
     },
     carouselOn: {
-        opacity: '0',
+        opacity: 0,
         height: '10px',
     },
     modalContainer: {
@@ -95,8 +95,8 @@ class SingleActivityModal extends React.Component {
         this.state = {
             show: false,
             tagline: false,
-            secondState: false,
-            thirdState: false,
+            secondState: true,
+            thirdState: true,
         };
     }
 
@@ -119,20 +119,15 @@ class SingleActivityModal extends React.Component {
         const location = "Keck Lab";
         const price = "$0";
 
-        // SecondState means that the tagline box is showing
-        // const isSecondState = this.props.savedAlready; // when true, no carousel (because opacity is turned to 0. When false, carousel is there)
+        const taglineClasses = classNames({
+            [classes.taglineStyle]: this.state.secondState,
+        });
 
-        const isFirstState = false; // when true, no form for tagline
-
-        const taglineShow = isFirstState;
 
         const carouselClasses = classNames({
-            [classes.carouselOn]: this.state.secondState,
+            [classes.carouselOn]: this.state.thirdState,
         });
 
-        const taglineClasses = classNames({
-            [classes.taglineStyle]: this.state.thirdState,
-        });
 
         let close = () => this.setState({ show: false });
 
