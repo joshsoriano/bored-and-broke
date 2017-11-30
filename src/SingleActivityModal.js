@@ -13,6 +13,7 @@ const propTypes = {
     classes: PropTypes.object.isRequired,
     onRequestClose: PropTypes.func,
     savedAlready: PropTypes.bool,
+    readyForCarousel: PropTypes.bool,
 };
 
 const defaultProps = {
@@ -90,10 +91,12 @@ class SingleActivityModal extends React.Component {
         super(props);
         // this.onNavItemClick = this.onNavItemClick.bind(this);
         this.changeToSecondState = this.changeToSecondState.bind(this);
+        this.changeToThirdState = this.changeToThirdState.bind(this);
         this.state = {
             show: false,
             tagline: false,
             secondState: false,
+            thirdState: false,
         };
     }
 
@@ -103,9 +106,15 @@ class SingleActivityModal extends React.Component {
       });
     };
 
+    changeToThirdState() {
+        this.setState({
+            thirdState: this.props.readyForCarousel,
+      });
+    };
+
     render() {
         const { classes, showModal } = this.props;
-        const { secondState } = this.state;
+        const { secondState, thirdState } = this.state;
         const date = "01-01-2001";
         const location = "Keck Lab";
         const price = "$0";
@@ -122,7 +131,7 @@ class SingleActivityModal extends React.Component {
         });
 
         const taglineClasses = classNames({
-            [classes.taglineStyle]: taglineShow,
+            [classes.taglineStyle]: this.state.thirdState,
         });
 
         let close = () => this.setState({ show: false });
@@ -197,19 +206,14 @@ class SingleActivityModal extends React.Component {
                                   </Col>
                                 </FormGroup>
 
-                                <FormGroup>
-                                  <Col smOffset={1} sm={10}>
-                                    <Checkbox>Save Tagline</Checkbox>
-                                  </Col>
-                                </FormGroup>
+                                <div className={ classes.buttonContainer }>
+                                  <Button onClick={ this.changeToThirdState } bastyle="primary" bsSize="small">{ this.props.onRequestClose } Save Tagline </Button>
+                                </div>
 
-                                <FormGroup>
-                                  <Col smOffset={1} sm={10}>
-                                    <Button type="submit">
-                                      Skip
-                                    </Button>
-                                  </Col>
-                                </FormGroup>
+                                <div className={ classes.buttonContainer }>
+                                  <Button onClick={ this.changeToThirdState } bastyle="primary" bsSize="small">{ this.props.onRequestClose } Skip </Button>
+                                </div>
+
                             </Form>
                         </div>
                     </Modal.Body>
