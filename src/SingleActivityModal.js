@@ -68,7 +68,7 @@ const styles = {
         // marginLeft: '20px',
         // marginRight: '20px',
         justifyContent: 'center',
-        marginBottom: '10px',
+        marginBottom: '25px',
     },
     carouselOn: {
         opacity: 0,
@@ -109,6 +109,7 @@ class SingleActivityModal extends React.Component {
     changeToThirdState() {
         this.setState({
             thirdState: this.props.readyForCarousel,
+            secondState: !this.props.secondState,
       });
     };
 
@@ -202,7 +203,7 @@ class SingleActivityModal extends React.Component {
                                 </FormGroup>
 
                                 <div className={ classes.buttonContainer }>
-                                  <Button onClick={ this.changeToThirdState } bastyle="primary" bsSize="small">{ this.props.onRequestClose } Save Tagline </Button>
+                                  <Button onClick={ this.changeToThirdState } bastyle="primary" bsSize="small"> { this.props.onRequestClose } Save Tagline </Button>
                                 </div>
 
                                 <div className={ classes.buttonContainer }>
