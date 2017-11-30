@@ -69,4 +69,4 @@ There should be a Search button for the user to apply the search parameters to t
 ## 10.3 Module Dependencies
 The database.js file makes references activity.js, sequelize.js, and models.js. Since it is dependent on their outputs, the tests for database.js should be completed afterwards. 
 
-
+![module dependencies](https://raw.githubusercontent.com/joshsoriano/bored-and-broke/master/documents/test%20plan%20document/moduleDependencies.png)
