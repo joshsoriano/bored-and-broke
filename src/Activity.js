@@ -20,7 +20,7 @@ const styles = {
     },
     textDetails: {
         paddingTop: '0px',
-        color: '#2C3E4E',        
+        color: '#2C3E4E',
     },
 };
 
@@ -33,7 +33,11 @@ class Activity extends React.Component {
                     <div className = {classes.textDetails}>
                         <h3 className = {classes.activityTitle}>Activity Title</h3>
                         <p className = {classes.activityDesc}>Activity Description</p>
-                        <SingleActivityModal />
+
+                        <SingleActivityModal
+                              savedAlready={ true }
+                        >
+                        </SingleActivityModal>
                     </div>
                 </Thumbnail>
             </Col>
