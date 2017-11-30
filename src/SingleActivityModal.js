@@ -101,6 +101,7 @@ class SingleActivityModal extends React.Component {
         const location = "Keck Lab";
         const price = "$0";
 
+        // secondState means that the tagline input field should be showing 
         const isSecondState = this.props.savedAlready; // when true, no carousel (because opacity is turned to 0. When false, carousel is there)
 
         const isFirstState = false; // when true, no form for tagline
