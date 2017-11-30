@@ -101,7 +101,7 @@ class NavigationBar extends React.Component {
                                 </span>
                                 <div className={ classes.space } />
                                 <span className={classes.aNavItem}>
-                                    <Link to="/SavedActivities">SavedActivities</Link>
+                                    <Link to="/SavedActivities">Saved Activities</Link>
                                 </span>
                                 <div className={ classes.space } />
                                 <span className={classes.aNavItem}>
@@ -110,7 +110,7 @@ class NavigationBar extends React.Component {
                                 <MenuItem divider />
                                 <div className={ classes.space } />
                                 <span className={classes.aNavItem}>
-                                    <Link to="/LoginCreateAccount" onClick={fbLogoutUser}>Log Out</Link>
+                                    <Link to="/LoginCreateAccount" onClick={fbLogoutUser}>Logout</Link>
                                 </span>
                             </NavDropdown>
                         </Nav>
