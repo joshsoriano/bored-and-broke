@@ -89,27 +89,36 @@ class SingleActivityModal extends React.Component {
     constructor(props) {
         super(props);
         // this.onNavItemClick = this.onNavItemClick.bind(this);
+        this.changeToSecondState = this.changeToSecondState.bind(this);
         this.state = {
             show: false,
             tagline: false,
+            secondState: false,
         };
     }
 
+    changeToSecondState() {
+        this.setState({
+            secondState: this.props.savedAlready,
+      });
+    };
+
     render() {
         const { classes, showModal } = this.props;
+        const { secondState } = this.state;
         const date = "01-01-2001";
         const location = "Keck Lab";
         const price = "$0";
 
-        // secondState means that the tagline input field should be showing 
-        const isSecondState = this.props.savedAlready; // when true, no carousel (because opacity is turned to 0. When false, carousel is there)
+        // SecondState means that the tagline box is showing
+        // const isSecondState = this.props.savedAlready; // when true, no carousel (because opacity is turned to 0. When false, carousel is there)
 
         const isFirstState = false; // when true, no form for tagline
 
         const taglineShow = isFirstState;
 
         const carouselClasses = classNames({
-            [classes.carouselOn]: isSecondState,
+            [classes.carouselOn]: this.state.secondState,
         });
 
         const taglineClasses = classNames({
@@ -149,7 +158,7 @@ class SingleActivityModal extends React.Component {
                           </span>
                         </div>
                         <div className={ classes.buttonContainer }>
-                          <Button bastyle="primary" bsSize="large">{ this.props.onRequestClose } Save </Button>
+                          <Button onClick={ this.changeToSecondState } bastyle="primary" bsSize="large">{ this.props.onRequestClose } Save Event </Button>
                         </div>
                         <div className={ carouselClasses }>
                           <Carousel>
@@ -189,13 +198,13 @@ class SingleActivityModal extends React.Component {
                                 </FormGroup>
 
                                 <FormGroup>
-                                  <Col smOffset={2} sm={10}>
-                                    <Checkbox>Save</Checkbox>
+                                  <Col smOffset={1} sm={10}>
+                                    <Checkbox>Save Tagline</Checkbox>
                                   </Col>
                                 </FormGroup>
 
                                 <FormGroup>
-                                  <Col smOffset={2} sm={10}>
+                                  <Col smOffset={1} sm={10}>
                                     <Button type="submit">
                                       Skip
                                     </Button>
