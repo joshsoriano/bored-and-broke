@@ -79,6 +79,7 @@ const styles = {
     },
     taglineStyle: {
         opacity: 0,
+        height: '10px',
     },
 
     infoBtn: {
@@ -194,7 +195,7 @@ class SingleActivityModal extends React.Component {
 
                         </div>
 
-                        
+
                         <div className={ carouselClasses }>
                           <Carousel>
                               <Carousel.Item>
