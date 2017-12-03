@@ -100,11 +100,14 @@ class SingleActivityModal extends React.Component {
         this.changeToSecondState = this.changeToSecondState.bind(this);
         this.changeToThirdState = this.changeToThirdState.bind(this);
         // this.removeFromSaved = this.removeFromSaved.bind(this);
+        this.getTaglineState = this.getTaglineState.bind(this);
+        this.handleTagline = this.handleTagline.bind(this);
         this.state = {
             show: false,
             tagline: false,
             secondState: true,
             thirdState: true,
+            value: '',
         };
     }
 
@@ -115,11 +118,21 @@ class SingleActivityModal extends React.Component {
       // unsave logic needs to go here
     };
 
-    changeToThirdState() {
+    getTaglineState() {
+        const taglineVal = this.state.value;
+        console.log("taglineVal:", taglineVal)
+        const length = this.state.value.length; //need to make sure it's not too long
+    };
+
+
+    changeToThirdState(e) {
         this.setState({
             thirdState: this.props.readyForCarousel,
             secondState: !this.props.secondState,
+            // value: e.target.value,
       });
+    //   console.log("tagline is:", this.state.value);
+      // also deal with saving the tagline in this funciton ^^^
     };
 
     // removeFromSaved() {
@@ -127,9 +140,17 @@ class SingleActivityModal extends React.Component {
     // };
     // put this in the unsave button's html: onClick={ this.removeFromSaved }
 
+
+    handleTagline(e) {
+        this.setState({
+            value: e.target.value,
+      });
+      console.log("tagline is:", this.state.value);
+    };
+
     render() {
         const { classes, showModal } = this.props;
-        const { secondState, thirdState } = this.state;
+        const { secondState, thirdState, value } = this.state;
         const date = "01-01-2001";
         const location = "Keck Lab";
         const price = "$0";
@@ -204,12 +225,12 @@ class SingleActivityModal extends React.Component {
 
                         <div className={ taglineClasses }>
                             <Form horizontal>
-                                <FormGroup controlId="formHorizontalEmail">
+                                <FormGroup controlId="formHorizontalEmail" validationState={ this.getTaglineState() }>
                                   <Col componentClass={ControlLabel} sm={2}>
                                     Tagline:
                                   </Col>
                                   <Col sm={10}>
-                                    <FormControl type="Name" placeholder="What's your vibes?" />
+                                    <FormControl type="Name" value={ this.state.value } placeholder="What's your vibes?" onChange={ this.handleTagline } />
                                   </Col>
                                 </FormGroup>
                             </Form>
