@@ -99,7 +99,7 @@ class SingleActivityModal extends React.Component {
         // this.onNavItemClick = this.onNavItemClick.bind(this);
         this.changeToSecondState = this.changeToSecondState.bind(this);
         this.changeToThirdState = this.changeToThirdState.bind(this);
-        // this.removeFromSaved = this.removeFromSaved.bind(this);
+        this.removeFromSaved = this.removeFromSaved.bind(this);
         this.getTaglineState = this.getTaglineState.bind(this);
         this.handleTagline = this.handleTagline.bind(this);
         this.state = {
@@ -115,13 +115,19 @@ class SingleActivityModal extends React.Component {
         this.setState({
             secondState: this.props.savedAlready,
       });
-      // unsave logic needs to go here
     };
 
     getTaglineState() {
-        const taglineVal = this.state.value;
+        const taglineVal = this.state.value; //this is the most accurate one! Use this!
         console.log("taglineVal:", taglineVal)
         const length = this.state.value.length; //need to make sure it's not too long
+    };
+
+    handleTagline(e) {
+        this.setState({
+            value: e.target.value, //note that the taglineVal is more accurate
+      });
+      console.log("tagline is:", this.state.value);
     };
 
 
@@ -129,24 +135,17 @@ class SingleActivityModal extends React.Component {
         this.setState({
             thirdState: this.props.readyForCarousel,
             secondState: !this.props.secondState,
-            // value: e.target.value,
       });
-    //   console.log("tagline is:", this.state.value);
-      // also deal with saving the tagline in this funciton ^^^
     };
 
-    // removeFromSaved() {
-    //
-    // };
-    // put this in the unsave button's html: onClick={ this.removeFromSaved }
-
-
-    handleTagline(e) {
+    removeFromSaved() {
         this.setState({
-            value: e.target.value,
+            secondState: true,
+            thirdState: true,
       });
-      console.log("tagline is:", this.state.value);
     };
+
+
 
     render() {
         const { classes, showModal } = this.props;
@@ -220,7 +219,7 @@ class SingleActivityModal extends React.Component {
                         </div>
 
                         <div className={ unSaveButtonClasses }>
-                          <Button bastyle="primary" bsSize="large">{ this.props.onRequestClose } Unsave </Button>
+                          <Button onClick={ this.removeFromSaved } bastyle="primary" bsSize="large">{ this.props.onRequestClose } Unsave </Button>
                         </div>
 
                         <div className={ taglineClasses }>
