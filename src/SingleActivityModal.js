@@ -64,12 +64,10 @@ const styles = {
       height: '71px',
     },
     buttonContainer: {
-        marginTop: '20px',
+        marginTop: '15px',
         display: 'flex',
-        // marginLeft: '20px',
-        // marginRight: '20px',
         justifyContent: 'center',
-        marginBottom: '25px',
+        marginBottom: '15px',
     },
     carouselOn: {
         opacity: 0,
@@ -88,6 +86,7 @@ const styles = {
     },
     unsaveB: {
         opacity: 0,
+        height: '5px',
     },
     saveBon: {
         opacity: 0,
