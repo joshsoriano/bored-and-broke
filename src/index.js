@@ -1,7 +1,7 @@
 /*global FB*/
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Link, Redirect, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 // import injectSheet from 'react-jss';
 // import './index.css';
 import PropTypes from 'prop-types';
@@ -29,7 +29,7 @@ class BoredAndBroke extends React.Component {
   render() {
     // const status = 'This is our project:';
     let loggedIn = true;
-    const { classes } = this.props;
+    // const { classes } = this.props;
     window.fbAsyncInit = function() {
       FB.init({
         appId            : '1960748417506782',

@@ -115,6 +115,7 @@ class SingleActivityModal extends React.Component {
         this.setState({
             secondState: this.props.savedAlready,
       });
+      // more logic here to add this event to a user's list of saved events
     };
 
     getTaglineState() {
@@ -136,6 +137,7 @@ class SingleActivityModal extends React.Component {
             thirdState: this.props.readyForCarousel,
             secondState: !this.props.secondState,
       });
+      //pull the other user's who have also liked this event 
     };
 
     removeFromSaved() {
@@ -143,6 +145,7 @@ class SingleActivityModal extends React.Component {
             secondState: true,
             thirdState: true,
       });
+      //more logic here to remove event from the user's list of saved events
     };
 
 
