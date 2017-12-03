@@ -7,6 +7,7 @@ import {Form, FormGroup, ControlLabel, FormControl, Col, Checkbox} from 'react-b
 import Modal from 'react-bootstrap/lib/Modal';
 import Button from 'react-bootstrap/lib/Button';
 import eventExample from './userImage.png';
+import imageExample from './user2image.png';
 import logo_black from './images/logo-black.png';
 
 const propTypes = {
@@ -199,22 +200,16 @@ class SingleActivityModal extends React.Component {
                               <Carousel.Item>
                                 <img width={300} height={200} align="middle" src={eventExample}/>
                                 <Carousel.Caption>
-                                  <h3>First slide label</h3>
-                                  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                  <h3>User 1</h3>
+                                  <p>"Looking forward to tonight's concert!"</p>
                                 </Carousel.Caption>
                               </Carousel.Item>
+
                               <Carousel.Item>
-                                <img width={200} height={200} src={logo_black}/>
+                                <img width={200} height={200} alt="900x500" src={imageExample}/>
                                 <Carousel.Caption>
-                                  <h3>Second slide label</h3>
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                </Carousel.Caption>
-                              </Carousel.Item>
-                              <Carousel.Item>
-                                <img width={200} height={200} alt="900x500" src="/assets/carousel.png"/>
-                                <Carousel.Caption>
-                                  <h3>Third slide label</h3>
-                                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                                  <h3>User 2</h3>
+                                  <p>Anyone want to carpool?.</p>
                                 </Carousel.Caption>
                               </Carousel.Item>
                           </Carousel>
