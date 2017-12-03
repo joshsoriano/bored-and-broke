@@ -121,6 +121,11 @@ class SingleActivityModal extends React.Component {
         const location = "Keck Lab";
         const price = "$0";
 
+        let saveUnsaveText = "Unsave Event";
+        if (this.state.thirdState) {
+            saveUnsaveText = "Save Event";
+        }
+
         const taglineClasses = classNames({
             [classes.taglineStyle]: this.state.secondState,
         });
@@ -159,20 +164,16 @@ class SingleActivityModal extends React.Component {
                     </Modal.Header>
                     <Modal.Body>
 
-
-
-
                         <div className={ classes.descriptionTextContainer }>
                           <span className={ classes.descriptionText }>
                             A Game 7 is one of the rarest treats in sports, and baseball fans have been lucky enough to witness three of the last four World Series go the distance! Not since the 1980s has the World Series gone to a winner-take-all game three times in a four-year span. The Houston Astros look to come into Los Angeles to win it all, while the Dodgers hope to hoist the trophy in front of their hometown.
                           </span>
                         </div>
                         <div className={ classes.buttonContainer }>
-                          <Button onClick={ this.changeToSecondState } bastyle="primary" bsSize="large">{ this.props.onRequestClose } Save Event </Button>
+                          <Button onClick={ this.changeToSecondState } bastyle="primary" bsSize="large">{ this.props.onRequestClose } { saveUnsaveText } </Button>
                         </div>
 
                         <div className={ taglineClasses }>
-
                             <Form horizontal>
                                 <FormGroup controlId="formHorizontalEmail">
                                   <Col componentClass={ControlLabel} sm={2}>
@@ -182,7 +183,6 @@ class SingleActivityModal extends React.Component {
                                     <FormControl type="Name" placeholder="What's your vibes?" />
                                   </Col>
                                 </FormGroup>
-
                             </Form>
 
                             <div className={ classes.buttonContainer }>
@@ -194,8 +194,6 @@ class SingleActivityModal extends React.Component {
                             </div>
 
                         </div>
-
-
                         <div className={ carouselClasses }>
                           <Carousel>
                               <Carousel.Item>
@@ -221,7 +219,6 @@ class SingleActivityModal extends React.Component {
                               </Carousel.Item>
                           </Carousel>
                         </div>
-
                     </Modal.Body>
                     <Modal.Footer>
                         <Button onClick={close}>Close</Button>
