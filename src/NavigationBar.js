@@ -16,6 +16,7 @@ import LoginCreateAccount from './LoginCreateAccount.js';
 import SavedActivities from './SavedActivities.js';
 import Settings from './Settings.js';
 import Homepage from './Homepage.js';
+import { removeUserID } from './userID';
 
 
 const LINKS = [

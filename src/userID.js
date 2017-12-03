@@ -5,3 +5,7 @@ export function saveUserID(userID) {
 export function getUserID() {
   return sessionStorage.getItem('userID');
 }
+
+export function removeUserID() {
+  sessionStorage.removeItem('userID');
+}
