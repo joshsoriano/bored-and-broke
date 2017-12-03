@@ -3,18 +3,9 @@ import $ from 'jquery';
 import * as activity from './backend/activity.js';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-// import Button from 'react-bootstrap/lib/Button';
-// import eventExample from './eventExample.png';
-// import logo_black from './images/logo-black.png';
 import NavigationBar from './NavigationBar.js';
-// import logo_offwhite from './images/logo-offwhite.png';
 import HomepageSettings from './HomepageSettings.js';
-// import SingleActivityModal from './SingleActivityModal.js';
 import Activity from './Activity.js';
-// import LoginCreateAccount from './LoginCreateAccount.js';
-// import SavedActivities from './SavedActivities.js';
-// import Settings from './Settings.js';
-// import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -59,7 +50,6 @@ const styles = {
     },
     resultsContainer: {
         padding: '25px',
-        // justifyContent: 'center',
     },
     row: {
         display: 'flex',
@@ -84,37 +74,13 @@ class Homepage extends React.Component {
   Homepage() {
     // For demo.
     this.setState({ activities: activity.retrieve() });
-
     // Eventually we will use this function to load the activities.
     // this.setState({ activities: database.getFutureActivities() });
   }
 
   render() {
-
     // Map through the activities list here.
-    //
-    //
     const { classes } = this.props;
-
-    // const routing =
-    //     (<Router>
-    //         <div>
-    //             <ul>
-    //                 <li><Link to="/Homepage">Homepage</Link></li>
-    //                 <li><Link to="/SavedActivities">SavedActivities</Link></li>
-    //                 <li><Link to="/Settings">Settings</Link></li>
-    //                 <li><Link to="/LoginCreateAccount">LoginCreateAccount</Link></li>
-    //             </ul>
-    //
-    //             <Route exact path="/" render={() => (
-    //                 <LoginCreateAccount/>
-    //             )}/>
-    //             <Route path="/Homepage" component={Homepage}/>
-    //             <Route path="/SavedActivities" component={SavedActivities}/>
-    //             <Route path="/Settings" component={Settings}/>
-    //             <Route path="/LoginCreateAccount" component={LoginCreateAccount}/>
-    //         </div>
-    //     </Router>);
 
     return (
       <div className={ classes.main }>

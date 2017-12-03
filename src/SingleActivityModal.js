@@ -24,7 +24,6 @@ const defaultProps = {
 const styles = {
     main: {
       position: 'relative',
-    //   height: '100px',
       width: '100px',
       background: '#1ABC9C',
     },
@@ -96,7 +95,6 @@ const styles = {
 class SingleActivityModal extends React.Component {
     constructor(props) {
         super(props);
-        // this.onNavItemClick = this.onNavItemClick.bind(this);
         this.changeToSecondState = this.changeToSecondState.bind(this);
         this.changeToThirdState = this.changeToThirdState.bind(this);
         this.removeFromSaved = this.removeFromSaved.bind(this);
@@ -119,7 +117,7 @@ class SingleActivityModal extends React.Component {
     };
 
     getTaglineState() {
-        const taglineVal = this.state.value; //this is the most accurate one! Use this!
+        const taglineVal = this.state.value;  //this is the most accurate one! Use this!
         console.log("taglineVal:", taglineVal)
         const length = this.state.value.length; //need to make sure it's not too long
     };
@@ -137,7 +135,7 @@ class SingleActivityModal extends React.Component {
             thirdState: this.props.readyForCarousel,
             secondState: !this.props.secondState,
       });
-      //pull the other user's who have also liked this event 
+      //pull the other user's who have also liked this event
     };
 
     removeFromSaved() {
@@ -157,10 +155,10 @@ class SingleActivityModal extends React.Component {
         const location = "Keck Lab";
         const price = "$0";
 
-        let saveUnsaveText = "Unsave Event";
-        if (this.state.thirdState) {
-            saveUnsaveText = "Save Event";
-        }
+        // let saveUnsaveText = "Unsave Event";
+        // if (this.state.thirdState) {
+        //     saveUnsaveText = "Save Event";
+        // }
         // if saveUnsaveText = "Unsave Event" AND the button is clicked, the carousel and tagline need to go away
 
         const taglineClasses = classNames({

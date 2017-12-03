@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-// import { Modal } from 'react-bootstrap';
 import LoginButton from './LoginButton.js';
 import logoBlack from './images/logo-black.png';
 import logoArt from './images/logo3.png';
@@ -15,9 +14,7 @@ const propTypes = {
 const styles = {
     background: {
         textAlign: 'center',
-        // height: '900px',
         height: '900px',
-        // backgroundColor: '#2C3E50',
         backgroundImage: `url(${logoArt})`,
     },
     leftMain: {
