@@ -85,6 +85,12 @@ const styles = {
 
     infoBtn: {
         backgroundColor: '#2d3e4f',
+    },
+    unsaveB: {
+        opacity: 0,
+    },
+    saveBon: {
+        opacity: 0,
     }
 };
 
@@ -94,6 +100,7 @@ class SingleActivityModal extends React.Component {
         // this.onNavItemClick = this.onNavItemClick.bind(this);
         this.changeToSecondState = this.changeToSecondState.bind(this);
         this.changeToThirdState = this.changeToThirdState.bind(this);
+        // this.removeFromSaved = this.removeFromSaved.bind(this);
         this.state = {
             show: false,
             tagline: false,
@@ -106,7 +113,7 @@ class SingleActivityModal extends React.Component {
         this.setState({
             secondState: this.props.savedAlready,
       });
-      // unsave logic needs to go here 
+      // unsave logic needs to go here
     };
 
     changeToThirdState() {
@@ -115,6 +122,11 @@ class SingleActivityModal extends React.Component {
             secondState: !this.props.secondState,
       });
     };
+
+    // removeFromSaved() {
+    //
+    // };
+    // put this in the unsave button's html: onClick={ this.removeFromSaved }
 
     render() {
         const { classes, showModal } = this.props;
@@ -136,6 +148,16 @@ class SingleActivityModal extends React.Component {
 
         const carouselClasses = classNames({
             [classes.carouselOn]: this.state.thirdState,
+        });
+
+        const saveButtonClasses = classNames({
+            [classes.buttonContainer]: true,
+            [classes.unsaveB]: !this.state.thirdState,
+        });
+
+        const unSaveButtonClasses = classNames({
+            [classes.buttonContainer]: true,
+            [classes.saveBon]: this.state.thirdState,
         });
 
 
@@ -172,8 +194,13 @@ class SingleActivityModal extends React.Component {
                             A Game 7 is one of the rarest treats in sports, and baseball fans have been lucky enough to witness three of the last four World Series go the distance! Not since the 1980s has the World Series gone to a winner-take-all game three times in a four-year span. The Houston Astros look to come into Los Angeles to win it all, while the Dodgers hope to hoist the trophy in front of their hometown.
                           </span>
                         </div>
-                        <div className={ classes.buttonContainer }>
-                          <Button onClick={ this.changeToSecondState } bastyle="primary" bsSize="large">{ this.props.onRequestClose } { saveUnsaveText } </Button>
+
+                        <div className = { saveButtonClasses }>
+                          <Button onClick={ this.changeToSecondState } bastyle="primary" bsSize="large">{ this.props.onRequestClose } Save Event </Button>
+                        </div>
+
+                        <div className={ unSaveButtonClasses }>
+                          <Button bastyle="primary" bsSize="large">{ this.props.onRequestClose } Unsave </Button>
                         </div>
 
                         <div className={ taglineClasses }>
