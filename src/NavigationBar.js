@@ -73,6 +73,7 @@ class NavigationBar extends React.Component {
          }(document, 'script', 'facebook-jssdk'));
 
          function fbLogoutUser() {
+           removeUserID();
             FB.getLoginStatus(function(response) {
                 if (response && response.status === 'connected') {
                     FB.logout(function(response) {
