@@ -106,6 +106,7 @@ class SingleActivityModal extends React.Component {
         this.setState({
             secondState: this.props.savedAlready,
       });
+      // unsave logic needs to go here 
     };
 
     changeToThirdState() {
@@ -126,6 +127,7 @@ class SingleActivityModal extends React.Component {
         if (this.state.thirdState) {
             saveUnsaveText = "Save Event";
         }
+        // if saveUnsaveText = "Unsave Event" AND the button is clicked, the carousel and tagline need to go away
 
         const taglineClasses = classNames({
             [classes.taglineStyle]: this.state.secondState,
