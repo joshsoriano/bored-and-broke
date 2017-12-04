@@ -26,7 +26,7 @@ const styles = {
         height: '100%',
     },
     instructions: {
-        font: "Verdana",
+        fontFamily: "Open Sans",
         margin: 'auto',
         marginBottom: '50px',
         fontSize: '15px',
@@ -102,43 +102,3 @@ class LoginCreateAccount extends React.Component {
 }
 LoginCreateAccount.propTypes = propTypes;
 export default injectSheet(styles)(LoginCreateAccount);
-
-// const { classes } = this.props;
-// return (
-//   <div className={ classes.main }>
-//     <Col className={ classes.leftMain } md={6}>
-//     </Col>
-//     <Col className={ classes.rightMain } md={6}>
-//       <div className={ classes.logoSpacer } />
-//       <CSSTransitionGroup
-//         transitionName="login"
-//         transitionAppear={true}
-//         transitionAppearTimeout={500}
-//         transitionEnter={false}
-//         transitionLeave={false}>
-//         <img src={logoLightTeal} className={ classes.envelopeImage } height='80px' />
-//       </CSSTransitionGroup>
-//       <div className={ classes.instructionSpacer } />
-//       <div className={ classes.instructions }>
-//           <CSSTransitionGroup
-//             transitionName="login"
-//             transitionAppear={true}
-//             transitionAppearTimeout={500}
-//             transitionEnter={false}
-//             transitionLeave={false}>
-//             <span>Connect with Facebook to start browsing events near you!</span>
-//           </CSSTransitionGroup>
-//       </div>
-//       <div className={ classes.loginButton }>
-//           <CSSTransitionGroup
-//             transitionName="login"
-//             transitionAppear={true}
-//             transitionAppearTimeout={500}
-//             transitionEnter={false}
-//             transitionLeave={false}>
-//             <LoginButton />
-//           </CSSTransitionGroup>
-//       </div>
-//     </Col>
-//   </div>
-// );

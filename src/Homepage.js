@@ -30,6 +30,7 @@ const styles = {
     title: {
         color: '#2C3E50',
         fontSize: '36px',
+        fontFamily: 'Open Sans',
     },
     logo_offwhite: {
         paddingLeft: '10px',

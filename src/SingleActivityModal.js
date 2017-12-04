@@ -26,16 +26,25 @@ const styles = {
       position: 'relative',
       width: '100px',
       background: '#1ABC9C',
+      fontFamily: 'Open Sans',
     },
     titleTextContainer: {
       paddingBottom: '4px',
       justifyContent: 'center',
       display: 'flex',
+      fontFamily: 'Open Sans',
     },
     titleText: {
       color: 'black',
       fontWeight: '500',
       fontSize: '18px',
+      fontFamily: 'Open Sans',
+    },
+    titleSubText: {
+      color: 'black',
+      fontWeight: '500',
+      fontSize: '15px',
+      fontFamily: 'Open Sans',
     },
     descriptionTextContainer: {
       justifyContent: 'center',
@@ -43,20 +52,24 @@ const styles = {
       textAlign: 'center',
       marginLeft: '42px',
       marginRight: '42px',
+      fontFamily: 'Open Sans',
     },
     descriptionText: {
       color: 'black',
       fontSize: '14px',
+      fontFamily: 'Open Sans',
     },
     link: {
       color: '#6386ef',
       textDecoration: 'underline',
+      fontFamily: 'Open Sans',
     },
     imageContainer: {
       display: 'flex',
       justifyContent: 'center',
       paddingBottom: '36px',
       paddingTop: '57px',
+      fontFamily: 'Open Sans',
     },
     envelopeImage: {
       width: '93px',
@@ -67,29 +80,39 @@ const styles = {
         display: 'flex',
         justifyContent: 'center',
         marginBottom: '15px',
+        fontFamily: 'Open Sans',
     },
     carouselOn: {
         opacity: 0,
         height: '10px',
+        fontFamily: 'Open Sans',
     },
     modalContainer: {
         position: 'relative',
+        fontFamily: 'Open Sans',
     },
     taglineStyle: {
         opacity: 0,
         height: '10px',
+        fontFamily: 'Open Sans',
     },
 
     infoBtn: {
         backgroundColor: '#2d3e4f',
+        fontFamily: 'Open Sans',
     },
     unsaveB: {
         opacity: 0,
         height: '5px',
+        fontFamily: 'Open Sans',
     },
     saveBon: {
         opacity: 0,
-    }
+        fontFamily: 'Open Sans',
+    },
+    closeBtn: {
+        fontFamily: 'Open Sans',
+    },
 };
 
 class SingleActivityModal extends React.Component {
@@ -106,6 +129,7 @@ class SingleActivityModal extends React.Component {
             secondState: true,
             thirdState: true,
             value: '',
+            // tagLongEnough: false,
         };
     }
 
@@ -119,7 +143,7 @@ class SingleActivityModal extends React.Component {
     getTaglineState() {
         const taglineVal = this.state.value;  //this is the most accurate one! Use this!
         console.log("taglineVal:", taglineVal)
-        const length = this.state.value.length; //need to make sure it's not too long
+        const tagLength = this.state.value.length; //need to make sure it's not too long
     };
 
     handleTagline(e) {
@@ -127,8 +151,12 @@ class SingleActivityModal extends React.Component {
             value: e.target.value, //note that the taglineVal is more accurate
       });
       console.log("tagline is:", this.state.value);
+    //   if (this.state.value.length < 1) {
+    //       this.setState({
+    //           tagLongEnough: false,
+    //     });
+    //   }
     };
-
 
     changeToThirdState(e) {
         this.setState({
@@ -147,10 +175,9 @@ class SingleActivityModal extends React.Component {
     };
 
 
-
     render() {
         const { classes, showModal } = this.props;
-        const { secondState, thirdState, value } = this.state;
+        const { secondState, thirdState, value, tagLongEnough } = this.state;
         const date = "01-01-2001";
         const location = "Keck Lab";
         const price = "$0";
@@ -201,11 +228,11 @@ class SingleActivityModal extends React.Component {
                     aria-labelledby="contained-modal-title"
                 >
                     <Modal.Header closeButton>
-                        <Modal.Title id="contained-modal-title">World Series, Game 7: Dodgers vs. Astros</Modal.Title>
-                        <h5>Date</h5>
-                        <h5>Time</h5>
-                        <h5>Location</h5>
-                        <h5>Price</h5>
+                        <Modal.Title className={ classes.titleText } id="contained-modal-title">World Series, Game 7: Dodgers vs. Astros</Modal.Title>
+                        <h5 className={ classes.titleSubText }>Date</h5>
+                        <h5 className={ classes.titleSubText }>Time</h5>
+                        <h5 className={ classes.titleSubText }>Location</h5>
+                        <h5 className={ classes.titleSubText }>Price</h5>
                     </Modal.Header>
                     <Modal.Body>
 
@@ -236,7 +263,8 @@ class SingleActivityModal extends React.Component {
                             </Form>
 
                             <div className={ classes.buttonContainer }>
-                              <Button onClick={ this.changeToThirdState } bastyle="primary" bsSize="small"> { this.props.onRequestClose } Save Tagline </Button>
+                              <Button onClick={ this.changeToThirdState } disabled={ !this.state.value }
+                                bastyle="primary" bsSize="small"> { this.props.onRequestClose } Save Tagline </Button>
                             </div>
 
                             <div className={ classes.buttonContainer }>
@@ -264,9 +292,6 @@ class SingleActivityModal extends React.Component {
                           </Carousel>
                         </div>
                     </Modal.Body>
-                    <Modal.Footer>
-                        <Button onClick={close}>Close</Button>
-                    </Modal.Footer>
                 </Modal>
             </div>
         );
