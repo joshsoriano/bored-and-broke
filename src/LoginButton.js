@@ -112,11 +112,7 @@ class LoginButton extends React.Component {
 
   render() {
     const { classes } = this.props;
-<<<<<<< HEAD
     return <img src={ fbButton } height='50px' onMouseOver={ this.mouseOver } className={ classes.loginButton } onClick={this.handleClick}/>
-=======
-    return <img src={ fbButton } height='50px' className={ classes.loginButton } onClick={this.handleClick}/>
->>>>>>> 1f7def5034546c16ae40dbd1609cc9a3d0878b08
   }
 }
 LoginButton.propTypes = propTypes;
