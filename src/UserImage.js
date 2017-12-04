@@ -7,13 +7,18 @@ const propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-const styles = { };
+const styles = {
+    userImage: {
+        borderRadius: '50%',
+    },
+};
 
 class UserImage extends React.Component {
     render() {
-     return (
-        <img src="http://graph.facebook.com/10215062908025231/picture?height=50"></img>
-     );
+      const { classes } = this.props;
+      return (
+         <img className={ classes.userImage } src="http://graph.facebook.com/10215062908025231/picture?height=50"></img>
+      );
    }
 };
 
