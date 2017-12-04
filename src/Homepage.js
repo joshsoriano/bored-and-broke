@@ -7,12 +7,12 @@ import NavigationBar from './NavigationBar.js';
 import HomepageSettings from './HomepageSettings.js';
 import SingleActivityModal from './SingleActivityModal.js';
 import { getUserID } from './userID';
+import Activity from './Activity.js';
 // import database from './backend/database.js';
 // import LoginCreateAccount from './LoginCreateAccount.js';
 // import SavedActivities from './SavedActivities.js';
 // import Settings from './Settings.js';
 // import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
->>>>>>> Added abililty to obtain userID on any page.  Also redirects user to login page when not logged in.
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
