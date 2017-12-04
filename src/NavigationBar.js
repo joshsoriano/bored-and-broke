@@ -16,6 +16,7 @@ import LoginCreateAccount from './LoginCreateAccount.js';
 import SavedActivities from './SavedActivities.js';
 import Settings from './Settings.js';
 import Homepage from './Homepage.js';
+import { removeUserID } from './userID';
 
 
 const LINKS = [
@@ -72,6 +73,7 @@ class NavigationBar extends React.Component {
          }(document, 'script', 'facebook-jssdk'));
 
          function fbLogoutUser() {
+           removeUserID();
             FB.getLoginStatus(function(response) {
                 if (response && response.status === 'connected') {
                     FB.logout(function(response) {

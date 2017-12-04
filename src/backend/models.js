@@ -10,7 +10,7 @@ export class models {
   models() {
 
     // Connect to the database.
-    this.sequelize = new Sequelize('ebdb', 'boredandbroke', 'put password here', {
+    this.sequelize = new Sequelize('ebdb', 'boredandbroke', 'BoredBrokeAndAlone401', {
       host: 'aa7h0812c86b9x.cinowngvasql.us-east-2.rds.amazonaws.com',
       dialect: 'postgres'
     });
@@ -41,7 +41,7 @@ export class models {
      price: { type: Sequelize.DOUBLE },
      description: { type: Sequelize.STRING }
 
-     });
+    });
 
     // Define the Tagline model. This can be used to query for a user's saved
     // activities, since a Tagline entry is created every time a user saves an
