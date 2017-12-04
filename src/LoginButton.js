@@ -107,7 +107,6 @@ class LoginButton extends React.Component {
     }.bind(this));
   }
 
-
   render() {
     const { classes } = this.props;
     return <img src={ fbButton } height='50px' className={ classes.loginButton } onClick={this.handleClick}/>

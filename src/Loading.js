@@ -4,6 +4,7 @@ import injectSheet from 'react-jss';
 import eventExample from './eventExample.png';
 import NavigationBar from './NavigationBar.js';
 import logo_offwhite from './images/logo-offwhite.png';
+import { getUserID } from './userID';
 
 
 const propTypes = {
@@ -14,14 +15,12 @@ const styles = {};
 
 class Loading extends React.Component {
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     userID: null
-  //   };
-  // }
+  constructor(props) {
+    super(props);
+  }
 
   render() {
+    console.log(getUserID());
     const { classes } = this.props;
     return (
      <div>

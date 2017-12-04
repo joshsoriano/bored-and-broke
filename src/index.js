@@ -8,6 +8,9 @@ import LoginCreateAccount from './LoginCreateAccount.js';
 import SavedActivities from './SavedActivities.js';
 import Settings from './Settings.js';
 import Loading from './Loading.js';
+import injectSheet from 'react-jss';
+
+
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -82,6 +85,7 @@ class BoredAndBroke extends React.Component {
       );
     }
   }
+
 
 
 BoredAndBroke.propTypes = propTypes;

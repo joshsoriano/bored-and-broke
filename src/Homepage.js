@@ -6,6 +6,13 @@ import injectSheet from 'react-jss';
 import NavigationBar from './NavigationBar.js';
 import HomepageSettings from './HomepageSettings.js';
 import SingleActivityModal from './SingleActivityModal.js';
+import { getUserID } from './userID';
+// import database from './backend/database.js';
+// import LoginCreateAccount from './LoginCreateAccount.js';
+// import SavedActivities from './SavedActivities.js';
+// import Settings from './Settings.js';
+// import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
+>>>>>>> Added abililty to obtain userID on any page.  Also redirects user to login page when not logged in.
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -67,6 +74,12 @@ class Homepage extends React.Component {
     this.state = { activities: [] };
   }
 
+  componentWillMount() {
+    if(getUserID() === null) {
+      window.location = "/LoginCreateAccount";
+    }
+  }
+
   componentDidMount() {
     this.Homepage();
   }
@@ -77,6 +90,7 @@ class Homepage extends React.Component {
     // Eventually we will use this function to load the activities.
     // this.setState({ activities: database.getFutureActivities() });
   }
+
 
   render() {
     // Map through the activities list here.
