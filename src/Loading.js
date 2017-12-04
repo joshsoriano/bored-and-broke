@@ -4,17 +4,23 @@ import injectSheet from 'react-jss';
 import eventExample from './eventExample.png';
 import NavigationBar from './NavigationBar.js';
 import logo_offwhite from './images/logo-offwhite.png';
+import { getUserID } from './userID';
+
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-const styles = {
-
-};
+const styles = {};
 
 class Loading extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
+
   render() {
+    console.log(getUserID());
     const { classes } = this.props;
     return (
      <div>

@@ -3,10 +3,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import { Button } from 'react-bootstrap';
+// import { IconButton } from 'react-buttons';
 import fbButton from './images/fb_login.png';
+import { saveUserID } from './userID';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
+    listNameFromParent: PropTypes.string,
 };
 
 const styles = {
@@ -47,13 +50,13 @@ class LoginButton extends React.Component {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
     console.log('Successful login for: ' + response.name);
-    document.getElementById('status').innerHTML =
-      'Thanks for logging in, ' + response.name + '!';
+    // document.getElementById('status').innerHTML =
+    //   'Thanks for logging in, ' + response.name + '!';
     });
   }
 
   redirectLoggedInUser() {
-    window.location = "/Homepage";
+      window.location = "/Loading";
   }
 
   // This is called with the results from from FB.getLoginStatus().
@@ -65,6 +68,7 @@ class LoginButton extends React.Component {
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       this.testAPI();
+      saveUserID(response.authResponse.userID);
       this.redirectLoggedInUser();
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
@@ -93,12 +97,13 @@ class LoginButton extends React.Component {
         console.log('Welcome!  Fetching your information.... ');
         FB.api('/me', function(response) {
           console.log('Good to see you, ' + response.name + '.');
-          window.location = "/Homepage";
-        });
+          saveUserID(response.id);
+          window.location = "/Loading";
+        }.bind(this));
       } else {
        console.log('User cancelled login or did not fully authorize.');
       }
-    });
+    }.bind(this));
   }
 
   mouseOver() {
@@ -107,7 +112,11 @@ class LoginButton extends React.Component {
 
   render() {
     const { classes } = this.props;
+<<<<<<< HEAD
     return <img src={ fbButton } height='50px' onMouseOver={ this.mouseOver } className={ classes.loginButton } onClick={this.handleClick}/>
+=======
+    return <img src={ fbButton } height='50px' className={ classes.loginButton } onClick={this.handleClick}/>
+>>>>>>> 1f7def5034546c16ae40dbd1609cc9a3d0878b08
   }
 }
 LoginButton.propTypes = propTypes;
