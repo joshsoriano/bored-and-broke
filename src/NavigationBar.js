@@ -15,6 +15,7 @@ import LoginCreateAccount from './LoginCreateAccount.js';
 import SavedActivities from './SavedActivities.js';
 import Settings from './Settings.js';
 import Homepage from './Homepage.js';
+import UserImage from './UserImage.js';
 
 
 const LINKS = [
@@ -33,7 +34,7 @@ const styles = {
         fontFamily: 'Open Sans',
     },
     navbarContent: {
-        marginTop: '12.5px',
+        marginTop: '0px',
     },
     logoLink: {
         marginTop: '8px',
@@ -43,7 +44,7 @@ const styles = {
     },
     aNavItem: {
         marginLeft: '10px',
-    }
+    },
 }
 
 class NavigationBar extends React.Component {
@@ -95,7 +96,7 @@ class NavigationBar extends React.Component {
                     </Navbar.Header>
                     <Navbar.Collapse className={classes.navbarContent}>
                         <Nav pullRight>
-                            <NavDropdown eventKey={3} title="User" id="basic-nav-dropdown">
+                            <NavDropdown eventKey={3} title={ <UserImage /> } className={ classes.dropdown } id="basic-nav-dropdown">
                                 <span className={classes.aNavItem}>
                                     <Link to="/Homepage">Homepage</Link>
                                 </span>
