@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-import { Form, FormGroup, ControlLabel, FormControl, Col, Checkbox, Modal } from 'react-bootstrap';
 import LoginButton from './LoginButton.js';
 import logoBlack from './images/logo-black.png';
 import logoArt from './images/logo3.png';
@@ -15,9 +14,7 @@ const propTypes = {
 const styles = {
     background: {
         textAlign: 'center',
-        // height: '900px',
         height: '900px',
-        // backgroundColor: '#2C3E50',
         backgroundImage: `url(${logoArt})`,
     },
     leftMain: {
@@ -89,7 +86,7 @@ class LoginCreateAccount extends React.Component {
               transitionLeave={false}>
               <div className={ classes.box }>
                 <div className={ classes.logoSpacer }></div>
-                <img src={logoBlack} className={ classes.envelopeImage } height='60px' />
+                <img src={logoBlack} className={ classes.envelopeImage } alt="" height='60px' />
                 <div className={ classes.instructionSpacer }></div>
                 <span className={ classes.instructions }>Connect with Facebook to start browsing events near you!</span>
                 <div className={ classes.loginSpacer }></div>

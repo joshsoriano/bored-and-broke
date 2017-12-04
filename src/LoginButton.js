@@ -3,7 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import { Button } from 'react-bootstrap';
-// import { IconButton } from 'react-buttons';
 import fbButton from './images/fb_login.png';
 
 const propTypes = {

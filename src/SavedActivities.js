@@ -1,14 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-import Carousel from 'react-bootstrap/lib/Carousel';
-import Button from 'react-bootstrap/lib/Button';
-import {Form, FormGroup, ControlLabel, FormControl, Col, Checkbox} from 'react-bootstrap'
-import eventExample from './eventExample.png';
-// import logo from './logo.png';
+import { ControlLabel } from 'react-bootstrap';
 import NavigationBar from './NavigationBar.js';
-import logo_offwhite from './images/logo-offwhite.png';
-// import SingleActivityModal from './SingleActivityModal.js';
 import Activity from './Activity.js';
 
 const propTypes = {
@@ -43,16 +37,6 @@ const styles = {
 
     },
 };
-
-// from past:
-// <div className={ classes.element }>
-//     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-//     <SingleActivityModal
-//           savedAlready={ false }
-//     >
-//     </SingleActivityModal>
-// </div>
-
 
 class SavedActivities extends React.Component {
   render() {
