@@ -5,6 +5,7 @@ import injectSheet from 'react-jss';
 import { Button } from 'react-bootstrap';
 // import { IconButton } from 'react-buttons';
 import fbButton from './images/fb_login.png';
+import { saveUserID } from './userID';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -54,13 +55,11 @@ class LoginButton extends React.Component {
   }
 
   redirectLoggedInUser() {
-    window.location = "/Homepage";
+    window.location = "/Loading";
   }
 
   // This is called with the results from from FB.getLoginStatus().
   statusChangeCallback(response) {
-    console.log('statusChangeCallback');
-    console.log(response);
     // The response object is returned with a status field that lets the
     // app know the current login status of the person.
     // Full docs on the response object can be found in the documentation
@@ -68,6 +67,7 @@ class LoginButton extends React.Component {
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       this.testAPI();
+      saveUserID(response.authResponse.userID);
       this.redirectLoggedInUser();
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
@@ -96,7 +96,8 @@ class LoginButton extends React.Component {
         console.log('Welcome!  Fetching your information.... ');
         FB.api('/me', function(response) {
           console.log('Good to see you, ' + response.name + '.');
-          window.location = "/Homepage";
+          saveUserID(response.id);
+          window.location = "/Loading";
         });
       } else {
        console.log('User cancelled login or did not fully authorize.');
