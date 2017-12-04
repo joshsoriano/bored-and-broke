@@ -129,6 +129,7 @@ class SingleActivityModal extends React.Component {
             secondState: true,
             thirdState: true,
             value: '',
+            // tagLongEnough: false,
         };
     }
 
@@ -142,7 +143,7 @@ class SingleActivityModal extends React.Component {
     getTaglineState() {
         const taglineVal = this.state.value;  //this is the most accurate one! Use this!
         console.log("taglineVal:", taglineVal)
-        const length = this.state.value.length; //need to make sure it's not too long
+        const tagLength = this.state.value.length; //need to make sure it's not too long
     };
 
     handleTagline(e) {
@@ -150,8 +151,12 @@ class SingleActivityModal extends React.Component {
             value: e.target.value, //note that the taglineVal is more accurate
       });
       console.log("tagline is:", this.state.value);
+    //   if (this.state.value.length < 1) {
+    //       this.setState({
+    //           tagLongEnough: false,
+    //     });
+    //   }
     };
-
 
     changeToThirdState(e) {
         this.setState({
@@ -170,10 +175,9 @@ class SingleActivityModal extends React.Component {
     };
 
 
-
     render() {
         const { classes, showModal } = this.props;
-        const { secondState, thirdState, value } = this.state;
+        const { secondState, thirdState, value, tagLongEnough } = this.state;
         const date = "01-01-2001";
         const location = "Keck Lab";
         const price = "$0";
@@ -259,7 +263,8 @@ class SingleActivityModal extends React.Component {
                             </Form>
 
                             <div className={ classes.buttonContainer }>
-                              <Button onClick={ this.changeToThirdState } bastyle="primary" bsSize="small"> { this.props.onRequestClose } Save Tagline </Button>
+                              <Button onClick={ this.changeToThirdState } disabled={ !this.state.value }
+                                bastyle="primary" bsSize="small"> { this.props.onRequestClose } Save Tagline </Button>
                             </div>
 
                             <div className={ classes.buttonContainer }>
@@ -287,9 +292,6 @@ class SingleActivityModal extends React.Component {
                           </Carousel>
                         </div>
                     </Modal.Body>
-                    <Modal.Footer>
-                        <Button className={ classes.closeBtn } onClick={close}>Close</Button>
-                    </Modal.Footer>
                 </Modal>
             </div>
         );
