@@ -36,9 +36,9 @@ class Loading extends React.Component {
     return (
       <div className={ classes.background }>
         <div className={ classes.spacer }></div>
-        <div class="spinner">
-           <div class="cube1"></div>
-           <div class="cube2"></div>
+        <div className="spinner">
+           <div className="cube1"></div>
+           <div className="cube2"></div>
          </div>
       </div>
     );

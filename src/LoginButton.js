@@ -76,8 +76,8 @@ class LoginButton extends React.Component {
     } else {
       // The person is not logged into Facebook, so we're not sure if
       // they are logged into this app or not.
-      document.getElementById('status').innerHTML = 'Please log ' +
-      'into Facebook.';
+      // document.getElementById('status').innerHTML = 'Please log ' +
+      // 'into Facebook.';
     }
   }
 
@@ -105,9 +105,13 @@ class LoginButton extends React.Component {
     });
   }
 
+  onMouseOver() {
+    return "";
+  }
+
   render() {
     const { classes } = this.props;
-    return <img src={ fbButton } height='50px' onmouseover="" className={ classes.loginButton } onClick={this.handleClick}/>
+    return <img src={ fbButton } height='50px' onMouseOver={ this.onMouseOver } className={ classes.loginButton } onClick={this.handleClick}/>
   }
 }
 LoginButton.propTypes = propTypes;
