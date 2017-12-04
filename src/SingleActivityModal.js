@@ -26,16 +26,25 @@ const styles = {
       position: 'relative',
       width: '100px',
       background: '#1ABC9C',
+      fontFamily: 'Open Sans',
     },
     titleTextContainer: {
       paddingBottom: '4px',
       justifyContent: 'center',
       display: 'flex',
+      fontFamily: 'Open Sans',
     },
     titleText: {
       color: 'black',
       fontWeight: '500',
       fontSize: '18px',
+      fontFamily: 'Open Sans',
+    },
+    titleSubText: {
+      color: 'black',
+      fontWeight: '500',
+      fontSize: '15px',
+      fontFamily: 'Open Sans',
     },
     descriptionTextContainer: {
       justifyContent: 'center',
@@ -43,20 +52,24 @@ const styles = {
       textAlign: 'center',
       marginLeft: '42px',
       marginRight: '42px',
+      fontFamily: 'Open Sans',
     },
     descriptionText: {
       color: 'black',
       fontSize: '14px',
+      fontFamily: 'Open Sans',
     },
     link: {
       color: '#6386ef',
       textDecoration: 'underline',
+      fontFamily: 'Open Sans',
     },
     imageContainer: {
       display: 'flex',
       justifyContent: 'center',
       paddingBottom: '36px',
       paddingTop: '57px',
+      fontFamily: 'Open Sans',
     },
     envelopeImage: {
       width: '93px',
@@ -67,29 +80,39 @@ const styles = {
         display: 'flex',
         justifyContent: 'center',
         marginBottom: '15px',
+        fontFamily: 'Open Sans',
     },
     carouselOn: {
         opacity: 0,
         height: '10px',
+        fontFamily: 'Open Sans',
     },
     modalContainer: {
         position: 'relative',
+        fontFamily: 'Open Sans',
     },
     taglineStyle: {
         opacity: 0,
         height: '10px',
+        fontFamily: 'Open Sans',
     },
 
     infoBtn: {
         backgroundColor: '#2d3e4f',
+        fontFamily: 'Open Sans',
     },
     unsaveB: {
         opacity: 0,
         height: '5px',
+        fontFamily: 'Open Sans',
     },
     saveBon: {
         opacity: 0,
-    }
+        fontFamily: 'Open Sans',
+    },
+    closeBtn: {
+        fontFamily: 'Open Sans',
+    },
 };
 
 class SingleActivityModal extends React.Component {
@@ -201,11 +224,11 @@ class SingleActivityModal extends React.Component {
                     aria-labelledby="contained-modal-title"
                 >
                     <Modal.Header closeButton>
-                        <Modal.Title id="contained-modal-title">World Series, Game 7: Dodgers vs. Astros</Modal.Title>
-                        <h5>Date</h5>
-                        <h5>Time</h5>
-                        <h5>Location</h5>
-                        <h5>Price</h5>
+                        <Modal.Title className={ classes.titleText } id="contained-modal-title">World Series, Game 7: Dodgers vs. Astros</Modal.Title>
+                        <h5 className={ classes.titleSubText }>Date</h5>
+                        <h5 className={ classes.titleSubText }>Time</h5>
+                        <h5 className={ classes.titleSubText }>Location</h5>
+                        <h5 className={ classes.titleSubText }>Price</h5>
                     </Modal.Header>
                     <Modal.Body>
 
@@ -265,7 +288,7 @@ class SingleActivityModal extends React.Component {
                         </div>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button onClick={close}>Close</Button>
+                        <Button className={ classes.closeBtn } onClick={close}>Close</Button>
                     </Modal.Footer>
                 </Modal>
             </div>

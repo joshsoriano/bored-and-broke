@@ -26,6 +26,7 @@ const styles = {
     instructions: {
         marginBottom: '50px',
         color: '#ECF0F1',
+        fontFamily: 'Open Sans',
     },
     row: {
         display: 'flex',

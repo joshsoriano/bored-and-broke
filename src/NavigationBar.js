@@ -30,6 +30,7 @@ const styles = {
         backgroundColor: '#2C3E50',
         height: '75px',
         border: 'none',
+        fontFamily: 'Open Sans',
     },
     navbarContent: {
         marginTop: '12.5px',

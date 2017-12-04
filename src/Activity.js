@@ -14,9 +14,11 @@ const propTypes = {
 const styles = {
     activityTitle: {
         margin: '5px',
+        fontFamily: 'Open Sans',
     },
     activityDesc: {
         marginBottom: '10px',
+        fontFamily: 'Open Sans',
     },
     textDetails: {
         paddingTop: '0px',
