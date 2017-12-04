@@ -1,5 +1,27 @@
 import React from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Form, FormGroup, ControlLabel, FormControl, Col, Checkbox, Row } from 'react-bootstrap';
+import Button from 'react-bootstrap/lib/Button';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
+import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
+
+const propTypes = {
+    classes: PropTypes.object.isRequired,
+};
+
+const styles = {
+    main: {
+        color: '#16A085'
+    },
+    formInput: {
+        padding: '10px'
+    },
+    searchButton: {
+        fontWeight: 'bold',
+        marginTop: '15px',
+        color: '#E74C3C'
+    }
+};
 
 class HomepageSettings extends React.Component {
     constructor(props) {
@@ -28,46 +50,42 @@ class HomepageSettings extends React.Component {
     }
 
     render() {
+        const { classes } = this.props;
         return (
-            <form onSubmit={this.handleSubmit}>
-                <Row>
-                    <Col sm={4}>
-                        <span> Zipcode: </span>
-                        <input
-                            name="zipcode"
-                            placeholder="Enter Zipcode"
-                            value={this.state.zipcode}
-                            onChange={this.handleChange} />
-                    </Col>
-                    <Col sm={4}> Pick Radius:
-                        <div id="slidecontainer">
-                            <label>
-                                <input type="range" min="0" max="100"
-                                name="distance"
-                                value={this.state.distance}
-                                onChange={this.handleChange} />
-                                {this.state.distance} miles
-                            </label>
-                        </div>
-                    </Col>
-                    <Col sm={4}> $0 to $100
-                        <div id="slidecontainer">
-                            <label>
-                                <input type="range" min="0" max="100"
-                                name="price"
-                                value={this.state.price}
-                                onChange={this.handleChange} />
-                                ${this.state.price}
-                            </label>
-                        </div>
-                    </Col>
-                </Row>
+            <Form inline className={ classes.main } controlId="homepageSettings" onSubmit={ this.handleSubmit }>
+                <Col componentClass={ControlLabel} sm={4}>
+                    <FormGroup className={ classes.formInput } controlId="formZipcode" >
+                        Zipcode: <br/>
+                        <FormControl name="zipcode" placeholder="Enter Zipcode" value={this.state.zipcode}
+                        onChange={ this.handleChange }/>
+                    </FormGroup>
+                </Col>
+                <Col componentClass={ControlLabel} sm={4}>
+                    <FormGroup className={ classes.formInput } controlId="formDistance" >
+                        Pick Radius: <br/>
+                        <FormControl type="range" min="0" max="100" name="distance"
+                        value={this.state.distance}
+                        onChange={this.handleChange}/> <br/>
+                        {this.state.distance} miles
+                    </FormGroup>
+                </Col>
+                <Col componentClass={ControlLabel} sm={4}>
+                    <FormGroup className={ classes.formInput } controlId="formPrice">
+                        $0 to $100 <br/>
+                        <FormControl type="range" min="0" max="100" name="price"
+                        value={this.state.price}
+                        onChange={this.handleChange}/> <br/>
+                        ${this.state.price}
+                    </FormGroup>
+                </Col>
+                <Col sm={12}>
                 <div>
-                    <button type="submit">Search</button>
+                    <Button className={ classes.searchButton } type="submit">Search</Button>
                 </div>
-            </form>
+                </Col>
+            </Form>
         );
     }
 }
-
-export default HomepageSettings;
+HomepageSettings.propTypes = propTypes;
+export default injectSheet(styles)(HomepageSettings);

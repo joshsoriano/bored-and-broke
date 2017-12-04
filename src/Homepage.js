@@ -3,17 +3,9 @@ import $ from 'jquery';
 import * as activity from './backend/activity.js';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-import Button from 'react-bootstrap/lib/Button';
-import eventExample from './eventExample.png';
-import logo_black from './images/logo-black.png';
 import NavigationBar from './NavigationBar.js';
-import logo_offwhite from './images/logo-offwhite.png';
 import HomepageSettings from './HomepageSettings.js';
-import SingleActivityModal from './SingleActivityModal.js';
-// import LoginCreateAccount from './LoginCreateAccount.js';
-// import SavedActivities from './SavedActivities.js';
-// import Settings from './Settings.js';
-// import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
+import Activity from './Activity.js';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -23,17 +15,14 @@ const styles = {
     main: {
         backgroundColor: '#ECF0F1',
         textAlign: 'center',
-        // height: '900px',
-        // height: '100%',
     },
     titleContainer: {
         paddingTop: '20px',
         paddingBottom: '20px',
     },
     title: {
-        color: '#ECF0F1',
-        // fontWeight: '500',
-        fontSize: '24px',
+        color: '#2C3E50',
+        fontSize: '36px',
     },
     logo_offwhite: {
         paddingLeft: '10px',
@@ -60,19 +49,15 @@ const styles = {
         color: '#ECF0F1',
     },
     resultsContainer: {
-        paddingTop: '20px',
-        // justifyContent: 'center',
+        padding: '25px',
     },
     row: {
         display: 'flex',
-        marginBottom: '70px',
+        marginBottom: '10px',
     },
     element: {
         marginLeft: '80px',
         marginRight: '80px',
-    },
-    space: {
-        marginBottom: '100px',
     },
 };
 
@@ -89,37 +74,13 @@ class Homepage extends React.Component {
   Homepage() {
     // For demo.
     this.setState({ activities: activity.retrieve() });
-
     // Eventually we will use this function to load the activities.
     // this.setState({ activities: database.getFutureActivities() });
   }
 
   render() {
-
     // Map through the activities list here.
-    //
-    //
     const { classes } = this.props;
-
-    // const routing =
-    //     (<Router>
-    //         <div>
-    //             <ul>
-    //                 <li><Link to="/Homepage">Homepage</Link></li>
-    //                 <li><Link to="/SavedActivities">SavedActivities</Link></li>
-    //                 <li><Link to="/Settings">Settings</Link></li>
-    //                 <li><Link to="/LoginCreateAccount">LoginCreateAccount</Link></li>
-    //             </ul>
-    //
-    //             <Route exact path="/" render={() => (
-    //                 <LoginCreateAccount/>
-    //             )}/>
-    //             <Route path="/Homepage" component={Homepage}/>
-    //             <Route path="/SavedActivities" component={SavedActivities}/>
-    //             <Route path="/Settings" component={Settings}/>
-    //             <Route path="/LoginCreateAccount" component={LoginCreateAccount}/>
-    //         </div>
-    //     </Router>);
 
     return (
       <div className={ classes.main }>
@@ -128,68 +89,22 @@ class Homepage extends React.Component {
             <HomepageSettings />
         </div>
         <div className={ classes.titleContainer }>
-            <span className={ classes.title }>activities we found for you:</span>
+            <span className={ classes.title }>Your Activity Feed</span>
         </div>
         <div className={ classes.resultsContainer }>
             <div className={ classes.row }>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                    <SingleActivityModal />
-                    window.activityRetriever.retrieve();
-                </div>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                    <SingleActivityModal />
-                </div>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                    <SingleActivityModal />
-                </div>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                    <SingleActivityModal />
-                </div>
+
+                <Activity />
+                <Activity />
+                <Activity />
+                <Activity />
             </div>
             <div className={ classes.row }>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                    <SingleActivityModal />
-                </div>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                    <SingleActivityModal />
-                </div>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                    <SingleActivityModal />
-                </div>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                    <SingleActivityModal />
-                </div>
+                <Activity />
+                <Activity />
+                <Activity />
+                <Activity />
             </div>
-            <div className={ classes.row }>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                    <SingleActivityModal />
-                </div>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                    <SingleActivityModal />
-                </div>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                    <SingleActivityModal />
-                </div>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                    <SingleActivityModal />
-                </div>
-            </div>
-        </div>
-        <div className={ classes.space } />
-        <div>
-            <Button bastyle="primary" bsSize="large">See More</Button>
         </div>
       </div>
     );

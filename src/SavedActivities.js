@@ -1,13 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-import Carousel from 'react-bootstrap/lib/Carousel';
-import Button from 'react-bootstrap/lib/Button';
-import {Form, FormGroup, ControlLabel, FormControl, Col, Checkbox} from 'react-bootstrap'
-import eventExample from './eventExample.png';
-// import logo from './logo.png';
+import { ControlLabel } from 'react-bootstrap';
 import NavigationBar from './NavigationBar.js';
-import logo_offwhite from './images/logo-offwhite.png';
+import Activity from './Activity.js';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -17,8 +13,6 @@ const styles = {
     main: {
         backgroundColor: '#2C3E50',
         textAlign: 'center',
-        height: '900px',
-        // height: '100%',
     },
     navBar: {
         display: 'flex',
@@ -33,21 +27,13 @@ const styles = {
         marginBottom: '50px',
         color: '#ECF0F1',
     },
-    // formInput: {
-    //     width: '500px',
-    //     margin: 'auto',
-    //     color: '#ECF0F1',
-    // },
     row: {
         display: 'flex',
         marginBottom: '70px',
     },
     element: {
-        // border: '1px solid white',
         marginLeft: '80px',
         marginRight: '80px',
-        // width: '20px',
-        // height: '20px',
 
     },
 };
@@ -62,32 +48,16 @@ class SavedActivities extends React.Component {
             <span>Here are the activities you have saved so far:</span>
         </div>
           <div className={ classes.row }>
-              <div className={ classes.element }>
-                  <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-              </div>
-              <div className={ classes.element }>
-                  <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-              </div>
-              <div className={ classes.element }>
-                  <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-              </div>
-              <div className={ classes.element }>
-                  <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-              </div>
+            <Activity />
+            <Activity />
+            <Activity />
+            <Activity />
           </div>
           <div className={ classes.row }>
-              <div className={ classes.element }>
-                  <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-              </div>
-              <div className={ classes.element }>
-                  <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-              </div>
-              <div className={ classes.element }>
-                  <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-              </div>
-              <div className={ classes.element }>
-                  <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-              </div>
+              <Activity />
+              <Activity />
+              <Activity />
+              <Activity />
           </div>
        </div>
     );
