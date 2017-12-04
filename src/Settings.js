@@ -16,6 +16,7 @@ const styles = {
         backgroundColor: '#16A085',
         textAlign: 'center',
         height: '900px',
+        fontFamily: 'Open Sans',
     },
     user: {
         marginRight: '15px',
@@ -25,26 +26,31 @@ const styles = {
         marginBottom: '50px',
         color: '#ECF0F1',
         marginTop: '20px',
+        fontFamily: 'Open Sans',
     },
     formInput: {
         width: '500px',
         margin: 'auto',
         color: '#ECF0F1',
+        fontFamily: 'Open Sans',
     },
     email: {
-        color: '#ababab'
+        color: '#ababab',
+        fontFamily: 'Open Sans',
     },
     deavtivate: {
         display: 'block',
         marginTop: '15px',
         color: '#E74C3C',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontFamily: 'Open Sans',
     },
     save: {
         fontWeight: 'bold',
         color: '#2C3E50',
         backgroundColor: '#ECF0F1',
-        marginTop: '15px'
+        marginTop: '15px',
+        fontFamily: 'Open Sans',
     }
 };
 

@@ -5,11 +5,9 @@ import injectSheet from 'react-jss';
 import { Button } from 'react-bootstrap';
 // import { IconButton } from 'react-buttons';
 import fbButton from './images/fb_login.png';
-import { saveUserID } from './userID';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
-    listNameFromParent: PropTypes.string,
 };
 
 const styles = {
@@ -50,18 +48,19 @@ class LoginButton extends React.Component {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
     console.log('Successful login for: ' + response.name);
-    // document.getElementById('status').innerHTML =
-    //   'Thanks for logging in, ' + response.name + '!';
+    document.getElementById('status').innerHTML =
+      'Thanks for logging in, ' + response.name + '!';
     });
   }
 
   redirectLoggedInUser() {
-      window.location = "/Loading";
+    window.location = "/Homepage";
   }
 
   // This is called with the results from from FB.getLoginStatus().
   statusChangeCallback(response) {
-    // console.log('statusChangeCallback');
+    console.log('statusChangeCallback');
+    console.log(response);
     // The response object is returned with a status field that lets the
     // app know the current login status of the person.
     // Full docs on the response object can be found in the documentation
@@ -69,7 +68,6 @@ class LoginButton extends React.Component {
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       this.testAPI();
-      saveUserID(response.authResponse.userID);
       this.redirectLoggedInUser();
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
@@ -98,18 +96,17 @@ class LoginButton extends React.Component {
         console.log('Welcome!  Fetching your information.... ');
         FB.api('/me', function(response) {
           console.log('Good to see you, ' + response.name + '.');
-          saveUserID(response.id);
-          window.location = "/Loading";
-        }.bind(this));
+          window.location = "/Homepage";
+        });
       } else {
        console.log('User cancelled login or did not fully authorize.');
       }
-    }.bind(this));
+    });
   }
 
   render() {
     const { classes } = this.props;
-    return <img src={ fbButton } height='50px' className={ classes.loginButton } onClick={this.handleClick}/>
+    return <img src={ fbButton } height='50px' onmouseover="" className={ classes.loginButton } onClick={this.handleClick}/>
   }
 }
 LoginButton.propTypes = propTypes;

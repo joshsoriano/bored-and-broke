@@ -11,7 +11,8 @@ const propTypes = {
 
 const styles = {
     main: {
-        color: '#16A085'
+        color: '#16A085',
+        fontFamily: 'Open Sans',
     },
     formInput: {
         padding: '10px'
@@ -19,7 +20,8 @@ const styles = {
     searchButton: {
         fontWeight: 'bold',
         marginTop: '15px',
-        color: '#E74C3C'
+        color: '#E74C3C',
+        fontFamily: 'Open Sans',
     }
 };
 

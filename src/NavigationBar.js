@@ -2,15 +2,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-
-import Nav from 'react-bootstrap/lib/Nav'
-import Navbar from 'react-bootstrap/lib/Navbar'
-import NavbarHeader from 'react-bootstrap/lib/NavbarHeader'
-import NavItem from 'react-bootstrap/lib/NavItem'
-import NavDropdown from 'react-bootstrap/lib/NavDropdown'
-import MenuItem from 'react-bootstrap/lib/MenuItem'
-import Image from 'react-bootstrap/lib/Image'
-import logo from './images/logo-white.png'
+import Nav from 'react-bootstrap/lib/Nav';
+import Navbar from 'react-bootstrap/lib/Navbar';
+import NavbarHeader from 'react-bootstrap/lib/NavbarHeader';
+import NavItem from 'react-bootstrap/lib/NavItem';
+import NavDropdown from 'react-bootstrap/lib/NavDropdown';
+import MenuItem from 'react-bootstrap/lib/MenuItem';
+import Image from 'react-bootstrap/lib/Image';
+import logo from './images/logo-white.png';
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 import LoginCreateAccount from './LoginCreateAccount.js';
 import SavedActivities from './SavedActivities.js';
@@ -32,6 +31,7 @@ const styles = {
         backgroundColor: '#2C3E50',
         height: '75px',
         border: 'none',
+        fontFamily: 'Open Sans',
     },
     navbarContent: {
         marginTop: '12.5px',
