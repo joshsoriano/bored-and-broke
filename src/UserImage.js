@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
+import { getUserID } from './userID';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -16,8 +17,10 @@ const styles = {
 class UserImage extends React.Component {
     render() {
       const { classes } = this.props;
+      const userID = getUserID();
+      const imgSrc = "http://graph.facebook.com/" + userID + "/picture?height=50";
       return (
-         <img className={ classes.userImage } src="http://graph.facebook.com/10215062908025231/picture?height=50"></img>
+         <img className={ classes.userImage } src={ imgSrc } alt='User'></img>
       );
    }
 };
