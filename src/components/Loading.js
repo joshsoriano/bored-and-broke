@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-import eventExample from './eventExample.png';
+import eventExample from '../images/eventExample.png';
 import NavigationBar from './NavigationBar.js';
-import logo_offwhite from './images/logo-offwhite.png';
+import logo_offwhite from '../images/logo-offwhite.png';
 import { getUserID } from './userID';
-import './styles.css';
+import '../styles.css';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,

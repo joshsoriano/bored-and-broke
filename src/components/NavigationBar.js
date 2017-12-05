@@ -9,7 +9,7 @@ import NavItem from 'react-bootstrap/lib/NavItem';
 import NavDropdown from 'react-bootstrap/lib/NavDropdown';
 import MenuItem from 'react-bootstrap/lib/MenuItem';
 import Image from 'react-bootstrap/lib/Image';
-import logo from './images/logo-white.png';
+import logo from '../images/logo-white.png';
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 import LoginCreateAccount from './LoginCreateAccount.js';
 import SavedActivities from './SavedActivities.js';
