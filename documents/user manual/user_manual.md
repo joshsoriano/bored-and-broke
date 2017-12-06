@@ -5,3 +5,6 @@
 
 ### Switch which database is being accessed.
 ![database index file](https://raw.githubusercontent.com/joshsoriano/bored-and-broke/master/documents/user%20manual/dbindex.png)
+
+### Clone the repository.
+![clone url](https://raw.githubusercontent.com/joshsoriano/bored-and-broke/master/documents/user%20manual/gitclone.png)
