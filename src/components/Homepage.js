@@ -98,6 +98,10 @@ class Homepage extends React.Component {
         <div className={ classes.homepageSettings }>
             <HomepageSettings />
         </div>
+
+        <button onClick={this.props.actions.getActivities}>Get all future activities!</button>
+        <div style={{ padding: '30px' }}>{this.props.results}</div>
+
         <div className={ classes.resultsContainer }>
             <div className={ classes.row }>
 
