@@ -279,6 +279,7 @@ class SingleActivityModal extends React.Component {
                                 <Carousel.Caption>
                                   <h3>User 1</h3>
                                   <p>"Looking forward to tonight's concert!"</p>
+                                  <Button bastyle="primary" bsSize="small">{ this.props.onRequestClose } Facebook Message </Button>
                                 </Carousel.Caption>
                               </Carousel.Item>
 
