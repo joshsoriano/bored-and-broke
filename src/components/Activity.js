@@ -6,9 +6,13 @@ import Col from 'react-bootstrap/lib/Col';
 import Thumbnail from 'react-bootstrap/lib/Thumbnail';
 import Button from 'react-bootstrap/lib/Button';
 import SingleActivityModal from './SingleActivityModal.js';
+import dataImage1 from '../images/fakeData1.png';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
+    eventName: PropTypes.string,
+    eventDescription: PropTypes.string,
+    eventImage: PropTypes.string,
 };
 
 const styles = {
@@ -28,13 +32,13 @@ const styles = {
 
 class Activity extends React.Component {
     render() {
-        const { classes } = this.props;
+        const { classes, eventName, eventDescription, eventImage } = this.props;
         return (
             <Col sx={12} sm={6} md={3}>
-                <Thumbnail src="http://via.placeholder.com/350x250" alt="242x200">
+                <Thumbnail src={ this.props.eventImage } alt="242x200">
                     <div className = {classes.textDetails}>
-                        <h3 className = {classes.activityTitle}>Charity Event</h3>
-                        <p className = {classes.activityDesc}>Activity Description</p>
+                        <h3 className = {classes.activityTitle}>{this.props.eventName}</h3>
+                        <p className = {classes.activityDesc}>{this.props.eventDescription}</p>
 
                         <SingleActivityModal
                               savedAlready={ false } // when false nothing happens, when true the carousel goes away

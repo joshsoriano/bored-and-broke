@@ -10,6 +10,7 @@ import Activity from './Activity.js';
 // import SavedActivities from './SavedActivities.js';
 // import Settings from './Settings.js';
 // import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
+import dataImage1 from '../images/fakeData1.png';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -101,7 +102,12 @@ class Homepage extends React.Component {
         <div className={ classes.resultsContainer }>
             <div className={ classes.row }>
 
-                <Activity />
+                <Activity
+                    eventName="Charity Event"
+                    eventImage={ dataImage1 }
+                    eventDescription="Sat, December 16, 2017 <br /> 5:30 PM – 8:00 PM EST  <br /> FREE"
+                >
+                </Activity>
                 <Activity />
                 <Activity />
                 <Activity />
