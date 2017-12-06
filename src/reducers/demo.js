@@ -6,7 +6,9 @@ import {
   GET_SAVED_ERROR,
   GET_SAVED_RESULTS,
   GET_USERS_FOR_ACTIVITY_RESULTS,
-  GET_USERS_FOR_ACTIVITY_ERROR
+  GET_USERS_FOR_ACTIVITY_ERROR,
+  GET_TAGLINE_RESULTS,
+  GET_TAGLINE_ERROR
 } from '../actions';
 
 const initialState = {
@@ -31,6 +33,10 @@ const demo = (state = initialState, action) => {
                 return { ...state, results: "Users: " + action.data }
         case GET_USERS_FOR_ACTIVITY_ERROR:
                 return { ...state, results: "Failed to get users!  " + action.data }
+        case GET_TAGLINE_RESULTS:
+                return { ...state, results: "Tagline: " + action.data }
+        case GET_TAGLINE_ERROR:
+                return { ...state, results: "Failed to get tagline!  " + action.data }
         default:
             return state
     }
