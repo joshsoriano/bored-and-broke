@@ -146,3 +146,33 @@ export const getTagline = (userId, activityId) => {
 
     }
 }
+
+export const GET_USER_START = "GET_USER_START";
+export const getUserStart = () => {
+    return { type: GET_USER_START }
+}
+
+export const GET_USER_RESULTS = "GET_USER_RESULTS";
+export const getUserResults = (data) => {
+    return { type: GET_USER_RESULTS, data }
+}
+
+export const GET_USER_ERROR = "GET_USER_ERROR";
+export const getUserError = (data) => {
+    return { type: GET_USER_ERROR, data }
+}
+
+export const GET_USER = "GET_USER";
+export const getUser = (userId) => {
+    return dispatch => {
+        dispatch(getUserStart());
+        axios.get(`/api/users`, {
+          params: {
+            id: userId
+          }
+        })
+            .then(res => dispatch(getUserResults(JSON.stringify(res.data))))
+            .catch(err => dispatch(getUserError(err)))
+
+    }
+}

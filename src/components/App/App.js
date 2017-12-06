@@ -15,7 +15,7 @@ class App extends Component {
           <h2>Welcome to React - Fullstack!</h2>
         </div>
         <br />
-        <button onClick={this.props.actions.getTagline("12345" /*user id*/, 2 /*activity id*/)}>Get Tagline!</button>
+        <button onClick={this.props.actions.getUser("12345" /*user id*/)}>Get User 2!</button>
         <div style={{ padding: '30px' }}>{this.props.results}</div>
       </div>
     );
