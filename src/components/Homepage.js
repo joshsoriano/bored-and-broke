@@ -13,6 +13,7 @@ import Activity from './Activity.js';
 import dataImage1 from '../images/fakeData1.png';
 import dataImage2 from '../images/fakeData2.png';
 import dataImage3 from '../images/fakeData3.png';
+import dataImage4 from '../images/dataImage4.png';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -105,23 +106,30 @@ class Homepage extends React.Component {
             <div className={ classes.row }>
 
                 <Activity
-                    eventName="Charity Event"
+                    eventName="Holiday Charity Event"
                     eventImage={ dataImage1 }
-                    eventDescription="Sat, December 16, 2017 <br /> 5:30 PM – 8:00 PM EST  <br /> FREE"
+                    eventDescription="Sat, December 16, 2017 5:30 PM – 8:00 PM FREE"
                 >
                 </Activity>
                 <Activity
-                    eventName="NFL Alumni CFL Student Athlete Honors"
+                    eventName="NFL Alumni CFL Event"
                     eventImage={ dataImage2 }
-                    eventDescription="Sun, December 10, 2017 <br /> 6:00 PM – 9:00 PM EST  <br /> $20"
+                    eventDescription="Sun, December 10, 2017 6:00 PM – 9:00 PM $20"
                 >
                 </Activity>
                 <Activity
                     eventName="Hiphop&R&B concert"
                     eventImage={ dataImage3 }
-                    eventDescription="Tue, Jan 9, 2018, 9:00 PM – Wed, Jan 10, 2018, 11:30 PM  <br /> $15"
+                    eventDescription="Tue, Jan 9 2018, 9:00 PM - 11:30 PM $15"
                 >
                 </Activity>
+                <Activity
+                    eventName="Garibaldi Holiday Concert"
+                    eventImage={ dataImage4 }
+                    eventDescription="Fri, December 8, 2017 7:30 PM – 10:00 PM FREE"
+                >
+                </Activity>
+
             </div>
             <div className={ classes.row }>
                 <Activity />
