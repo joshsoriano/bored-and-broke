@@ -3,16 +3,9 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import eventExample from '../images/eventExample.png';
 import NavigationBar from './NavigationBar.js';
-<<<<<<< HEAD:src/Loading.js
-import logo_offwhite from './images/logo-offwhite.png';
-import { getUserID } from './userID';
-
-import './styles.css';
-=======
 import logo_offwhite from '../images/logo-offwhite.png';
 import { getUserID } from './userID';
 import '../styles.css';
->>>>>>> master:src/components/Loading.js
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
