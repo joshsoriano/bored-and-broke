@@ -3,8 +3,8 @@ import {
   GET_ACTIVITY_ERROR,
   GET_ACTIVITIES_RESULTS,
   GET_ACTIVITIES_ERROR,
-  EXPRESS_TEST_ERROR,
-  EXPRESS_TEST_RESULTS
+  GET_SAVED_ERROR,
+  GET_SAVED_RESULTS
 } from '../actions';
 
 const initialState = {
@@ -21,10 +21,10 @@ const demo = (state = initialState, action) => {
                 return { ...state, results: "Activities: " + action.data }
         case GET_ACTIVITIES_ERROR:
                 return { ...state, results: "Failed to get activities!  " + action.data }
-        case EXPRESS_TEST_RESULTS:
-            return { ...state, results: "Test Succeeded!  " + action.data }
-        case EXPRESS_TEST_ERROR:
-            return { ...state, results: "Test Failed!  " + action.data }
+        case GET_SAVED_RESULTS:
+                return { ...state, results: "Activities: " + action.data }
+        case GET_SAVED_ERROR:
+                return { ...state, results: "Failed to get activities!  " + action.data }
         default:
             return state
     }

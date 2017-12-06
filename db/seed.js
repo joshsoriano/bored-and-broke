@@ -20,9 +20,23 @@ const seedActivities = () => db.Promise.map([
     {name: "Hamilton (Touring)", date: "20171215", location: "Hollywood Pantages Theatre", link: "http://www.ticketmaster.com/hamilton-touring-los-a…eles-california-12-15-2017/event/0B005250FBAC83D8", source: "TicketMaster", price: 0}
 ], activity => db.model('activity').create(activity));
 
+const seedUsers = () => db.Promise.map([
+  {id: "12345", name: "Jane Doe", bio: "Girls just wanna have fu-uuun!"},
+  {id: "12346", name: "Johnny Doe", bio: "Here for a good time, not a long time."}
+], activity => db.model('user').create(activity));
+
+const seedTaglines = () => db.Promise.map([
+  {user_id: "12345", activity_id: 2, tag: "So excited for this!"},
+  {user_id: "12345", activity_id: 4, tag: "Looking for a ride!"}
+], tagline => db.model('tagline').create(tagline));
+
  db.didSync
    .then(() => db.sync({force: true}))
    .then(seedActivities)
    .then(activities => console.log(`Seeded ${activities.length} activities OK`))
+   .then(seedUsers)
+   .then(users => console.log(`Seeded ${users.length} users OK`))
+   .then(seedTaglines)
+   .then(taglines => console.log(`Seeded ${taglines.length} taglines OK`))
    .catch(error => console.error(error))
    .finally(() => db.close())
