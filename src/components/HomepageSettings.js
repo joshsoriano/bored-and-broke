@@ -30,7 +30,7 @@ class HomepageSettings extends React.Component {
         super(props);
         this.state = {
             zipcode: '',
-            distance: 45,
+            distance: 50,
             price: 0
         };
         this.handleChange = this.handleChange.bind(this);

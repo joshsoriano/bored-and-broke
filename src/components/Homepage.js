@@ -98,9 +98,6 @@ class Homepage extends React.Component {
         <div className={ classes.homepageSettings }>
             <HomepageSettings />
         </div>
-        <div className={ classes.titleContainer }>
-            <span className={ classes.title }>Your Activity Feed</span>
-        </div>
         <div className={ classes.resultsContainer }>
             <div className={ classes.row }>
 
