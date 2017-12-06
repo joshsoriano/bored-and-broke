@@ -15,9 +15,7 @@ class App extends Component {
           <h2>Welcome to React - Fullstack!</h2>
         </div>
         <br />
-        <button onClick={this.props.actions.getSaved("12345" /* user id */)}>Test if Express is working</button>
-        <br />
-        <button onClick={this.props.actions.getActivities}>Get all future activities!</button>
+        <button onClick={this.props.actions.getUsersForActivity(2 /* activity id */)}>Get all users who saved activity 2!</button>
         <div style={{ padding: '30px' }}>{this.props.results}</div>
       </div>
     );

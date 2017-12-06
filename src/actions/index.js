@@ -85,3 +85,33 @@ export const getSaved = (id) => {
 
     }
 }
+
+export const GET_USERS_FOR_ACTIVITY_START = "GET_USERS_FOR_ACTIVITY_START";
+export const getUsersForActivityStart = () => {
+    return { type: GET_USERS_FOR_ACTIVITY_START }
+}
+
+export const GET_USERS_FOR_ACTIVITY_RESULTS = "GET_USERS_FOR_ACTIVITY_RESULTS";
+export const getUsersForActivityResults = (data) => {
+    return { type: GET_USERS_FOR_ACTIVITY_RESULTS, data }
+}
+
+export const GET_USERS_FOR_ACTIVITY_ERROR = "GET_USERS_FOR_ACTIVITY_ERROR";
+export const getUsersForActivityError = (data) => {
+    return { type: GET_USERS_FOR_ACTIVITY_ERROR, data }
+}
+
+export const GET_USERS_FOR_ACTIVITY = "GET_USERS_FOR_ACTIVITY";
+export const getUsersForActivity = (id) => {
+    return dispatch => {
+        dispatch(getUsersForActivityStart());
+        axios.get(`/api/taglines/all`, {
+          params: {
+            activityId: id
+          }
+        })
+            .then(res => dispatch(getUsersForActivityResults(JSON.stringify(res.data))))
+            .catch(err => dispatch(getUsersForActivityError(err)))
+
+    }
+}

@@ -4,7 +4,9 @@ import {
   GET_ACTIVITIES_RESULTS,
   GET_ACTIVITIES_ERROR,
   GET_SAVED_ERROR,
-  GET_SAVED_RESULTS
+  GET_SAVED_RESULTS,
+  GET_USERS_FOR_ACTIVITY_RESULTS,
+  GET_USERS_FOR_ACTIVITY_ERROR
 } from '../actions';
 
 const initialState = {
@@ -25,6 +27,10 @@ const demo = (state = initialState, action) => {
                 return { ...state, results: "Activities: " + action.data }
         case GET_SAVED_ERROR:
                 return { ...state, results: "Failed to get activities!  " + action.data }
+        case GET_USERS_FOR_ACTIVITY_RESULTS:
+                return { ...state, results: "Users: " + action.data }
+        case GET_USERS_FOR_ACTIVITY_ERROR:
+                return { ...state, results: "Failed to get users!  " + action.data }
         default:
             return state
     }
