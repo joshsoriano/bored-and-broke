@@ -9,14 +9,14 @@ import NavItem from 'react-bootstrap/lib/NavItem';
 import NavDropdown from 'react-bootstrap/lib/NavDropdown';
 import MenuItem from 'react-bootstrap/lib/MenuItem';
 import Image from 'react-bootstrap/lib/Image';
-import logo from './images/logo-white.png';
+import logo from '../images/logo-white.png';
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 import LoginCreateAccount from './LoginCreateAccount.js';
 import SavedActivities from './SavedActivities.js';
 import Settings from './Settings.js';
 import Homepage from './Homepage.js';
 import { removeUserID } from './userID';
-
+import UserImage from './UserImage.js';
 
 const LINKS = [
     { to: './SavedActivities.js', title: 'SAVED_ACTIVITIES'},
@@ -29,12 +29,12 @@ const propTypes = {
 const styles = {
     navbar: {
         backgroundColor: '#2C3E50',
-        height: '75px',
+        height: '80px',
         border: 'none',
         fontFamily: 'Open Sans',
     },
     navbarContent: {
-        marginTop: '12.5px',
+        marginTop: '0px',
     },
     logoLink: {
         marginTop: '8px',
@@ -44,6 +44,12 @@ const styles = {
     },
     aNavItem: {
         marginLeft: '10px',
+    },
+    dropdownMenu: {
+      border: 'none',
+      borderRadius: '0',
+      WebkitBoxShadow: 'none',
+      boxShadow: 'none',
     }
 }
 
@@ -97,7 +103,7 @@ class NavigationBar extends React.Component {
                     </Navbar.Header>
                     <Navbar.Collapse className={classes.navbarContent}>
                         <Nav pullRight>
-                            <NavDropdown eventKey={3} title="User" id="basic-nav-dropdown">
+                            <NavDropdown eventKey={3} title={ <UserImage /> } id="basic-nav-dropdown">
                                 <span className={classes.aNavItem}>
                                     <Link to="/Homepage">Homepage</Link>
                                 </span>

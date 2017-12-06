@@ -6,9 +6,9 @@ import Carousel from 'react-bootstrap/lib/Carousel';
 import {Form, FormGroup, ControlLabel, FormControl, Col, Checkbox} from 'react-bootstrap'
 import Modal from 'react-bootstrap/lib/Modal';
 import Button from 'react-bootstrap/lib/Button';
-import eventExample from './userImage.png';
-import imageExample from './user2image.png';
-import logo_black from './images/logo-black.png';
+import eventExample from '../images/userImage.png';
+import imageExample from '../images/user2image.png';
+import logo_black from '../images/logo-black.png';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,

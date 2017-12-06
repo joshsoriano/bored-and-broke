@@ -3,13 +3,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Homepage from './Homepage.js';
-import LoginCreateAccount from './LoginCreateAccount.js';
-import SavedActivities from './SavedActivities.js';
-import Settings from './Settings.js';
-import Loading from './Loading.js';
+import Homepage from './containers/HomepageContainer';
+import LoginCreateAccount from './components/LoginCreateAccount.js';
+import SavedActivities from './components/SavedActivities.js';
+import Settings from './components/Settings.js';
+import Loading from './components/Loading.js';
 import injectSheet from 'react-jss';
+import App from './containers/AppContainer';
 
+import { Provider } from 'react-redux';
+import { applyMiddleware, createStore } from 'redux';
+import { createLogger } from 'redux-logger';
+import thunk from 'redux-thunk';
+import rootReducer from './reducers';
+
+const middleware = applyMiddleware(thunk, createLogger());
+export const store = createStore(rootReducer, middleware);
 
 
 const propTypes = {
@@ -79,6 +88,9 @@ class BoredAndBroke extends React.Component {
                      <PrivateRoute path="/Settings" component={Settings}/>
                      <Route path="/LoginCreateAccount" component={LoginCreateAccount}/>
                      <PrivateRoute path="/Loading" component={Loading}/>
+
+                     <Route path="/DemoTest" component={App}/>
+
                 </Switch>
             </div>
          </Router>
@@ -91,8 +103,10 @@ class BoredAndBroke extends React.Component {
 BoredAndBroke.propTypes = propTypes;
 
 ReactDOM.render(
-  <BoredAndBroke
-    classes={styles.main}
-  />,
+  <Provider store={store}>
+    <BoredAndBroke
+      classes={styles.main}
+    />
+  </Provider>,
   document.getElementById('root')
 );

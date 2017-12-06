@@ -1,6 +1,4 @@
 import React from 'react';
-import $ from 'jquery';
-import * as activity from './backend/activity.js';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import NavigationBar from './NavigationBar.js';
@@ -8,7 +6,6 @@ import HomepageSettings from './HomepageSettings.js';
 import SingleActivityModal from './SingleActivityModal.js';
 import { getUserID } from './userID';
 import Activity from './Activity.js';
-// import database from './backend/database.js';
 // import LoginCreateAccount from './LoginCreateAccount.js';
 // import SavedActivities from './SavedActivities.js';
 // import Settings from './Settings.js';
@@ -86,8 +83,6 @@ class Homepage extends React.Component {
   }
 
   Homepage() {
-    // For demo.
-    this.setState({ activities: activity.retrieve() });
     // Eventually we will use this function to load the activities.
     // this.setState({ activities: database.getFutureActivities() });
   }
@@ -103,9 +98,10 @@ class Homepage extends React.Component {
         <div className={ classes.homepageSettings }>
             <HomepageSettings />
         </div>
-        <div className={ classes.titleContainer }>
-            <span className={ classes.title }>Your Activity Feed</span>
-        </div>
+
+        <button onClick={this.props.actions.getActivities(50 /*price limit*/)}>Get all future activities!</button>
+        <div style={{ padding: '30px' }}>{this.props.results}</div>
+
         <div className={ classes.resultsContainer }>
             <div className={ classes.row }>
 

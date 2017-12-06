@@ -29,8 +29,7 @@ class HomepageSettings extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            zipcode: '',
-            distance: 45,
+            city: '',
             price: 0
         };
         this.handleChange = this.handleChange.bind(this);
@@ -55,23 +54,29 @@ class HomepageSettings extends React.Component {
         const { classes } = this.props;
         return (
             <Form inline className={ classes.main } controlId="homepageSettings" onSubmit={ this.handleSubmit }>
-                <Col componentClass={ControlLabel} sm={4}>
+                <Col componentClass={ControlLabel} sm={6}>
                     <FormGroup className={ classes.formInput } controlId="formZipcode" >
-                        Zipcode: <br/>
-                        <FormControl name="zipcode" placeholder="Enter Zipcode" value={this.state.zipcode}
-                        onChange={ this.handleChange }/>
+                        City: <br/>
+                        <FormControl name="city" value={this.state.city} onChange={this.handleChange} componentClass="select" placeholder="select">
+                          <option value="select">select</option>
+                          <option value="LosAngeles">Los Angeles</option>
+                          <option value="Westchester">Westchester</option>
+                          <option value="PlayaVista">Playa Vista</option>
+                          <option value="PlayaDelRey">Playa Del Rey</option>
+                          <option value="MarinaDelRey">Marina Del Rey</option>
+                          <option value="VeniceBeach">Venice Beach</option>
+                          <option value="ManhattanBeach">Manhattan Beach</option>
+                          <option value="HermosaBeach">Hermosa Beach</option>
+                          <option value="PalosVerdes">Palos Verdes</option>
+                          <option value="ArtsDistrict">Arts District</option>
+                          <option value="SoHo">SoHo</option>
+                          <option value="PacificPalisades">Pacific Palisades</option>
+                          <option value="Malibu">Malibu</option>
+                          <option value="SilverLake">Silver Lake</option>
+                        </FormControl>
                     </FormGroup>
                 </Col>
-                <Col componentClass={ControlLabel} sm={4}>
-                    <FormGroup className={ classes.formInput } controlId="formDistance" >
-                        Pick Radius: <br/>
-                        <FormControl type="range" min="0" max="100" name="distance"
-                        value={this.state.distance}
-                        onChange={this.handleChange}/> <br/>
-                        {this.state.distance} miles
-                    </FormGroup>
-                </Col>
-                <Col componentClass={ControlLabel} sm={4}>
+                <Col componentClass={ControlLabel} sm={6}>
                     <FormGroup className={ classes.formInput } controlId="formPrice">
                         $0 to $100 <br/>
                         <FormControl type="range" min="0" max="100" name="price"

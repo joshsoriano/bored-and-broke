@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import Button from 'react-bootstrap/lib/Button';
-import { Form, FormGroup, ControlLabel, FormControl, Col } from 'react-bootstrap'
+import { Form, FormGroup, ControlLabel, FormControl, Col, Collapse, Well } from 'react-bootstrap'
 import NavigationBar from './NavigationBar.js';
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 
@@ -38,12 +38,15 @@ const styles = {
         color: '#ababab',
         fontFamily: 'Open Sans',
     },
-    deavtivate: {
-        display: 'block',
-        marginTop: '15px',
-        color: '#E74C3C',
-        fontWeight: 'bold',
-        fontFamily: 'Open Sans',
+    deactivateWell: {
+        color: 'black'
+    },
+    deactivateBtns: {
+        marginTop: '5px'
+    },
+    deactivateAccnt: {
+        marginTop: '10px',
+        marginBottom: '5px'
     },
     save: {
         fontWeight: 'bold',
@@ -55,6 +58,11 @@ const styles = {
 };
 
 class Settings extends React.Component {
+    constructor(props) {
+    super(props);
+
+    this.state = {};
+  }
   render() {
     const { classes } = this.props;
     return (
@@ -100,13 +108,30 @@ class Settings extends React.Component {
                     No longer want to use Bored&Broke?
                   </Col>
                   <Col sm={6}>
-                    <Link className={ classes.deavtivate } to="/LoginCreateAccount">Deactivate Account</Link>
+                    <Button onClick={() => this.setState({ open: !this.state.open })} className={ classes.deactivateAccnt }>
+                      Deactivate Account
+                    </Button>
+                    <Collapse in={this.state.open}>
+                      <div>
+                        <Well className={ classes.deactivateWell }>
+                          Are you sure you want to remove your account from BoredBroke.com
+                          <div className={ classes.deactivateBtns }>
+                              <Button onClick={() => this.setState({ open: !this.state.open })}>
+                                NO!
+                              </Button>
+                              <Button href="/LoginCreateAccount" bsStyle="danger">
+                                  Yes
+                              </Button>
+                          </div>
+                        </Well>
+                      </div>
+                    </Collapse>
                   </Col>
                 </FormGroup>
 
                 <FormGroup controlId="formHorizontalSave" >
                   <Col smOffset={2} sm={10}>
-                    <Button bsSize="small" className={ classes.save } href="/Homepage">Save</Button>
+                    <Button className={ classes.save } href="/Homepage">Save</Button>
                   </Col>
                 </FormGroup>
 

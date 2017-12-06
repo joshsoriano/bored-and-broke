@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import { Button } from 'react-bootstrap';
 // import { IconButton } from 'react-buttons';
-import fbButton from './images/fb_login.png';
+import fbButton from '../images/fb_login.png';
 import { saveUserID } from './userID';
 
 const propTypes = {
@@ -109,9 +109,13 @@ class LoginButton extends React.Component {
     return "";
   }
 
+  mouseOver() {
+    return ""
+  }
+
   render() {
     const { classes } = this.props;
-    return <img src={ fbButton } height='50px' onMouseOver={ this.onMouseOver } className={ classes.loginButton } onClick={this.handleClick}/>
+    return <img src={ fbButton } height='50px' onMouseOver={ this.mouseOver } className={ classes.loginButton } onClick={this.handleClick}/>
   }
 }
 LoginButton.propTypes = propTypes;
