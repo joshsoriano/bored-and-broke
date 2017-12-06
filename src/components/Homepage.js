@@ -12,6 +12,7 @@ import Activity from './Activity.js';
 // import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 import dataImage1 from '../images/fakeData1.png';
 import dataImage2 from '../images/fakeData2.png';
+import dataImage3 from '../images/fakeData3.png';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -115,8 +116,12 @@ class Homepage extends React.Component {
                     eventDescription="Sun, December 10, 2017 <br /> 6:00 PM – 9:00 PM EST  <br /> $20"
                 >
                 </Activity>
-                <Activity />
-                <Activity />
+                <Activity
+                    eventName="Hiphop&R&B concert"
+                    eventImage={ dataImage3 }
+                    eventDescription="Tue, Jan 9, 2018, 9:00 PM – Wed, Jan 10, 2018, 11:30 PM  <br /> $15"
+                >
+                </Activity>
             </div>
             <div className={ classes.row }>
                 <Activity />
