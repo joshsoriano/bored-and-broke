@@ -99,7 +99,7 @@ class Homepage extends React.Component {
             <HomepageSettings />
         </div>
 
-        <button onClick={this.props.actions.getActivities}>Get all future activities!</button>
+        <button onClick={this.props.actions.getActivities(50 /*price limit*/)}>Get all future activities!</button>
         <div style={{ padding: '30px' }}>{this.props.results}</div>
 
         <div className={ classes.resultsContainer }>

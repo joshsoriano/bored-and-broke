@@ -42,10 +42,14 @@ export const getActivitiesError = (data) => {
 }
 
 export const GET_ACTIVITIES = "GET_ACTVIITIES"
-export const getActivities = () => {
+export const getActivities = (price) => {
     return dispatch => {
         dispatch(getActivitiesStart());
-        axios.get(`/api/activities`)
+        axios.get(`/api/activities`, {
+        params: {
+          priceLimit: price
+        }
+      })
             .then(res => dispatch(getActivitiesResults(JSON.stringify(res.data))))
             .catch(err => dispatch(getActivitiesError(err)))
 

@@ -4,7 +4,7 @@ const Sequelize = require('sequelize');
 
 const router = require('express').Router()
 
-router.get('/:id', function(req, res, next) {
+router.get('/id', function(req, res, next) {
     Activity.findOne({
         where: {
           id: req.params.id
@@ -27,7 +27,7 @@ router.get('/', function(req, res, next) {
       Activity.findAll({
         limit: 80,
         where: {
-          // price: { [Sequelize.Op.lte]: priceLimit },
+          price: { [Sequelize.Op.lte]: req.query.priceLimit },
           date: { [Sequelize.Op.gte]: yyyymmdd }
         }
       })
