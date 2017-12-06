@@ -5,6 +5,8 @@ const Sequelize = require('sequelize');
 const router = require('express').Router()
 
 router.get('/', function(req, res, next) {
+    // Get a user's information from the database. If this is null,
+    // the user does not exist in the database.
     User.findOne({
         where: {
           id: req.query.id
