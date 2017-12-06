@@ -176,3 +176,33 @@ export const getUser = (userId) => {
 
     }
 }
+
+export const REMOVE_USER_START = "REMOVE_USER_START";
+export const removeUserStart = () => {
+    return { type: REMOVE_USER_START }
+}
+
+export const REMOVE_USER_RESULTS = "REMOVE_USER_RESULTS";
+export const removeUserResults = (data) => {
+    return { type: REMOVE_USER_RESULTS, data }
+}
+
+export const REMOVE_USER_ERROR = "REMOVE_USER_ERROR";
+export const removeUserError = (data) => {
+    return { type: REMOVE_USER_ERROR, data }
+}
+
+export const REMOVE_USER = "REMOVE_USER";
+export const removeUser = (userId) => {
+    return dispatch => {
+        dispatch(removeUserStart());
+        axios.delete(`/api/users/remove`, {
+          params: {
+            userId: userId
+          }
+        })
+            .then(res => dispatch(removeUserResults(JSON.stringify(res.data))))
+            .catch(err => dispatch(removeUserError(err)))
+
+    }
+}

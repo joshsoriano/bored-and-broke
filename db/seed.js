@@ -21,13 +21,19 @@ const seedActivities = () => db.Promise.map([
 ], activity => db.model('activity').create(activity));
 
 const seedUsers = () => db.Promise.map([
-  {id: "12345", name: "Jane Doe", bio: "Girls just wanna have fu-uuun!"},
-  {id: "12346", name: "Johnny Doe", bio: "Here for a good time, not a long time."}
+  {id: "12342", name: "Sasha Doe", bio: "Girls just wanna have fu-uuun!"},
+  {id: "1234d", name: "Mary Doe", bio: "Here for a good time, not a long time."},
+  {id: "12g45", name: "Mathew Doe", bio: "Girls just wanna have fu-uuun!"},
+  {id: "12348", name: "Josh Doe", bio: "Here for a good time, not a long time."},
+  {id: "11112", name: "Mackenzie Doe", bio: "Girls just wanna have fu-uuun!"},
+  {id: "12340", name: "Jordan Doe", bio: "Here for a good time, not a long time."}
 ], activity => db.model('user').create(activity));
 
 const seedTaglines = () => db.Promise.map([
-  {user_id: "12345", activity_id: 2, tag: "So excited for this!"},
-  {user_id: "12345", activity_id: 4, tag: "Looking for a ride!"}
+  {user_id: "1234d", activity_id: 1, tag: "So excited for this!"},
+  {user_id: "12340", activity_id: 4, tag: "Looking for a ride!"},
+  {user_id: "11112", activity_id: 6, tag: "Looking for a ride!"},
+  {user_id: "11112", activity_id: 4, tag: "Looking for a ride!"}
 ], tagline => db.model('tagline').create(tagline));
 
  db.didSync
