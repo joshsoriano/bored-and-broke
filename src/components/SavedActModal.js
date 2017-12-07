@@ -156,11 +156,6 @@ class SingleActivityModal extends React.Component {
             value: e.target.value, //note that the taglineVal is more accurate
       });
       console.log("tagline is:", this.state.value);
-    //   if (this.state.value.length < 1) {
-    //       this.setState({
-    //           tagLongEnough: false,
-    //     });
-    //   }
     };
 
     changeToThirdState(e) {
@@ -183,15 +178,6 @@ class SingleActivityModal extends React.Component {
         const saved = null;
         this.props.callbackFromParent(saved);
     }
-
-
-                            // <div className = { saveButtonClasses }>
-                            //   <Button onClick={ this.changeToSecondState } bastyle="primary" bsSize="large">{ this.props.onRequestClose } Save Event </Button>
-                            // </div>
-                            //
-                            // <div className={ unSaveButtonClasses }>
-                            //   <Button onClick={ this.removeFromSaved } bastyle="primary" bsSize="large">{ this.props.onRequestClose } Unsave </Button>
-                            // </div>
 
     render() {
         const { classes, showModal, userBio } = this.props;
