@@ -49,7 +49,10 @@ class SavedActivities extends React.Component {
             <span>Here are the activities you have saved so far:</span>
         </div>
           <div className={ classes.row }>
-            <Activity />
+            <Activity
+                savedPage={false}
+            >
+            </Activity>
             <Activity />
             <Activity />
             <Activity />

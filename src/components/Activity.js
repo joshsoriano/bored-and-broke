@@ -6,9 +6,12 @@ import Col from 'react-bootstrap/lib/Col';
 import Thumbnail from 'react-bootstrap/lib/Thumbnail';
 import Button from 'react-bootstrap/lib/Button';
 import SingleActivityModal from './SingleActivityModal.js';
+import SavedActModal from './SavedActModal.js';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
+    savedPage: PropTypes.bool,
+    activityName: PropTypes.string,
 };
 
 const styles = {
@@ -31,9 +34,33 @@ class Activity extends React.Component {
       super(props)
     }
 
+
+    // Need to assign a role to savedPage prop here
+
+
     render() {
-        const { classes } = this.props;
-        let name;
+        const { classes, savedPage } = this.props;
+        // this.props.savedPage
+        let modalType =
+            (<SingleActivityModal
+                  savedAlready={ false } // when false nothing happens, when true the carousel goes away
+                  readyForCarousel={ false } // when true the tagline dissapears, when false nothing happens
+                  userBio="New to LA and excited to explore!"
+                  userTagline="Does anyone want to carpool?"
+            >
+            </SingleActivityModal>)
+
+        if (!this.props.savedPage) {
+            modalType =
+                (<SavedActModal
+                    savedAlready={ false } // when false nothing happens, when true the carousel goes away
+                    readyForCarousel={ false } // when true the tagline dissapears, when false nothing happens
+                    userBio="Hi!!!!!!!!!!"
+                    userTagline="Ready for the party!"
+                >
+                </SavedActModal>)
+        }
+
         return (
             <Col sx={12} sm={6} md={3}>
                 <Thumbnail src="http://via.placeholder.com/350x250" alt="242x200">
@@ -41,11 +68,7 @@ class Activity extends React.Component {
                         <h3 className = {classes.activityTitle}>{this.props.activityName}</h3>
                         <p className = {classes.activityDesc}>Activity Description</p>
 
-                        <SingleActivityModal
-                              savedAlready={ false } // when false nothing happens, when true the carousel goes away
-                              readyForCarousel={ false } // when true the tagline dissapears, when false nothing happens
-                        >
-                        </SingleActivityModal>
+                        {modalType}
                     </div>
                 </Thumbnail>
             </Col>
