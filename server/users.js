@@ -52,7 +52,7 @@ router.put('/find-or-create/:id', function(req, res, next) {
     .catch(next);
 });
 
-router.save('/saveSettings', function(req, res, next) {
+router.put('/saveSettings', function(req, res, next) {
     User.update({
       bio: req.query.bio
     }, {

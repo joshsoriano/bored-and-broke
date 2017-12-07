@@ -77,6 +77,7 @@ class Homepage extends React.Component {
     if(getUserID() === null) {
       window.location = "/LoginCreateAccount";
     }
+    this.populateActivities();
   }
 
   componentDidMount() {
@@ -85,9 +86,6 @@ class Homepage extends React.Component {
 
   Homepage() {
     // Un-hardcode the price limit.
-    this.setState({
-      activities: this.props.actions.getActivities(50 /* price limit */)
-    });
   }
 
   populateActivities() {
@@ -98,16 +96,19 @@ class Homepage extends React.Component {
   render() {
     // Map through the activities list here.
     const { classes } = this.props;
-
+    let a = this.props.results;
+    let b = [];
+    for(var i = 0; i < a.length; i++) {
+        b.push(Object.entries(a[i]));
+    }
+    console.log(b);
+    
     return (
       <div className={ classes.main }>
         <NavigationBar />
         <div className={ classes.homepageSettings }>
             <HomepageSettings />
         </div>
-
-        <button onClick={this.populateActivities}>Get all future activities!</button>
-        <div style={{ padding: '30px' }}>{this.props.results}</div>
 
         <div className={ classes.resultsContainer }>
             <div className={ classes.row }>

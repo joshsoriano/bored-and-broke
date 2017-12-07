@@ -50,7 +50,7 @@ export const getActivities = (price) => {
           priceLimit: price
         }
       })
-            .then(res => dispatch(getActivitiesResults(JSON.stringify(res.data))))
+            .then(res => dispatch(getActivitiesResults(res.data)))
             .catch(err => dispatch(getActivitiesError(err)))
 
     }
@@ -198,7 +198,7 @@ export const saveUserSettings = (userId, userBio) => {
         dispatch(saveUserSettingsStart());
         axios.put(`/api/users/saveSettings`, {
           params: {
-            id: userId
+            id: userId,
             bio: userBio
           }
         })

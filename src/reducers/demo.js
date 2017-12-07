@@ -24,7 +24,7 @@ const demo = (state = initialState, action) => {
         case GET_ACTIVITY_ERROR:
             return { ...state, results: "Failed to get activity!  " + action.data }
         case GET_ACTIVITIES_RESULTS:
-                return { ...state, results: "Activities: " + action.data }
+                return { ...state, results: action.data }
         case GET_ACTIVITIES_ERROR:
                 return { ...state, results: "Failed to get activities!  " + action.data }
         case GET_SAVED_RESULTS:
