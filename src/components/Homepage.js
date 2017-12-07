@@ -69,7 +69,6 @@ const styles = {
 class Homepage extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { activities: [] };
   }
 
   componentWillMount() {
@@ -83,9 +82,8 @@ class Homepage extends React.Component {
   }
 
   Homepage() {
-    this.setState({
-      activities: this.props.results
-    });
+    // Un-hardcode the price limit.
+    this.props.actions.getActivities(50 /* price limit */)
   }
 
 
@@ -107,11 +105,17 @@ class Homepage extends React.Component {
         <div className={ classes.homepageSettings }>
             <HomepageSettings />
         </div>
-
-        <button onClick={this.props.actions.getActivities(50)}>Test!</button>
-        <div style={{ padding: '30px' }}>{this.props.results}</div>
-
-
+          <div >
+          {
+            this.props.activities.map(item => {
+              return (
+                <div>
+                  <span>{item.name}</span>
+                </div>
+              )
+            })
+          }
+        </div>
         <div className={ classes.resultsContainer }>
             <div className={ classes.row }>
 
