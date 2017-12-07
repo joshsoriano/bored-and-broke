@@ -59,4 +59,13 @@ On the saved activities page, the user can scroll to view all of the events that
 #### Settings  
 ![settings page](https://raw.githubusercontent.com/joshsoriano/bored-and-broke/master/documents/user%20manual/settingsPage.png)  
 
-The settings page is accessed by clicking on the “Settings” option in the dropdown menu within the navigation bar at the top of the homepage. Once the user has been redirected to the page, they can change their display name and/or bio. The settings page also displays the email associated with the user’s account and allows them to deactivate their account. The user can deactivate their account by clicking on the “Deactivate Account” button. This button will expand with a dropdown making sure they really want to deactivate their account. The user can click the “NO!” button and the dropdown will close and continue editing their settings. If the user decides they would actually like to deactivate their account then they can click the “Yes” button and their account will be removed from the database, they will be logged out of BoredBroke.com, and redirected to the Login/Create Account page.  
+The settings page is accessed by clicking on the “Settings” option in the dropdown menu within the navigation bar at the top of the homepage. Once the user has been redirected to the page, they can change their display name and/or bio. The settings page also displays the email associated with the user’s account and allows them to deactivate their account. The user can deactivate their account by clicking on the “Deactivate Account” button. This button will expand with a dropdown making sure they really want to deactivate their account. The user can click the “NO!” button and the dropdown will close and continue editing their settings. If the user decides they would actually like to deactivate their account then they can click the “Yes” button and their account will be removed from the database, they will be logged out of BoredBroke.com, and redirected to the Login/Create Account page.
+
+### FAQ
+Q: I don't have a Facebook, is there any way to use the application still? 
+A: No, unfortunately we use your Facebook ID as your login information so it is required to have one to use Bored and Broke.
+
+Q: Why doesn't my price slider doesn't work properly?
+A: Our application works best on Safari and Chrome. Edge has known errors that occur.
+
+If you find any bugs or have any questions about our application, please email us at boredbrokemeetup@gmail.com
