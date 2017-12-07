@@ -38,6 +38,20 @@ router.delete('/remove', function(req, res, next) {
     .catch(next);
 });
 
+router.put('/find-or-create/:id', function(req, res, next) {
+    // If a user with the provided id doesn't exist, a user is created.
+    // If a user with the provided id does exist, nothing happens.
+    User.findOrCreate({
+        where: {
+          id: req.params.id
+        }
+    })
+    .then(() => {
+        res.status(200).send('User definitely exists now.');
+    })
+    .catch(next);
+});
+
 router.save('/saveSettings', function(req, res, next) {
     User.update({
       bio: req.query.bio
