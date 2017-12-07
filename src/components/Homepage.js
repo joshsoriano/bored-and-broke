@@ -69,7 +69,6 @@ const styles = {
 class Homepage extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { activities: [] };
   }
 
   componentWillMount() {
@@ -84,9 +83,7 @@ class Homepage extends React.Component {
 
   Homepage() {
     // Un-hardcode the price limit.
-    this.setState({
-      activities: this.props.actions.getActivities(50 /* price limit */)
-    });
+    this.props.actions.getActivities(50 /* price limit */)
   }
 
 
@@ -100,7 +97,17 @@ class Homepage extends React.Component {
         <div className={ classes.homepageSettings }>
             <HomepageSettings />
         </div>
-
+          <div >
+          {
+            this.props.activities.map(item => {
+              return (
+                <div>
+                  <span>{item.name}</span>
+                </div>
+              )
+            })
+          }
+        </div>
         <div className={ classes.resultsContainer }>
             <div className={ classes.row }>
 

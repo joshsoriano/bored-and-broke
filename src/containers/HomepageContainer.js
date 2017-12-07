@@ -6,7 +6,7 @@ import Homepage from '../components/Homepage'
 
 function mapStateToProps(state) {
   return {
-    results: state.demo.results
+    activities: state.demo.activities
   }
 }
 

@@ -21,12 +21,12 @@ const seedActivities = () => db.Promise.map([
 ], activity => db.model('activity').create(activity));
 
 const seedUsers = () => db.Promise.map([
-  {id: "12342", name: "Sasha Doe", bio: "Girls just wanna have fu-uuun!"},
-  {id: "1234d", name: "Mary Doe", bio: "Here for a good time, not a long time."},
-  {id: "12g45", name: "Mathew Doe", bio: "Girls just wanna have fu-uuun!"},
-  {id: "12348", name: "Josh Doe", bio: "Here for a good time, not a long time."},
-  {id: "11112", name: "Mackenzie Doe", bio: "Girls just wanna have fu-uuun!"},
-  {id: "12340", name: "Jordan Doe", bio: "Here for a good time, not a long time."}
+  {id: "12342", name: "Sasha Doe", bio: "Girls just wanna have fu-uuun!", email: "go@go.net"},
+  {id: "1234d", name: "Mary Doe", bio: "Here for a good time, not a long time.", email: "go@go.net"},
+  {id: "12g45", name: "Mathew Doe", bio: "Girls just wanna have fu-uuun!", email: "go@go.net"},
+  {id: "12348", name: "Josh Doe", bio: "Here for a good time, not a long time.", email: "go@go.net"},
+  {id: "11112", name: "Mackenzie Doe", bio: "Girls just wanna have fu-uuun!", email: "go@go.net"},
+  {id: "12340", name: "Jordan Doe", bio: "Here for a good time, not a long time.", email: "go@go.net"}
 ], activity => db.model('user').create(activity));
 
 const seedTaglines = () => db.Promise.map([

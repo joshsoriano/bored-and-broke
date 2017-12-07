@@ -50,7 +50,7 @@ export const getActivities = (price) => {
           priceLimit: price
         }
       })
-            .then(res => dispatch(getActivitiesResults(JSON.stringify(res.data))))
+            .then(res => dispatch(getActivitiesResults(res.data)))
             .catch(err => dispatch(getActivitiesError(err)))
 
     }
