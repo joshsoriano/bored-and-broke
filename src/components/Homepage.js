@@ -117,16 +117,28 @@ class Homepage extends React.Component {
 // >
 // </Activity>
 
+
+
   render() {
     // Map through the activities list here.
     const { classes } = this.props;
 
-    const activityDetails = this.props.activities.map(item => (
+    let activityDetails = this.props.activities.map(item => (
         <Activity
             activityName={item.name}
             savedPage={true}
         />
     ));
+
+    let final = [];
+    let rowsArray = [];
+    for (let i = 0; i < activityDetails.length; i++) {
+        rowsArray.push(activityDetails[i]);
+        if(i % 4 === 3 && i > 0) {
+            final.push(<div className={classes.row}> {rowsArray} </div>);
+            rowsArray = [];
+        }
+    }
 
     return (
       <div className={ classes.main }>
@@ -134,21 +146,8 @@ class Homepage extends React.Component {
         <div className={ classes.homepageSettings }>
             <HomepageSettings />
         </div>
-        <div >
-          {
-            this.props.activities.map(item => {
-              return (
-                <div>
-                  <Activity/>
-                </div>
-              )
-            })
-          }
-        </div>
         <div className={ classes.resultsContainer }>
-            <div className={ classes.row }>
-                {activityDetails}
-            </div>
+            {final}
         </div>
       </div>
     );
