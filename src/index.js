@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-d
 import PropTypes from 'prop-types';
 import Homepage from './containers/HomepageContainer';
 import LoginCreateAccount from './components/LoginCreateAccount.js';
-import SavedActivities from './components/SavedActivities.js';
+import SavedActivities from './containers/SavedActivitiesContainer';
 import Settings from './components/Settings.js';
 import Loading from './components/Loading.js';
 import injectSheet from 'react-jss';
