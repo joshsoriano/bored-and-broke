@@ -123,15 +123,40 @@ class Homepage extends React.Component {
                     savedPage={true}
                 >
                 </Activity>
-                <Activity />
-                <Activity />
-                <Activity />
+
+                <Activity
+                    savedPage={true}
+                >
+                </Activity>
+
+                <Activity
+                    savedPage={true}
+                >
+                </Activity>
+
+                <Activity
+                    savedPage={true}
+                >
+                </Activity>
+
             </div>
             <div className={ classes.row }>
-                <Activity />
-                <Activity />
-                <Activity />
-                <Activity />
+                <Activity
+                    savedPage={true}
+                >
+                </Activity>
+                <Activity
+                    savedPage={true}
+                >
+                </Activity>
+                <Activity
+                    savedPage={true}
+                >
+                </Activity>
+                <Activity
+                    savedPage={true}
+                >
+                </Activity>
             </div>
         </div>
       </div>

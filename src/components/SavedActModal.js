@@ -13,8 +13,8 @@ import Activity from './Activity.js';
 const propTypes = {
     classes: PropTypes.object.isRequired,
     onRequestClose: PropTypes.func,
-    // savedAlready: PropTypes.bool,
-    // readyForCarousel: PropTypes.bool,
+    savedAlready: PropTypes.bool,
+    readyForCarousel: PropTypes.bool,
     userBio: PropTypes.string,
     userTagline: PropTypes.string,
 };
@@ -131,7 +131,7 @@ class SingleActivityModal extends React.Component {
         this.state = {
             show: false,
             tagline: false,
-            secondState: true,
+            secondState: this.props.savedAlready,
             thirdState: true,
             value: '',
             // tagLongEnough: false,
@@ -183,6 +183,15 @@ class SingleActivityModal extends React.Component {
         const saved = null;
         this.props.callbackFromParent(saved);
     }
+
+
+                            // <div className = { saveButtonClasses }>
+                            //   <Button onClick={ this.changeToSecondState } bastyle="primary" bsSize="large">{ this.props.onRequestClose } Save Event </Button>
+                            // </div>
+                            //
+                            // <div className={ unSaveButtonClasses }>
+                            //   <Button onClick={ this.removeFromSaved } bastyle="primary" bsSize="large">{ this.props.onRequestClose } Unsave </Button>
+                            // </div>
 
     render() {
         const { classes, showModal, userBio } = this.props;
@@ -244,13 +253,10 @@ class SingleActivityModal extends React.Component {
                           </span>
                         </div>
 
-                        <div className = { saveButtonClasses }>
-                          <Button onClick={ this.changeToSecondState } bastyle="primary" bsSize="large">{ this.props.onRequestClose } Save Event </Button>
-                        </div>
-
                         <div className={ unSaveButtonClasses }>
                           <Button onClick={ this.removeFromSaved } bastyle="primary" bsSize="large">{ this.props.onRequestClose } Unsave </Button>
                         </div>
+
 
                         <div className={ taglineClasses }>
                             <Form horizontal>
