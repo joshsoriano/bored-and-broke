@@ -70,6 +70,7 @@ class Homepage extends React.Component {
   constructor(props) {
     super(props)
     this.state = { activities: [] };
+    this.populateActivities = this.populateActivities.bind(this);
   }
 
   componentWillMount() {
@@ -87,6 +88,10 @@ class Homepage extends React.Component {
     // this.setState({ activities: database.getFutureActivities() });
   }
 
+  populateActivities() {
+    return this.props.actions.getActivities(50);
+  }
+
 
   render() {
     // Map through the activities list here.
@@ -99,7 +104,7 @@ class Homepage extends React.Component {
             <HomepageSettings />
         </div>
 
-        <button onClick={this.props.actions.getActivities(50 /*price limit*/)}>Get all future activities!</button>
+        <button onClick={this.populateActivities}>Get all future activities!</button>
         <div style={{ padding: '30px' }}>{this.props.results}</div>
 
         <div className={ classes.resultsContainer }>
