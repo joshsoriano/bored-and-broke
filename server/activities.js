@@ -6,6 +6,8 @@ const Sequelize = require('sequelize');
 const router = require('express').Router()
 
 router.get('/', function(req, res, next) {
+      // Get all future activities.
+
       // Convert today's date to an YYYYMMDD integer.
       let today = new Date();
       let dd = today.getDate();
@@ -27,6 +29,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/single', function(req, res, next) {
+    // Get a single activity.
     Activity.findOne({
         where: {
           id: req.query.id
@@ -39,6 +42,7 @@ router.get('/single', function(req, res, next) {
 });
 
 router.get('/saved', function(req, res, next) {
+    // Get a user's saved activities.
     Tagline.findAll({
         include: [ Activity ],
         where: {

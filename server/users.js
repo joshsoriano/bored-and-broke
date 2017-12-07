@@ -21,6 +21,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.delete('/remove', function(req, res, next) {
+    // Delete the user and the user's taglines.
     User.destroy({
         where: {
           id: req.query.userId

@@ -38,7 +38,17 @@ If navigating to www.boredbroke.com while still logged in (did not click “Logo
 ![nav](https://raw.githubusercontent.com/joshsoriano/bored-and-broke/master/documents/user%20manual/nav.png)
 ![nav dropdown](https://raw.githubusercontent.com/joshsoriano/bored-and-broke/master/documents/user%20manual/nav-dropdown.png)
 
-Clicking on the user’s Facebook profile picture in the upper right-hand corner will prompt a dropdown which allows the users to toggle between the pages of Bored & Broke. The user’s options are the homepage, saved activities, settings, and logout (logs the user out of Bored & Broke and redirects them back to the login page). 
+Clicking on the user’s Facebook profile picture in the upper right-hand corner will prompt a dropdown which allows the users to toggle between the pages of Bored & Broke. The user’s options are the homepage, saved activities, settings, and logout (logs the user out of Bored & Broke and redirects them back to the login page).  
+
+#### Homepage & Homepage Settings  
+![homepage settings](https://raw.githubusercontent.com/joshsoriano/bored-and-broke/master/documents/user%20manual/homepageSettings.png)  
+
+When the user is on the homepage they can pick a city to search in with the dropdown labeled “City:”. Once the user clicks on the dropdown under “City:” they will be shown a list of cities to search within. The user can also select a maximum amount of money as another search parameter. The user can use the button on the slider under the price range label to set the event cost. Once the user has chosen a city and an amount of money, they can press the “Search” button to filter events according to their parameters. The homepage will update with events according to their search parameters. 
+
+#### Activity Modal  
+![activity modal](https://raw.githubusercontent.com/joshsoriano/bored-and-broke/master/documents/user%20manual/activityModal.png)  
+
+On the homepage, the user will see various activities within the city and price range they are searching. Each activiy has a “More Info” button that will open a popup window (modal) containing more information on that specific event. The popup window will show the user the event’s title, date, time, location, and price. Below this there will be a short description about the event if it has one. The user can save the event with the “Save Event” button at the bottom of the popup. If the user chooses to save the event, the popup will expand to show an input field for an optional tagline. The user can add a tagline about how they feel about this event or why they saved it and click “Save Tagline” or they can choose to not add a tagline by clicking “Skip”. Next the user will be able to see other people also interested in the event along with these user’s taglines if they have one. The user has the option to unsave events after saving them by clicking the “unsave” button on the popup window. The user is able to exit the popup window at anytime with the x button in the upper right corner of the window. 
 
 #### Saved Activities
 ![saved activities](https://raw.githubusercontent.com/joshsoriano/bored-and-broke/master/documents/user%20manual/saved-activities.png)
@@ -46,13 +56,17 @@ Clicking on the user’s Facebook profile picture in the upper right-hand corner
 
 On the saved activities page, the user can scroll to view all of the events that they have previously saved from the homepage. For each activity, they can click on the “More Info” button, which triggers a pop-up modal. On this modal, the user will be able to click through the other users that have saved this event using the arrows on either side of the carousel. The user can also click the “Unsave Event” button which will make the event disappear from the saved events page. 
 
-#### Settings   
-The settings page is accessed by clicking on the “settings” option in the dropdown menu within the navigation bar at the top of the homepage. Once the user has been redirected to the page, they can change their display name and/or bio. The settings page also displays the email associated with the user’s account and allows them to deactivate their account. The user can deactivate their account by clicking on the “deactivate account” button. This button will expand with a dropdown making sure they really want to deactivate their account. The user can click the “NO!” button and the dropdown will close and the user can continue editing their settings. If the user decides they would actually like to deactivate their account then they can click the “Yes” button and their account will be removed from the database, they will be logged out of BoredBroke.com, and redirected to the Login/Create Account page.  
+#### Settings  
+![settings page](https://raw.githubusercontent.com/joshsoriano/bored-and-broke/master/documents/user%20manual/settingsPage.png)  
 
-#### Homepage Settings  
-When the user is on the homepage they can pick a city to search for events in with dropdown labeled “city”. Once the user clicks on the dropdown under “City:” they will be shown a list of cities to search within. The user can also select a maximum amount of money as another search parameter. The user can use the button on the slider under the _ label to set the event cost. Once the user has chosen a city and an amount of money, they can press the “Search” button to filter events according to their parameters.  
+The settings page is accessed by clicking on the “Settings” option in the dropdown menu within the navigation bar at the top of the homepage. Once the user has been redirected to the page, they can change their display name and/or bio. The settings page also displays the email associated with the user’s account and allows them to deactivate their account. The user can deactivate their account by clicking on the “Deactivate Account” button. This button will expand with a dropdown making sure they really want to deactivate their account. The user can click the “NO!” button and the dropdown will close and continue editing their settings. If the user decides they would actually like to deactivate their account then they can click the “Yes” button and their account will be removed from the database, they will be logged out of BoredBroke.com, and redirected to the Login/Create Account page.  
 
-#### Activity Modal  
-On the homepage, the user will see various activities within the city and price range they are searching. Each activiy has a “More Info” button that will open a pop-up window containing more information on that specific event. The popup window will show the user the event’s title, date, time, location, and price. Below this there will be a short description about the event if it has one. The user can save the event with the “Save Event” button at the bottom of the popup. If the user chooses to save the event, the popup will expand to show an input field for an optional tagline. The user can add a tagline about how they feel about this event or why they saved it and click “Save Tagline” or they can choose to not add a tagline by clicking “Skip”. Next the user will be able to see other people also interested in the event along with these user’s taglines if they have one. The user has the option to unsave events after saving them by clicking the “unsave” button on the popup window. The user is able to exit the popup window at anytime with the x button in the upper right corner of the window.  
+### FAQ  
+Q: I don't have a Facebook, is there any way to use the application still?  
+A: No, unfortunately we use your Facebook ID as your login information so it is required to have one to use Bored and Broke.
 
+Q: Why doesn't my price slider doesn't work properly?  
+A: Our application works best on Safari and Chrome. Edge has known errors that occur.
 
+### Contact  
+If you find any bugs or have any questions about our application, please email us at <boredbrokemeetup@gmail.com>
