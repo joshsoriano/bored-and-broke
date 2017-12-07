@@ -1,22 +1,13 @@
 const db = require('../db') //this is required
 const Activity = require('../db/models/activity');
+const Tagline = require('../db/models/tagline');
 const Sequelize = require('sequelize');
 
 const router = require('express').Router()
 
-router.get('/id', function(req, res, next) {
-    Activity.findOne({
-        where: {
-          id: req.params.id
-        }
-      })
-      .then(result => {
-          res.status(200).send(result);
-      })
-      .catch(next);
-});
-
 router.get('/', function(req, res, next) {
+      // Get all future activities.
+
       // Convert today's date to an YYYYMMDD integer.
       let today = new Date();
       let dd = today.getDate();
@@ -35,6 +26,33 @@ router.get('/', function(req, res, next) {
           res.status(200).send(result);
       })
       .catch(next);
+});
+
+router.get('/single', function(req, res, next) {
+    // Get a single activity.
+    Activity.findOne({
+        where: {
+          id: req.query.id
+        }
+      })
+      .then(result => {
+          res.status(200).send(result);
+      })
+      .catch(next);
+});
+
+router.get('/saved', function(req, res, next) {
+    // Get a user's saved activities.
+    Tagline.findAll({
+        include: [ Activity ],
+        where: {
+          user_id: req.query.userId
+        }
+    })
+    .then(result => {
+          res.status(200).send(result);
+    })
+    .catch(next);
 });
 
 module.exports = router;

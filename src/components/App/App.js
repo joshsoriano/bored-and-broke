@@ -15,9 +15,7 @@ class App extends Component {
           <h2>Welcome to React - Fullstack!</h2>
         </div>
         <br />
-        <button onClick={this.props.actions.expressTest}>Test if Express is working</button>
-        <br />
-        <button onClick={this.props.actions.getActivities}>Get all future activities!</button>
+        <button onClick={this.props.actions.getUser(2)}>Test!</button>
         <div style={{ padding: '30px' }}>{this.props.results}</div>
       </div>
     );

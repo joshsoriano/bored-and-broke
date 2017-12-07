@@ -5,7 +5,7 @@ import NavigationBar from './NavigationBar.js';
 import HomepageSettings from './HomepageSettings.js';
 import SingleActivityModal from './SingleActivityModal.js';
 import { getUserID } from './userID';
-import Activity from './Activity.js';
+import Activity from '../containers/ActivityContainer.js';
 // import LoginCreateAccount from './LoginCreateAccount.js';
 // import SavedActivities from './SavedActivities.js';
 // import Settings from './Settings.js';
@@ -83,8 +83,10 @@ class Homepage extends React.Component {
   }
 
   Homepage() {
-    // Eventually we will use this function to load the activities.
-    // this.setState({ activities: database.getFutureActivities() });
+    // Un-hardcode the price limit.
+    this.setState({
+      activities: this.props.actions.getActivities(50 /* price limit */)
+    });
   }
 
 
@@ -98,9 +100,6 @@ class Homepage extends React.Component {
         <div className={ classes.homepageSettings }>
             <HomepageSettings />
         </div>
-
-        <button onClick={this.props.actions.getActivities(50 /*price limit*/)}>Get all future activities!</button>
-        <div style={{ padding: '30px' }}>{this.props.results}</div>
 
         <div className={ classes.resultsContainer }>
             <div className={ classes.row }>
