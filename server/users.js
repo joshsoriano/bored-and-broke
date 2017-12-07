@@ -37,4 +37,16 @@ router.delete('/remove', function(req, res, next) {
     .catch(next);
 });
 
+router.put('/find-or-create/:id', function(req, res, next) {
+    User.findOrCreate({
+        where: {
+          id: req.params.id
+        }
+    })
+    .then(() => {
+        res.status(200).send('User definitely exists now.');
+    })
+    .catch(next);
+});
+
 module.exports = router;

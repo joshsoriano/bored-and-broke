@@ -206,3 +206,29 @@ export const removeUser = (userId) => {
 
     }
 }
+
+export const FIND_OR_CREATE_USER_START = "FIND_OR_CREATE_USER_START";
+export const findOrCreateUserStart = () => {
+    return { type: FIND_OR_CREATE_USER_START }
+}
+
+export const FIND_OR_CREATE_USER_RESULTS = "FIND_OR_CREATE_USER_RESULTS";
+export const findOrCreateUserResults = (data) => {
+    return { type: FIND_OR_CREATE_USER_RESULTS, data }
+}
+
+export const FIND_OR_CREATE_USER_ERROR = "FIND_OR_CREATE_USER_ERROR";
+export const findOrCreateUserError = (data) => {
+    return { type: FIND_OR_CREATE_USER_ERROR, data }
+}
+
+export const FIND_OR_CREATE_USER = "FIND_OR_CREATE_USER";
+export const findOrCreateUser = (userId) => {
+    return dispatch => {
+        dispatch(findOrCreateUserStart());
+        axios.put(`/api/users/find-or-create/` + userId)
+            .then(res => dispatch(findOrCreateUserResults(JSON.stringify(res.data))))
+            .catch(err => dispatch(findOrCreateUserError(err)))
+
+    }
+}
