@@ -34,15 +34,11 @@ After navigating to www.boredbroke.com when not logged in, the user will automat
 
 If navigating to www.boredbroke.com while still logged in (did not click “Logout”), the login page will be bypassed and the user will be brought directly to the homepage. 
 
-#### Homepage Settings
-
 #### Navigation Bar
 ![nav](https://raw.githubusercontent.com/joshsoriano/bored-and-broke/master/documents/user%20manual/nav.png)
 ![nav dropdown](https://raw.githubusercontent.com/joshsoriano/bored-and-broke/master/documents/user%20manual/nav-dropdown.png)
 
 Clicking on the user’s Facebook profile picture in the upper right-hand corner will prompt a dropdown which allows the users to toggle between the pages of Bored & Broke. The user’s options are the homepage, saved activities, settings, and logout (logs the user out of Bored & Broke and redirects them back to the login page). 
-
-#### Activity Modal
 
 #### Saved Activities
 ![saved activities](https://raw.githubusercontent.com/joshsoriano/bored-and-broke/master/documents/user%20manual/saved-activities.png)
