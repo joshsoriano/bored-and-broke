@@ -273,7 +273,7 @@ class SingleActivityModal extends React.Component {
 
                         </div>
                         <div className={ carouselClasses }>
-                          <Carousel>
+                          <Carousel interval={ null }>
                               <Carousel.Item>
                                 <img width={300} height={200} align="middle" src={eventExample}/>
                                 <Carousel.Caption>
