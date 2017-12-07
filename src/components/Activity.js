@@ -39,6 +39,8 @@ class Activity extends React.Component {
                         <SingleActivityModal
                               savedAlready={ false } // when false nothing happens, when true the carousel goes away
                               readyForCarousel={ false } // when true the tagline dissapears, when false nothing happens
+                              userBio="New to LA and excited to explore!"
+                              userTagline="Does anyone want to carpool?"
                         >
                         </SingleActivityModal>
                     </div>

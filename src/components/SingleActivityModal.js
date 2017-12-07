@@ -14,6 +14,7 @@ const propTypes = {
     onRequestClose: PropTypes.func,
     savedAlready: PropTypes.bool,
     readyForCarousel: PropTypes.bool,
+    userBio: PropTypes.string,
 };
 
 const defaultProps = {
@@ -178,7 +179,7 @@ class SingleActivityModal extends React.Component {
 
 
     render() {
-        const { classes, showModal } = this.props;
+        const { classes, showModal, userBio } = this.props;
         const { secondState, thirdState, value, tagLongEnough } = this.state;
         const date = "01-01-2001";
         const location = "Keck Lab";
@@ -291,7 +292,7 @@ class SingleActivityModal extends React.Component {
                                 <img alt=" " src={blackBackground}/>
                                 <Carousel.Caption>
                                   <h3>User 2</h3>
-                                  <p>Bio: New to LA and excited to explore!</p>
+                                  <p>Bio: {this.props.userBio}</p>
                                   <p>Tagline: Anyone want to carpool?.</p>
                                 </Carousel.Caption>
                               </Carousel.Item>
