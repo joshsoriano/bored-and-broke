@@ -146,27 +146,7 @@ class Homepage extends React.Component {
         </div>
         <div className={ classes.resultsContainer }>
             <div className={ classes.row }>
-
-            {activityDetails}
-
-            </div>
-            <div className={ classes.row }>
-                <Activity
-                    savedPage={true}
-                >
-                </Activity>
-                <Activity
-                    savedPage={true}
-                >
-                </Activity>
-                <Activity
-                    savedPage={true}
-                >
-                </Activity>
-                <Activity
-                    savedPage={true}
-                >
-                </Activity>
+                {activityDetails}
             </div>
         </div>
       </div>
