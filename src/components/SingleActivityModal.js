@@ -281,6 +281,7 @@ class SingleActivityModal extends React.Component {
                                 <img align="middle" src={blackBackground}/>
                                 <Carousel.Caption>
                                   <h3>User 1</h3>
+                                  <p>Bio: My friends and I are poor and looking for fun things to do!</p>
                                   <p>"Looking forward to tonight's concert!"</p>
                                   <Button bastyle="primary" bsSize="small">{ this.props.onRequestClose } Facebook Message </Button>
                                 </Carousel.Caption>
@@ -290,7 +291,8 @@ class SingleActivityModal extends React.Component {
                                 <img alt=" " src={blackBackground}/>
                                 <Carousel.Caption>
                                   <h3>User 2</h3>
-                                  <p>Anyone want to carpool?.</p>
+                                  <p>Bio: New to LA and excited to explore!</p>
+                                  <p>Tagline: Anyone want to carpool?.</p>
                                 </Carousel.Caption>
                               </Carousel.Item>
                           </Carousel>
