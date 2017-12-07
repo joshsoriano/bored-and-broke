@@ -85,10 +85,16 @@ class Homepage extends React.Component {
   Homepage() {
     // Un-hardcode the price limit.
     this.setState({
-      activities: this.props.actions.getActivities(50 /* price limit */)
+
+      activities: this.props.results
     });
+    // console.log("activities state",this.state.activities);
   }
 
+  // <div>this.state.activities.map(function(activity){
+  //     return <div>{activity.name}</div>
+  // });
+  // </div>
 
   render() {
     // Map through the activities list here.
@@ -101,9 +107,11 @@ class Homepage extends React.Component {
             <HomepageSettings />
         </div>
 
+        <button onClick={this.props.actions.getActivities(50)}>Test!</button>
+        <div style={{ padding: '30px' }}>{this.props.results}</div>
+
         <div className={ classes.resultsContainer }>
             <div className={ classes.row }>
-
                 <Activity />
                 <Activity />
                 <Activity />
