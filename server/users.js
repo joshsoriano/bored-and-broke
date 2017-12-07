@@ -21,6 +21,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.delete('/remove', function(req, res, next) {
+    // Delete the user and the user's taglines.
     User.destroy({
         where: {
           id: req.query.userId
@@ -38,6 +39,8 @@ router.delete('/remove', function(req, res, next) {
 });
 
 router.put('/find-or-create/:id', function(req, res, next) {
+    // If a user with the provided id doesn't exist, a user is created.
+    // If a user with the provided id does exist, nothing happens.
     User.findOrCreate({
         where: {
           id: req.params.id
