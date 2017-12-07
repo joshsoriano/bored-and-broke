@@ -6,8 +6,6 @@ import Carousel from 'react-bootstrap/lib/Carousel';
 import {Form, FormGroup, ControlLabel, FormControl, Col, Checkbox} from 'react-bootstrap'
 import Modal from 'react-bootstrap/lib/Modal';
 import Button from 'react-bootstrap/lib/Button';
-import eventExample from '../images/userImage.png';
-import imageExample from '../images/user2image.png';
 import blackBackground from '../images/blackBackground.jpg';
 import logo_black from '../images/logo-black.png';
 
@@ -87,6 +85,9 @@ const styles = {
         opacity: 0,
         height: '10px',
         fontFamily: 'Open Sans',
+    },
+    carousel: {
+        backgroundColor: 'black',
     },
     modalContainer: {
         position: 'relative',
@@ -196,6 +197,7 @@ class SingleActivityModal extends React.Component {
 
         const carouselClasses = classNames({
             [classes.carouselOn]: this.state.thirdState,
+            [classes.carousel]: true,
         });
 
         const saveButtonClasses = classNames({
