@@ -39,6 +39,7 @@ If navigating to www.boredbroke.com while still logged in (did not click “Logo
 #### Navigation Bar
 ![nav](https://raw.githubusercontent.com/joshsoriano/bored-and-broke/master/documents/user%20manual/nav.png)
 ![nav dropdown](https://raw.githubusercontent.com/joshsoriano/bored-and-broke/master/documents/user%20manual/nav-dropdown.png)
+
 Clicking on the user’s Facebook profile picture in the upper right-hand corner will prompt a dropdown which allows the users to toggle between the pages of Bored & Broke. The user’s options are the homepage, saved activities, settings, and logout (logs the user out of Bored & Broke and redirects them back to the login page). 
 
 #### Activity Modal
@@ -46,6 +47,7 @@ Clicking on the user’s Facebook profile picture in the upper right-hand corner
 #### Saved Activities
 ![saved activities](https://raw.githubusercontent.com/joshsoriano/bored-and-broke/master/documents/user%20manual/saved-activities.png)
 ![saved activities modal](https://raw.githubusercontent.com/joshsoriano/bored-and-broke/master/documents/user%20manual/saved-activities-modal.png)
+
 On the saved activities page, the user can scroll to view all of the events that they have previously saved from the homepage. For each activity, they can click on the “More Info” button, which triggers a pop-up modal. On this modal, the user will be able to click through the other users that have saved this event using the arrows on either side of the carousel. The user can also click the “Unsave Event” button which will make the event disappear from the saved events page. 
 
 
