@@ -50,7 +50,7 @@ class SavedActivities extends React.Component {
         </div>
           <div className={ classes.row }>
             <Activity
-                savedPage={true}
+                savedPage={false}
             >
             </Activity>
             <Activity />

@@ -13,8 +13,8 @@ import Activity from './Activity.js';
 const propTypes = {
     classes: PropTypes.object.isRequired,
     onRequestClose: PropTypes.func,
-    savedAlready: PropTypes.bool,
-    readyForCarousel: PropTypes.bool,
+    // savedAlready: PropTypes.bool,
+    // readyForCarousel: PropTypes.bool,
     userBio: PropTypes.string,
     userTagline: PropTypes.string,
 };

@@ -120,7 +120,7 @@ class Homepage extends React.Component {
             <div className={ classes.row }>
 
                 <Activity
-                    savedPage={false}
+                    savedPage={true}
                 >
                 </Activity>
                 <Activity />
