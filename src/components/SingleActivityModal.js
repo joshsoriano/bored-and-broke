@@ -8,6 +8,7 @@ import Modal from 'react-bootstrap/lib/Modal';
 import Button from 'react-bootstrap/lib/Button';
 import blackBackground from '../images/blackBackground.jpg';
 import logo_black from '../images/logo-black.png';
+import Activity from './Activity.js';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,

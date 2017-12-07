@@ -44,7 +44,9 @@ class Activity extends React.Component {
     }
 
     render() {
-        const { classes } = this.props;
+        const { classes, savedPage } = this.props;
+        // this.props.savedPage
+
         return (
             <Col sx={12} sm={6} md={3}>
                 <Thumbnail src="http://via.placeholder.com/350x250" alt="242x200">
