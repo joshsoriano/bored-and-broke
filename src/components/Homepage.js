@@ -75,7 +75,6 @@ class Homepage extends React.Component {
     if(getUserID() === null) {
       window.location = "/LoginCreateAccount";
     }
-    this.populateActivities();
   }
 
   componentDidMount() {
@@ -98,12 +97,12 @@ class Homepage extends React.Component {
         <div className={ classes.homepageSettings }>
             <HomepageSettings />
         </div>
-          <div >
+        <div >
           {
             this.props.activities.map(item => {
               return (
                 <div>
-                  <span>{item.name}</span>
+                  <Activity/>
                 </div>
               )
             })
