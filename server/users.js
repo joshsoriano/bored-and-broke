@@ -37,4 +37,15 @@ router.delete('/remove', function(req, res, next) {
     .catch(next);
 });
 
+router.save('/saveSettings', function(req, res, next) {
+    User.update({
+      bio: req.query.bio
+    }, {
+      where: {
+        id: req.query.userId
+      }
+    })
+    .catch(next);
+});
+
 module.exports = router;
