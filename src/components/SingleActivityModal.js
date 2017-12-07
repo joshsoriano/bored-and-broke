@@ -8,6 +8,7 @@ import Modal from 'react-bootstrap/lib/Modal';
 import Button from 'react-bootstrap/lib/Button';
 import eventExample from '../images/userImage.png';
 import imageExample from '../images/user2image.png';
+import blackBackground from '../images/blackBackground.jpg';
 import logo_black from '../images/logo-black.png';
 
 const propTypes = {
@@ -275,7 +276,7 @@ class SingleActivityModal extends React.Component {
                         <div className={ carouselClasses }>
                           <Carousel interval={ null }>
                               <Carousel.Item>
-                                <img width={300} height={200} align="middle" src={eventExample}/>
+                                <img align="middle" src={blackBackground}/>
                                 <Carousel.Caption>
                                   <h3>User 1</h3>
                                   <p>"Looking forward to tonight's concert!"</p>
@@ -284,7 +285,7 @@ class SingleActivityModal extends React.Component {
                               </Carousel.Item>
 
                               <Carousel.Item>
-                                <img width={200} height={200} alt="900x500" src={imageExample}/>
+                                <img alt=" " src={blackBackground}/>
                                 <Carousel.Caption>
                                   <h3>User 2</h3>
                                   <p>Anyone want to carpool?.</p>
