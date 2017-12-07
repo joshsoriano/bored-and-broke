@@ -95,9 +95,37 @@ class Homepage extends React.Component {
 //   <button onClick={this.props.actions.getActivities(50)}>Test!</button>
 //   <div style={{ padding: '30px' }}>{this.props.results}</div>
 
+// <Activity
+//     savedPage={true}
+//     activityName={item.name}
+// >
+// </Activity>
+//
+// <Activity
+//     savedPage={true}
+// >
+// </Activity>
+//
+// <Activity
+//     savedPage={true}
+// >
+// </Activity>
+//
+// <Activity
+//     savedPage={true}
+// >
+// </Activity>
+
   render() {
     // Map through the activities list here.
     const { classes } = this.props;
+
+    const activityDetails = this.props.activities.map(item => (
+        <Activity
+            activityName={item.name}
+            savedPage={true}
+        />
+    ));
 
     return (
       <div className={ classes.main }>
@@ -119,25 +147,7 @@ class Homepage extends React.Component {
         <div className={ classes.resultsContainer }>
             <div className={ classes.row }>
 
-                <Activity
-                    savedPage={true}
-                >
-                </Activity>
-
-                <Activity
-                    savedPage={true}
-                >
-                </Activity>
-
-                <Activity
-                    savedPage={true}
-                >
-                </Activity>
-
-                <Activity
-                    savedPage={true}
-                >
-                </Activity>
+            {activityDetails}
 
             </div>
             <div className={ classes.row }>

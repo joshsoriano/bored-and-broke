@@ -11,6 +11,7 @@ import SavedActModal from './SavedActModal.js';
 const propTypes = {
     classes: PropTypes.object.isRequired,
     savedPage: PropTypes.bool,
+    activityName: PropTypes.string,
 };
 
 const styles = {
@@ -64,7 +65,7 @@ class Activity extends React.Component {
             <Col sx={12} sm={6} md={3}>
                 <Thumbnail src="http://via.placeholder.com/350x250" alt="242x200">
                     <div className = {classes.textDetails}>
-                        <h3 className = {classes.activityTitle}>Activity Title</h3>
+                        <h3 className = {classes.activityTitle}>{this.props.activityName}</h3>
                         <p className = {classes.activityDesc}>Activity Description</p>
 
                         {modalType}
