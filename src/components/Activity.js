@@ -29,15 +29,6 @@ const styles = {
 class Activity extends React.Component {
     constructor(props) {
       super(props)
-      this.state = { activity: [] };
-    }
-
-    componentDidMount() {
-      this.Activity();
-    }
-
-    Activity() {
-      // Un-hardcode the activity id.
     }
 
     render() {
