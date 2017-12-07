@@ -59,6 +59,7 @@ const styles = {
     row: {
         display: 'flex',
         marginBottom: '10px',
+
     },
     element: {
         marginLeft: '80px',
