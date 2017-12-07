@@ -15,9 +15,7 @@ class App extends Component {
           <h2>Welcome to React - Fullstack!</h2>
         </div>
         <br />
-        <button onClick={this.props.actions.expressTest}>Test if Express is working</button>
-        <br />
-        <button onClick={this.props.actions.getActivities}>Get all future activities!</button>
+        <button onClick={this.props.actions.removeUser("11112" /*user id*/)}>Remove User 11112!</button>
         <div style={{ padding: '30px' }}>{this.props.results}</div>
       </div>
     );

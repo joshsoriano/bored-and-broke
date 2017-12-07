@@ -17,7 +17,7 @@ export const GET_ACTIVITY = "GET_ACTVIITY"
 export const getActivity = (activityId) => {
     return dispatch => {
         dispatch(getActivityStart());
-        axios.get(`/api/activities/id`, {
+        axios.get(`/api/activities/single`, {
         params: {
           id: activityId
         }
@@ -56,28 +56,153 @@ export const getActivities = (price) => {
     }
 }
 
-export const EXPRESS_TEST_START = "EXPRESS_TEST_START";
-export const expressTestStart = () => {
-    return { type: EXPRESS_TEST_START }
+export const GET_SAVED_START = "GET_SAVED_START";
+export const getSavedStart = () => {
+    return { type: GET_SAVED_START }
 }
 
-export const EXPRESS_TEST_RESULTS = "EXPRESS_TEST_RESULTS";
-export const expressTestResults = (data) => {
-    return { type: EXPRESS_TEST_RESULTS, data }
+export const GET_SAVED_RESULTS = "GET_SAVED_RESULTS";
+export const getSavedResults = (data) => {
+    return { type: GET_SAVED_RESULTS, data }
 }
 
-export const EXPRESS_TEST_ERROR = "EXPRESS_TEST_ERROR";
-export const expressTestError = (data) => {
-    return { type: EXPRESS_TEST_ERROR, data }
+export const GET_SAVED_ERROR = "GET_SAVED_ERROR";
+export const getSavedError = (data) => {
+    return { type: GET_SAVED_ERROR, data }
 }
 
-export const EXPRESS_TEST = "EXPRESS_TEST";
-export const expressTest = () => {
+export const GET_SAVED = "GET_SAVED";
+export const getSaved = (id) => {
     return dispatch => {
-        dispatch(expressTestStart());
-        axios.get(`/api/express-test`)
-            .then(res => dispatch(expressTestResults(JSON.stringify(res.data))))
-            .catch(err => dispatch(expressTestError(err)))
+        dispatch(getSavedStart());
+        axios.get(`/api/activities/saved`, {
+          params: {
+            userId: id
+          }
+        })
+            .then(res => dispatch(getSavedResults(JSON.stringify(res.data))))
+            .catch(err => dispatch(getSavedError(err)))
+
+    }
+}
+
+export const GET_USERS_FOR_ACTIVITY_START = "GET_USERS_FOR_ACTIVITY_START";
+export const getUsersForActivityStart = () => {
+    return { type: GET_USERS_FOR_ACTIVITY_START }
+}
+
+export const GET_USERS_FOR_ACTIVITY_RESULTS = "GET_USERS_FOR_ACTIVITY_RESULTS";
+export const getUsersForActivityResults = (data) => {
+    return { type: GET_USERS_FOR_ACTIVITY_RESULTS, data }
+}
+
+export const GET_USERS_FOR_ACTIVITY_ERROR = "GET_USERS_FOR_ACTIVITY_ERROR";
+export const getUsersForActivityError = (data) => {
+    return { type: GET_USERS_FOR_ACTIVITY_ERROR, data }
+}
+
+export const GET_USERS_FOR_ACTIVITY = "GET_USERS_FOR_ACTIVITY";
+export const getUsersForActivity = (id) => {
+    return dispatch => {
+        dispatch(getUsersForActivityStart());
+        axios.get(`/api/taglines/all`, {
+          params: {
+            activityId: id
+          }
+        })
+            .then(res => dispatch(getUsersForActivityResults(JSON.stringify(res.data))))
+            .catch(err => dispatch(getUsersForActivityError(err)))
+
+    }
+}
+
+export const GET_TAGLINE_START = "GET_TAGLINE_START";
+export const getTaglineStart = () => {
+    return { type: GET_TAGLINE_START }
+}
+
+export const GET_TAGLINE_RESULTS = "GET_TAGLINE_RESULTS";
+export const getTaglineResults = (data) => {
+    return { type: GET_TAGLINE_RESULTS, data }
+}
+
+export const GET_TAGLINE_ERROR = "GET_TAGLINE_ERROR";
+export const getTaglineError = (data) => {
+    return { type: GET_TAGLINE_ERROR, data }
+}
+
+export const GET_TAGLINE = "GET_TAGLINE";
+export const getTagline = (userId, activityId) => {
+    return dispatch => {
+        dispatch(getTaglineStart());
+        axios.get(`/api/taglines/single`, {
+          params: {
+            userId: userId,
+            activityId: activityId
+          }
+        })
+            .then(res => dispatch(getTaglineResults(JSON.stringify(res.data))))
+            .catch(err => dispatch(getTaglineError(err)))
+
+    }
+}
+
+export const GET_USER_START = "GET_USER_START";
+export const getUserStart = () => {
+    return { type: GET_USER_START }
+}
+
+export const GET_USER_RESULTS = "GET_USER_RESULTS";
+export const getUserResults = (data) => {
+    return { type: GET_USER_RESULTS, data }
+}
+
+export const GET_USER_ERROR = "GET_USER_ERROR";
+export const getUserError = (data) => {
+    return { type: GET_USER_ERROR, data }
+}
+
+export const GET_USER = "GET_USER";
+export const getUser = (userId) => {
+    return dispatch => {
+        dispatch(getUserStart());
+        axios.get(`/api/users`, {
+          params: {
+            id: userId
+          }
+        })
+            .then(res => dispatch(getUserResults(JSON.stringify(res.data))))
+            .catch(err => dispatch(getUserError(err)))
+
+    }
+}
+
+export const REMOVE_USER_START = "REMOVE_USER_START";
+export const removeUserStart = () => {
+    return { type: REMOVE_USER_START }
+}
+
+export const REMOVE_USER_RESULTS = "REMOVE_USER_RESULTS";
+export const removeUserResults = (data) => {
+    return { type: REMOVE_USER_RESULTS, data }
+}
+
+export const REMOVE_USER_ERROR = "REMOVE_USER_ERROR";
+export const removeUserError = (data) => {
+    return { type: REMOVE_USER_ERROR, data }
+}
+
+export const REMOVE_USER = "REMOVE_USER";
+export const removeUser = (userId) => {
+    return dispatch => {
+        dispatch(removeUserStart());
+        axios.delete(`/api/users/remove`, {
+          params: {
+            userId: userId
+          }
+        })
+            .then(res => dispatch(removeUserResults(JSON.stringify(res.data))))
+            .catch(err => dispatch(removeUserError(err)))
 
     }
 }
