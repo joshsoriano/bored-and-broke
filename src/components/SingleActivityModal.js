@@ -8,7 +8,7 @@ import Modal from 'react-bootstrap/lib/Modal';
 import Button from 'react-bootstrap/lib/Button';
 import blackBackground from '../images/blackBackground.jpg';
 import logo_black from '../images/logo-black.png';
-import Activity from './Activity.js';
+import FacebookLinkButton from './FacebookLinkButton.js';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -282,7 +282,7 @@ class SingleActivityModal extends React.Component {
                                   <h3>User 1</h3>
                                   <p>Bio: My friends and I are poor and looking for fun things to do!</p>
                                   <p>"Looking forward to tonight's concert!"</p>
-                                  <Button bastyle="primary" bsSize="small">{ this.props.onRequestClose } Facebook Message </Button>
+                                  <FacebookLinkButton />
                                 </Carousel.Caption>
                               </Carousel.Item>
 
@@ -292,6 +292,7 @@ class SingleActivityModal extends React.Component {
                                   <h3>User 2</h3>
                                   <p>Bio: {this.props.userBio}</p>
                                   <p>Tagline: {this.props.userTagline}</p>
+                                  <FacebookLinkButton />
                                 </Carousel.Caption>
                               </Carousel.Item>
                           </Carousel>
