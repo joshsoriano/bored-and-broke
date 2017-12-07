@@ -9,6 +9,7 @@ import SingleActivityModal from './SingleActivityModal.js';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
+    savedPage: PropTypes.bool,
 };
 
 const styles = {
@@ -42,6 +43,9 @@ class Activity extends React.Component {
         activity: this.props.actions.getActivity(2 /* id */)
       });
     }
+
+    // Need to assign a role to savedPage prop here
+
 
     render() {
         const { classes, savedPage } = this.props;

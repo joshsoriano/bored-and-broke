@@ -165,7 +165,7 @@ class SingleActivityModal extends React.Component {
     changeToThirdState(e) {
         this.setState({
             thirdState: this.props.readyForCarousel,
-            secondState: !this.props.secondState,
+            secondState: !this.props.savedAlready,
       });
       //pull the other user's who have also liked this event
     };
@@ -178,6 +178,10 @@ class SingleActivityModal extends React.Component {
       //more logic here to remove event from the user's list of saved events
     };
 
+    someFun = () => {
+        const saved = null;
+        this.props.callbackFromParent(saved);
+    }
 
     render() {
         const { classes, showModal, userBio } = this.props;
@@ -186,16 +190,9 @@ class SingleActivityModal extends React.Component {
         const location = "Keck Lab";
         const price = "$0";
 
-        // let saveUnsaveText = "Unsave Event";
-        // if (this.state.thirdState) {
-        //     saveUnsaveText = "Save Event";
-        // }
-        // if saveUnsaveText = "Unsave Event" AND the button is clicked, the carousel and tagline need to go away
-
         const taglineClasses = classNames({
             [classes.taglineStyle]: this.state.secondState,
         });
-
 
         const carouselClasses = classNames({
             [classes.carouselOn]: this.state.thirdState,
@@ -211,7 +208,6 @@ class SingleActivityModal extends React.Component {
             [classes.buttonContainer]: true,
             [classes.saveBon]: this.state.thirdState,
         });
-
 
         let close = () => this.setState({ show: false });
 
