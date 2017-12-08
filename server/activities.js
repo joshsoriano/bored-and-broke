@@ -58,6 +58,28 @@ router.get('/saved', function(req, res, next) {
     .catch(next);
 });
 
+router.get('/is-update-needed', function(req, res, next) {
+    // Returns true if it has been one or more days since an activity was last
+    // added to the database.
+    // Convert today's date to an YYYYMMDD integer.
+    let today = new Date();
+    let dd = today.getDate() + "";
+    if (dd.length === 1) {
+      // Make sure day is in dd format.
+      dd = "0".concat(dd);
+    }
+    let mm = today.getMonth() + 1 + ""; // January is 0.
+    let yyyy = today.getFullYear() + "";
+    let yyyymmdd = Number.parseInt(yyyy.concat(mm).concat(dd));
+
+    let days = 3; // Default should be that an update is needed.
+    Activity.max('date_added').then((date) => {
+        res.status(200).send({is_update_needed: ((yyyymmdd - date) >= 1)})
+    })
+    .catch(next);
+
+});
+
 router.put('/add', function(req, res, next) {
     // Add an activity to the database.
     // Convert today's date to an YYYYMMDD integer.

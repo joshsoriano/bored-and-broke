@@ -348,3 +348,29 @@ export const updateTagline = (userId, activityId, tagline) => {
 
     }
 }
+
+export const IS_UPDATE_NEEDED_START = "IS_UPDATE_NEEDED_START";
+export const isUpdateNeededStart = () => {
+    return { type: IS_UPDATE_NEEDED_START }
+}
+
+export const IS_UPDATE_NEEDED_RESULTS = "IS_UPDATE_NEEDED_RESULTS";
+export const isUpdateNeededResults = (data) => {
+    return { type: IS_UPDATE_NEEDED_RESULTS, data }
+}
+
+export const IS_UPDATE_NEEDED_ERROR = "IS_UPDATE_NEEDED_ERROR";
+export const isUpdateNeededError = (data) => {
+    return { type: IS_UPDATE_NEEDED_ERROR, data }
+}
+
+export const IS_UPDATE_NEEDED = "IS_UPDATE_NEEDED";
+export const isUpdateNeeded = (userId, activityId, tagline) => {
+    return dispatch => {
+        dispatch(updateTaglineStart());
+        axios.get(`/api/activities/is-update-needed`)
+            .then(res => dispatch(isUpdateNeededResults(res.data)))
+            .catch(err => dispatch(isUpdateNeededError(err)))
+
+    }
+}

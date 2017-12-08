@@ -6,6 +6,10 @@ import './style.css';
 
 class App extends Component {
 
+  componentDidMount() {
+      this.props.actions.isUpdateNeeded()
+  }
+
   render() {
     const { className, ...props } = this.props;
     return (
@@ -15,8 +19,7 @@ class App extends Component {
           <h2>Welcome to React - Fullstack!</h2>
         </div>
         <br />
-        <button onClick={this.props.actions.getActivities(50)}>Test!</button>
-        <div style={{ padding: '30px' }}>{JSON.stringify(this.props.activities)}</div>
+        <div style={{ padding: '30px' }}>{JSON.stringify(this.props.is_update_needed)}</div>
       </div>
     );
   }

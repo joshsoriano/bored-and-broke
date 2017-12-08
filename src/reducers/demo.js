@@ -20,7 +20,9 @@ import {
   UPDATE_TAGLINE_RESULTS,
   UPDATE_TAGLINE_ERROR,
   ADD_ACTIVITY_RESULTS,
-  ADD_ACTIVITY_ERROR
+  ADD_ACTIVITY_ERROR,
+  IS_UPDATE_NEEDED_RESULTS,
+  IS_UPDATE_NEEDED_ERROR
 } from '../actions';
 
 const initialState = {
@@ -31,7 +33,8 @@ const initialState = {
     tagline: "",
     user: "",
     users: "",
-    results: ""
+    results: "",
+    is_update_needed: null
 }
 
 const demo = (state = initialState, action) => {
@@ -81,6 +84,10 @@ const demo = (state = initialState, action) => {
                 return { ...state, is_first_time: action.data[1] }
         case FIND_OR_CREATE_USER_ERROR:
                 return { ...state, is_first_time: JSON.stringify(action.data) }
+        case IS_UPDATE_NEEDED_RESULTS:
+                return { ...state, is_update_needed: action.data }
+        case IS_UPDATE_NEEDED_ERROR:
+                return { ...state, is_updated_needed: JSON.stringify(action.data) }
 
         default:
             return state
