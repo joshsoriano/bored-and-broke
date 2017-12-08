@@ -6,7 +6,14 @@ import Homepage from '../components/Homepage'
 
 function mapStateToProps(state) {
   return {
-    activities: state.demo.activities
+    results: state.demo.results,
+    activity: state.demo.activity,
+    activities: state.demo.activities,
+    is_first_time: state.demo.is_first_time,
+    saved_activities: state.demo.saved_activities,
+    tagline: state.demo.tagline,
+    user: state.demo.user,
+    users: state.demo.users
   }
 }
 

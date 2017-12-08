@@ -16,7 +16,7 @@ class App extends Component {
         </div>
         <br />
         <button onClick={this.props.actions.findOrCreateUser("62340", "Mary")}>Test!</button>
-        <div style={{ padding: '30px' }}>{this.props.first_time + ""}</div>
+        <div style={{ padding: '30px' }}>{this.props.is_first_time + ""}</div>
       </div>
     );
   }
