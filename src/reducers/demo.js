@@ -24,13 +24,13 @@ import {
 } from '../actions';
 
 const initialState = {
-    activity: {},
-    activities: [],
+    activity: "",
+    activities: "",
     is_first_time: null,
-    saved_activities: [],
+    saved_activities: "",
     tagline: "",
-    user: {},
-    users: [],
+    user: "",
+    users: "",
     results: ""
 }
 
@@ -39,48 +39,48 @@ const demo = (state = initialState, action) => {
         case ADD_ACTIVITY_RESULTS:
             return { ...state, results: action.data }
         case ADD_ACTIVITY_ERROR:
-            return { ...state, results: action.data }
+            return { ...state, results: JSON.stringify(action.data) }
         case SAVE_ACTIVITY_RESULTS:
             return { ...state, results: action.data }
         case SAVE_ACTIVITY_ERROR:
-            return { ...state, results: action.data }
+            return { ...state, results: JSON.stringify(action.data) }
         case UNSAVE_ACTIVITY_RESULTS:
             return { ...state, results: action.data }
         case UNSAVE_ACTIVITY_ERROR:
-            return { ...state, results: action.data }
+            return { ...state, results: JSON.stringify(action.data) }
         case GET_ACTIVITY_RESULTS:
             return { ...state, activity: action.data }
         case GET_ACTIVITY_ERROR:
-            return { ...state, activity: action.data }
+            return { ...state, activity: JSON.stringify(action.data) }
         case GET_ACTIVITIES_RESULTS:
             return { ...state, activities: action.data }
         case GET_ACTIVITIES_ERROR:
-                return { ...state, activities: action.data }
+                return { ...state, activities: JSON.stringify(action.data) }
         case GET_SAVED_RESULTS:
                 return { ...state, saved_activities: action.data }
         case GET_SAVED_ERROR:
-                return { ...state, saved_activities: action.data }
+                return { ...state, saved_activities: JSON.stringify(action.data) }
         case GET_USERS_FOR_ACTIVITY_RESULTS:
                 return { ...state, users: action.data }
         case GET_USERS_FOR_ACTIVITY_ERROR:
-                return { ...state, users: action.data }
+                return { ...state, users: JSON.stringify(action.data) }
         case GET_TAGLINE_RESULTS:
                 return { ...state, tagline: action.data }
         case GET_TAGLINE_ERROR:
-                return { ...state, tagline: action.data }
+                return { ...state, tagline: JSON.stringify(action.data) }
         case UPDATE_TAGLINE_RESULTS:
                 return { ...state, results: action.data }
         case UPDATE_TAGLINE_ERROR:
-                return { ...state, results: action.data }
+                return { ...state, results: JSON.stringify(action.data) }
         case GET_USER_RESULTS:
                 return { ...state, user: action.data }
         case GET_USER_ERROR:
-                return { ...state, user: action.data }
+                return { ...state, user: JSON.stringify(action.data) }
         case FIND_OR_CREATE_USER_RESULTS:
                 // Response is an array --> [{object}, boolean].
                 return { ...state, is_first_time: action.data[1] }
         case FIND_OR_CREATE_USER_ERROR:
-                return { ...state, is_first_time: action.data }
+                return { ...state, is_first_time: JSON.stringify(action.data) }
 
         default:
             return state

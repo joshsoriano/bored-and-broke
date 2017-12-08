@@ -21,7 +21,17 @@ export const ADD_ACTIVITY = "ADD_ACTVIITY"
 export const addActivity = (name, date, location, imageUrl, link, price, description) => {
     return dispatch => {
         dispatch(addActivityStart());
-        axios.put(`/api/activities/add/` + name + `/` + date + `/` + location + `/` + imageUrl + `/` + link + `/` + price + `/` + description)
+        axios.put(`/api/activities/add`, {
+            data: {
+                name: name,
+                date: date,
+                location: location,
+                imageUrl: imageUrl,
+                link: link,
+                price: price,
+                description: description
+           }
+        })
             .then(res => dispatch(addActivityResults(res.data)))
             .catch(err => dispatch(addActivityError(err)))
     }
@@ -49,7 +59,7 @@ export const getActivity = (activityId) => {
           id: activityId
         }
       })
-            .then(res => dispatch(getActivityResults(JSON.stringify(res.data))))
+            .then(res => dispatch(getActivityResults(res.data)))
             .catch(err => dispatch(getActivityError(err)))
 
     }
@@ -73,7 +83,7 @@ export const saveActivity = (userId, activityId, tagline) => {
     return dispatch => {
         dispatch(saveActivityStart());
         axios.put(`/api/taglines/save/` + userId + `/` + activityId + `/` + tagline)
-            .then(res => dispatch(saveActivityResults(JSON.stringify(res.data))))
+            .then(res => dispatch(saveActivityResults(res.data)))
             .catch(err => dispatch(saveActivityError(err)))
 
     }
@@ -102,7 +112,7 @@ export const unsaveActivity = (userId, activityId) => {
                 activityId: activityId
             }
         })
-            .then(res => dispatch(unsaveActivityResults(JSON.stringify(res.data))))
+            .then(res => dispatch(unsaveActivityResults(res.data)))
             .catch(err => dispatch(unsaveActivityError(err)))
 
     }
@@ -160,7 +170,7 @@ export const getSaved = (id) => {
             userId: id
           }
         })
-            .then(res => dispatch(getSavedResults(JSON.stringify(res.data))))
+            .then(res => dispatch(getSavedResults(res.data)))
             .catch(err => dispatch(getSavedError(err)))
 
     }
@@ -190,7 +200,7 @@ export const getUsersForActivity = (id) => {
             activityId: id
           }
         })
-            .then(res => dispatch(getUsersForActivityResults(JSON.stringify(res.data))))
+            .then(res => dispatch(getUsersForActivityResults(res.data)))
             .catch(err => dispatch(getUsersForActivityError(err)))
 
     }
@@ -221,7 +231,7 @@ export const getTagline = (userId, activityId) => {
             activityId: activityId
           }
         })
-            .then(res => dispatch(getTaglineResults(JSON.stringify(res.data))))
+            .then(res => dispatch(getTaglineResults(res.data)))
             .catch(err => dispatch(getTaglineError(err)))
 
     }
@@ -251,7 +261,7 @@ export const getUser = (userId) => {
             id: userId
           }
         })
-            .then(res => dispatch(getUserResults(JSON.stringify(res.data))))
+            .then(res => dispatch(getUserResults(res.data)))
             .catch(err => dispatch(getUserError(err)))
 
     }
@@ -281,7 +291,7 @@ export const removeUser = (userId) => {
             userId: userId
           }
         })
-            .then(res => dispatch(removeUserResults(JSON.stringify(res.data))))
+            .then(res => dispatch(removeUserResults(res.data)))
             .catch(err => dispatch(removeUserError(err)))
 
     }

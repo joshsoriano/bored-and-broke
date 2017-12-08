@@ -7,7 +7,6 @@ const router = require('express').Router()
 
 router.get('/', function(req, res, next) {
       // Get all future activities.
-
       // Convert today's date to an YYYYMMDD integer.
       let today = new Date();
       let dd = today.getDate() + "";
@@ -59,43 +58,32 @@ router.get('/saved', function(req, res, next) {
     .catch(next);
 });
 
-function addActivity(days, yyyymmdd) {
-  // Only add activities if it has been at least a day since the last
-  // activity has been added.
-  if (days >= 1) {
-      Activity.findOrCreate({
-          where: {
-              date_added: yyyymmdd,
-              name: req.params.name,
-              date: req.params.date, // YYYYMMDD syntax.
-              location: req.params.location,
-              image_url: req.params.imageUrl,
-              link: req.params.link,
-              price: req.params.price,
-              description: req.params.description
-          }
-      })
-  }
-}
-
-router.put('/add/:name/:date/:location/:imageUrl/:link/:price/:description', function(req, res, next) {
+router.put('/add', function(req, res, next) {
     // Add an activity to the database.
     // Convert today's date to an YYYYMMDD integer.
     let today = new Date();
-    let dd = today.getDate();
-    let mm = today.getMonth() + 1; // January is 0.
-    let yyyy = today.getFullYear();
-    let yyyymmdd = Number.parseInt(yyyy + mm + dd);
+    let dd = today.getDate() + "";
+    if (dd.length === 1) {
+      // Make sure day is in dd format.
+      dd = "0".concat(dd);
+    }
+    let mm = today.getMonth() + 1 + ""; // January is 0.
+    let yyyy = today.getFullYear() + "";
+    let yyyymmdd = Number.parseInt(yyyy.concat(mm).concat(dd));
 
-    let days = 0;
-    Activity.max('date_added').then((last) => {
-        // If there is nothing in the database, make sure activities can still
-        // be added.
-        days = last ? (yyyymmdd - last) : 2;
-    }).then(addActivity(days, yyyymmdd))
-    .then(() => {
-          res.status(200).send("Saved activity!");
+    Activity.findOrCreate({
+        where: {
+            date_added: yyyymmdd,
+            name: req.body.data.name,
+            date: Number.parseInt(req.body.data.date),
+            location: req.body.data.location,
+            image_url: req.body.data.imageUrl,
+            link: req.body.data.link,
+            price: req.body.data.price ? Number.parseInt(req.body.data.price) : 0,
+            description: req.body.data.description
+        }
     })
+    .then(res.status(200).send("Added activity!"))
     .catch(next);
 });
 
