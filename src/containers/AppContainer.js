@@ -6,7 +6,8 @@ import App from '../components/App/App'
 
 function mapStateToProps(state) {
   return {
-    results: state.demo.results
+    results: state.demo.results,
+    first_time: state.demo.first_time
   }
 }
 

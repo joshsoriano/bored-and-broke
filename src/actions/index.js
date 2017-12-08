@@ -280,11 +280,11 @@ export const findOrCreateUserError = (data) => {
 }
 
 export const FIND_OR_CREATE_USER = "FIND_OR_CREATE_USER";
-export const findOrCreateUser = (userId) => {
+export const findOrCreateUser = (userId, name) => {
     return dispatch => {
         dispatch(findOrCreateUserStart());
-        axios.put(`/api/users/find-or-create/` + userId)
-            .then(res => dispatch(findOrCreateUserResults(JSON.stringify(res.data))))
+        axios.put(`/api/users/find-or-create/` + userId + `/` + name)
+            .then(res => dispatch(findOrCreateUserResults(res.data)))
             .catch(err => dispatch(findOrCreateUserError(err)))
 
     }

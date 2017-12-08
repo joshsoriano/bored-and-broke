@@ -14,11 +14,15 @@ import {
   SAVE_ACTIVITY_RESULTS,
   SAVE_ACTIVITY_ERROR,
   UNSAVE_ACTIVITY_RESULTS,
-  UNSAVE_ACTIVITY_ERROR
+  UNSAVE_ACTIVITY_ERROR,
+  FIND_OR_CREATE_USER_RESULTS,
+  FIND_OR_CREATE_USER_ERROR
 } from '../actions';
 
 const initialState = {
-    activities: []
+    activities: [],
+    first_time: true,
+    results: ""
 }
 
 const demo = (state = initialState, action) => {
@@ -55,6 +59,11 @@ const demo = (state = initialState, action) => {
                 return { ...state, results: "User: " + action.data }
         case GET_USER_ERROR:
                 return { ...state, results: "Failed to get user!  " + action.data }
+        case FIND_OR_CREATE_USER_RESULTS:
+                return { ...state, first_time: action.data[1] }
+        case FIND_OR_CREATE_USER_ERROR:
+                return { ...state, first_time: action.data }
+
         default:
             return state
     }
