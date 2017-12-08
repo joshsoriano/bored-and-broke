@@ -34,8 +34,8 @@ const styles = {
         color: '#ECF0F1',
         fontFamily: 'Open Sans',
     },
-    email: {
-        color: '#ababab',
+    name: {
+        color: '#d4d4d4',
         fontFamily: 'Open Sans',
     },
     deactivateWell: {
@@ -70,19 +70,20 @@ class Settings extends React.Component {
       <div className={ classes.main }>
         <NavigationBar />
 
-        <Button onClick={() => console.log(userName)} >hi</Button>
-
         <div className={ classes.instructions }>
             <span>Please enter your information below. Feel free to change it whenever!</span>
         </div>
         <div className={ classes.formInput }>
             <Form horizontal>
+
                 <FormGroup controlId="formHorizontalName">
                   <Col componentClass={ControlLabel} sm={2}>
                     Name
                   </Col>
                   <Col sm={10}>
-                    <FormControl type="Name" placeholder="First Last" />
+                    <FormControl.Static className={ classes.name }>
+                      { userName }
+                    </FormControl.Static>
                   </Col>
                 </FormGroup>
 
