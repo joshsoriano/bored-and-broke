@@ -16,7 +16,9 @@ import {
   UNSAVE_ACTIVITY_RESULTS,
   UNSAVE_ACTIVITY_ERROR,
   FIND_OR_CREATE_USER_RESULTS,
-  FIND_OR_CREATE_USER_ERROR
+  FIND_OR_CREATE_USER_ERROR,
+  UPDATE_TAGLINE_RESULTS,
+  UPDATE_TAGLINE_ERROR
 } from '../actions';
 
 const initialState = {
@@ -60,6 +62,10 @@ const demo = (state = initialState, action) => {
                 return { ...state, tagline: action.data }
         case GET_TAGLINE_ERROR:
                 return { ...state, tagline: action.data }
+        case UPDATE_TAGLINE_RESULTS:
+                return { ...state, results: action.data }
+        case UPDATE_TAGLINE_ERROR:
+                return { ...state, results: action.data }
         case GET_USER_RESULTS:
                 return { ...state, user: action.data }
         case GET_USER_ERROR:

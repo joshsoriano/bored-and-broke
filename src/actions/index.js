@@ -289,3 +289,29 @@ export const findOrCreateUser = (userId, name) => {
 
     }
 }
+
+export const UPDATE_TAGLINE_START = "UPDATE_TAGLINE_START";
+export const updateTaglineStart = () => {
+    return { type: UPDATE_TAGLINE_START }
+}
+
+export const UPDATE_TAGLINE_RESULTS = "UPDATE_TAGLINE_RESULTS";
+export const updateTaglineResults = (data) => {
+    return { type: UPDATE_TAGLINE_RESULTS, data }
+}
+
+export const UPDATE_TAGLINE_ERROR = "UPDATE_TAGLINE_ERROR";
+export const updateTaglineError = (data) => {
+    return { type: UPDATE_TAGLINE_ERROR, data }
+}
+
+export const UPDATE_TAGLINE = "UPDATE_TAGLINE";
+export const updateTagline = (userId, activityId, tagline) => {
+    return dispatch => {
+        dispatch(updateTaglineStart());
+        axios.put(`/api/taglines/update/` + userId + `/` + activityId + `/` + tagline)
+            .then(res => dispatch(updateTaglineResults(res.data)))
+            .catch(err => dispatch(updateTaglineError(err)))
+
+    }
+}

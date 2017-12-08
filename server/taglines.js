@@ -66,6 +66,20 @@ router.delete('/unsave', function(req, res, next) {
     .catch(next);
 });
 
-// Update tagline
+router.put('/update/:userId/:activityId/:tagline', function(req, res, next) {
+    // Update a tagline for a user and activity.
+    Tagline.update({
+        tag: req.params.tagline,
+    }, {
+        where: {
+            user_id: req.params.userId,
+            activity_id: req.params.activityId
+        }
+    })
+    .then((result) => {
+        res.status(200).send(result);
+    })
+    .catch(next);
+});
 
 module.exports = router;

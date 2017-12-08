@@ -15,8 +15,8 @@ class App extends Component {
           <h2>Welcome to React - Fullstack!</h2>
         </div>
         <br />
-        <button onClick={this.props.actions.findOrCreateUser("62340", "Mary")}>Test!</button>
-        <div style={{ padding: '30px' }}>{this.props.is_first_time + ""}</div>
+        <button onClick={this.props.actions.getTagline("1234d", 1)}>Test!</button>
+        <div style={{ padding: '30px' }}>{this.props.tagline}</div>
       </div>
     );
   }
