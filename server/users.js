@@ -38,20 +38,23 @@ router.delete('/remove', function(req, res, next) {
     .catch(next);
 });
 
-router.put('/find-or-create/:id', function(req, res, next) {
+router.put('/find-or-create/:id/:name', function(req, res, next) {
     // If a user with the provided id doesn't exist, a user is created.
     // If a user with the provided id does exist, nothing happens.
+    // The name and email are provided by the Facebook API.
     User.findOrCreate({
         where: {
-          id: req.params.id
+          id: req.params.id,
+          name: req.params.name
         }
     })
-    .then(() => {
-        res.status(200).send('User definitely exists now.');
+    .then((result) => {
+        res.status(200).send(result);
     })
     .catch(next);
 });
 
+<<<<<<< HEAD
 router.put('/saveSettings', function(req, res, next) {
     User.update({
       bio: req.query.bio
@@ -62,5 +65,8 @@ router.put('/saveSettings', function(req, res, next) {
     })
     .catch(next);
 });
+=======
+// update user settings aka the bio
+>>>>>>> master
 
 module.exports = router;

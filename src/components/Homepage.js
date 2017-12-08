@@ -94,7 +94,7 @@ class Homepage extends React.Component {
   // </div>
 
 //   <button onClick={this.props.actions.getActivities(50)}>Test!</button>
-//   <div style={{ padding: '30px' }}>{this.props.results}</div>
+//   <div style={{ padding: '30px' }}>{this.props.activities}</div>
 
 // <Activity
 //     savedPage={true}

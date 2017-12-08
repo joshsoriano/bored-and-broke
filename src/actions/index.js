@@ -1,3 +1,7 @@
+/**
+  All functions that can be called from a container are defined in this file.
+**/
+
 import axios from 'axios';
 
 export const GET_ACTIVITY_START = "GET_ACTIVITY_START";
@@ -24,6 +28,59 @@ export const getActivity = (activityId) => {
       })
             .then(res => dispatch(getActivityResults(JSON.stringify(res.data))))
             .catch(err => dispatch(getActivityError(err)))
+
+    }
+}
+
+export const SAVE_ACTIVITY_START = "SAVE_ACTIVITY_START";
+export const saveActivityStart = () => {
+    return { type: SAVE_ACTIVITY_START }
+}
+export const SAVE_ACTIVITY_RESULTS = "SAVE_ACTIVITY_RESULTS";
+export const saveActivityResults = (data) => {
+    return { type: SAVE_ACTIVITY_RESULTS, data }
+}
+export const SAVE_ACTIVITY_ERROR = "SAVE_ACTIVITY_ERROR";
+export const saveActivityError = (data) => {
+    return { type: SAVE_ACTIVITY_ERROR, data }
+}
+
+export const SAVE_ACTIVITY = "SAVE_ACTVIITY"
+export const saveActivity = (userId, activityId, tagline) => {
+    return dispatch => {
+        dispatch(saveActivityStart());
+        axios.put(`/api/taglines/save/` + userId + `/` + activityId + `/` + tagline)
+            .then(res => dispatch(saveActivityResults(JSON.stringify(res.data))))
+            .catch(err => dispatch(saveActivityError(err)))
+
+    }
+}
+
+export const UNSAVE_ACTIVITY_START = "UNSAVE_ACTIVITY_START";
+export const unsaveActivityStart = () => {
+    return { type: UNSAVE_ACTIVITY_START }
+}
+export const UNSAVE_ACTIVITY_RESULTS = "UNSAVE_ACTIVITY_RESULTS";
+export const unsaveActivityResults = (data) => {
+    return { type: UNSAVE_ACTIVITY_RESULTS, data }
+}
+export const UNSAVE_ACTIVITY_ERROR = "UNSAVE_ACTIVITY_ERROR";
+export const unsaveActivityError = (data) => {
+    return { type: UNSAVE_ACTIVITY_ERROR, data }
+}
+
+export const UNSAVE_ACTIVITY = "UNSAVE_ACTVIITY"
+export const unsaveActivity = (userId, activityId) => {
+    return dispatch => {
+        dispatch(unsaveActivityStart());
+        axios.delete(`/api/taglines/unsave/`, {
+            params: {
+                userId: userId,
+                activityId: activityId
+            }
+        })
+            .then(res => dispatch(unsaveActivityResults(JSON.stringify(res.data))))
+            .catch(err => dispatch(unsaveActivityError(err)))
 
     }
 }
@@ -256,12 +313,38 @@ export const findOrCreateUserError = (data) => {
 }
 
 export const FIND_OR_CREATE_USER = "FIND_OR_CREATE_USER";
-export const findOrCreateUser = (userId) => {
+export const findOrCreateUser = (userId, name) => {
     return dispatch => {
         dispatch(findOrCreateUserStart());
-        axios.put(`/api/users/find-or-create/` + userId)
-            .then(res => dispatch(findOrCreateUserResults(JSON.stringify(res.data))))
+        axios.put(`/api/users/find-or-create/` + userId + `/` + name)
+            .then(res => dispatch(findOrCreateUserResults(res.data)))
             .catch(err => dispatch(findOrCreateUserError(err)))
+
+    }
+}
+
+export const UPDATE_TAGLINE_START = "UPDATE_TAGLINE_START";
+export const updateTaglineStart = () => {
+    return { type: UPDATE_TAGLINE_START }
+}
+
+export const UPDATE_TAGLINE_RESULTS = "UPDATE_TAGLINE_RESULTS";
+export const updateTaglineResults = (data) => {
+    return { type: UPDATE_TAGLINE_RESULTS, data }
+}
+
+export const UPDATE_TAGLINE_ERROR = "UPDATE_TAGLINE_ERROR";
+export const updateTaglineError = (data) => {
+    return { type: UPDATE_TAGLINE_ERROR, data }
+}
+
+export const UPDATE_TAGLINE = "UPDATE_TAGLINE";
+export const updateTagline = (userId, activityId, tagline) => {
+    return dispatch => {
+        dispatch(updateTaglineStart());
+        axios.put(`/api/taglines/update/` + userId + `/` + activityId + `/` + tagline)
+            .then(res => dispatch(updateTaglineResults(res.data)))
+            .catch(err => dispatch(updateTaglineError(err)))
 
     }
 }
