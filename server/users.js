@@ -54,7 +54,6 @@ router.put('/find-or-create/:id/:name', function(req, res, next) {
     .catch(next);
 });
 
-<<<<<<< HEAD
 router.put('/saveSettings', function(req, res, next) {
     User.update({
       bio: req.query.bio
@@ -65,8 +64,5 @@ router.put('/saveSettings', function(req, res, next) {
     })
     .catch(next);
 });
-=======
-// update user settings aka the bio
->>>>>>> master
 
 module.exports = router;
