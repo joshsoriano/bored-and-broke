@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/lib/Button';
 import { Form, FormGroup, ControlLabel, FormControl, Col, Collapse, Well } from 'react-bootstrap'
 import NavigationBar from './NavigationBar.js';
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
-
+import { getUserName } from './userID';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -65,9 +65,12 @@ class Settings extends React.Component {
   }
   render() {
     const { classes } = this.props;
+    const userName = getUserName();
     return (
       <div className={ classes.main }>
         <NavigationBar />
+
+        <Button onClick={() => console.log(userName)} >hi</Button>
 
         <div className={ classes.instructions }>
             <span>Please enter your information below. Feel free to change it whenever!</span>
@@ -80,17 +83,6 @@ class Settings extends React.Component {
                   </Col>
                   <Col sm={10}>
                     <FormControl type="Name" placeholder="First Last" />
-                  </Col>
-                </FormGroup>
-
-                <FormGroup controlId="formHorizontalEmail">
-                  <Col componentClass={ControlLabel} sm={6}>
-                    Email associated with this account
-                  </Col>
-                  <Col sm={6}>
-                    <FormControl.Static className={ classes.email }>
-                      email@example.com
-                    </FormControl.Static>
                   </Col>
                 </FormGroup>
 

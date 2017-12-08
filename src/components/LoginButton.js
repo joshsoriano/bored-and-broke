@@ -6,6 +6,7 @@ import { Button } from 'react-bootstrap';
 // import { IconButton } from 'react-buttons';
 import fbButton from '../images/fb_login.png';
 import { saveUserID } from './userID';
+import { saveUserName } from './userID';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -69,6 +70,7 @@ class LoginButton extends React.Component {
       // Logged into your app and Facebook.
       this.testAPI();
       saveUserID(response.authResponse.userID);
+      saveUserName(response.authResponse.userName);
       this.redirectLoggedInUser();
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
@@ -98,6 +100,7 @@ class LoginButton extends React.Component {
         FB.api('/me', function(response) {
           console.log('Good to see you, ' + response.name + '.');
           saveUserID(response.id);
+          saveUserName(response.name);
           window.location = "/Loading";
         }.bind(this));
       } else {
