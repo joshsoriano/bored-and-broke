@@ -126,6 +126,7 @@ class Homepage extends React.Component {
     let activityDetails = this.props.activities.map(item => (
         <Activity
             activityName={item.name}
+            activityPrice={item.price}
             savedPage={true}
         />
     ));

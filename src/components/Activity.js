@@ -19,7 +19,7 @@ const styles = {
         margin: '5px',
         fontFamily: 'Open Sans',
     },
-    activityDesc: {
+    activityPrice: {
         marginBottom: '10px',
         fontFamily: 'Open Sans',
     },
@@ -66,7 +66,7 @@ class Activity extends React.Component {
                 <Thumbnail src="http://via.placeholder.com/350x250" alt="242x200">
                     <div className = {classes.textDetails}>
                         <h3 className = {classes.activityTitle}>{this.props.activityName}</h3>
-                        <p className = {classes.activityDesc}>Activity Description</p>
+                        <p className = {classes.activityPrice}>${this.props.activityPrice}</p>
 
                         {modalType}
                     </div>
