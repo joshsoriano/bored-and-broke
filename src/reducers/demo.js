@@ -10,7 +10,11 @@ import {
   GET_TAGLINE_RESULTS,
   GET_TAGLINE_ERROR,
   GET_USER_RESULTS,
-  GET_USER_ERROR
+  GET_USER_ERROR,
+  SAVE_ACTIVITY_RESULTS,
+  SAVE_ACTIVITY_ERROR,
+  UNSAVE_ACTIVITY_RESULTS,
+  UNSAVE_ACTIVITY_ERROR
 } from '../actions';
 
 const initialState = {
@@ -19,6 +23,14 @@ const initialState = {
 
 const demo = (state = initialState, action) => {
     switch (action.type) {
+        case SAVE_ACTIVITY_RESULTS:
+            return { ...state, results: "Activity: " + action.data }
+        case SAVE_ACTIVITY_ERROR:
+            return { ...state, results: "Failed to get activity!  " + action.data }
+        case UNSAVE_ACTIVITY_RESULTS:
+            return { ...state, results: "Activity: " + action.data }
+        case UNSAVE_ACTIVITY_ERROR:
+            return { ...state, results: "Failed to get activity!  " + action.data }
         case GET_ACTIVITY_RESULTS:
             return { ...state, results: "Activity: " + action.data }
         case GET_ACTIVITY_ERROR:

@@ -1,3 +1,7 @@
+/**
+  All functions that can be called from a container are defined in this file.
+**/
+
 import axios from 'axios';
 
 export const GET_ACTIVITY_START = "GET_ACTIVITY_START";
@@ -24,6 +28,59 @@ export const getActivity = (activityId) => {
       })
             .then(res => dispatch(getActivityResults(JSON.stringify(res.data))))
             .catch(err => dispatch(getActivityError(err)))
+
+    }
+}
+
+export const SAVE_ACTIVITY_START = "SAVE_ACTIVITY_START";
+export const saveActivityStart = () => {
+    return { type: SAVE_ACTIVITY_START }
+}
+export const SAVE_ACTIVITY_RESULTS = "SAVE_ACTIVITY_RESULTS";
+export const saveActivityResults = (data) => {
+    return { type: SAVE_ACTIVITY_RESULTS, data }
+}
+export const SAVE_ACTIVITY_ERROR = "SAVE_ACTIVITY_ERROR";
+export const saveActivityError = (data) => {
+    return { type: SAVE_ACTIVITY_ERROR, data }
+}
+
+export const SAVE_ACTIVITY = "SAVE_ACTVIITY"
+export const saveActivity = (userId, activityId, tagline) => {
+    return dispatch => {
+        dispatch(saveActivityStart());
+        axios.put(`/api/taglines/save/` + userId + `/` + activityId + `/` + tagline)
+            .then(res => dispatch(saveActivityResults(JSON.stringify(res.data))))
+            .catch(err => dispatch(saveActivityError(err)))
+
+    }
+}
+
+export const UNSAVE_ACTIVITY_START = "UNSAVE_ACTIVITY_START";
+export const unsaveActivityStart = () => {
+    return { type: UNSAVE_ACTIVITY_START }
+}
+export const UNSAVE_ACTIVITY_RESULTS = "UNSAVE_ACTIVITY_RESULTS";
+export const unsaveActivityResults = (data) => {
+    return { type: UNSAVE_ACTIVITY_RESULTS, data }
+}
+export const UNSAVE_ACTIVITY_ERROR = "UNSAVE_ACTIVITY_ERROR";
+export const unsaveActivityError = (data) => {
+    return { type: UNSAVE_ACTIVITY_ERROR, data }
+}
+
+export const UNSAVE_ACTIVITY = "UNSAVE_ACTVIITY"
+export const unsaveActivity = (userId, activityId) => {
+    return dispatch => {
+        dispatch(unsaveActivityStart());
+        axios.delete(`/api/taglines/unsave/`, {
+            params: {
+                userId: userId,
+                activityId: activityId
+            }
+        })
+            .then(res => dispatch(unsaveActivityResults(JSON.stringify(res.data))))
+            .catch(err => dispatch(unsaveActivityError(err)))
 
     }
 }
