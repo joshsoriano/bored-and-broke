@@ -18,7 +18,9 @@ import {
   FIND_OR_CREATE_USER_RESULTS,
   FIND_OR_CREATE_USER_ERROR,
   UPDATE_TAGLINE_RESULTS,
-  UPDATE_TAGLINE_ERROR
+  UPDATE_TAGLINE_ERROR,
+  ADD_ACTIVITY_RESULTS,
+  ADD_ACTIVITY_ERROR
 } from '../actions';
 
 const initialState = {
@@ -34,6 +36,10 @@ const initialState = {
 
 const demo = (state = initialState, action) => {
     switch (action.type) {
+        case ADD_ACTIVITY_RESULTS:
+            return { ...state, results: action.data }
+        case ADD_ACTIVITY_ERROR:
+            return { ...state, results: action.data }
         case SAVE_ACTIVITY_RESULTS:
             return { ...state, results: action.data }
         case SAVE_ACTIVITY_ERROR:

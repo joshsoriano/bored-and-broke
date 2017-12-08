@@ -4,6 +4,29 @@
 
 import axios from 'axios';
 
+export const ADD_ACTIVITY_START = "ADD_ACTIVITY_START";
+export const addActivityStart = () => {
+    return { type: ADD_ACTIVITY_START }
+}
+export const ADD_ACTIVITY_RESULTS = "ADD_ACTIVITY_RESULTS";
+export const addActivityResults = (data) => {
+    return { type: ADD_ACTIVITY_RESULTS, data }
+}
+export const ADD_ACTIVITY_ERROR = "ADD_ACTIVITY_ERROR";
+export const addActivityError = (data) => {
+    return { type: ADD_ACTIVITY_ERROR, data }
+}
+
+export const ADD_ACTIVITY = "ADD_ACTVIITY"
+export const addActivity = (name, date, location, imageUrl, link, price, description) => {
+    return dispatch => {
+        dispatch(addActivityStart());
+        axios.put(`/api/activities/add/` + name + `/` + date + `/` + location + `/` + imageUrl + `/` + link + `/` + price + `/` + description)
+            .then(res => dispatch(addActivityResults(res.data)))
+            .catch(err => dispatch(addActivityError(err)))
+    }
+}
+
 export const GET_ACTIVITY_START = "GET_ACTIVITY_START";
 export const getActivityStart = () => {
     return { type: GET_ACTIVITY_START }
@@ -104,7 +127,7 @@ export const getActivities = (price) => {
         dispatch(getActivitiesStart());
         axios.get(`/api/activities`, {
         params: {
-          priceLimit: price
+            priceLimit: price
         }
       })
             .then(res => dispatch(getActivitiesResults(res.data)))
