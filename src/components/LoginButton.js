@@ -5,8 +5,7 @@ import injectSheet from 'react-jss';
 import { Button } from 'react-bootstrap';
 // import { IconButton } from 'react-buttons';
 import fbButton from '../images/fb_login.png';
-import { saveUserID } from './userID';
-import { saveUserName } from './userID';
+import { saveUserID, saveUserName } from './userID';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -20,12 +19,6 @@ const styles = {
 };
 
 class LoginButton extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      first_time: false
-    }
-  }
   componentDidMount() {
     window.fbAsyncInit = function() {
       FB.init({
@@ -63,11 +56,7 @@ class LoginButton extends React.Component {
   }
 
   redirectLoggedInUser() {
-      if (this.state.first_time) {
-          window.location = '/Settings';
-      } else {
-          window.location = '/Loading';
-      }
+      window.location = "/Loading";
   }
 
   // This is called with the results from from FB.getLoginStatus().
@@ -80,13 +69,14 @@ class LoginButton extends React.Component {
       // Logged into your app and Facebook.
       this.testAPI();
       saveUserID(response.authResponse.userID);
-      saveUserName(response.authResponse.userName);
+      saveUserName(response.authResponse.name);
       this.redirectLoggedInUser();
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
         'into this app.';
     } else {
+      console.log('Not logged in');
       // The person is not logged into Facebook, so we're not sure if
       // they are logged into this app or not.
       // document.getElementById('status').innerHTML = 'Please log ' +
@@ -110,22 +100,8 @@ class LoginButton extends React.Component {
         FB.api('/me', function(response) {
           console.log('Good to see you, ' + response.name + '.');
           saveUserID(response.id);
-          let isFirstTime;
-          this.props.actions.getUser(response.id).done(function(user) {
-            console.log('done');
-            if (user == null) {
-              this.setState({
-                first_time: true
-              });
-            } else {
-              this.setState({
-                first_time: false
-              });
-            }
-          })
-          this.props.actions.findOrCreateUser();
-          this.redirectLoggedInUser();
           saveUserName(response.name);
+          window.location = "/Loading";
         }.bind(this));
       } else {
        console.log('User cancelled login or did not fully authorize.');

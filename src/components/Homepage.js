@@ -4,12 +4,13 @@ import injectSheet from 'react-jss';
 import NavigationBar from './NavigationBar.js';
 import HomepageSettings from './HomepageSettings.js';
 import SingleActivityModal from './SingleActivityModal.js';
-import { getUserID } from './userID';
 import Activity from '../containers/ActivityContainer.js';
 // import LoginCreateAccount from './LoginCreateAccount.js';
 // import SavedActivities from './SavedActivities.js';
 // import Settings from './Settings.js';
 // import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
+import { getUserID, getUserName } from './userID';
+import BioModal from '../containers/BioModalContainer.js';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -84,7 +85,10 @@ class Homepage extends React.Component {
 
   Homepage() {
     // Un-hardcode the price limit.
-    this.props.actions.getActivities(50 /* price limit */)
+    const userID = getUserID();
+    const userName = getUserName();
+    this.props.actions.getActivities(50 /* price limit */);
+    this.props.actions.findOrCreateUser(userID, userName);
   }
 
 
@@ -141,6 +145,7 @@ class Homepage extends React.Component {
 
     return (
       <div className={ classes.main }>
+        <BioModal />
         <NavigationBar />
         <div className={ classes.homepageSettings }>
             <HomepageSettings />

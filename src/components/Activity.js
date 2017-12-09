@@ -67,7 +67,7 @@ class Activity extends React.Component {
                 <Thumbnail src="http://via.placeholder.com/350x250" alt="242x200">
                     <div className = {classes.textDetails}>
                         <h3 className = {classes.activityTitle}>{this.props.activityName}</h3>
-                        <p className = {classes.activityDesc}>Price:${this.props.activityPrice}</p>
+                        <p className = {classes.activityDesc}>Price: ${this.props.activityPrice}</p>
                         <p className = {classes.activityDesc}>Activity Description</p>
 
                         {modalType}

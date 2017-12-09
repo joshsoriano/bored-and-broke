@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
+// import LoginButton from '../containers/LoginButtonContainer';
 import LoginButton from './LoginButton.js';
 import logoBlack from '../images/logo-black.png';
 import logoArt from '../images/logo3.png';
