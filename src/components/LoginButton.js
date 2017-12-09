@@ -6,6 +6,7 @@ import { Button } from 'react-bootstrap';
 // import { IconButton } from 'react-buttons';
 import fbButton from '../images/fb_login.png';
 import { saveUserID } from './userID';
+import { saveUserName } from './userID';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -19,6 +20,12 @@ const styles = {
 };
 
 class LoginButton extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      first_time: false
+    }
+  }
   componentDidMount() {
     window.fbAsyncInit = function() {
       FB.init({
@@ -56,7 +63,11 @@ class LoginButton extends React.Component {
   }
 
   redirectLoggedInUser() {
-      window.location = "/Loading";
+      if (this.state.first_time) {
+          window.location = '/Settings';
+      } else {
+          window.location = '/Loading';
+      }
   }
 
   // This is called with the results from from FB.getLoginStatus().
@@ -69,6 +80,7 @@ class LoginButton extends React.Component {
       // Logged into your app and Facebook.
       this.testAPI();
       saveUserID(response.authResponse.userID);
+      saveUserName(response.authResponse.userName);
       this.redirectLoggedInUser();
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
@@ -98,7 +110,22 @@ class LoginButton extends React.Component {
         FB.api('/me', function(response) {
           console.log('Good to see you, ' + response.name + '.');
           saveUserID(response.id);
-          window.location = "/Loading";
+          let isFirstTime;
+          this.props.actions.getUser(response.id).done(function(user) {
+            console.log('done');
+            if (user == null) {
+              this.setState({
+                first_time: true
+              });
+            } else {
+              this.setState({
+                first_time: false
+              });
+            }
+          })
+          this.props.actions.findOrCreateUser();
+          this.redirectLoggedInUser();
+          saveUserName(response.name);
         }.bind(this));
       } else {
        console.log('User cancelled login or did not fully authorize.');
