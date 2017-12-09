@@ -110,7 +110,9 @@ class LoginButton extends React.Component {
           console.log('Good to see you, ' + response.name + '.');
           saveUserID(response.id);
           let isFirstTime;
-          this.props.actions.getUser(response.id).done(function(user) {
+          this.props.actions.getUser(response.id);
+          console.log(this.props.user);
+          this.props.user.getUser(response.id).done(function(user) {
             console.log('done');
             if (user == null) {
               this.setState({
