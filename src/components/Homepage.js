@@ -87,6 +87,8 @@ class Homepage extends React.Component {
     // Un-hardcode the price limit.
     const userID = getUserID();
     const userName = getUserName();
+    console.log(userID);
+    console.log(userName);
     this.props.actions.getActivities(50 /* price limit */);
     this.props.actions.findOrCreateUser(userID, userName);
   }

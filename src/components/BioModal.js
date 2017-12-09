@@ -11,8 +11,6 @@ const propTypes = {
 
 const styles = {
   bioInput: {
-      opacity: 0,
-      height: '10px',
       fontFamily: 'Open Sans',
   },
   buttonContainer: {
@@ -25,19 +23,32 @@ const styles = {
 };
 
 class BioModal extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.handleBio = this.handleBio.bind(this);
+    // this.getBioState = this.getBioState.bind(this);
     this.state = {
-      showModal: true
+      // showModal: this.props.is_first_time
+      showModal: true,
+      value: ''
     };
   }
 
   close = () => {
     this.setState({ showModal: false });
+    console.log(this.state.value);
   }
 
-  handleClick() {
-    console.log('clicked');
+  // getBioState = () => {
+  //     const taglineVal = this.state.value;  //this is the most accurate one! Use this!
+  //     console.log("taglineVal:", taglineVal)
+  //     return taglineVal;
+  // };
+
+  handleBio = (e) => {
+    this.setState({
+        value: e.target.value, //note that the taglineVal is more accurate
+    });
   }
 
   render() {
@@ -49,29 +60,18 @@ class BioModal extends React.Component {
             <Modal.Title>Create your bio!</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <h5>This will be visible to everyone who saves the same events as you.</h5>
-            <div className={ classes.bioInput }>
-                <Form horizontal>
-                    <FormGroup controlId="formHorizontalEmail">
-                      <Col componentClass={ControlLabel} sm={2}>
-                        Bio:
-                      </Col>
-                      <Col sm={10}>
-                        <FormControl type="Name" placeholder="Describe yourself" />
-                      </Col>
-                    </FormGroup>
-                </Form>
+              <h5>This will be visible to everyone who saves the same events as you.</h5>
+              <div className={ classes.bioInput }>
+                  <FormGroup controlId="formControlsTextarea">
+                    <ControlLabel></ControlLabel>
+                    <FormControl componentClass="textarea" value={ this.state.value } placeholder='Describe yourself!' onChange={ this.handleBio }/>
+                  </FormGroup>
+              </div>
 
-                <div className={ classes.buttonContainer }>
-                  <Button onClick={ this.handleClick }
-                    bastyle="primary" bsSize="small"> Save Bio </Button>
-                </div>
-
-            </div>
+              <div className={ classes.buttonContainer }>
+                <Button onClick={ this.close }>Save</Button>
+              </div>
           </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={this.close}>Close</Button>
-          </Modal.Footer>
         </Modal>
       </div>
     );
