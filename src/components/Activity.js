@@ -91,8 +91,8 @@ class Activity extends React.Component {
         }
         console.log('activityImage', this.props.activityImage);
         let imgSrc = this.props.activityImage;
-        if (this.props.activityImage === null) {
-            imgSrc = {laSkyline1};
+        if (this.props.activityImage === null || this.props.activityImage === "") {
+            imgSrc = laSkyline1;
         }
         console.log('imgSrc', {imgSrc})
 
