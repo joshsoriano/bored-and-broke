@@ -10,7 +10,6 @@ import { saveUserName } from './userID';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
-    listNameFromParent: PropTypes.string,
 };
 
 const styles = {
@@ -20,8 +19,8 @@ const styles = {
 };
 
 class LoginButton extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       first_time: false
     }
@@ -57,8 +56,8 @@ class LoginButton extends React.Component {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
     console.log('Successful login for: ' + response.name);
-    // document.getElementById('status').innerHTML =
-    //   'Thanks for logging in, ' + response.name + '!';
+    document.getElementById('status').innerHTML =
+      'Thanks for logging in, ' + response.name + '!';
     });
   }
 
@@ -111,7 +110,9 @@ class LoginButton extends React.Component {
           console.log('Good to see you, ' + response.name + '.');
           saveUserID(response.id);
           let isFirstTime;
-          this.props.actions.getUser(response.id).done(function(user) {
+          this.props.actions.getUser(response.id);
+          console.log(this.props.user);
+          this.props.user.getUser(response.id).done(function(user) {
             console.log('done');
             if (user == null) {
               this.setState({
@@ -130,7 +131,11 @@ class LoginButton extends React.Component {
       } else {
        console.log('User cancelled login or did not fully authorize.');
       }
-    }.bind(this));
+    });
+  }
+
+  onMouseOver() {
+    return "";
   }
 
   mouseOver() {
@@ -139,6 +144,7 @@ class LoginButton extends React.Component {
 
   render() {
     const { classes } = this.props;
+    console.log(this.props.actions);
     return <img src={ fbButton } height='50px' onMouseOver={ this.mouseOver } className={ classes.loginButton } onClick={this.handleClick}/>
   }
 }
