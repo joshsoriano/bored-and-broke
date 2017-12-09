@@ -283,15 +283,10 @@ export const saveUserSettingsError = (data) => {
 }
 
 export const SAVE_USER_SETTINGS = "SAVE_USER_SETTINGS";
-export const saveUserSettings = (userId, userBio) => {
+export const saveUserSettings = (bio, userId) => {
     return dispatch => {
         dispatch(saveUserSettingsStart());
-        axios.put(`/api/users/saveSettings`, {
-          params: {
-            id: userId,
-            bio: userBio
-          }
-        })
+        axios.put(`/api/users/saveSettings` + bio + `/` + userId)
             .then(res => dispatch(saveUserSettingsResults(JSON.stringify(res.data))))
             .catch(err => dispatch(saveUserSettingsError(err)))
 

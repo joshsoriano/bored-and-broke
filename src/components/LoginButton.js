@@ -19,8 +19,8 @@ const styles = {
 };
 
 class LoginButton extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       first_time: false
     }
@@ -144,6 +144,7 @@ class LoginButton extends React.Component {
 
   render() {
     const { classes } = this.props;
+    console.log(this.props.actions);
     return <img src={ fbButton } height='50px' onMouseOver={ this.mouseOver } className={ classes.loginButton } onClick={this.handleClick}/>
   }
 }

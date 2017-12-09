@@ -54,13 +54,16 @@ router.put('/find-or-create/:id/:name', function(req, res, next) {
     .catch(next);
 });
 
-router.put('/saveSettings', function(req, res, next) {
+router.put('/saveSettings/:bio/:userId', function(req, res, next) {
     User.update({
-      bio: req.query.bio
+      bio: req.params.bio
     }, {
       where: {
-        id: req.query.userId
+        id: req.params.userId
       }
+    })
+    .then((result) => {
+      res.status(200).send(result);
     })
     .catch(next);
 });
