@@ -13,6 +13,10 @@ const propTypes = {
     savedPage: PropTypes.bool,
     activityName: PropTypes.string,
     activityPrice: PropTypes.string,
+    activityLocation: PropTypes.sting,
+    activityDate: PropTypes.string,
+    activityDescription: PropTypes.string,
+    activityLink: PropTypes.string,
 };
 
 const styles = {
@@ -48,6 +52,11 @@ class Activity extends React.Component {
                   readyForCarousel={ false } // when true the tagline dissapears, when false nothing happens
                   userBio="New to LA and excited to explore!"
                   userTagline="Does anyone want to carpool?"
+                  date={this.props.activityDate}
+                  location={this.props.activityLocation}
+                  price={this.props.activityPrice}
+                  description={this.props.activityDescription}
+                  link={this.props.activityLink}
             >
             </SingleActivityModal>)
 
@@ -58,6 +67,11 @@ class Activity extends React.Component {
                     readyForCarousel={ false } // when true the tagline dissapears, when false nothing happens
                     userBio="Hi!!!!!!!!!!"
                     userTagline="Ready for the party!"
+                    date={this.props.activityDate}
+                    location={this.props.activityLocation}
+                    price={this.props.activityPrice}
+                    description={this.props.activityDescription}
+                    link={this.props.activityLink}
                 >
                 </SavedActModal>)
         }
@@ -68,7 +82,8 @@ class Activity extends React.Component {
                     <div className = {classes.textDetails}>
                         <h3 className = {classes.activityTitle}>{this.props.activityName}</h3>
                         <p className = {classes.activityDesc}>Price:${this.props.activityPrice}</p>
-                        <p className = {classes.activityDesc}>Activity Description</p>
+                        <p className = {classes.activityDesc}>Date: {this.props.activityDate}</p>
+                        <p className = {classes.activityDesc}>Location: {this.props.activityLocation}</p>
 
                         {modalType}
                     </div>

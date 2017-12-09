@@ -17,6 +17,11 @@ const propTypes = {
     readyForCarousel: PropTypes.bool,
     userBio: PropTypes.string,
     userTagline: PropTypes.string,
+    date: PropTypes.string,
+    location: PropTypes.string,
+    price: PropTypes.string,
+    description: PropTypes.string,
+    link: PropTypes.string,
 };
 
 const defaultProps = {
@@ -185,11 +190,11 @@ class SingleActivityModal extends React.Component {
     }
 
     render() {
-        const { classes, showModal, userBio } = this.props;
+        const { classes, showModal, userBio, userTagline, date, location, price, description, link } = this.props;
         const { secondState, thirdState, value, tagLongEnough } = this.state;
-        const date = "01-01-2001";
-        const location = "Keck Lab";
-        const price = "$0";
+        // const date = "01-01-2001";
+        // const location = "Keck Lab";
+        // const price = "$0";
 
         const taglineClasses = classNames({
             [classes.taglineStyle]: this.state.secondState,
@@ -231,16 +236,16 @@ class SingleActivityModal extends React.Component {
                 >
                     <Modal.Header closeButton>
                         <Modal.Title className={ classes.titleText } id="contained-modal-title">World Series, Game 7: Dodgers vs. Astros</Modal.Title>
-                        <h5 className={ classes.titleSubText }>Date</h5>
-                        <h5 className={ classes.titleSubText }>Time</h5>
-                        <h5 className={ classes.titleSubText }>Location</h5>
-                        <h5 className={ classes.titleSubText }>Price</h5>
+                        <h5 className={ classes.titleSubText }>Date: {this.props.date}</h5>
+                        <h5 className={ classes.titleSubText }>Location: { this.props.location}</h5>
+                        <h5 className={ classes.titleSubText }>Price: {this.props.price}</h5>
                     </Modal.Header>
                     <Modal.Body>
 
                         <div className={ classes.descriptionTextContainer }>
                           <span className={ classes.descriptionText }>
-                            A Game 7 is one of the rarest treats in sports, and baseball fans have been lucky enough to witness three of the last four World Series go the distance! Not since the 1980s has the World Series gone to a winner-take-all game three times in a four-year span. The Houston Astros look to come into Los Angeles to win it all, while the Dodgers hope to hoist the trophy in front of their hometown.
+                            {this.props.description}
+                            <p>See more at: {this.props.link} </p>
                           </span>
                         </div>
 
