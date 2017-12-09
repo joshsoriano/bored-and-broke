@@ -59,6 +59,7 @@ const styles = {
     row: {
         display: 'flex',
         marginBottom: '10px',
+
     },
     element: {
         marginLeft: '80px',
@@ -69,7 +70,6 @@ const styles = {
 class Homepage extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { activities: [] };
   }
 
   componentWillMount() {
@@ -84,15 +84,60 @@ class Homepage extends React.Component {
 
   Homepage() {
     // Un-hardcode the price limit.
-    this.setState({
-      activities: this.props.actions.getActivities(50 /* price limit */)
-    });
+    this.props.actions.getActivities(50 /* price limit */)
   }
 
+
+  // <div>this.state.activities.map(function(activity){
+  //     return <div>{activity.name}</div>
+  // });
+  // </div>
+
+//   <button onClick={this.props.actions.getActivities(50)}>Test!</button>
+//   <div style={{ padding: '30px' }}>{this.props.activities}</div>
+
+// <Activity
+//     savedPage={true}
+//     activityName={item.name}
+// >
+// </Activity>
+//
+// <Activity
+//     savedPage={true}
+// >
+// </Activity>
+//
+// <Activity
+//     savedPage={true}
+// >
+// </Activity>
+//
+// <Activity
+//     savedPage={true}
+// >
+// </Activity>
 
   render() {
     // Map through the activities list here.
     const { classes } = this.props;
+
+    const activityDetails = this.props.activities.map(item => (
+        <Activity
+            activityName={item.name}
+            activityPrice={item.price}
+            savedPage={true}
+        />
+    ));
+
+    let final = [];
+    let rowsArray = [];
+    for (let i = 0; i < activityDetails.length; i++) {
+        rowsArray.push(activityDetails[i]);
+        if(i % 4 === 3 && i > 0) {
+            final.push(<div className={classes.row}> {rowsArray} </div>);
+            rowsArray = [];
+        }
+    }
 
     return (
       <div className={ classes.main }>
@@ -100,21 +145,8 @@ class Homepage extends React.Component {
         <div className={ classes.homepageSettings }>
             <HomepageSettings />
         </div>
-
         <div className={ classes.resultsContainer }>
-            <div className={ classes.row }>
-
-                <Activity />
-                <Activity />
-                <Activity />
-                <Activity />
-            </div>
-            <div className={ classes.row }>
-                <Activity />
-                <Activity />
-                <Activity />
-                <Activity />
-            </div>
+            {final}
         </div>
       </div>
     );

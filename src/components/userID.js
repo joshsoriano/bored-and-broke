@@ -9,3 +9,11 @@ export function getUserID() {
 export function removeUserID() {
   sessionStorage.removeItem('userID');
 }
+
+export function saveUserName(userName) {
+    sessionStorage.setItem('userName', userName);
+}
+
+export function getUserName() {
+  return sessionStorage.getItem('userName');
+}

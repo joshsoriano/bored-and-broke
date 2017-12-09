@@ -6,6 +6,7 @@ import { Button } from 'react-bootstrap';
 // import { IconButton } from 'react-buttons';
 import fbButton from '../images/fb_login.png';
 import { saveUserID } from './userID';
+import { saveUserName } from './userID';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -79,6 +80,7 @@ class LoginButton extends React.Component {
       // Logged into your app and Facebook.
       this.testAPI();
       saveUserID(response.authResponse.userID);
+      saveUserName(response.authResponse.userName);
       this.redirectLoggedInUser();
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
@@ -123,6 +125,7 @@ class LoginButton extends React.Component {
           })
           this.props.actions.findOrCreateUser();
           this.redirectLoggedInUser();
+          saveUserName(response.name);
         }.bind(this));
       } else {
        console.log('User cancelled login or did not fully authorize.');

@@ -1,4 +1,41 @@
+/**
+  All functions that can be called from a container are defined in this file.
+**/
+
 import axios from 'axios';
+
+export const ADD_ACTIVITY_START = "ADD_ACTIVITY_START";
+export const addActivityStart = () => {
+    return { type: ADD_ACTIVITY_START }
+}
+export const ADD_ACTIVITY_RESULTS = "ADD_ACTIVITY_RESULTS";
+export const addActivityResults = (data) => {
+    return { type: ADD_ACTIVITY_RESULTS, data }
+}
+export const ADD_ACTIVITY_ERROR = "ADD_ACTIVITY_ERROR";
+export const addActivityError = (data) => {
+    return { type: ADD_ACTIVITY_ERROR, data }
+}
+
+export const ADD_ACTIVITY = "ADD_ACTVIITY"
+export const addActivity = (name, date, location, imageUrl, link, price, description) => {
+    return dispatch => {
+        dispatch(addActivityStart());
+        axios.put(`/api/activities/add`, {
+            data: {
+                name: name,
+                date: date,
+                location: location,
+                imageUrl: imageUrl,
+                link: link,
+                price: price,
+                description: description
+           }
+        })
+            .then(res => dispatch(addActivityResults(res.data)))
+            .catch(err => dispatch(addActivityError(err)))
+    }
+}
 
 export const GET_ACTIVITY_START = "GET_ACTIVITY_START";
 export const getActivityStart = () => {
@@ -22,8 +59,61 @@ export const getActivity = (activityId) => {
           id: activityId
         }
       })
-            .then(res => dispatch(getActivityResults(JSON.stringify(res.data))))
+            .then(res => dispatch(getActivityResults(res.data)))
             .catch(err => dispatch(getActivityError(err)))
+
+    }
+}
+
+export const SAVE_ACTIVITY_START = "SAVE_ACTIVITY_START";
+export const saveActivityStart = () => {
+    return { type: SAVE_ACTIVITY_START }
+}
+export const SAVE_ACTIVITY_RESULTS = "SAVE_ACTIVITY_RESULTS";
+export const saveActivityResults = (data) => {
+    return { type: SAVE_ACTIVITY_RESULTS, data }
+}
+export const SAVE_ACTIVITY_ERROR = "SAVE_ACTIVITY_ERROR";
+export const saveActivityError = (data) => {
+    return { type: SAVE_ACTIVITY_ERROR, data }
+}
+
+export const SAVE_ACTIVITY = "SAVE_ACTVIITY"
+export const saveActivity = (userId, activityId, tagline) => {
+    return dispatch => {
+        dispatch(saveActivityStart());
+        axios.put(`/api/taglines/save/` + userId + `/` + activityId + `/` + tagline)
+            .then(res => dispatch(saveActivityResults(res.data)))
+            .catch(err => dispatch(saveActivityError(err)))
+
+    }
+}
+
+export const UNSAVE_ACTIVITY_START = "UNSAVE_ACTIVITY_START";
+export const unsaveActivityStart = () => {
+    return { type: UNSAVE_ACTIVITY_START }
+}
+export const UNSAVE_ACTIVITY_RESULTS = "UNSAVE_ACTIVITY_RESULTS";
+export const unsaveActivityResults = (data) => {
+    return { type: UNSAVE_ACTIVITY_RESULTS, data }
+}
+export const UNSAVE_ACTIVITY_ERROR = "UNSAVE_ACTIVITY_ERROR";
+export const unsaveActivityError = (data) => {
+    return { type: UNSAVE_ACTIVITY_ERROR, data }
+}
+
+export const UNSAVE_ACTIVITY = "UNSAVE_ACTVIITY"
+export const unsaveActivity = (userId, activityId) => {
+    return dispatch => {
+        dispatch(unsaveActivityStart());
+        axios.delete(`/api/taglines/unsave/`, {
+            params: {
+                userId: userId,
+                activityId: activityId
+            }
+        })
+            .then(res => dispatch(unsaveActivityResults(res.data)))
+            .catch(err => dispatch(unsaveActivityError(err)))
 
     }
 }
@@ -47,10 +137,10 @@ export const getActivities = (price) => {
         dispatch(getActivitiesStart());
         axios.get(`/api/activities`, {
         params: {
-          priceLimit: price
+            priceLimit: price
         }
       })
-            .then(res => dispatch(getActivitiesResults(JSON.stringify(res.data))))
+            .then(res => dispatch(getActivitiesResults(res.data)))
             .catch(err => dispatch(getActivitiesError(err)))
 
     }
@@ -80,7 +170,7 @@ export const getSaved = (id) => {
             userId: id
           }
         })
-            .then(res => dispatch(getSavedResults(JSON.stringify(res.data))))
+            .then(res => dispatch(getSavedResults(res.data)))
             .catch(err => dispatch(getSavedError(err)))
 
     }
@@ -110,7 +200,7 @@ export const getUsersForActivity = (id) => {
             activityId: id
           }
         })
-            .then(res => dispatch(getUsersForActivityResults(JSON.stringify(res.data))))
+            .then(res => dispatch(getUsersForActivityResults(res.data)))
             .catch(err => dispatch(getUsersForActivityError(err)))
 
     }
@@ -141,7 +231,7 @@ export const getTagline = (userId, activityId) => {
             activityId: activityId
           }
         })
-            .then(res => dispatch(getTaglineResults(JSON.stringify(res.data))))
+            .then(res => dispatch(getTaglineResults(res.data)))
             .catch(err => dispatch(getTaglineError(err)))
 
     }
@@ -171,7 +261,7 @@ export const getUser = (userId) => {
             id: userId
           }
         })
-            .then(res => dispatch(getUserResults(JSON.stringify(res.data))))
+            .then(res => dispatch(getUserResults(res.data)))
             .catch(err => dispatch(getUserError(err)))
 
     }
@@ -201,7 +291,7 @@ export const removeUser = (userId) => {
             userId: userId
           }
         })
-            .then(res => dispatch(removeUserResults(JSON.stringify(res.data))))
+            .then(res => dispatch(removeUserResults(res.data)))
             .catch(err => dispatch(removeUserError(err)))
 
     }
@@ -223,12 +313,64 @@ export const findOrCreateUserError = (data) => {
 }
 
 export const FIND_OR_CREATE_USER = "FIND_OR_CREATE_USER";
-export const findOrCreateUser = (userId) => {
+export const findOrCreateUser = (userId, name) => {
     return dispatch => {
         dispatch(findOrCreateUserStart());
-        axios.put(`/api/users/find-or-create/` + userId)
-            .then(res => dispatch(findOrCreateUserResults(JSON.stringify(res.data))))
+        axios.put(`/api/users/find-or-create/` + userId + `/` + name)
+            .then(res => dispatch(findOrCreateUserResults(res.data)))
             .catch(err => dispatch(findOrCreateUserError(err)))
+
+    }
+}
+
+export const UPDATE_TAGLINE_START = "UPDATE_TAGLINE_START";
+export const updateTaglineStart = () => {
+    return { type: UPDATE_TAGLINE_START }
+}
+
+export const UPDATE_TAGLINE_RESULTS = "UPDATE_TAGLINE_RESULTS";
+export const updateTaglineResults = (data) => {
+    return { type: UPDATE_TAGLINE_RESULTS, data }
+}
+
+export const UPDATE_TAGLINE_ERROR = "UPDATE_TAGLINE_ERROR";
+export const updateTaglineError = (data) => {
+    return { type: UPDATE_TAGLINE_ERROR, data }
+}
+
+export const UPDATE_TAGLINE = "UPDATE_TAGLINE";
+export const updateTagline = (userId, activityId, tagline) => {
+    return dispatch => {
+        dispatch(updateTaglineStart());
+        axios.put(`/api/taglines/update/` + userId + `/` + activityId + `/` + tagline)
+            .then(res => dispatch(updateTaglineResults(res.data)))
+            .catch(err => dispatch(updateTaglineError(err)))
+
+    }
+}
+
+export const IS_UPDATE_NEEDED_START = "IS_UPDATE_NEEDED_START";
+export const isUpdateNeededStart = () => {
+    return { type: IS_UPDATE_NEEDED_START }
+}
+
+export const IS_UPDATE_NEEDED_RESULTS = "IS_UPDATE_NEEDED_RESULTS";
+export const isUpdateNeededResults = (data) => {
+    return { type: IS_UPDATE_NEEDED_RESULTS, data }
+}
+
+export const IS_UPDATE_NEEDED_ERROR = "IS_UPDATE_NEEDED_ERROR";
+export const isUpdateNeededError = (data) => {
+    return { type: IS_UPDATE_NEEDED_ERROR, data }
+}
+
+export const IS_UPDATE_NEEDED = "IS_UPDATE_NEEDED";
+export const isUpdateNeeded = (userId, activityId, tagline) => {
+    return dispatch => {
+        dispatch(updateTaglineStart());
+        axios.get(`/api/activities/is-update-needed`)
+            .then(res => dispatch(isUpdateNeededResults(res.data)))
+            .catch(err => dispatch(isUpdateNeededError(err)))
 
     }
 }

@@ -2,7 +2,7 @@ import * as Actions from '../actions'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 
-import Homepage from '../components/Homepage'
+import SavedActivities from '../components/SavedActivities'
 
 function mapStateToProps(state) {
   return {
@@ -24,4 +24,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Homepage);
+export default connect(mapStateToProps, mapDispatchToProps)(SavedActivities);

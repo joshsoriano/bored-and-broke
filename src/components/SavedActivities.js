@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import { ControlLabel } from 'react-bootstrap';
 import NavigationBar from './NavigationBar.js';
-import Activity from './Activity.js';
+import Activity from '../containers/ActivityContainer';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -49,7 +49,10 @@ class SavedActivities extends React.Component {
             <span>Here are the activities you have saved so far:</span>
         </div>
           <div className={ classes.row }>
-            <Activity />
+            <Activity
+                savedPage={false}
+            >
+            </Activity>
             <Activity />
             <Activity />
             <Activity />
