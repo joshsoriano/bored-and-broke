@@ -129,7 +129,11 @@ class Homepage extends React.Component {
         <Activity
             activityName={item.name}
             activityPrice={item.price}
+            activityDate={item.date}
+            activityLocation={item.location}
             savedPage={true}
+            activityLink={item.link}
+            activityDescription={item.description}
         />
     ));
 
