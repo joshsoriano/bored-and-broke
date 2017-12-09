@@ -6,6 +6,7 @@ import { Form, FormGroup, ControlLabel, FormControl, Col, Collapse, Well } from 
 import NavigationBar from './NavigationBar.js';
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 import { getUserName } from './userID';
+import { getUserID } from './userID';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -67,9 +68,11 @@ class Settings extends React.Component {
 
     this.state = {};
   }
+
   render() {
     const { classes } = this.props;
     const userName = getUserName();
+    console.log(this.props.actions);
 
     return (
       <div className={ classes.main }>

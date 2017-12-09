@@ -24,7 +24,7 @@ const styles = {
         margin: '5px',
         fontFamily: 'Open Sans',
     },
-    activityDesc: {
+    activityPrice: {
         marginBottom: '10px',
         fontFamily: 'Open Sans',
     },

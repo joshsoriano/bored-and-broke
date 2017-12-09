@@ -267,6 +267,34 @@ export const getUser = (userId) => {
     }
 }
 
+export const SAVE_USER_SETTINGS_START = "SAVE_USER_SETTINGS_START";
+export const saveUserSettingsStart = () => {
+    return { type: SAVE_USER_SETTINGS_START }
+}
+
+export const SAVE_USER_SETTINGS_RESULTS = "SAVE_USER_SETTINGS_RESULTS";
+export const saveUserSettingsResults = (data) => {
+    return { type: SAVE_USER_SETTINGS_RESULTS, data }
+}
+
+export const SAVE_USER_SETTINGS_ERROR = "SAVE_USER_SETTINGS_ERROR";
+export const saveUserSettingsError = (data) => {
+    return { type: SAVE_USER_SETTINGS_ERROR, data }
+}
+
+export const SAVE_USER_SETTINGS = "SAVE_USER_SETTINGS";
+export const saveUserSettings = (bio, userId) => {
+    return dispatch => {
+        dispatch(saveUserSettingsStart());
+        axios.put(`/api/users/saveSettings` + bio + `/` + userId)
+            .then(res => dispatch(saveUserSettingsResults(JSON.stringify(res.data))))
+            .catch(err => dispatch(saveUserSettingsError(err)))
+
+    }
+}
+
+
+
 export const REMOVE_USER_START = "REMOVE_USER_START";
 export const removeUserStart = () => {
     return { type: REMOVE_USER_START }

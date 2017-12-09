@@ -9,7 +9,6 @@ import { saveUserID, saveUserName } from './userID';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
-    listNameFromParent: PropTypes.string,
 };
 
 const styles = {
@@ -19,6 +18,15 @@ const styles = {
 };
 
 class LoginButton extends React.Component {
+<<<<<<< HEAD
+=======
+  constructor(props) {
+    super(props);
+    this.state = {
+      first_time: false
+    }
+  }
+>>>>>>> d487b9a910827f163da2a1864ad6e0102beb4f78
   componentDidMount() {
     window.fbAsyncInit = function() {
       FB.init({
@@ -50,8 +58,8 @@ class LoginButton extends React.Component {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
     console.log('Successful login for: ' + response.name);
-    // document.getElementById('status').innerHTML =
-    //   'Thanks for logging in, ' + response.name + '!';
+    document.getElementById('status').innerHTML =
+      'Thanks for logging in, ' + response.name + '!';
     });
   }
 
@@ -106,7 +114,11 @@ class LoginButton extends React.Component {
       } else {
        console.log('User cancelled login or did not fully authorize.');
       }
-    }.bind(this));
+    });
+  }
+
+  onMouseOver() {
+    return "";
   }
 
   mouseOver() {
@@ -115,6 +127,7 @@ class LoginButton extends React.Component {
 
   render() {
     const { classes } = this.props;
+    console.log(this.props.actions);
     return <img src={ fbButton } height='50px' onMouseOver={ this.mouseOver } className={ classes.loginButton } onClick={this.handleClick}/>
   }
 }

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import Homepage from './containers/HomepageContainer';
 import LoginCreateAccount from './components/LoginCreateAccount.js';
 import SavedActivities from './containers/SavedActivitiesContainer';
-import Settings from './components/Settings.js';
+import Settings from './containers/SettingsContainer.js';
 import Loading from './components/Loading.js';
 import injectSheet from 'react-jss';
 import App from './containers/AppContainer';
