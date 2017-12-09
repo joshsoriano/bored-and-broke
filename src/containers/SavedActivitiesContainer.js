@@ -13,7 +13,8 @@ function mapStateToProps(state) {
     saved_activities: state.demo.saved_activities,
     tagline: state.demo.tagline,
     user: state.demo.user,
-    users: state.demo.users
+    users: state.demo.users,
+    is_update_needed: state.demo.is_update_needed
   }
 }
 
