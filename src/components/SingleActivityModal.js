@@ -17,9 +17,9 @@ const propTypes = {
     readyForCarousel: PropTypes.bool,
     userBio: PropTypes.string,
     userTagline: PropTypes.string,
-    date: PropTypes.string,
+    date: PropTypes.number,
     location: PropTypes.string,
-    price: PropTypes.string,
+    price: PropTypes.number,
     description: PropTypes.string,
     link: PropTypes.string,
 };
