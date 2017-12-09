@@ -7,6 +7,7 @@ import Thumbnail from 'react-bootstrap/lib/Thumbnail';
 import Button from 'react-bootstrap/lib/Button';
 import SingleActivityModal from './SingleActivityModal.js';
 import SavedActModal from './SavedActModal.js';
+import laSkyline1 from '../images/filler-images/la-skyline-1.jpeg';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -17,6 +18,7 @@ const propTypes = {
     activityDate: PropTypes.string,
     activityDescription: PropTypes.string,
     activityLink: PropTypes.string,
+    activityImage: PropTypes.string,
 };
 
 const styles = {
@@ -44,7 +46,17 @@ class Activity extends React.Component {
 
 
     render() {
-        const { classes, savedPage, activityDescription } = this.props;
+        const {
+            classes,
+            savedPage,
+            activityDescription,
+            activityImage,
+            activityDate,
+            activityName,
+            activityPrice,
+            activityLocation,
+            activityLink
+        } = this.props;
         // this.props.savedPage
         let modalType =
             (<SingleActivityModal
@@ -57,6 +69,7 @@ class Activity extends React.Component {
                   price={this.props.activityPrice}
                   description={this.props.activityDescription}
                   link={this.props.activityLink}
+                  image={this.props.activityImage}
             >
             </SingleActivityModal>)
 
@@ -72,13 +85,20 @@ class Activity extends React.Component {
                     price={this.props.activityPrice}
                     description={this.props.activityDescription}
                     link={this.props.activityLink}
+                    image={this.props.activityImage}
                 >
                 </SavedActModal>)
         }
+        console.log('activityImage', this.props.activityImage);
+        let imgSrc = this.props.activityImage;
+        if (this.props.activityImage === null) {
+            imgSrc = {laSkyline1};
+        }
+        console.log('imgSrc', {imgSrc})
 
         return (
             <Col sx={12} sm={6} md={3}>
-                <Thumbnail src="http://via.placeholder.com/350x250" alt="242x200">
+                <Thumbnail src={imgSrc} alt="242x200">
                     <div className = {classes.textDetails}>
                         <h3 className = {classes.activityTitle}>{this.props.activityName}</h3>
                         <p className = {classes.activityDesc}>Price:${this.props.activityPrice}</p>

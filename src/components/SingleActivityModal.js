@@ -152,7 +152,7 @@ class SingleActivityModal extends React.Component {
 
     getTaglineState() {
         const taglineVal = this.state.value;  //this is the most accurate one! Use this!
-        console.log("taglineVal:", taglineVal)
+        // console.log("taglineVal:", taglineVal)
         const tagLength = this.state.value.length; //need to make sure it's not too long
     };
 
@@ -160,7 +160,7 @@ class SingleActivityModal extends React.Component {
         this.setState({
             value: e.target.value, //note that the taglineVal is more accurate
       });
-      console.log("tagline is:", this.state.value);
+    //   console.log("tagline is:", this.state.value);
     //   if (this.state.value.length < 1) {
     //       this.setState({
     //           tagLongEnough: false,

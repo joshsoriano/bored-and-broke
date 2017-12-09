@@ -130,6 +130,7 @@ class Homepage extends React.Component {
             savedPage={true}
             activityLink={item.link}
             activityDescription={item.description}
+            activityImage={item.image_url}
         />
     ));
 
