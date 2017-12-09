@@ -27,12 +27,12 @@ import {
 
 const initialState = {
     activity: "",
-    activities: "",
+    activities: [],
     is_first_time: null,
-    saved_activities: "",
+    saved_activities: [],
     tagline: "",
     user: "",
-    users: "",
+    users: [],
     results: "",
     is_update_needed: null
 }
