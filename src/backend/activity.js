@@ -11,7 +11,7 @@ import $ from 'jquery';
     link: Url to an external page for the activity.
     source: The API e.g. "TicketMaster"
     imageUrl: A url to an image for this activity.
-    price: The float price of an activity.
+    price: The double price of an activity.
     description: String description of the actiivty.
   }
 */
