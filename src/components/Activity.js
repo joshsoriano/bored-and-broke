@@ -44,7 +44,7 @@ class Activity extends React.Component {
 
 
     render() {
-        const { classes, savedPage } = this.props;
+        const { classes, savedPage, activityDescription } = this.props;
         // this.props.savedPage
         let modalType =
             (<SingleActivityModal
