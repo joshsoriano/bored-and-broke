@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import NavigationBar from './NavigationBar.js';
-import HomepageSettings from './HomepageSettings.js';
+import HomepageSettings from '../containers/HomepageSettingsContainer';
 import SingleActivityModal from './SingleActivityModal.js';
 import Activity from '../containers/ActivityContainer.js';
 // import LoginCreateAccount from './LoginCreateAccount.js';
@@ -87,6 +87,7 @@ class Homepage extends React.Component {
   }
 
   Homepage() {
+<<<<<<< HEAD
     // Un-hardcode the price limit.
     // const userID = getUserID();
     // const userName = getUserName();
@@ -97,38 +98,11 @@ class Homepage extends React.Component {
     this.props.actions.getActivities(50 /* price limit */);
     // this.props.actions.findOrCreateUser(userID, userName);
     console.log('is first time from homepage: ' + this.props.is_first_time);
+=======
+      const myId = getUserID();
+      this.props.actions.getActivities(myId, 0, "Los Angeles");
+>>>>>>> 3142c0d5685c66f8a2b473a5729799beec377cad
   }
-
-
-  // <div>this.state.activities.map(function(activity){
-  //     return <div>{activity.name}</div>
-  // });
-  // </div>
-
-//   <button onClick={this.props.actions.getActivities(50)}>Test!</button>
-//   <div style={{ padding: '30px' }}>{this.props.activities}</div>
-
-// <Activity
-//     savedPage={true}
-//     activityName={item.name}
-// >
-// </Activity>
-//
-// <Activity
-//     savedPage={true}
-// >
-// </Activity>
-//
-// <Activity
-//     savedPage={true}
-// >
-// </Activity>
-//
-// <Activity
-//     savedPage={true}
-// >
-// </Activity>
-
 
 
   render() {
@@ -144,6 +118,8 @@ class Homepage extends React.Component {
             savedPage={true}
             activityLink={item.link}
             activityDescription={item.description}
+            activityImage={item.image_url}
+            activityId={item.id}
         />
     ));
 
@@ -151,12 +127,14 @@ class Homepage extends React.Component {
     let rowsArray = [];
     for (let i = 0; i < activityDetails.length; i++) {
         rowsArray.push(activityDetails[i]);
-        if(i % 4 === 3 && i > 0) {
+        if(i % 4 === 3 && i > 0 || (i === activityDetails.length - 1)) {
             final.push(<div className={classes.row}> {rowsArray} </div>);
             rowsArray = [];
         }
+        if(activityDetails.length < 4 && i === activityDetails.length - 1) {
+            final.push(<div className={classes.row}> {rowsArray} </div>);
+        }
     }
-
     return (
       <div className={ classes.main }>
         <BioModal />

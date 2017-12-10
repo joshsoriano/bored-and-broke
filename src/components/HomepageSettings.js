@@ -3,6 +3,7 @@ import { Form, FormGroup, ControlLabel, FormControl, Col, Checkbox, Row } from '
 import Button from 'react-bootstrap/lib/Button';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
+import { getUserID } from './userID';
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 
 const propTypes = {
@@ -47,7 +48,8 @@ class HomepageSettings extends React.Component {
     }
 
     handleSubmit(event) {
-        event.preventDefualt();
+        event.preventDefault();
+        this.props.actions.getActivities(getUserID(), this.state.price, this.state.city);
     }
 
     render() {
@@ -59,20 +61,9 @@ class HomepageSettings extends React.Component {
                         City: <br/>
                         <FormControl name="city" value={this.state.city} onChange={this.handleChange} componentClass="select" placeholder="select">
                           <option value="select">select</option>
-                          <option value="LosAngeles">Los Angeles</option>
-                          <option value="Westchester">Westchester</option>
-                          <option value="PlayaVista">Playa Vista</option>
-                          <option value="PlayaDelRey">Playa Del Rey</option>
-                          <option value="MarinaDelRey">Marina Del Rey</option>
-                          <option value="VeniceBeach">Venice Beach</option>
-                          <option value="ManhattanBeach">Manhattan Beach</option>
-                          <option value="HermosaBeach">Hermosa Beach</option>
-                          <option value="PalosVerdes">Palos Verdes</option>
-                          <option value="ArtsDistrict">Arts District</option>
-                          <option value="SoHo">SoHo</option>
-                          <option value="PacificPalisades">Pacific Palisades</option>
-                          <option value="Malibu">Malibu</option>
-                          <option value="SilverLake">Silver Lake</option>
+                          <option value="Los Angeles">Los Angeles</option>
+                          <option value="Seattle">Seattle</option>
+                          <option value="San Francisco">San Francisco</option>
                         </FormControl>
                     </FormGroup>
                 </Col>
