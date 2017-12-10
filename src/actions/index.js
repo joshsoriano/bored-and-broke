@@ -78,7 +78,7 @@ export const saveActivityError = (data) => {
     return { type: SAVE_ACTIVITY_ERROR, data }
 }
 
-export const SAVE_ACTIVITY = "SAVE_ACTVIITY"
+export const SAVE_ACTIVITY = "SAVE_ACTIVIITY"
 export const saveActivity = (userId, activityId, tagline) => {
     return dispatch => {
         dispatch(saveActivityStart());
@@ -132,12 +132,13 @@ export const getActivitiesError = (data) => {
 }
 
 export const GET_ACTIVITIES = "GET_ACTVIITIES"
-export const getActivities = (price) => {
+export const getActivities = (userId, price) => {
     return dispatch => {
         dispatch(getActivitiesStart());
         axios.get(`/api/activities`, {
         params: {
-            priceLimit: price
+            priceLimit: price,
+            userId: userId
         }
       })
             .then(res => dispatch(getActivitiesResults(res.data)))
