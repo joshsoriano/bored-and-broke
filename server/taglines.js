@@ -38,8 +38,7 @@ router.get('/single', function(req, res, next) {
 });
 
 router.put('/save/:userId/:activityId', function(req, res, next) {
-    // Save a tagline for a user and activity.
-    // This is also how a user saves an activity.
+    // This is how a user saves an activity.
     Tagline.findOrCreate({
       where: {
           user_id: req.params.userId,
