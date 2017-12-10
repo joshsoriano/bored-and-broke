@@ -151,12 +151,8 @@ class SingleActivityModal extends React.Component {
         this.setState({
             secondState: this.props.savedAlready,
       });
-      // more logic here to add this event to a user's list of saved events
       let userId = getUserID();
-      // this.props.actions.findOrCreateUser(userId, "Mackenzie");
       this.props.actions.saveActivity(userId, this.props.id);
-      console.log('activity', this.props.id);
-      console.log('user', userId);
     };
 
     getTaglineState() {
@@ -179,11 +175,13 @@ class SingleActivityModal extends React.Component {
     };
 
     removeFromSaved() {
+        let userId = getUserID();
+        this.props.actions.unsaveActivity(userId, this.props.id);
+        console.log("unsaved!!");
         this.setState({
             secondState: true,
             thirdState: true,
       });
-      //more logic here to remove event from the user's list of saved events
     };
 
     someFun = () => {
