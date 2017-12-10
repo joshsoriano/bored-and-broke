@@ -75,9 +75,9 @@ class Settings extends React.Component {
   }
 
   doStuff(){
-    let id = getUserID()
-
-    this.props.actions.findOrCreateUser(id, "george");
+    let id = getUserID();
+    let name = getUserName();
+    this.props.actions.findOrCreateUser(id, name);
     this.props.actions.saveUserSettings(this.state.value, id);
     this.props.actions.getUser(id);
   }
@@ -87,7 +87,6 @@ class Settings extends React.Component {
   render() {
     const { classes } = this.props;
     const userName = getUserName();
-    console.log(userName);
 
     return (
       <div className={ classes.main }>
