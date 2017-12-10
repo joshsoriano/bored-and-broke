@@ -1,10 +1,10 @@
 # Software Design Description Document
 
 ## 6.1 Introduction
-This document presents the architecture and detailed design for the software for the Bored & Broke (B&B) project. This project will allow users to create an account using their Facebook account login information. They will then be able to browse through a selection of activities within a selected distance, get information about them, and save them to their saved page.  When saving an activity, the user can add an activity specific bio for other users, who have saved the activity, to see. After saving an activity, the user can look through the other bios for that event. The user can then contact another user by clicking on their activity specific bio, which will then lead them to Facebook messenger.
+This document presents the architecture and detailed design for the software for the Bored & Broke (B&B) project. This project will allow users to create an account using their Facebook account login information. They will then be able to browse through a selection of activities within a selected distance, get information about these activities, and save them to their saved page. When saving an activity, the user can add an activity specific bio for other users who have also saved the activity to see. After saving an activity, the user can look through others' bios for that event. The user can then contact another user by clicking on the activity specific bio which will then lead them to Facebook messenger.
 
 ### 6.1.1 System Objectives
-The objective of this application is to provide users with activities to do that are within their budget. The activities shown are only ones located in their area. Their location, radius, and price range can easily be changed on multiple pages of the website. “Likes” are not displayed so true interest drives the attraction to events. Users are also given the opportunity to meet new people within their area who have saved the same events as them. Meeting new people based on their taglines and bios creates genuine connection, rather than interest based on appearances that is generally found in applications that use pictures. The site will be easy to navigate, with a dropdown provided on every page so the user can easily switch from one page to another.
+The objective of this application is to provide users with activities to do that are within their budget and within their city. Their price range can easily be changed on the main page of the website. “Likes” are not displayed so true interest drives the attraction to events. Users are also given the opportunity to meet new people within their area who have saved the same events as them. Meeting new people based on their taglines and bios creates genuine connection, rather than interest based on appearances that is generally found in applications that use pictures. The site will be easy to navigate, with a dropdown provided on every page so the user can easily switch from one page to another.
 
 ### 6.1.2 Hardware, Software, and Human Interfaces
 #### 6.1.2.1 Human Interface: Mouse and Keyboard
@@ -34,7 +34,7 @@ This component allows the user interface to interact with the database and handl
 ### 6.2.2 Major Software Interactions
 The source code of the B&B source code is loaded onto an Amazon Web Services (AWS) Elastic Beanstalk. The AWS service then deploys the B&B application by running the code on a server. The Elastic Beanstalk allows the B&B application to send and accept HTTP requests, which calls the following API’s to gather information about various activities: Eventful, EventBrite, and TicketMaster. The Facebook Account API is also called to verify users through Facebook login.
 
-The PostgreSQL database runs through the AWS Relational Database Service (RDS). The B&B application connects to the the database by opening a connection using the Sequelize.js package. Functions in the B&B application also use Sequelize.js to run SQL queries to input and retrieve information
+The PostgreSQL database runs through the AWS Relational Database Service (RDS). The B&B application connects to the database by opening a connection using the Sequelize.js and Express.js packages. Functions in the B&B application also use Sequelize.js to run SQL queries to input and retrieve information
 
 ### 6.2.3 Architectural Design Diagrams
 #### UML Case Diagram
@@ -43,7 +43,6 @@ The PostgreSQL database runs through the AWS Relational Database Service (RDS). 
 ![State Diagram](stateDiagram.png)
 #### Class Diagram
 ![Class Diagram](architectureClassDiagrams.png)
-
 ## 6.3 CSC and CSU Descriptions Section
 ### Web Frontend CSC
 The Web Frontend CSC is the component that is the interface for the application. It consists of four pages and multiple activity modals. It will include the ability to create an account, adjust user settings, navigate through activities, save activities, and direct users to other user’s facebook pages.

@@ -98,37 +98,36 @@ activities, save activities, and direct users to other user’s facebook pages.
 
 
 5.3.1.1   Login/Create Account Page        
-&nbsp;&nbsp; 5.3.1.1.1   The Login/Create Account Page should contain a “Login with Facebook” button.        
-&nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.1.1.1    The “Login with Facebook” button should prompt a modal for users to log into Facebook using their Facebook credentials.        
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.1.1.1.1 The modal should have input fields for the user’s email and password for Facebook.                
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.1.1.1.2 The modal should have a button to submit credentials.        
-&nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.1.1.2   Logging in with Facebook should prompt a permissions dialog asking users to give permission for the app to receive their public info.        
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.1.1.2.1 The permissions dialogue should contain a button to continue authentication.	        
+&nbsp;&nbsp; 5.3.1.1.1   The Login/Create Account Page shall contain a “Login with Facebook” button.        
+&nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.1.1.1    The “Login with Facebook” button shall prompt a modal for users to log into Facebook using their Facebook credentials.        
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.1.1.1.1 The modal shall have input fields for the user’s email and password for Facebook.                
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.1.1.1.2 The modal shall have a button to submit credentials.        
+&nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.1.1.2   Logging in with Facebook shall prompt a permissions dialog asking users to give permission for the app to receive their public info.        
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.1.1.2.1 The permissions dialogue shall contain a button to continue authentication.	        
 5.3.1.1.2    The Login/Create Account Page shall contain a “Create an Account” button.        
-&nbsp;&nbsp; 5.3.1.1.2.1    The “Create an Account” button should open up a new window/tab linked to Facebook’s “Create an Account” page.        
+&nbsp;&nbsp; 5.3.1.1.2.1    The “Create an Account” button shall open up a new window/tab linked to Facebook’s “Create an Account” page.        
 5.3.1.1.3    Successful login shall send a user to the homepage.        
 5.3.1.1.4    Successful account creation shall send a user to the settings page.   
 
 
 5.3.1.2   Settings Page         
-&nbsp;&nbsp; 5.3.1.2.1    The Settings Page should, upon account creation, have the appropriate fields filled with information taken from the user’s public Facebook profile.        
-&nbsp;&nbsp; 5.3.1.2.2    The Settings Page shall contain input fields for the following: Name, Email, Password, Bio, and Location.        
+&nbsp;&nbsp; 5.3.1.2.1    The Settings Page shall, upon account creation, have the Name field filled with information taken from the user’s public Facebook profile which is required to make an account.        
+&nbsp;&nbsp; 5.3.1.2.2    The Settings Page shall contain an input field for the following: Bio.        
 &nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.2.2.1    Input fields shall be editable.        
-&nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.2.2.2    The Bio Input should have a maximum character limit.        
-&nbsp;&nbsp; 5.3.1.2.3    The Settings Page shall contain a slider to adjust desired price range for activities.        
-&nbsp;&nbsp; 5.3.1.2.4    The Settings Page shall have a button to save/submit changes made to the user’s settings.        
+&nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.2.2.2    The Bio Input shall have a maximum character limit of 255 characters.        
+&nbsp;&nbsp; 5.3.1.2.3    The Settings Page shall have a button to save/submit changes made to the user’s settings.        
 
 
 5.3.1.3   Homepage        
 &nbsp;&nbsp; 5.3.1.3.1  The Homepage shall present activities.         
-&nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.3.1.1    The activities should be listed vertically.        
-&nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.3.1.2    The activities should be the width of the page.         
+&nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.3.1.1    The activities shall be listed vertically.        
+&nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.3.1.2    The activities shall be the width of the page.         
 &nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.3.1.3    The activities shall be clickable.         
 &nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.3.1.4    The activities shall lead to their specific modal upon click.         
 &nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.3.1.5    The activities shall show the title of the activities.         
 &nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.3.1.6    The activities shall show the location of the activities.         
 &nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.3.1.7    The activities shall show the price of the activities.         
-&nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.3.1.8    The activities should show an image of the activities.         
+&nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.3.1.8    The activities shall show an image of the activities.         
 &nbsp;&nbsp; 5.3.1.3.2    The Homepage shall have a drop-down menu.        
 &nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.3.2.1    The drop-down menu shall contain a button that leads to the saved activities page.        
 &nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.3.2.2    The drop-down menu shall contain a button that leads to the settings page.        
@@ -139,8 +138,8 @@ activities, save activities, and direct users to other user’s facebook pages.
 &nbsp;&nbsp; 5.3.1.3.5    The Homepage shall have a location input field for the activities to be located around.         
 &nbsp;&nbsp; 5.3.1.3.5    The Homepage shall have a load button to refresh the activities.        
 &nbsp;&nbsp; 5.3.1.3.6    The Homepage shall have a title section.	        
-&nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.3.6.1    The title section should have the application logo.        
-&nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.3.6.2    The title section should have the application name.  
+&nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.3.6.1    The title section shall have the application logo.        
+&nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.3.6.2    The title section shall have the application name.  
 
 
 5.3.1.4   Single Event Modal        
@@ -148,7 +147,7 @@ activities, save activities, and direct users to other user’s facebook pages.
 &nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.4.1.1    Event information shall include the event location.         
 &nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.4.1.2    Event information shall include the event price.        
 &nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.4.1.3    Event information shall include the event time.         
-&nbsp;&nbsp; 5.3.1.4.2    The single event modal should contain a carousel of profiles of users who saved the single event.         
+&nbsp;&nbsp; 5.3.1.4.2    The single event modal shall contain a carousel of profiles of users who saved the single event.         
 &nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.4.2.1    The Carousel of profiles shall show a small subset of users at any given time.         
 &nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.4.2.2    Each profile shall contain the user’s bios.        
 &nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.4.2.3    Each profile shall contain the user’s event-specific taglines.        
@@ -160,7 +159,7 @@ activities, save activities, and direct users to other user’s facebook pages.
 
 5.3.1.5   Saved Activities Page         
 &nbsp;&nbsp; 5.3.1.5.1  The saved activities page shall show clickable thumbnails of user-saved activities.         
-&nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.5.1.1 Each thumbnail should have a button to remove the event from the saved activities page.         
+&nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.5.1.1 Each thumbnail shall have a button to remove the event from the saved activities page.         
 &nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.5.1.2  Each thumbnail shall open a single event modal (see 5.3.1.4).        
 &nbsp;&nbsp; 5.3.1.5.2  The saved activities page shall have a toggle to change view to the homepage.        
 &nbsp;&nbsp; 5.3.1.5.3  The saved activities page shall be a scrollable page. 
@@ -200,7 +199,7 @@ activities, save activities, and direct users to other user’s facebook pages.
 
 
 #### 5.4         Performance Requirements by CSC        
-5.4.1    Login/Create Account Page Load Efficiency -- Upon entering URL of the web application, there should be no longer that a five second wait for the Login/Create Account Page to fully load.      
+5.4.1    Login/Create Account Page Load Efficiency -- Upon entering URL of the web application, there shall be no longer that a five second wait for the Login/Create Account Page to fully load.      
 &nbsp;&nbsp; 5.4.1.1  Subordinate Control Elements -- Create account button immediately directs the users to the Facebook login modal.    
 &nbsp;&nbsp;&nbsp;&nbsp; 5.4.1.1.1  Settings Page Load Efficiency -- After submission of Facebook credentials, the settings page loads in less than five seconds.    
 &nbsp;&nbsp; 5.4.1.2    Transitional Immediacy --  Login With Facebook button immediately directs users to the Facebook account creation in a new window/tab.     
@@ -209,21 +208,21 @@ activities, save activities, and direct users to other user’s facebook pages.
 5.4.2    Homepage Load Efficiency -- Upon login, the Homepage will load in under five seconds.     
 
 
-5.4.3    Interface -- All pages should load almost immediately as user navigates between the pages and modals of the frontend.     
+5.4.3    Interface -- All pages shall load almost immediately as user navigates between the pages and modals of the frontend.     
 
 
 5.4.4    Efficient Runtime -- API calls will run in at most five seconds.    
 &nbsp;&nbsp; 5.4.4.1    Effective Updating -- Homepage will reload in at most five seconds if account parameters are adjusted in the settings, or on the Homepage when load button is clicked.    
 
 
-5.4.5   Query Efficiency -- Database querying for account and saved activities should be under two seconds.  
+5.4.5   Query Efficiency -- Database querying for account and saved activities shall be under two seconds.  
 
 
 5.4.6    Scalability -- Database will be structured for efficient data storage.   
 &nbsp;&nbsp; 5.4.6.1    ACID Properties -- ACID properties will be implemented to ensure data safety and effectiveness of the database.   
 
 
-5.4.7    Targeted Links -- Upon clicking a user’s account, redirect to their facebook page should take less than four seconds.    
+5.4.7    Targeted Links -- Upon clicking a user’s account, redirect to their facebook page shall take less than four seconds.    
 
 #### 5.5     Environmental Requirements by CSC   
 5.5.1    Developmental Environment Requirements.   
