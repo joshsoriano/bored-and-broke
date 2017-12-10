@@ -6,10 +6,7 @@ import HomepageSettings from './HomepageSettings.js';
 import SingleActivityModal from './SingleActivityModal.js';
 import { getUserID } from './userID';
 import Activity from '../containers/ActivityContainer.js';
-// import LoginCreateAccount from './LoginCreateAccount.js';
-// import SavedActivities from './SavedActivities.js';
-// import Settings from './Settings.js';
-// import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
+
 
 const propTypes = {
     classes: PropTypes.object.isRequired,

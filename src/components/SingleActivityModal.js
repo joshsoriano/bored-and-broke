@@ -162,12 +162,6 @@ class SingleActivityModal extends React.Component {
         this.setState({
             value: e.target.value, //note that the taglineVal is more accurate
       });
-    //   console.log("tagline is:", this.state.value);
-    //   if (this.state.value.length < 1) {
-    //       this.setState({
-    //           tagLongEnough: false,
-    //     });
-    //   }
     };
 
     changeToThirdState(e) {
@@ -197,15 +191,9 @@ class SingleActivityModal extends React.Component {
       });
     }
 
-
-
     render() {
         const { classes, showModal, userBio, userTagline, date, location, price, description, link } = this.props;
         const { secondState, thirdState, value, tagLongEnough } = this.state;
-        // const date = "01-01-2001";
-        // const location = "Keck Lab";
-        // const price = "$0";
-
         const taglineClasses = classNames({
             [classes.taglineStyle]: this.state.secondState,
         });

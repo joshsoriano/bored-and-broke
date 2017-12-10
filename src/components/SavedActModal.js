@@ -187,10 +187,6 @@ class SingleActivityModal extends React.Component {
     render() {
         const { classes, showModal, userBio, userTagline, date, location, price, description, link } = this.props;
         const { secondState, thirdState, value, tagLongEnough } = this.state;
-        // const date = "01-01-2001";
-        // const location = "Keck Lab";
-        // const price = "$0";
-
         const taglineClasses = classNames({
             [classes.taglineStyle]: this.state.secondState,
         });

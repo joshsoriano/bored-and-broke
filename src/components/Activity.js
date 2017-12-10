@@ -42,10 +42,6 @@ class Activity extends React.Component {
       super(props)
     }
 
-    // componentDidMount() {
-    //   this.props.actions.getTagline(this.props.userId, this.props.activityId);
-    // }
-
     render() {
         const {
             classes,
@@ -58,7 +54,6 @@ class Activity extends React.Component {
             activityLocation,
             activityLink
         } = this.props;
-        // this.props.savedPage
         let modalType =
             (<SingleActivityModal
                   savedAlready={ false } // when false nothing happens, when true the carousel goes away
