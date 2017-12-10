@@ -85,9 +85,10 @@ router.get('/is-update-needed', function(req, res, next) {
     let yyyy = today.getFullYear() + "";
     let yyyymmdd = Number.parseInt(yyyy.concat(mm).concat(dd));
 
-    let days = 3; // Default should be that an update is needed.
     Activity.max('date_added').then((date) => {
-        res.status(200).send({is_update_needed: ((yyyymmdd - date) >= 1)})
+        // If date is undefined, an update is needed.
+        // This happens when the database is empty.
+        res.status(200).send({is_update_needed: (date ? ((yyyymmdd - date) >= 1) : true)})
     })
     .catch(next);
 

@@ -7,7 +7,7 @@ import './style.css';
 class App extends Component {
 
   componentDidMount() {
-      this.props.actions.getActivities("11112", 110)
+      this.props.actions.addActivity("Test activity", 20171210, "", "", "", "", "")
   }
 
   render() {

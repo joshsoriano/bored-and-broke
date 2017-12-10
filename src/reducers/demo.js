@@ -39,7 +39,8 @@ const initialState = {
     users: [],
     results: "",
     is_update_needed: null,
-    settings: ""
+    settings: "",
+    ready_to_redirect: false
 }
 
 const demo = (state = initialState, action) => {
@@ -94,7 +95,7 @@ const demo = (state = initialState, action) => {
         case FIND_OR_CREATE_USER_ERROR:
                 return { ...state, is_first_time: JSON.stringify(action.data) }
         case IS_UPDATE_NEEDED_RESULTS:
-                return { ...state, is_update_needed: action.data }
+                return { ...state, is_update_needed: action.data.is_update_needed }
         case IS_UPDATE_NEEDED_ERROR:
                 return { ...state, is_updated_needed: JSON.stringify(action.data) }
         case SAVE_USER_SETTINGS_RESULTS:

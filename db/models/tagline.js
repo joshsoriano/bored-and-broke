@@ -8,7 +8,7 @@ const Activity = require('./activity.js');
 const Tagline = db.define('tagline', {
    // Self incrementing primary key.
    id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-   tag: { type: Sequelize.STRING }
+   tag: { type: Sequelize.TEXT }
 
  });
 
