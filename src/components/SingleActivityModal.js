@@ -137,7 +137,7 @@ class SingleActivityModal extends React.Component {
         this.handleTagline = this.handleTagline.bind(this);
         this.onMoreClick = this.onMoreClick.bind(this);
         
-        const dateT = this.props.activityDate;
+        const dateT = this.props.date;
         const dateToUse = dateT.toString();
         const slash = "-";
         const date1 = dateToUse.slice(0,4);
