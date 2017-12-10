@@ -14,7 +14,8 @@ function mapStateToProps(state) {
     tagline: state.demo.tagline,
     user: state.demo.user,
     users: state.demo.users,
-    is_update_needed: state.demo.is_update_needed
+    is_update_needed: state.demo.is_update_needed,
+    settings: state.demo.settings
   }
 }
 
