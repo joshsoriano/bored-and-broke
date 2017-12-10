@@ -5,18 +5,21 @@ import injectSheet from 'react-jss';
 import Col from 'react-bootstrap/lib/Col';
 import Thumbnail from 'react-bootstrap/lib/Thumbnail';
 import Button from 'react-bootstrap/lib/Button';
-import SingleActivityModal from './SingleActivityModal.js';
-import SavedActModal from './SavedActModal.js';
+import SingleActivityModal from '../containers/SingleActivityModalContainer';
+import SavedActModal from '../containers/SavedActModalContainer';
+import laSkyline1 from '../images/filler-images/la-skyline-1.jpeg';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
     savedPage: PropTypes.bool,
     activityName: PropTypes.string,
-    activityPrice: PropTypes.string,
-    activityLocation: PropTypes.sting,
-    activityDate: PropTypes.string,
+    activityPrice: PropTypes.number,
+    activityLocation: PropTypes.string,
+    activityDate: PropTypes.number,
     activityDescription: PropTypes.string,
     activityLink: PropTypes.string,
+    activityImage: PropTypes.string,
+    activityId: PropTypes.number,
 };
 
 const styles = {
@@ -39,13 +42,18 @@ class Activity extends React.Component {
       super(props)
     }
 
-
-    // Need to assign a role to savedPage prop here
-
-
     render() {
-        const { classes, savedPage, activityDescription } = this.props;
-        // this.props.savedPage
+        const {
+            classes,
+            savedPage,
+            activityDescription,
+            activityImage,
+            activityDate,
+            activityName,
+            activityPrice,
+            activityLocation,
+            activityLink
+        } = this.props;
         let modalType =
             (<SingleActivityModal
                   savedAlready={ false } // when false nothing happens, when true the carousel goes away
@@ -57,6 +65,8 @@ class Activity extends React.Component {
                   price={this.props.activityPrice}
                   description={this.props.activityDescription}
                   link={this.props.activityLink}
+                  image={this.props.activityImage}
+                  id={this.props.activityId}
             >
             </SingleActivityModal>)
 
@@ -72,16 +82,22 @@ class Activity extends React.Component {
                     price={this.props.activityPrice}
                     description={this.props.activityDescription}
                     link={this.props.activityLink}
+                    image={this.props.activityImage}
+                    id={this.props.activityId}
                 >
                 </SavedActModal>)
+        }
+        let imgSrc = this.props.activityImage;
+        if (this.props.activityImage === null || this.props.activityImage === "") {
+            imgSrc = laSkyline1;
         }
 
         return (
             <Col sx={12} sm={6} md={3}>
-                <Thumbnail src="http://via.placeholder.com/350x250" alt="242x200">
+                <Thumbnail src={imgSrc} alt="242x200">
                     <div className = {classes.textDetails}>
                         <h3 className = {classes.activityTitle}>{this.props.activityName}</h3>
-                        <p className = {classes.activityDesc}>Price:${this.props.activityPrice}</p>
+                        <p className = {classes.activityDesc}>Price: ${this.props.activityPrice}</p>
                         <p className = {classes.activityDesc}>Date: {this.props.activityDate}</p>
                         <p className = {classes.activityDesc}>Location: {this.props.activityLocation}</p>
 

@@ -2,7 +2,7 @@ import * as Actions from '../actions'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 
-import Homepage from '../components/Homepage'
+import HomepageSettings from '../components/HomepageSettings'
 
 function mapStateToProps(state) {
   return {
@@ -15,7 +15,8 @@ function mapStateToProps(state) {
     user: state.demo.user,
     users: state.demo.users,
     is_update_needed: state.demo.is_update_needed,
-    settings: state.demo.settings
+    settings: state.demo.settings,
+    ready_to_redirect: state.demo.ready_to_redirect
   }
 }
 
@@ -25,4 +26,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Homepage);
+export default connect(mapStateToProps, mapDispatchToProps)(HomepageSettings);

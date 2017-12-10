@@ -23,6 +23,8 @@ import {
   ADD_ACTIVITY_ERROR,
   IS_UPDATE_NEEDED_RESULTS,
   IS_UPDATE_NEEDED_ERROR,
+  REMOVE_USER_RESULTS,
+  REMOVE_USER_ERROR,
   SAVE_USER_SETTINGS_RESULTS,
   SAVE_USER_SETTINGS_ERROR
 } from '../actions';
@@ -37,7 +39,8 @@ const initialState = {
     users: [],
     results: "",
     is_update_needed: null,
-    settings: ""
+    settings: "",
+    ready_to_redirect: false
 }
 
 const demo = (state = initialState, action) => {
@@ -71,7 +74,7 @@ const demo = (state = initialState, action) => {
         case GET_USERS_FOR_ACTIVITY_ERROR:
                 return { ...state, users: JSON.stringify(action.data) }
         case GET_TAGLINE_RESULTS:
-                return { ...state, tagline: action.data }
+                return { ...state, tagline: action.data.tag }
         case GET_TAGLINE_ERROR:
                 return { ...state, tagline: JSON.stringify(action.data) }
         case UPDATE_TAGLINE_RESULTS:
@@ -82,13 +85,17 @@ const demo = (state = initialState, action) => {
                 return { ...state, user: action.data }
         case GET_USER_ERROR:
                 return { ...state, user: JSON.stringify(action.data) }
+        case REMOVE_USER_RESULTS:
+                return { ...state, results: action.data }
+        case REMOVE_USER_ERROR:
+                return { ...state, results: JSON.stringify(action.data) }
         case FIND_OR_CREATE_USER_RESULTS:
-                // Response is an array --> [{object}, boolean].
+                // This action.data is an array --> [{object}, boolean].
                 return { ...state, is_first_time: action.data[1] }
         case FIND_OR_CREATE_USER_ERROR:
                 return { ...state, is_first_time: JSON.stringify(action.data) }
         case IS_UPDATE_NEEDED_RESULTS:
-                return { ...state, is_update_needed: action.data }
+                return { ...state, is_update_needed: action.data.is_update_needed }
         case IS_UPDATE_NEEDED_ERROR:
                 return { ...state, is_updated_needed: JSON.stringify(action.data) }
         case SAVE_USER_SETTINGS_RESULTS:

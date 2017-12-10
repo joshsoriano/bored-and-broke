@@ -7,7 +7,7 @@ import './style.css';
 class App extends Component {
 
   componentDidMount() {
-      this.props.actions.isUpdateNeeded()
+      this.props.actions.addActivity("Test activity", 20171210, "", "", "", "", "")
   }
 
   render() {
@@ -19,7 +19,7 @@ class App extends Component {
           <h2>Welcome to React - Fullstack!</h2>
         </div>
         <br />
-        <div style={{ padding: '30px' }}>{JSON.stringify(this.props.is_update_needed)}</div>
+        <div style={{ padding: '30px' }}>{JSON.stringify(this.props.activities)}</div>
       </div>
     );
   }

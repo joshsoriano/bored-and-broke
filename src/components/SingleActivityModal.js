@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/lib/Button';
 import blackBackground from '../images/blackBackground.jpg';
 import logo_black from '../images/logo-black.png';
 import FacebookLinkButton from './FacebookLinkButton.js';
+import {getUserID} from './userID';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -17,16 +18,18 @@ const propTypes = {
     readyForCarousel: PropTypes.bool,
     userBio: PropTypes.string,
     userTagline: PropTypes.string,
-    date: PropTypes.string,
+    date: PropTypes.number,
     location: PropTypes.string,
-    price: PropTypes.string,
+    price: PropTypes.number,
     description: PropTypes.string,
     link: PropTypes.string,
+    id: PropTypes.string,
 };
 
 const defaultProps = {
   onRequestClose: () => {},
 };
+
 
 const styles = {
     main: {
@@ -131,8 +134,9 @@ class SingleActivityModal extends React.Component {
         this.changeToSecondState = this.changeToSecondState.bind(this);
         this.changeToThirdState = this.changeToThirdState.bind(this);
         this.removeFromSaved = this.removeFromSaved.bind(this);
-        this.getTaglineState = this.getTaglineState.bind(this);
+        // this.getTaglineState = this.getTaglineState.bind(this);
         this.handleTagline = this.handleTagline.bind(this);
+        this.onMoreClick = this.onMoreClick.bind(this);
         this.state = {
             show: false,
             tagline: false,
@@ -147,25 +151,18 @@ class SingleActivityModal extends React.Component {
         this.setState({
             secondState: this.props.savedAlready,
       });
-      // more logic here to add this event to a user's list of saved events
+      let userId = getUserID();
+      this.props.actions.saveActivity(userId, this.props.id);
     };
 
-    getTaglineState() {
-        const taglineVal = this.state.value;  //this is the most accurate one! Use this!
-        console.log("taglineVal:", taglineVal)
-        const tagLength = this.state.value.length; //need to make sure it's not too long
-    };
+    // getTaglineState() {
+    //     return this.state.value;  //this is the most accurate one! Use this!
+    // };
 
     handleTagline(e) {
         this.setState({
             value: e.target.value, //note that the taglineVal is more accurate
       });
-      console.log("tagline is:", this.state.value);
-    //   if (this.state.value.length < 1) {
-    //       this.setState({
-    //           tagLongEnough: false,
-    //     });
-    //   }
     };
 
     changeToThirdState(e) {
@@ -174,14 +171,24 @@ class SingleActivityModal extends React.Component {
             secondState: !this.props.savedAlready,
       });
       //pull the other user's who have also liked this event
+      // let taglineVal = this.getTaglineState();
+      let taglineVal = this.state.value;
+      let userId = getUserID();
+      console.log('activityId', this.props.id);
+      this.props.actions.updateTagline(userId, this.props.id, taglineVal);
+    //   this.props.actions.getTagline(userId, this.props.id);
+      console.log("returned Tag", this.props.tagline);
+      // const returnedTagline = this.props.tagline(userId, this.props.id);
     };
 
     removeFromSaved() {
+        let userId = getUserID();
+        this.props.actions.unsaveActivity(userId, this.props.id);
+        console.log("unsaved!!");
         this.setState({
             secondState: true,
             thirdState: true,
       });
-      //more logic here to remove event from the user's list of saved events
     };
 
     someFun = () => {
@@ -189,13 +196,15 @@ class SingleActivityModal extends React.Component {
         this.props.callbackFromParent(saved);
     }
 
+    onMoreClick = () => {
+        this.setState({
+            show: true,
+      });
+    }
+
     render() {
         const { classes, showModal, userBio, userTagline, date, location, price, description, link } = this.props;
         const { secondState, thirdState, value, tagLongEnough } = this.state;
-        // const date = "01-01-2001";
-        // const location = "Keck Lab";
-        // const price = "$0";
-
         const taglineClasses = classNames({
             [classes.taglineStyle]: this.state.secondState,
         });
@@ -223,7 +232,7 @@ class SingleActivityModal extends React.Component {
                     className = { classes.infoBtn }
                     bsStyle="primary"
                     bsSize="small"
-                    onClick={() => this.setState({ show: true })}
+                    onClick= {this.onMoreClick}
                 >
                     More Info
                 </Button>
@@ -235,7 +244,7 @@ class SingleActivityModal extends React.Component {
                     aria-labelledby="contained-modal-title"
                 >
                     <Modal.Header closeButton>
-                        <Modal.Title className={ classes.titleText } id="contained-modal-title">World Series, Game 7: Dodgers vs. Astros</Modal.Title>
+                        <Modal.Title className={ classes.titleText } id="contained-modal-title">{this.props.name}</Modal.Title>
                         <h5 className={ classes.titleSubText }>Date: {this.props.date}</h5>
                         <h5 className={ classes.titleSubText }>Location: { this.props.location}</h5>
                         <h5 className={ classes.titleSubText }>Price: {this.props.price}</h5>
@@ -244,7 +253,7 @@ class SingleActivityModal extends React.Component {
 
                         <div className={ classes.descriptionTextContainer }>
                           <span className={ classes.descriptionText }>
-                            Description:{this.props.description}
+                            {this.props.description}
                             <p>See more at: {this.props.link} </p>
                           </span>
                         </div>
@@ -259,7 +268,7 @@ class SingleActivityModal extends React.Component {
 
                         <div className={ taglineClasses }>
                             <Form horizontal>
-                                <FormGroup controlId="formHorizontalEmail" validationState={ this.getTaglineState() }>
+                                <FormGroup controlId="formHorizontalEmail">
                                   <Col componentClass={ControlLabel} sm={2}>
                                     Tagline:
                                   </Col>
@@ -286,7 +295,7 @@ class SingleActivityModal extends React.Component {
                                 <Carousel.Caption>
                                   <h3>User 1</h3>
                                   <p>Bio: My friends and I are poor and looking for fun things to do!</p>
-                                  <p>"Looking forward to tonight's concert!"</p>
+                                  <p>Tagline: "hi"</p>
                                   <FacebookLinkButton />
                                 </Carousel.Caption>
                               </Carousel.Item>

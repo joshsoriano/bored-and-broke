@@ -18,7 +18,7 @@ export const addActivityError = (data) => {
 }
 
 export const ADD_ACTIVITY = "ADD_ACTVIITY"
-export const addActivity = (name, date, location, imageUrl, link, price, description) => {
+export const addActivity = (name, date, location, imageUrl, link, price, description, city) => {
     return dispatch => {
         dispatch(addActivityStart());
         axios.put(`/api/activities/add`, {
@@ -29,7 +29,8 @@ export const addActivity = (name, date, location, imageUrl, link, price, descrip
                 imageUrl: imageUrl,
                 link: link,
                 price: price,
-                description: description
+                description: description,
+                city: city
            }
         })
             .then(res => dispatch(addActivityResults(res.data)))
@@ -78,11 +79,11 @@ export const saveActivityError = (data) => {
     return { type: SAVE_ACTIVITY_ERROR, data }
 }
 
-export const SAVE_ACTIVITY = "SAVE_ACTVIITY"
+export const SAVE_ACTIVITY = "SAVE_ACTIVIITY"
 export const saveActivity = (userId, activityId, tagline) => {
     return dispatch => {
         dispatch(saveActivityStart());
-        axios.put(`/api/taglines/save/` + userId + `/` + activityId + `/` + tagline)
+        axios.put(`/api/taglines/save/` + userId + `/` + activityId)
             .then(res => dispatch(saveActivityResults(res.data)))
             .catch(err => dispatch(saveActivityError(err)))
 
@@ -132,12 +133,14 @@ export const getActivitiesError = (data) => {
 }
 
 export const GET_ACTIVITIES = "GET_ACTVIITIES"
-export const getActivities = (price) => {
+export const getActivities = (userId, price, city) => {
     return dispatch => {
         dispatch(getActivitiesStart());
         axios.get(`/api/activities`, {
         params: {
-            priceLimit: price
+            priceLimit: price,
+            userId: userId,
+            city: city
         }
       })
             .then(res => dispatch(getActivitiesResults(res.data)))

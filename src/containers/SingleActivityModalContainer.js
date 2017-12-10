@@ -2,7 +2,7 @@ import * as Actions from '../actions'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 
-import Homepage from '../components/Homepage'
+import SingleActivityModal from '../components/SingleActivityModal'
 
 function mapStateToProps(state) {
   return {
@@ -25,4 +25,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Homepage);
+export default connect(mapStateToProps, mapDispatchToProps)(SingleActivityModal);

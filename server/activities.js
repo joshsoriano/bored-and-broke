@@ -18,12 +18,26 @@ router.get('/', function(req, res, next) {
       let yyyy = today.getFullYear() + "";
       let yyyymmdd = Number.parseInt(yyyy.concat(mm).concat(dd));
 
-      Activity.findAll({
-        limit: 80,
-        where: {
-          price: { [Sequelize.Op.lte]: req.query.priceLimit },
-          date: { [Sequelize.Op.gte]: yyyymmdd }
-        }
+      Tagline.findAll({
+          include: [ Activity ],
+          where: {
+            user_id: req.query.userId
+          }
+      })
+      .then(result => {
+          let saved_ids = [];
+          for (let i = 0; i < result.length; i++) {
+            saved_ids.push(result[i].activity.id);
+          };
+          return Activity.findAll({
+            limit: 40,
+            where: {
+              price: { [Sequelize.Op.lte]: req.query.priceLimit },
+              date: { [Sequelize.Op.gte]: yyyymmdd },
+              id: { [ Sequelize.Op.notIn]: saved_ids },
+              query_city: req.query.city
+            }
+          });
       })
       .then(result => {
           res.status(200).send(result);
@@ -72,9 +86,10 @@ router.get('/is-update-needed', function(req, res, next) {
     let yyyy = today.getFullYear() + "";
     let yyyymmdd = Number.parseInt(yyyy.concat(mm).concat(dd));
 
-    let days = 3; // Default should be that an update is needed.
     Activity.max('date_added').then((date) => {
-        res.status(200).send({is_update_needed: ((yyyymmdd - date) >= 1)})
+        // If date is undefined, an update is needed.
+        // This happens when the database is empty.
+        res.status(200).send({is_update_needed: (date ? ((yyyymmdd - date) >= 1) : true)})
     })
     .catch(next);
 
@@ -102,7 +117,8 @@ router.put('/add', function(req, res, next) {
             image_url: req.body.data.imageUrl,
             link: req.body.data.link,
             price: req.body.data.price ? Number.parseInt(req.body.data.price) : 0,
-            description: req.body.data.description
+            description: req.body.data.description,
+            query_city: req.body.data.city
         }
     })
     .then(res.status(200).send("Added activity!"))
