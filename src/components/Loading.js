@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-d
 import eventExample from '../images/eventExample.png';
 import NavigationBar from './NavigationBar.js';
 import logo_offwhite from '../images/logo-offwhite.png';
-import { getUserID } from './userID';
+import { getUserID, getUserName } from './userID';
 import '../styles.css';
 
 const propTypes = {
@@ -37,8 +37,8 @@ class Loading extends React.Component {
   }
 
   componentDidMount() {
-    // find or create user!!!
     this.props.actions.isUpdateNeeded();
+    this.props.actions.findOrCreateUser( getUserID() /*userId*/, getUserName() /*name*/);
   }
 
   retrieveTicketMaster() {
