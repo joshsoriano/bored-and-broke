@@ -4,6 +4,7 @@ import injectSheet from 'react-jss';
 import Modal from 'react-bootstrap/lib/Modal';
 import Button from 'react-bootstrap/lib/Button';
 import { Popover, Tooltip, OverlayTrigger, Form, FormGroup, ControlLabel, FormControl, Col, Checkbox } from 'react-bootstrap';
+import { getUserID, getUserName } from './userID';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -19,24 +20,43 @@ const styles = {
       justifyContent: 'center',
       marginBottom: '15px',
       fontFamily: 'Open Sans',
-  },
+  }
 };
+
+const userID = getUserID();
+const userName = getUserName();
 
 class BioModal extends React.Component {
   constructor(props) {
     super(props);
     this.handleBio = this.handleBio.bind(this);
-    // this.getBioState = this.getBioState.bind(this);
+    // this.shouldShow = this.shouldShow.bind(this);
     this.state = {
-      // showModal: this.props.is_first_time
-      showModal: true,
-      value: ''
+      value: '',
+      showModal: true
     };
   }
+
+  // componentWillMount() {
+  //   const userID = getUserID();
+  //   const userName = getUserName();
+  //   Promise.resolve(this.props.actions.findOrCreateUser(userID, userName)).then(function() {
+  //     this.setState({
+  //       showModal: this.props.is_first_time
+  //     });
+  //     console.log(this.props.is_first_time);
+  //   });
+  // }
+
+  // shouldShow() {
+  //
+  // }
 
   close = () => {
     this.setState({ showModal: false });
     console.log(this.state.value);
+    this.props.actions.saveUserSettings(this.state.value, userID);
+    this.props.actions.getUser(userID);
   }
 
   // getBioState = () => {
@@ -57,10 +77,10 @@ class BioModal extends React.Component {
       <div>
         <Modal show={this.state.showModal} onHide={this.close}>
           <Modal.Header closeButton>
-            <Modal.Title>Create your bio!</Modal.Title>
+            <Modal.Title>Welcome to Bored&Broke!</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-              <h5>This will be visible to everyone who saves the same events as you.</h5>
+              <h5>Create your bio! This will be visible to everyone who saves the same activities as you.</h5>
               <div className={ classes.bioInput }>
                   <FormGroup controlId="formControlsTextarea">
                     <ControlLabel></ControlLabel>
