@@ -18,12 +18,25 @@ router.get('/', function(req, res, next) {
       let yyyy = today.getFullYear() + "";
       let yyyymmdd = Number.parseInt(yyyy.concat(mm).concat(dd));
 
-      Activity.findAll({
-        limit: 80,
-        where: {
-          price: { [Sequelize.Op.lte]: req.query.priceLimit },
-          date: { [Sequelize.Op.gte]: yyyymmdd }
-        }
+      Tagline.findAll({
+          include: [ Activity ],
+          where: {
+            user_id: req.query.userId
+          }
+      })
+      .then(result => {
+          let saved_ids = [];
+          for (let i = 0; i < result.length; i++) {
+            saved_ids.push(result[i].activity.id);
+          };
+          return Activity.findAll({
+            limit: 80,
+            where: {
+              price: { [Sequelize.Op.lte]: req.query.priceLimit },
+              date: { [Sequelize.Op.gte]: yyyymmdd },
+              id: { [ Sequelize.Op.notIn]: saved_ids }
+            }
+          });
       })
       .then(result => {
           res.status(200).send(result);
