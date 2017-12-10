@@ -57,6 +57,12 @@ class NavigationBar extends React.Component {
 
     constructor(props) {
         super(props);
+        this.onclick = this.onclick.bind(this);
+        this.state = { redirect: false};
+    }
+
+    onclick() {
+      window.location = '/Homepage';
     }
 
     render() {
@@ -83,49 +89,47 @@ class NavigationBar extends React.Component {
             FB.getLoginStatus(function(response) {
                 if (response && response.status === 'connected') {
                     FB.logout(function(response) {
-                        // document.location.reload();
-                        // console.log("logged out: " + response.status);
                     });
                 }
             });
         }
 
         return(
-            <div>
-                <Navbar inverse collapseOnSelect className={classes.navbar}>
-                    <Navbar.Header>
-                      <Navbar.Brand>
+              <div>
+                  <Navbar inverse collapseOnSelect className={classes.navbar}>
+                      <Navbar.Header>
+                        <Navbar.Brand>
                           <a className={classes.logoLink} href="#">
-                              <img className={classes.logo} src={logo} height="30px" alt="user pic" />
+                            <img src={ logo } height='30px' onMouseOver={ this.mouseOver } className={ classes.logo } onClick={this.onclick}/>
                           </a>
-                      </Navbar.Brand>
-                      <Navbar.Toggle />
-                    </Navbar.Header>
-                    <Navbar.Collapse className={classes.navbarContent}>
-                        <Nav pullRight>
-                            <NavDropdown eventKey={3} title={ <UserImage /> } id="basic-nav-dropdown">
-                                <span className={classes.aNavItem}>
-                                    <Link to="/Homepage">Homepage</Link>
-                                </span>
-                                <div className={ classes.space } />
-                                <span className={classes.aNavItem}>
-                                    <Link to="/SavedActivities">Saved Activities</Link>
-                                </span>
-                                <div className={ classes.space } />
-                                <span className={classes.aNavItem}>
-                                    <Link to="/Settings">Settings</Link>
-                                </span>
-                                <MenuItem divider />
-                                <div className={ classes.space } />
-                                <span className={classes.aNavItem}>
-                                    <Link to="/LoginCreateAccount" onClick={fbLogoutUser}>Logout</Link>
-                                </span>
-                            </NavDropdown>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Navbar>
-            </div>
-        );
+                        </Navbar.Brand>
+                        <Navbar.Toggle />
+                      </Navbar.Header>
+                      <Navbar.Collapse className={classes.navbarContent}>
+                          <Nav pullRight>
+                              <NavDropdown eventKey={3} title={ <UserImage /> } id="basic-nav-dropdown">
+                                  <span className={classes.aNavItem}>
+                                      <Link to="/Homepage">Homepage</Link>
+                                  </span>
+                                  <div className={ classes.space } />
+                                  <span className={classes.aNavItem}>
+                                      <Link to="/SavedActivities">Saved Activities</Link>
+                                  </span>
+                                  <div className={ classes.space } />
+                                  <span className={classes.aNavItem}>
+                                      <Link to="/Settings">Settings</Link>
+                                  </span>
+                                  <MenuItem divider />
+                                  <div className={ classes.space } />
+                                  <span className={classes.aNavItem}>
+                                      <Link to="/LoginCreateAccount" onClick={fbLogoutUser}>Logout</Link>
+                                  </span>
+                              </NavDropdown>
+                          </Nav>
+                      </Navbar.Collapse>
+                  </Navbar>
+              </div>
+          );
     }
 };
 
