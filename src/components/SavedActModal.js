@@ -284,7 +284,7 @@ class SingleActivityModal extends React.Component {
 
                             <div className={ classes.buttonContainer }>
                               <Button onClick={ this.changeToThirdState } disabled={ !this.state.value }
-                                bastyle="primary" bsSize="small"> { this.props.onRequestClose } Save Tagline </Button>
+                                bastyle="primary" bsSize="small"> { this.props.onRequestClose } Save/update tagline </Button>
                             </div>
 
                             <div className={ classes.buttonContainer }>
