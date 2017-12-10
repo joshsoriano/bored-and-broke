@@ -293,7 +293,7 @@ class Settings extends React.Component {
       value: this.props.user.bio
     };
     this.handleChange = this.handleChange.bind(this);
-    this.doStuff = this.saveSettings.bind(this);
+    this.saveSettings = this.saveSettings.bind(this);
     this.deactivateAccount = this.deactivateAccount.bind(this);
   }
 
@@ -306,10 +306,6 @@ class Settings extends React.Component {
     this.props.actions.getUser(id);
     alert('Settings saved!');
   }
-
-  // deactivateAccount() {
-  //
-  // }
 
   deactivateAccount() {
     removeUserID();
@@ -325,6 +321,13 @@ class Settings extends React.Component {
      this.props.actions.removeUser(id);
      return <Redirect to='/LoginCreateAccount'/>
   }
+
+  saveSettings() {
+    this.props.actions.saveUserSettings(this.state.value, id);
+    this.props.actions.getUser(id);
+  }
+
+
 
   render() {
     const { classes } = this.props;
@@ -346,12 +349,6 @@ class Settings extends React.Component {
          js.src = "https://connect.facebook.net/en_US/sdk.js";
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
-
-      //  function fbLogoutUser() {
-      //
-      //     this.deactivateAccount;
-      //
-      // }
 
     return (
       <div className={ classes.main }>

@@ -68,8 +68,6 @@ const styles = {
     },
 };
 
-const userID = getUserID();
-const userName = getUserName();
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -87,13 +85,8 @@ class Homepage extends React.Component {
   }
 
   Homepage() {
-    // Un-hardcode the price limit.
-    // const userID = getUserID();
-    // const userName = getUserName();
-    // console.log(userID);
-    // console.log(userName);
-    this.props.actions.getUser(userID);
     const myId = getUserID();
+    this.props.actions.getUser(myId);
     this.props.actions.getActivities(myId, 0, "Los Angeles");
   }
 
