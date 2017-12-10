@@ -6,10 +6,7 @@ import HomepageSettings from './HomepageSettings.js';
 import SingleActivityModal from './SingleActivityModal.js';
 import { getUserID } from './userID';
 import Activity from '../containers/ActivityContainer.js';
-// import LoginCreateAccount from './LoginCreateAccount.js';
-// import SavedActivities from './SavedActivities.js';
-// import Settings from './Settings.js';
-// import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
+
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -83,40 +80,8 @@ class Homepage extends React.Component {
   }
 
   Homepage() {
-    // Un-hardcode the price limit.
-    this.props.actions.getActivities(50 /* price limit */)
+    this.props.actions.getActivities(50)
   }
-
-
-  // <div>this.state.activities.map(function(activity){
-  //     return <div>{activity.name}</div>
-  // });
-  // </div>
-
-//   <button onClick={this.props.actions.getActivities(50)}>Test!</button>
-//   <div style={{ padding: '30px' }}>{this.props.activities}</div>
-
-// <Activity
-//     savedPage={true}
-//     activityName={item.name}
-// >
-// </Activity>
-//
-// <Activity
-//     savedPage={true}
-// >
-// </Activity>
-//
-// <Activity
-//     savedPage={true}
-// >
-// </Activity>
-//
-// <Activity
-//     savedPage={true}
-// >
-// </Activity>
-
 
 
   render() {
@@ -133,6 +98,7 @@ class Homepage extends React.Component {
             activityLink={item.link}
             activityDescription={item.description}
             activityImage={item.image_url}
+            activityId={item.id}
         />
     ));
 
@@ -144,8 +110,10 @@ class Homepage extends React.Component {
             final.push(<div className={classes.row}> {rowsArray} </div>);
             rowsArray = [];
         }
+        if(activityDetails.length < 4 && i === activityDetails.length - 1) {
+            final.push(<div className={classes.row}> {rowsArray} </div>);
+        }
     }
-
     return (
       <div className={ classes.main }>
         <NavigationBar />

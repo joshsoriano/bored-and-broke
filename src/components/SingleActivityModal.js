@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/lib/Button';
 import blackBackground from '../images/blackBackground.jpg';
 import logo_black from '../images/logo-black.png';
 import FacebookLinkButton from './FacebookLinkButton.js';
+import {getUserID} from './userID';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -22,11 +23,13 @@ const propTypes = {
     price: PropTypes.number,
     description: PropTypes.string,
     link: PropTypes.string,
+    id: PropTypes.string,
 };
 
 const defaultProps = {
   onRequestClose: () => {},
 };
+
 
 const styles = {
     main: {
@@ -133,6 +136,7 @@ class SingleActivityModal extends React.Component {
         this.removeFromSaved = this.removeFromSaved.bind(this);
         this.getTaglineState = this.getTaglineState.bind(this);
         this.handleTagline = this.handleTagline.bind(this);
+        this.onMoreClick = this.onMoreClick.bind(this);
         this.state = {
             show: false,
             tagline: false,
@@ -147,12 +151,12 @@ class SingleActivityModal extends React.Component {
         this.setState({
             secondState: this.props.savedAlready,
       });
-      // more logic here to add this event to a user's list of saved events
+      let userId = getUserID();
+      this.props.actions.saveActivity(userId, this.props.id);
     };
 
     getTaglineState() {
         const taglineVal = this.state.value;  //this is the most accurate one! Use this!
-        // console.log("taglineVal:", taglineVal)
         const tagLength = this.state.value.length; //need to make sure it's not too long
     };
 
@@ -160,12 +164,6 @@ class SingleActivityModal extends React.Component {
         this.setState({
             value: e.target.value, //note that the taglineVal is more accurate
       });
-    //   console.log("tagline is:", this.state.value);
-    //   if (this.state.value.length < 1) {
-    //       this.setState({
-    //           tagLongEnough: false,
-    //     });
-    //   }
     };
 
     changeToThirdState(e) {
@@ -177,11 +175,13 @@ class SingleActivityModal extends React.Component {
     };
 
     removeFromSaved() {
+        let userId = getUserID();
+        this.props.actions.unsaveActivity(userId, this.props.id);
+        console.log("unsaved!!");
         this.setState({
             secondState: true,
             thirdState: true,
       });
-      //more logic here to remove event from the user's list of saved events
     };
 
     someFun = () => {
@@ -189,13 +189,15 @@ class SingleActivityModal extends React.Component {
         this.props.callbackFromParent(saved);
     }
 
+    onMoreClick = () => {
+        this.setState({
+            show: true,
+      });
+    }
+
     render() {
         const { classes, showModal, userBio, userTagline, date, location, price, description, link } = this.props;
         const { secondState, thirdState, value, tagLongEnough } = this.state;
-        // const date = "01-01-2001";
-        // const location = "Keck Lab";
-        // const price = "$0";
-
         const taglineClasses = classNames({
             [classes.taglineStyle]: this.state.secondState,
         });
@@ -223,7 +225,7 @@ class SingleActivityModal extends React.Component {
                     className = { classes.infoBtn }
                     bsStyle="primary"
                     bsSize="small"
-                    onClick={() => this.setState({ show: true })}
+                    onClick= {this.onMoreClick}
                 >
                     More Info
                 </Button>

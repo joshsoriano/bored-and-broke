@@ -14,7 +14,6 @@ const propTypes = {
 const styles = {
     background: {
         textAlign: 'center',
-        // height: '900px',
         height: '900px',
         backgroundColor: '#ECF0F1',
     },

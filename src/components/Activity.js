@@ -5,8 +5,8 @@ import injectSheet from 'react-jss';
 import Col from 'react-bootstrap/lib/Col';
 import Thumbnail from 'react-bootstrap/lib/Thumbnail';
 import Button from 'react-bootstrap/lib/Button';
-import SingleActivityModal from './SingleActivityModal.js';
-import SavedActModal from './SavedActModal.js';
+import SingleActivityModal from '../containers/SingleActivityModalContainer';
+import SavedActModal from '../containers/SavedActModalContainer';
 import laSkyline1 from '../images/filler-images/la-skyline-1.jpeg';
 
 const propTypes = {
@@ -19,6 +19,7 @@ const propTypes = {
     activityDescription: PropTypes.string,
     activityLink: PropTypes.string,
     activityImage: PropTypes.string,
+    activityId: PropTypes.number,
 };
 
 const styles = {
@@ -41,10 +42,6 @@ class Activity extends React.Component {
       super(props)
     }
 
-
-    // Need to assign a role to savedPage prop here
-
-
     render() {
         const {
             classes,
@@ -57,7 +54,6 @@ class Activity extends React.Component {
             activityLocation,
             activityLink
         } = this.props;
-        // this.props.savedPage
         let modalType =
             (<SingleActivityModal
                   savedAlready={ false } // when false nothing happens, when true the carousel goes away
@@ -70,6 +66,7 @@ class Activity extends React.Component {
                   description={this.props.activityDescription}
                   link={this.props.activityLink}
                   image={this.props.activityImage}
+                  id={this.props.activityId}
             >
             </SingleActivityModal>)
 
@@ -86,15 +83,14 @@ class Activity extends React.Component {
                     description={this.props.activityDescription}
                     link={this.props.activityLink}
                     image={this.props.activityImage}
+                    id={this.props.activityId}
                 >
                 </SavedActModal>)
         }
-        console.log('activityImage', this.props.activityImage);
         let imgSrc = this.props.activityImage;
         if (this.props.activityImage === null || this.props.activityImage === "") {
             imgSrc = laSkyline1;
         }
-        console.log('imgSrc', {imgSrc})
 
         return (
             <Col sx={12} sm={6} md={3}>

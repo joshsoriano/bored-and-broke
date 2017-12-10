@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/lib/Button';
 import blackBackground from '../images/blackBackground.jpg';
 import logo_black from '../images/logo-black.png';
 import FacebookLinkButton from './FacebookLinkButton.js';
+import {getUserID} from './userID';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -22,6 +23,7 @@ const propTypes = {
     price: PropTypes.string,
     description: PropTypes.string,
     link: PropTypes.string,
+    id: PropTypes.number,
 };
 
 const defaultProps = {
@@ -172,11 +174,14 @@ class SingleActivityModal extends React.Component {
     };
 
     removeFromSaved() {
+        let userId = getUserID();
+        this.props.actions.unsaveActivity(userId, this.props.id);
+        console.log("unsaved!!");
         this.setState({
             secondState: true,
             thirdState: true,
       });
-      //more logic here to remove event from the user's list of saved events
+      window.location = '/SavedActivities';
     };
 
     someFun = () => {
@@ -187,10 +192,6 @@ class SingleActivityModal extends React.Component {
     render() {
         const { classes, showModal, userBio, userTagline, date, location, price, description, link } = this.props;
         const { secondState, thirdState, value, tagLongEnough } = this.state;
-        // const date = "01-01-2001";
-        // const location = "Keck Lab";
-        // const price = "$0";
-
         const taglineClasses = classNames({
             [classes.taglineStyle]: this.state.secondState,
         });
