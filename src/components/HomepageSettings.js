@@ -59,8 +59,7 @@ class HomepageSettings extends React.Component {
                 <Col componentClass={ControlLabel} sm={6}>
                     <FormGroup className={ classes.formInput } controlId="formZipcode" >
                         City: <br/>
-                        <FormControl name="city" value={this.state.city} onChange={this.handleChange} componentClass="select" placeholder="select">
-                          <option value="select">select</option>
+                        <FormControl name="city" value={this.state.city} onChange={this.handleChange} componentClass="select" placeholder="Los Angeles">
                           <option value="Los Angeles">Los Angeles</option>
                           <option value="Seattle">Seattle</option>
                           <option value="San Francisco">San Francisco</option>
