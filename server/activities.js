@@ -34,7 +34,8 @@ router.get('/', function(req, res, next) {
             where: {
               price: { [Sequelize.Op.lte]: req.query.priceLimit },
               date: { [Sequelize.Op.gte]: yyyymmdd },
-              id: { [ Sequelize.Op.notIn]: saved_ids }
+              id: { [ Sequelize.Op.notIn]: saved_ids },
+              query_city: req.query.city
             }
           });
       })
@@ -116,7 +117,8 @@ router.put('/add', function(req, res, next) {
             image_url: req.body.data.imageUrl,
             link: req.body.data.link,
             price: req.body.data.price ? Number.parseInt(req.body.data.price) : 0,
-            description: req.body.data.description
+            description: req.body.data.description,
+            query_city: req.body.data.city
         }
     })
     .then(res.status(200).send("Added activity!"))

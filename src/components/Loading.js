@@ -64,7 +64,7 @@ class Loading extends React.Component {
         activity.price = event.priceRanges ? event.priceRanges[0].min : 0;
 
         // Add it to the database.
-        this.addActivity(activity);
+        this.addActivity(activity, city);
         if (city == this.state.cities[this.state.cities.length - 1]) {
           this.setState({ ticketMaster: true });
         }
@@ -92,7 +92,7 @@ class Loading extends React.Component {
         activity.price = 0; // This API doesn't provide price either.
 
         // Add it to the database.
-        this.addActivity(activity);
+        this.addActivity(activity, city);
         if (city == this.state.cities[this.state.cities.length - 1]) {
           this.setState({ eventbrite: true });
         }
@@ -123,7 +123,7 @@ class Loading extends React.Component {
         activity.price = 0; // Not available for this API.
 
         // Add it to the database.
-        this.addActivity(activity);
+        this.addActivity(activity, city);
         if (city == this.state.cities[this.state.cities.length - 1]) {
           this.setState({ eventful: true });
         }
@@ -131,7 +131,7 @@ class Loading extends React.Component {
     });
   }
 
-  addActivity(activity) {
+  addActivity(activity, city) {
     this.props.actions.addActivity(
       activity.name,
       activity.date,
@@ -139,7 +139,8 @@ class Loading extends React.Component {
       activity.imageUrl,
       activity.link,
       activity.price,
-      activity.description
+      activity.description,
+      city
     );
   }
 

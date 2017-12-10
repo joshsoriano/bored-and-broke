@@ -81,7 +81,7 @@ class Homepage extends React.Component {
 
   Homepage() {
       const myId = getUserID();
-      this.props.actions.getActivities(myId, 50);
+      this.props.actions.getActivities(myId, 0, "Los Angeles");
   }
 
 
