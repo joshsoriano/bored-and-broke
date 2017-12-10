@@ -261,7 +261,7 @@ class SingleActivityModal extends React.Component {
                         <div className={ classes.descriptionTextContainer }>
                           <span className={ classes.descriptionText }>
                             {this.props.description}
-                            <p>See more at: {this.props.link} </p>
+                            <p><a href={this.props.link}>See more here</a></p>
                           </span>
                         </div>
 
@@ -284,7 +284,7 @@ class SingleActivityModal extends React.Component {
 
                             <div className={ classes.buttonContainer }>
                               <Button onClick={ this.changeToThirdState } disabled={ !this.state.value }
-                                bastyle="primary" bsSize="small"> { this.props.onRequestClose } Save Tagline </Button>
+                                bastyle="primary" bsSize="small"> { this.props.onRequestClose } Save/update tagline </Button>
                             </div>
 
                             <div className={ classes.buttonContainer }>
