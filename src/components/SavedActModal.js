@@ -261,7 +261,7 @@ class SingleActivityModal extends React.Component {
                         <div className={ classes.descriptionTextContainer }>
                           <span className={ classes.descriptionText }>
                             {this.props.description}
-                            <p>See more at: {this.props.link} </p>
+                            <p><a href={this.props.link}>See more here</a></p>
                           </span>
                         </div>
 
