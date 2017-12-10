@@ -145,9 +145,14 @@ class Loading extends React.Component {
 
   render() {
     const { classes } = this.props;
+
     // is_update_needed and is_first_time are null until the response comes back.
     if ( (this.props.is_update_needed != null && this.props.is_first_time != null) &&
        (!this.props.is_update_needed || (this.state.ticketMaster && this.state.eventbrite && this.state.eventful)) ) {
+         
+      // We want to redirect when we know that:
+      //  (1) An update is not needed OR the activities have all been added.
+      //  (2) And that findOrCreateUser has set the is_first_time boolean.
       return <Redirect to='/Homepage'/>
 
     } else if (!this.state.called && this.props.is_update_needed) {
