@@ -87,21 +87,14 @@ class Homepage extends React.Component {
   }
 
   Homepage() {
-<<<<<<< HEAD
     // Un-hardcode the price limit.
     // const userID = getUserID();
     // const userName = getUserName();
     // console.log(userID);
     // console.log(userName);
-    this.props.actions.findOrCreateUser(userID, userName);
     this.props.actions.getUser(userID);
-    this.props.actions.getActivities(50 /* price limit */);
-    // this.props.actions.findOrCreateUser(userID, userName);
-    console.log('is first time from homepage: ' + this.props.is_first_time);
-=======
-      const myId = getUserID();
-      this.props.actions.getActivities(myId, 0, "Los Angeles");
->>>>>>> 3142c0d5685c66f8a2b473a5729799beec377cad
+    const myId = getUserID();
+    this.props.actions.getActivities(myId, 0, "Los Angeles");
   }
 
 

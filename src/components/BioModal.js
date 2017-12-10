@@ -33,7 +33,7 @@ class BioModal extends React.Component {
     // this.shouldShow = this.shouldShow.bind(this);
     this.state = {
       value: '',
-      showModal: true
+      showModal: this.props.is_first_time
     };
   }
 

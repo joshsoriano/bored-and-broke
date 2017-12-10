@@ -219,15 +219,15 @@
 // Settings.propTypes = propTypes;
 // export default injectSheet(styles)(Settings);
 
+/*global FB*/
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import Button from 'react-bootstrap/lib/Button';
 import { Form, FormGroup, ControlLabel, FormControl, Col, Collapse, Well } from 'react-bootstrap'
 import NavigationBar from './NavigationBar.js';
-import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
-import { getUserName } from './userID';
-import { getUserID } from './userID';
+import { getUserName, getUserID, removeUserID } from './userID';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -283,6 +283,9 @@ const styles = {
     }
 };
 
+const id = getUserID();
+const name = getUserName();
+
 class Settings extends React.Component {
     constructor(props) {
     super(props);
@@ -290,24 +293,65 @@ class Settings extends React.Component {
       value: this.props.user.bio
     };
     this.handleChange = this.handleChange.bind(this);
-    this.doStuff = this.doStuff.bind(this);
+    this.doStuff = this.saveSettings.bind(this);
+    this.deactivateAccount = this.deactivateAccount.bind(this);
   }
 
   handleChange(event) {
     this.setState({value: event.target.value});
   }
 
-  doStuff() {
-    let id = getUserID();
-    let name = getUserName();
-    this.props.actions.findOrCreateUser(id, name);
+  saveSettings() {
     this.props.actions.saveUserSettings(this.state.value, id);
     this.props.actions.getUser(id);
+    alert('Settings saved!');
+  }
+
+  // deactivateAccount() {
+  //
+  // }
+
+  deactivateAccount() {
+    removeUserID();
+     FB.getLoginStatus(function(response) {
+         if (response && response.status === 'connected') {
+             FB.logout(function(response) {
+                  alert('logged out!');
+                 // document.location.reload();
+                 // console.log("logged out: " + response.status);
+             });
+         }
+     });
+     this.props.actions.removeUser(id);
+     return <Redirect to='/LoginCreateAccount'/>
   }
 
   render() {
     const { classes } = this.props;
     const userName = getUserName();
+
+    window.fbAsyncInit = function() {
+        FB.init({
+          appId            : '1960748417506782',
+          autoLogAppEvents : true,
+          xfbml            : true,
+          version          : 'v2.11'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "https://connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+
+      //  function fbLogoutUser() {
+      //
+      //     this.deactivateAccount;
+      //
+      // }
 
     return (
       <div className={ classes.main }>
@@ -357,7 +401,7 @@ class Settings extends React.Component {
                               <Button onClick={() => this.setState({ open: !this.state.open })}>
                                 NO!
                               </Button>
-                              <Button href="/LoginCreateAccount" bsStyle="danger">
+                              <Button onClick={this.deactivateAccount} bsStyle="danger">
                                   Yes
                               </Button>
                           </div>
@@ -369,7 +413,7 @@ class Settings extends React.Component {
 
                 <FormGroup controlId="formHorizontalSave" >
                   <Col sm={12}>
-                    <Button className={ classes.save } onClick={ this.doStuff } >Save</Button>
+                    <Button className={ classes.save } onClick={ this.saveSettings } >Save</Button>
                   </Col>
                 </FormGroup>
 
