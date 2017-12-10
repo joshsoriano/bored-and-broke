@@ -42,7 +42,7 @@ router.put('/save/:userId/:activityId', function(req, res, next) {
     Tagline.findOrCreate({
       where: {
           user_id: req.params.userId,
-          activty_id: req.params.activityId,
+          activity_id: req.params.activityId
       }
     })
     .then(() => {

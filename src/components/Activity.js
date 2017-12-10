@@ -66,6 +66,7 @@ class Activity extends React.Component {
                   description={this.props.activityDescription}
                   link={this.props.activityLink}
                   image={this.props.activityImage}
+                  id={this.props.activityId}
             >
             </SingleActivityModal>)
 
@@ -82,15 +83,14 @@ class Activity extends React.Component {
                     description={this.props.activityDescription}
                     link={this.props.activityLink}
                     image={this.props.activityImage}
+                    id={this.props.activityId}
                 >
                 </SavedActModal>)
         }
-        console.log('activityImage', this.props.activityImage);
         let imgSrc = this.props.activityImage;
         if (this.props.activityImage === null || this.props.activityImage === "") {
             imgSrc = laSkyline1;
         }
-        console.log('imgSrc', {imgSrc})
 
         return (
             <Col sx={12} sm={6} md={3}>

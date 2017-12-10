@@ -45,11 +45,10 @@ class SavedActivities extends React.Component {
       super(props)
     }
 
-    // componentDidMount() {
-        // const myId = getUserID();
-        // const myId = "11112";
-        // this.props.actions.getSaved(myId);
-    // }
+    componentDidMount() {
+        const myId = getUserID();
+        this.props.actions.getSaved(myId);
+    }
 
   render() {
     const { classes } = this.props;

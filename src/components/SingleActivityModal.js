@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/lib/Button';
 import blackBackground from '../images/blackBackground.jpg';
 import logo_black from '../images/logo-black.png';
 import FacebookLinkButton from './FacebookLinkButton.js';
+import {getUserID} from './userID';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -22,11 +23,13 @@ const propTypes = {
     price: PropTypes.number,
     description: PropTypes.string,
     link: PropTypes.string,
+    id: PropTypes.string,
 };
 
 const defaultProps = {
   onRequestClose: () => {},
 };
+
 
 const styles = {
     main: {
@@ -142,7 +145,6 @@ class SingleActivityModal extends React.Component {
             value: '',
             // tagLongEnough: false,
         };
-        this.props.actions.getTagline(this.props.userId, this.props.activityId);
     }
 
     changeToSecondState() {
@@ -150,11 +152,15 @@ class SingleActivityModal extends React.Component {
             secondState: this.props.savedAlready,
       });
       // more logic here to add this event to a user's list of saved events
+      let userId = getUserID();
+      // this.props.actions.findOrCreateUser(userId, "Mackenzie");
+      this.props.actions.saveActivity(userId, this.props.id);
+      console.log('activity', this.props.id);
+      console.log('user', userId);
     };
 
     getTaglineState() {
         const taglineVal = this.state.value;  //this is the most accurate one! Use this!
-        // console.log("taglineVal:", taglineVal)
         const tagLength = this.state.value.length; //need to make sure it's not too long
     };
 
