@@ -92,7 +92,7 @@ const demo = (state = initialState, action) => {
         case IS_UPDATE_NEEDED_ERROR:
                 return { ...state, is_updated_needed: JSON.stringify(action.data) }
         case SAVE_USER_SETTINGS_RESULTS:
-                return { ...state, settings: action.data }
+                return { ...state, settings: JSON.stringify(action.data) }
         case SAVE_USER_SETTINGS_ERROR:
                 return { ...state, settings: JSON.stringify(action.data) }
 

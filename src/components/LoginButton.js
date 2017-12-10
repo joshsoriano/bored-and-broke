@@ -80,7 +80,8 @@ class LoginButton extends React.Component {
       this.testAPI();
       saveUserID(response.authResponse.userID);
       saveUserName(response.authResponse.userName);
-      this.redirectLoggedInUser();
+      console.log(response);
+      // this.redirectLoggedInUser();
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
@@ -109,9 +110,8 @@ class LoginButton extends React.Component {
         FB.api('/me', function(response) {
           console.log('Good to see you, ' + response.name + '.');
           saveUserID(response.id);
+          saveUserName(response.name);
           let isFirstTime;
-          this.props.actions.getUser(response.id);
-          console.log(this.props.user);
           this.props.user.getUser(response.id).done(function(user) {
             console.log('done');
             if (user == null) {
@@ -124,9 +124,7 @@ class LoginButton extends React.Component {
               });
             }
           })
-          this.props.actions.findOrCreateUser();
           this.redirectLoggedInUser();
-          saveUserName(response.name);
         }.bind(this));
       } else {
        console.log('User cancelled login or did not fully authorize.');

@@ -65,14 +65,29 @@ const styles = {
 class Settings extends React.Component {
     constructor(props) {
     super(props);
-
     this.state = {};
+    this.handleChange = this.handleChange.bind(this);
+    this.doStuff = this.doStuff.bind(this);
   }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  doStuff(){
+    let id = getUserID()
+
+    this.props.actions.findOrCreateUser(id, "george");
+    this.props.actions.saveUserSettings(this.state.value, id);
+    this.props.actions.getUser(id);
+  }
+
+
 
   render() {
     const { classes } = this.props;
     const userName = getUserName();
-    console.log(this.props.actions);
+    console.log(userName);
 
     return (
       <div className={ classes.main }>
@@ -102,7 +117,7 @@ class Settings extends React.Component {
                     Bio
                   </Col>
                   <Col className={ classes.rightCol } sm={6}>
-                    <textarea className="form-control" rows="3" placeholder="Talk about yourself!"></textarea>
+                    <textarea className="form-control" value={this.state.value} onChange={this.handleChange} rows="3" placeholder="Talk about yourself!"></textarea>
                   </Col>
                 </FormGroup>
 
@@ -134,7 +149,7 @@ class Settings extends React.Component {
 
                 <FormGroup controlId="formHorizontalSave" >
                   <Col sm={12}>
-                    <Button className={ classes.save } href="/Homepage">Save</Button>
+                    <Button className={ classes.save } onClick={this.doStuff} >Save</Button>
                   </Col>
                 </FormGroup>
 
