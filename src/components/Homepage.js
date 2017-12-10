@@ -117,11 +117,13 @@ class Homepage extends React.Component {
 // >
 // </Activity>
 
+
+
   render() {
     // Map through the activities list here.
     const { classes } = this.props;
 
-    const activityDetails = this.props.activities.map(item => (
+    let activityDetails = this.props.activities.map(item => (
         <Activity
             activityName={item.name}
             activityPrice={item.price}
@@ -130,6 +132,7 @@ class Homepage extends React.Component {
             savedPage={true}
             activityLink={item.link}
             activityDescription={item.description}
+            activityImage={item.image_url}
         />
     ));
 
