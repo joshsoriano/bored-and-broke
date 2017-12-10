@@ -7,6 +7,7 @@ export function getUserID() {
 }
 
 export function removeUserID() {
+  console.log('removing user id');
   sessionStorage.removeItem('userID');
 }
 

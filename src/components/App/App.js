@@ -7,7 +7,7 @@ import './style.css';
 class App extends Component {
 
   componentDidMount() {
-      this.props.actions.isUpdateNeeded()
+      
   }
 
   render() {

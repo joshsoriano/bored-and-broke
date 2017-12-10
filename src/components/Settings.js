@@ -1,3 +1,4 @@
+/*global FB*/
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
@@ -5,8 +6,7 @@ import Button from 'react-bootstrap/lib/Button';
 import { Form, FormGroup, ControlLabel, FormControl, Col, Collapse, Well } from 'react-bootstrap'
 import NavigationBar from './NavigationBar.js';
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
-import { getUserName } from './userID';
-import { getUserID } from './userID';
+import { getUserID, removeUserID, getUserName } from './userID';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -62,26 +62,98 @@ const styles = {
     }
 };
 
+const userName = getUserName();
+const userID = getUserID();
+
 class Settings extends React.Component {
     constructor(props) {
-    super(props);
+      super(props);
+      this.handleBio = this.handleBio.bind(this);
+      this.deactivateAccount = this.deactivateAccount.bind(this);
+      // this.fbLogoutUser = this.fbLogoutUser.bind(this);
+      this.saveSettings = this.saveSettings.bind(this);
 
-    this.state = {};
-  }
+      alert(this.props.user.bio);
+
+      this.state = {
+        value: this.props.user.bio
+      };
+
+    }
+
+    //  fbLogoutUser() {
+    //    console.log('logging out user');
+    //    removeUserID();
+    //     FB.getLoginStatus(function(response) {
+    //         console.log(response);
+    //         if (response) {
+    //             FB.logout(function(response) {
+    //                 window.location = '/LoginCreateAccount';
+    //             });
+    //         }
+    //     });
+    // }
+
+    componentDidMount() {
+      this.props.actions.getUser(userID);
+      // this.props.user.bio
+    }
+
+    handleBio = (e) => {
+      this.setState({
+          value: e.target.value, //note that the taglineVal is more accurate
+      });
+    }
+
+    saveSettings() {
+      alert(this.state.value);
+      const bio = this.state.value;
+      this.props.actions.saveUserSettings(bio, userID);
+      // alert(typeof(this.state.value));
+      this.props.actions.getUser(userID);
+    }
+
+    deactivateAccount = () => {
+      this.props.actions.removeUser(userID);
+    }
 
   render() {
     const { classes } = this.props;
-    const userName = getUserName();
-    console.log(this.props.actions);
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId            : '1960748417506782',
+        autoLogAppEvents : true,
+        xfbml            : true,
+        version          : 'v2.11'
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "https://connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+
+     function fbLogoutUser() {
+       removeUserID();
+        FB.getLoginStatus(function(response) {
+            if (response && response.status === 'connected') {
+                FB.logout(function(response) {
+                    // document.location.reload();
+                    // console.log("logged out: " + response.status);
+                });
+            }
+        });
+    }
 
     return (
       <div className={ classes.main }>
         <NavigationBar />
 
-        <div >
-            <Col className={ classes.instructions } sm={12}>
-                <span>Please enter your information below. Feel free to change it whenever!</span>
-            </Col>
+        <div>
+            <h4 className={ classes.instructions }>Please enter your information below. Feel free to change it whenever!</h4>
         </div>
         <div className={ classes.formInput }>
             <Form horizontal>
@@ -102,7 +174,7 @@ class Settings extends React.Component {
                     Bio
                   </Col>
                   <Col className={ classes.rightCol } sm={6}>
-                    <textarea className="form-control" rows="3" placeholder="Talk about yourself!"></textarea>
+                    <textarea className="form-control" rows="3" value={ this.state.value } placeholder="Describe yourself!" onChange={ this.handleBio }></textarea>
                   </Col>
                 </FormGroup>
 
@@ -122,7 +194,7 @@ class Settings extends React.Component {
                               <Button onClick={() => this.setState({ open: !this.state.open })}>
                                 NO!
                               </Button>
-                              <Button href="/LoginCreateAccount" bsStyle="danger">
+                              <Button onClick={() => {fbLogoutUser, this.deactivateAccount()}} href="/LoginCreateAccount" bsStyle="danger">
                                   Yes
                               </Button>
                           </div>
@@ -134,7 +206,7 @@ class Settings extends React.Component {
 
                 <FormGroup controlId="formHorizontalSave" >
                   <Col sm={12}>
-                    <Button className={ classes.save } href="/Homepage">Save</Button>
+                    <Button className={ classes.save } onClick={() => this.saveSettings} href="/Homepage">Save</Button>
                   </Col>
                 </FormGroup>
 

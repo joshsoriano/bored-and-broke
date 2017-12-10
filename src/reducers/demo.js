@@ -33,7 +33,7 @@ const initialState = {
     is_first_time: null,
     saved_activities: [],
     tagline: "",
-    user: "",
+    user: {bio: 'Initial bio'},
     users: [],
     results: "",
     is_update_needed: null,

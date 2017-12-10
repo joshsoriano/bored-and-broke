@@ -18,15 +18,13 @@ const styles = {
 };
 
 class LoginButton extends React.Component {
-<<<<<<< HEAD
-=======
   constructor(props) {
     super(props);
     this.state = {
       first_time: false
     }
   }
->>>>>>> d487b9a910827f163da2a1864ad6e0102beb4f78
+
   componentDidMount() {
     window.fbAsyncInit = function() {
       FB.init({
@@ -76,9 +74,12 @@ class LoginButton extends React.Component {
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       this.testAPI();
-      saveUserID(response.authResponse.userID);
-      saveUserName(response.authResponse.name);
-      this.redirectLoggedInUser();
+      FB.api('/me', function(response) {
+        console.log('Good to see you, ' + response.name + '.');
+        saveUserID(response.id);
+        saveUserName(response.name);
+        this.redirectLoggedInUser();
+      }.bind(this));
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
