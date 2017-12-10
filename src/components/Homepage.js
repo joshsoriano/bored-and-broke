@@ -146,8 +146,10 @@ class Homepage extends React.Component {
             final.push(<div className={classes.row}> {rowsArray} </div>);
             rowsArray = [];
         }
+        if(activityDetails.length < 4 && i === activityDetails.length - 1) {
+            final.push(<div className={classes.row}> {rowsArray} </div>);
+        }
     }
-
     return (
       <div className={ classes.main }>
         <NavigationBar />
