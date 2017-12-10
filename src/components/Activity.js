@@ -19,6 +19,7 @@ const propTypes = {
     activityDescription: PropTypes.string,
     activityLink: PropTypes.string,
     activityImage: PropTypes.string,
+    activityId: PropTypes.number,
 };
 
 const styles = {
@@ -41,9 +42,9 @@ class Activity extends React.Component {
       super(props)
     }
 
-
-    // Need to assign a role to savedPage prop here
-
+    componentDidMount() {
+      this.props.actions.getTagline(this.props.userId, this.props.activityId);
+    }
 
     render() {
         const {
@@ -73,7 +74,7 @@ class Activity extends React.Component {
             >
             </SingleActivityModal>)
 
-        if (!this.props.savedPage) {
+        if (!this.props.savedPage || (this.props.tagline !== "")) {
             modalType =
                 (<SavedActModal
                     savedAlready={ false } // when false nothing happens, when true the carousel goes away

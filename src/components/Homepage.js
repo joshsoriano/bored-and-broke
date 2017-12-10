@@ -80,11 +80,12 @@ class Homepage extends React.Component {
 
   componentDidMount() {
     this.Homepage();
+    const myId = getUserID();
   }
 
   Homepage() {
     // Un-hardcode the price limit.
-    this.props.actions.getActivities(50 /* price limit */)
+    this.props.actions.getActivities(50)
   }
 
 
@@ -133,6 +134,7 @@ class Homepage extends React.Component {
             activityLink={item.link}
             activityDescription={item.description}
             activityImage={item.image_url}
+            activityId={item.id}
         />
     ));
 
