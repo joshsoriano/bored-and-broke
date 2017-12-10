@@ -32,7 +32,8 @@ class Loading extends React.Component {
       ticketMaster: false,
       eventbrite: false,
       eventful: false,
-      called: false // True if the APIs have been called.
+      called: false, // True if the APIs have been called.
+      cities: ["Los Angeles", "Seattle", "San Francisco"]
      }
   }
 
@@ -41,11 +42,11 @@ class Loading extends React.Component {
     this.props.actions.findOrCreateUser( getUserID() /*userId*/, getUserName() /*name*/);
   }
 
-  retrieveTicketMaster() {
+  retrieveTicketMaster(city) {
     // Add TicketMaster activities.
     $.getJSON("https://app.ticketmaster.com/discovery/v2/events.json", {
         countryCode: "US",
-        city: "Los Angeles",
+        city: city,
         apikey: "uWhf6Zv92eNoIQA4E16MdCe7HC2DSEMS"
     }).done((result) => {
       let activityList = [];
@@ -64,15 +65,17 @@ class Loading extends React.Component {
 
         // Add it to the database.
         this.addActivity(activity);
-        this.setState({ ticketMaster: true });
+        if (city == this.state.cities[this.state.cities.length - 1]) {
+          this.setState({ ticketMaster: true });
+        }
         })
     })
   }
 
-  retrieveEventbrite() {
+  retrieveEventbrite(city) {
     // Add Eventbrite activities.
     $.getJSON("https://www.eventbriteapi.com/v3/events/search/?token=WJKCHNMPIP6DBF5S3XQF", {
-      "location.address": "Los Angeles, CA",
+      "location.address": city,
       "location.within": "10mi"
     }).done((result) => {
       result.events.map((event) => {
@@ -90,16 +93,18 @@ class Loading extends React.Component {
 
         // Add it to the database.
         this.addActivity(activity);
-        this.setState({ eventbrite: true });
+        if (city == this.state.cities[this.state.cities.length - 1]) {
+          this.setState({ eventbrite: true });
+        }
       })
     });
   }
 
-  retrieveEventful() {
+  retrieveEventful(city) {
     // Add Eventful activities.
     $.getJSON("http://api.eventful.com/json/events/search?callback=?", {
         app_key: "XgSXTL5TkHCfnxCm",
-        location: "Los Angeles, CA",
+        location: city,
         date: "Future",
         within: 10,
         units: "mi"
@@ -119,7 +124,9 @@ class Loading extends React.Component {
 
         // Add it to the database.
         this.addActivity(activity);
-        this.setState({ eventful: true });
+        if (city == this.state.cities[this.state.cities.length - 1]) {
+          this.setState({ eventful: true });
+        }
       })
     });
   }
@@ -137,10 +144,12 @@ class Loading extends React.Component {
   }
 
   updateDatabase() {
+    for (let i=0; i < this.state.cities.length; i++) {
+      this.retrieveTicketMaster(this.state.cities[i]);
+      this.retrieveEventbrite(this.state.cities[i]);
+      this.retrieveEventful(this.state.cities[i]);
+    }
     this.setState({called: true});
-    this.retrieveTicketMaster();
-    this.retrieveEventbrite();
-    this.retrieveEventful();
   }
 
   render() {
@@ -149,7 +158,7 @@ class Loading extends React.Component {
     // is_update_needed and is_first_time are null until the response comes back.
     if ( (this.props.is_update_needed != null && this.props.is_first_time != null) &&
        (!this.props.is_update_needed || (this.state.ticketMaster && this.state.eventbrite && this.state.eventful)) ) {
-         
+
       // We want to redirect when we know that:
       //  (1) An update is not needed OR the activities have all been added.
       //  (2) And that findOrCreateUser has set the is_first_time boolean.

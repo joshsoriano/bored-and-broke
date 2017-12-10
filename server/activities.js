@@ -30,7 +30,7 @@ router.get('/', function(req, res, next) {
             saved_ids.push(result[i].activity.id);
           };
           return Activity.findAll({
-            limit: 80,
+            limit: 40,
             where: {
               price: { [Sequelize.Op.lte]: req.query.priceLimit },
               date: { [Sequelize.Op.gte]: yyyymmdd },

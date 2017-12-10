@@ -38,11 +38,11 @@ const seedTaglines = () => db.Promise.map([
 
  db.didSync
    .then(() => db.sync({force: true}))
-   .then(seedActivities)
-   .then(activities => console.log(`Seeded ${activities.length} activities OK`))
-   .then(seedUsers)
-   .then(users => console.log(`Seeded ${users.length} users OK`))
-   .then(seedTaglines)
-   .then(taglines => console.log(`Seeded ${taglines.length} taglines OK`))
+   // .then(seedActivities)
+   // .then(activities => console.log(`Seeded ${activities.length} activities OK`))
+   // .then(seedUsers)
+   // .then(users => console.log(`Seeded ${users.length} users OK`))
+   // .then(seedTaglines)
+   // .then(taglines => console.log(`Seeded ${taglines.length} taglines OK`))
    .catch(error => console.error(error))
    .finally(() => db.close())
