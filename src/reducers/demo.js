@@ -73,7 +73,7 @@ const demo = (state = initialState, action) => {
         case GET_USERS_FOR_ACTIVITY_ERROR:
                 return { ...state, users: JSON.stringify(action.data) }
         case GET_TAGLINE_RESULTS:
-                return { ...state, tagline: action.data }
+                return { ...state, tagline: action.data.tag }
         case GET_TAGLINE_ERROR:
                 return { ...state, tagline: JSON.stringify(action.data) }
         case UPDATE_TAGLINE_RESULTS:

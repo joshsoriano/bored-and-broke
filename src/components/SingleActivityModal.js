@@ -134,7 +134,7 @@ class SingleActivityModal extends React.Component {
         this.changeToSecondState = this.changeToSecondState.bind(this);
         this.changeToThirdState = this.changeToThirdState.bind(this);
         this.removeFromSaved = this.removeFromSaved.bind(this);
-        this.getTaglineState = this.getTaglineState.bind(this);
+        // this.getTaglineState = this.getTaglineState.bind(this);
         this.handleTagline = this.handleTagline.bind(this);
         this.onMoreClick = this.onMoreClick.bind(this);
         this.state = {
@@ -155,10 +155,9 @@ class SingleActivityModal extends React.Component {
       this.props.actions.saveActivity(userId, this.props.id);
     };
 
-    getTaglineState() {
-        const taglineVal = this.state.value;  //this is the most accurate one! Use this!
-        const tagLength = this.state.value.length; //need to make sure it's not too long
-    };
+    // getTaglineState() {
+    //     return this.state.value;  //this is the most accurate one! Use this!
+    // };
 
     handleTagline(e) {
         this.setState({
@@ -172,6 +171,14 @@ class SingleActivityModal extends React.Component {
             secondState: !this.props.savedAlready,
       });
       //pull the other user's who have also liked this event
+      // let taglineVal = this.getTaglineState();
+      let taglineVal = this.state.value;
+      let userId = getUserID();
+      console.log('activityId', this.props.id);
+      this.props.actions.updateTagline(userId, this.props.id, taglineVal);
+    //   this.props.actions.getTagline(userId, this.props.id);
+      console.log("returned Tag", this.props.tagline);
+      // const returnedTagline = this.props.tagline(userId, this.props.id);
     };
 
     removeFromSaved() {
@@ -237,7 +244,7 @@ class SingleActivityModal extends React.Component {
                     aria-labelledby="contained-modal-title"
                 >
                     <Modal.Header closeButton>
-                        <Modal.Title className={ classes.titleText } id="contained-modal-title">World Series, Game 7: Dodgers vs. Astros</Modal.Title>
+                        <Modal.Title className={ classes.titleText } id="contained-modal-title">{this.props.name}</Modal.Title>
                         <h5 className={ classes.titleSubText }>Date: {this.props.date}</h5>
                         <h5 className={ classes.titleSubText }>Location: { this.props.location}</h5>
                         <h5 className={ classes.titleSubText }>Price: {this.props.price}</h5>
@@ -261,7 +268,7 @@ class SingleActivityModal extends React.Component {
 
                         <div className={ taglineClasses }>
                             <Form horizontal>
-                                <FormGroup controlId="formHorizontalEmail" validationState={ this.getTaglineState() }>
+                                <FormGroup controlId="formHorizontalEmail">
                                   <Col componentClass={ControlLabel} sm={2}>
                                     Tagline:
                                   </Col>
@@ -288,7 +295,7 @@ class SingleActivityModal extends React.Component {
                                 <Carousel.Caption>
                                   <h3>User 1</h3>
                                   <p>Bio: My friends and I are poor and looking for fun things to do!</p>
-                                  <p>"Looking forward to tonight's concert!"</p>
+                                  <p>Tagline: "hi"</p>
                                   <FacebookLinkButton />
                                 </Carousel.Caption>
                               </Carousel.Item>

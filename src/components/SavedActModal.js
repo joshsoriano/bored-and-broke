@@ -96,6 +96,9 @@ const styles = {
         height: '10px',
         fontFamily: 'Open Sans',
     },
+    showUserTagline: {
+        opacity: 0,
+    },
     carousel: {
         backgroundColor: 'black',
     },
@@ -133,8 +136,9 @@ class SingleActivityModal extends React.Component {
         this.changeToSecondState = this.changeToSecondState.bind(this);
         this.changeToThirdState = this.changeToThirdState.bind(this);
         this.removeFromSaved = this.removeFromSaved.bind(this);
-        this.getTaglineState = this.getTaglineState.bind(this);
+        // this.getTaglineState = this.getTaglineState.bind(this);
         this.handleTagline = this.handleTagline.bind(this);
+        this.onMoreInfo = this.onMoreInfo.bind(this);
         this.state = {
             show: false,
             tagline: false,
@@ -144,6 +148,7 @@ class SingleActivityModal extends React.Component {
             // tagLongEnough: false,
         };
     }
+
 
     changeToSecondState() {
         this.setState({
@@ -170,7 +175,9 @@ class SingleActivityModal extends React.Component {
             thirdState: this.props.readyForCarousel,
             secondState: !this.props.savedAlready,
       });
-      //pull the other user's who have also liked this event
+      let taglineVal = this.state.value;
+      let userId = getUserID();
+      this.props.actions.updateTagline(userId, this.props.id, taglineVal);
     };
 
     removeFromSaved() {
@@ -189,6 +196,14 @@ class SingleActivityModal extends React.Component {
         this.props.callbackFromParent(saved);
     }
 
+    onMoreInfo = () => {
+        let userId = getUserID();
+        this.props.actions.getTagline(userId, this.props.id);
+        this.setState({
+            show: true
+        })
+    }
+
     render() {
         const { classes, showModal, userBio, userTagline, date, location, price, description, link } = this.props;
         const { secondState, thirdState, value, tagLongEnough } = this.state;
@@ -199,6 +214,10 @@ class SingleActivityModal extends React.Component {
         const carouselClasses = classNames({
             [classes.carouselOn]: this.state.thirdState,
             [classes.carousel]: true,
+        });
+
+        const showTaglineClasses = classNames({
+            [classes.showUserTagline]: !this.state.thirdState,
         });
 
         const saveButtonClasses = classNames({
@@ -219,7 +238,7 @@ class SingleActivityModal extends React.Component {
                     className = { classes.infoBtn }
                     bsStyle="primary"
                     bsSize="small"
-                    onClick={() => this.setState({ show: true })}
+                    onClick= {this.onMoreInfo}
                 >
                     More Info
                 </Button>
@@ -231,10 +250,11 @@ class SingleActivityModal extends React.Component {
                     aria-labelledby="contained-modal-title"
                 >
                     <Modal.Header closeButton>
-                        <Modal.Title className={ classes.titleText } id="contained-modal-title">World Series, Game 7: Dodgers vs. Astros</Modal.Title>
+                        <Modal.Title className={ classes.titleText } id="contained-modal-title">{this.props.name}</Modal.Title>
                         <h5 className={ classes.titleSubText }>Date: {this.props.date}</h5>
                         <h5 className={ classes.titleSubText }>Location: {this.props.location}</h5>
-                        <h5 className={ classes.titleSubText }>Price:{this.props.price}</h5>
+                        <h5 className={ classes.titleSubText }>Price: {this.props.price}</h5>
+                        <p className={showTaglineClasses}> Here is your tagline: {this.props.tagline} </p>
                     </Modal.Header>
                     <Modal.Body>
 
@@ -252,7 +272,7 @@ class SingleActivityModal extends React.Component {
 
                         <div className={ taglineClasses }>
                             <Form horizontal>
-                                <FormGroup controlId="formHorizontalEmail" validationState={ this.getTaglineState() }>
+                                <FormGroup controlId="formHorizontalEmail">
                                   <Col componentClass={ControlLabel} sm={2}>
                                     Tagline:
                                   </Col>
