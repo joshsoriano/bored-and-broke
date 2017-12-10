@@ -95,8 +95,8 @@ class NavigationBar extends React.Component {
                 <Navbar inverse collapseOnSelect className={classes.navbar}>
                     <Navbar.Header>
                       <Navbar.Brand>
-                          <a className={classes.logoLink} href="#">
-                              <img className={classes.logo} src={logo} height="30px" alt="user pic" />
+                          <a className={classes.logoLink} href="/Homepage">
+                              <img className={classes.logo} src={logo} height="30px" alt="user pic"/>
                           </a>
                       </Navbar.Brand>
                       <Navbar.Toggle />
