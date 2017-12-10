@@ -80,44 +80,11 @@ class Homepage extends React.Component {
 
   componentDidMount() {
     this.Homepage();
-    const myId = getUserID();
   }
 
   Homepage() {
-    // Un-hardcode the price limit.
     this.props.actions.getActivities(50)
   }
-
-
-  // <div>this.state.activities.map(function(activity){
-  //     return <div>{activity.name}</div>
-  // });
-  // </div>
-
-//   <button onClick={this.props.actions.getActivities(50)}>Test!</button>
-//   <div style={{ padding: '30px' }}>{this.props.activities}</div>
-
-// <Activity
-//     savedPage={true}
-//     activityName={item.name}
-// >
-// </Activity>
-//
-// <Activity
-//     savedPage={true}
-// >
-// </Activity>
-//
-// <Activity
-//     savedPage={true}
-// >
-// </Activity>
-//
-// <Activity
-//     savedPage={true}
-// >
-// </Activity>
-
 
 
   render() {

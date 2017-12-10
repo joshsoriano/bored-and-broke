@@ -133,6 +133,7 @@ class SingleActivityModal extends React.Component {
         this.removeFromSaved = this.removeFromSaved.bind(this);
         this.getTaglineState = this.getTaglineState.bind(this);
         this.handleTagline = this.handleTagline.bind(this);
+        this.onMoreClick = this.onMoreClick.bind(this);
         this.state = {
             show: false,
             tagline: false,
@@ -141,6 +142,7 @@ class SingleActivityModal extends React.Component {
             value: '',
             // tagLongEnough: false,
         };
+        this.props.actions.getTagline(this.props.userId, this.props.activityId);
     }
 
     changeToSecondState() {
@@ -189,6 +191,14 @@ class SingleActivityModal extends React.Component {
         this.props.callbackFromParent(saved);
     }
 
+    onMoreClick = () => {
+        this.setState({
+            show: true,
+      });
+    }
+
+
+
     render() {
         const { classes, showModal, userBio, userTagline, date, location, price, description, link } = this.props;
         const { secondState, thirdState, value, tagLongEnough } = this.state;
@@ -223,7 +233,7 @@ class SingleActivityModal extends React.Component {
                     className = { classes.infoBtn }
                     bsStyle="primary"
                     bsSize="small"
-                    onClick={() => this.setState({ show: true })}
+                    onClick= {this.onMoreClick}
                 >
                     More Info
                 </Button>

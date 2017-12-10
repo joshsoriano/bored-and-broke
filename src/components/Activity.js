@@ -5,7 +5,7 @@ import injectSheet from 'react-jss';
 import Col from 'react-bootstrap/lib/Col';
 import Thumbnail from 'react-bootstrap/lib/Thumbnail';
 import Button from 'react-bootstrap/lib/Button';
-import SingleActivityModal from './SingleActivityModal.js';
+import SingleActivityModal from '../containers/SingleActivityModalContainer';
 import SavedActModal from './SavedActModal.js';
 import laSkyline1 from '../images/filler-images/la-skyline-1.jpeg';
 
@@ -42,9 +42,9 @@ class Activity extends React.Component {
       super(props)
     }
 
-    componentDidMount() {
-      this.props.actions.getTagline(this.props.userId, this.props.activityId);
-    }
+    // componentDidMount() {
+    //   this.props.actions.getTagline(this.props.userId, this.props.activityId);
+    // }
 
     render() {
         const {
@@ -74,7 +74,7 @@ class Activity extends React.Component {
             >
             </SingleActivityModal>)
 
-        if (!this.props.savedPage || (this.props.tagline !== "")) {
+        if (!this.props.savedPage) {
             modalType =
                 (<SavedActModal
                     savedAlready={ false } // when false nothing happens, when true the carousel goes away
