@@ -80,9 +80,9 @@ class Homepage extends React.Component {
   }
 
   Homepage() {
-      // const myId = getUserID();
-      // this.props.actions.getActivities(userId, 50)
-      this.props.actions.getActivities(50)
+      const myId = getUserID();
+      this.props.actions.getActivities(myId, 50);
+    //   this.props.actions.getActivities(50)
   }
 
 
@@ -108,7 +108,7 @@ class Homepage extends React.Component {
     let rowsArray = [];
     for (let i = 0; i < activityDetails.length; i++) {
         rowsArray.push(activityDetails[i]);
-        if(i % 4 === 3 && i > 0) {
+        if(i % 4 === 3 && i > 0 || (i === activityDetails.length - 1)) {
             final.push(<div className={classes.row}> {rowsArray} </div>);
             rowsArray = [];
         }

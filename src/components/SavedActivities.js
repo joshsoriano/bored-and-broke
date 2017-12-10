@@ -72,7 +72,7 @@ class SavedActivities extends React.Component {
     let rowsArray = [];
     for (let i = 0; i < activityDetails.length; i++) {
         rowsArray.push(activityDetails[i]);
-        if(i % 4 === 3 && i > 0) {
+        if(i % 4 === 3 && i > 0 || (i === activityDetails.length - 1)) {
             final.push(<div className={classes.row}> {rowsArray} </div>);
             rowsArray = [];
         }
@@ -80,7 +80,6 @@ class SavedActivities extends React.Component {
             final.push(<div className={classes.row}> {rowsArray} </div>);
         }
     }
-    console.log('activityDetails', activityDetails);
 
     return (
       <div className={ classes.main }>
