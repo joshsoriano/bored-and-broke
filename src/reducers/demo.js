@@ -23,6 +23,8 @@ import {
   ADD_ACTIVITY_ERROR,
   IS_UPDATE_NEEDED_RESULTS,
   IS_UPDATE_NEEDED_ERROR,
+  REMOVE_USER_RESULTS,
+  REMOVE_USER_ERROR,
   SAVE_USER_SETTINGS_RESULTS,
   SAVE_USER_SETTINGS_ERROR
 } from '../actions';
@@ -82,9 +84,13 @@ const demo = (state = initialState, action) => {
                 return { ...state, user: action.data }
         case GET_USER_ERROR:
                 return { ...state, user: JSON.stringify(action.data) }
+        case REMOVE_USER_RESULTS:
+                return { ...state, results: action.data }
+        case REMOVE_USER_ERROR:
+                return { ...state, results: JSON.stringify(action.data) }
         case FIND_OR_CREATE_USER_RESULTS:
-                // Response is an array --> [{object}, boolean].
-                return { ...state, is_first_time: action.data[1] }
+                // This action.data is an array --> [{object}, boolean].
+                return { ...state, is_first_time: action.data }
         case FIND_OR_CREATE_USER_ERROR:
                 return { ...state, is_first_time: JSON.stringify(action.data) }
         case IS_UPDATE_NEEDED_RESULTS:

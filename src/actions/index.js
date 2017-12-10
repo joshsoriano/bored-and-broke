@@ -82,7 +82,7 @@ export const SAVE_ACTIVITY = "SAVE_ACTVIITY"
 export const saveActivity = (userId, activityId, tagline) => {
     return dispatch => {
         dispatch(saveActivityStart());
-        axios.put(`/api/taglines/save/` + userId + `/` + activityId + `/` + tagline)
+        axios.put(`/api/taglines/save/` + userId + `/` + activityId)
             .then(res => dispatch(saveActivityResults(res.data)))
             .catch(err => dispatch(saveActivityError(err)))
 
