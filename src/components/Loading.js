@@ -145,8 +145,8 @@ class Loading extends React.Component {
 
   render() {
     const { classes } = this.props;
-    // is_update_needed is null until the response comes back.
-    if ( this.props.is_update_needed != null &&
+    // is_update_needed and is_first_time are null until the response comes back.
+    if ( (this.props.is_update_needed != null && this.props.is_first_time != null) &&
        (!this.props.is_update_needed || (this.state.ticketMaster && this.state.eventbrite && this.state.eventful)) ) {
       return <Redirect to='/Homepage'/>
 

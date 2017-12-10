@@ -91,7 +91,7 @@ const demo = (state = initialState, action) => {
                 return { ...state, results: JSON.stringify(action.data) }
         case FIND_OR_CREATE_USER_RESULTS:
                 // This action.data is an array --> [{object}, boolean].
-                return { ...state, is_first_time: action.data }
+                return { ...state, is_first_time: action.data[1] }
         case FIND_OR_CREATE_USER_ERROR:
                 return { ...state, is_first_time: JSON.stringify(action.data) }
         case IS_UPDATE_NEEDED_RESULTS:
