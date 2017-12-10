@@ -3,6 +3,7 @@ import { Form, FormGroup, ControlLabel, FormControl, Col, Checkbox, Row } from '
 import Button from 'react-bootstrap/lib/Button';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
+import { getUserID } from './userID';
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 
 const propTypes = {
@@ -47,7 +48,8 @@ class HomepageSettings extends React.Component {
     }
 
     handleSubmit(event) {
-        event.preventDefualt();
+        event.preventDefault();
+        this.props.actions.getActivities(getUserID(), this.state.price);
     }
 
     render() {

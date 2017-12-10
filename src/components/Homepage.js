@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import NavigationBar from './NavigationBar.js';
-import HomepageSettings from './HomepageSettings.js';
+import HomepageSettings from '../containers/HomepageSettingsContainer';
 import SingleActivityModal from './SingleActivityModal.js';
 import { getUserID } from './userID';
 import Activity from '../containers/ActivityContainer.js';
