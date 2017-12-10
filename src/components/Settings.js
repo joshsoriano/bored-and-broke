@@ -87,18 +87,13 @@ class Settings extends React.Component {
   }
 
   deactivateAccount() {
-    removeUserID();
-     FB.getLoginStatus(function(response) {
+    FB.getLoginStatus(function(response) {
          if (response && response.status === 'connected') {
-             FB.logout(function(response) {
-                  alert('logged out!');
-                 // document.location.reload();
-                 // console.log("logged out: " + response.status);
-             });
+           FB.logout(function(response) { return true });
          }
      });
+     removeUserID();
      this.props.actions.removeUser(id);
-     return <Redirect to='/LoginCreateAccount'/>
   }
 
   render() {
@@ -122,80 +117,79 @@ class Settings extends React.Component {
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
 
-      //  function fbLogoutUser() {
-      //
-      //     this.deactivateAccount;
-      //
-      // }
+    if (this.props.removed_from_db) {
+      return <Redirect to='/LoginCreateAccount'/>
 
-    return (
-      <div className={ classes.main }>
-        <NavigationBar />
+    } else {
+      return (
+        <div className={ classes.main }>
+          <NavigationBar />
 
-        <div >
-            <Col className={ classes.instructions } sm={12}>
-                <span>Please enter your information below. Feel free to change it whenever!</span>
-            </Col>
+          <div >
+              <Col className={ classes.instructions } sm={12}>
+                  <span>Please enter your information below. Feel free to change it whenever!</span>
+              </Col>
+          </div>
+          <div className={ classes.formInput }>
+              <Form horizontal>
+
+                  <FormGroup controlId="formHorizontalName">
+                    <Col componentClass={ControlLabel} sm={6}>
+                      Name
+                    </Col>
+                    <Col className={ classes.rightCol } sm={6}>
+                      <FormControl.Static className={ classes.name }>
+                        { userName }
+                      </FormControl.Static>
+                    </Col>
+                  </FormGroup>
+
+                  <FormGroup controlId="formHorizontalBio">
+                    <Col componentClass={ControlLabel} sm={6}>
+                      Bio
+                    </Col>
+                    <Col className={ classes.rightCol } sm={6}>
+                      <textarea className="form-control" value={this.state.value} onChange={this.handleChange} rows="3" placeholder="Talk about yourself!"></textarea>
+                    </Col>
+                  </FormGroup>
+
+                  <FormGroup controlId="formHorizontalDeactivate" >
+                    <Col componentClass={ControlLabel} sm={6}>
+                      No longer want to use Bored&Broke?
+                    </Col>
+                    <Col className={ classes.rightCol } sm={6}>
+                      <Button onClick={() => this.setState({ open: !this.state.open })} className={ classes.deactivateAccnt }>
+                        Deactivate Account
+                      </Button>
+                      <Collapse in={this.state.open}>
+                        <div>
+                          <Well className={ classes.deactivateWell }>
+                            Are you sure you want to remove your account from BoredBroke.com
+                            <div className={ classes.deactivateBtns }>
+                                <Button onClick={() => this.setState({ open: !this.state.open })}>
+                                  NO!
+                                </Button>
+                                <Button onClick={this.deactivateAccount} bsStyle="danger">
+                                    Yes
+                                </Button>
+                            </div>
+                          </Well>
+                        </div>
+                      </Collapse>
+                    </Col>
+                  </FormGroup>
+
+                  <FormGroup controlId="formHorizontalSave" >
+                    <Col sm={12}>
+                      <Button className={ classes.save } onClick={ this.saveSettings } >Save</Button>
+                    </Col>
+                  </FormGroup>
+
+              </Form>
+          </div>
         </div>
-        <div className={ classes.formInput }>
-            <Form horizontal>
-
-                <FormGroup controlId="formHorizontalName">
-                  <Col componentClass={ControlLabel} sm={6}>
-                    Name
-                  </Col>
-                  <Col className={ classes.rightCol } sm={6}>
-                    <FormControl.Static className={ classes.name }>
-                      { userName }
-                    </FormControl.Static>
-                  </Col>
-                </FormGroup>
-
-                <FormGroup controlId="formHorizontalBio">
-                  <Col componentClass={ControlLabel} sm={6}>
-                    Bio
-                  </Col>
-                  <Col className={ classes.rightCol } sm={6}>
-                    <textarea className="form-control" value={this.state.value} onChange={this.handleChange} rows="3" placeholder="Talk about yourself!"></textarea>
-                  </Col>
-                </FormGroup>
-
-                <FormGroup controlId="formHorizontalDeactivate" >
-                  <Col componentClass={ControlLabel} sm={6}>
-                    No longer want to use Bored&Broke?
-                  </Col>
-                  <Col className={ classes.rightCol } sm={6}>
-                    <Button onClick={() => this.setState({ open: !this.state.open })} className={ classes.deactivateAccnt }>
-                      Deactivate Account
-                    </Button>
-                    <Collapse in={this.state.open}>
-                      <div>
-                        <Well className={ classes.deactivateWell }>
-                          Are you sure you want to remove your account from BoredBroke.com
-                          <div className={ classes.deactivateBtns }>
-                              <Button onClick={() => this.setState({ open: !this.state.open })}>
-                                NO!
-                              </Button>
-                              <Button onClick={this.deactivateAccount} bsStyle="danger">
-                                  Yes
-                              </Button>
-                          </div>
-                        </Well>
-                      </div>
-                    </Collapse>
-                  </Col>
-                </FormGroup>
-
-                <FormGroup controlId="formHorizontalSave" >
-                  <Col sm={12}>
-                    <Button className={ classes.save } onClick={ this.saveSettings } >Save</Button>
-                  </Col>
-                </FormGroup>
-
-            </Form>
-        </div>
-      </div>
-    );
+      );
+    }
   }
 }
 Settings.propTypes = propTypes;

@@ -40,7 +40,8 @@ const initialState = {
     results: "",
     is_update_needed: null,
     settings: "",
-    ready_to_redirect: false
+    ready_to_redirect: false,
+    removed_from_db: false
 }
 
 const demo = (state = initialState, action) => {
@@ -86,7 +87,7 @@ const demo = (state = initialState, action) => {
         case GET_USER_ERROR:
                 return { ...state, user: JSON.stringify(action.data) }
         case REMOVE_USER_RESULTS:
-                return { ...state, results: action.data }
+                return { ...state, removed_from_db: true }
         case REMOVE_USER_ERROR:
                 return { ...state, results: JSON.stringify(action.data) }
         case FIND_OR_CREATE_USER_RESULTS:

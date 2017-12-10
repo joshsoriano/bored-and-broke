@@ -15,7 +15,8 @@ function mapStateToProps(state) {
     user: state.demo.user,
     users: state.demo.users,
     is_update_needed: state.demo.is_update_needed,
-    settings: state.demo.settings
+    settings: state.demo.settings,
+    removed_from_db: state.demo.removed_from_db
   }
 }
 
