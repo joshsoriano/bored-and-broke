@@ -57,6 +57,7 @@ class BioModal extends React.Component {
     console.log(this.state.value);
     this.props.actions.saveUserSettings(this.state.value, userID);
     this.props.actions.getUser(userID);
+    this.props.actions.findOrCreateUser(userID, userName);
   }
 
   // getBioState = () => {
