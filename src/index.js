@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Homepage from './containers/HomepageContainer';
-import LoginCreateAccount from './containers/LoginCreateAccountContainer';
+import LoginCreateAccount from './components/LoginCreateAccount.js';
 import SavedActivities from './containers/SavedActivitiesContainer';
 import Settings from './containers/SettingsContainer.js';
 import Loading from './components/Loading.js';
@@ -37,45 +37,6 @@ const styles = {
 
 class BoredAndBroke extends React.Component {
   render() {
-    // const status = 'This is our project:';
-    let loggedIn = true;
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId            : '1960748417506782',
-        autoLogAppEvents : true,
-        xfbml            : true,
-        version          : 'v2.11'
-      });
-    };
-
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "https://connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-
-     function checkStatus() {
-       FB.getLoginStatus(function(response) {
-           alert("checked login status");
-           if (response.status === 'connected') {
-             loggedIn = true;
-           }
-         });
-     }
-
-    const PrivateRoute = ({ component: Component, ...rest }) => (
-      <Route {...rest} render={props => (
-        loggedIn ? (
-          <Component {...props}/>
-        ) : (
-          <Redirect to={{
-            pathname: '/LoginCreateAccount'
-          }}/>
-        )
-      )}/>
-    )
     return (
          <Router>
              <div>
@@ -83,11 +44,11 @@ class BoredAndBroke extends React.Component {
                      <Route exact path="/" render={() => (
                          <LoginCreateAccount/>
                      )}/>
-                     <PrivateRoute path="/Homepage" component={Homepage}/>
-                     <PrivateRoute path="/SavedActivities" component={SavedActivities}/>
-                     <PrivateRoute path="/Settings" component={Settings}/>
+                     <Route path="/Homepage" component={Homepage}/>
+                     <Route path="/SavedActivities" component={SavedActivities}/>
+                     <Route path="/Settings" component={Settings}/>
                      <Route path="/LoginCreateAccount" component={LoginCreateAccount}/>
-                     <PrivateRoute path="/Loading" component={Loading}/>
+                     <Route path="/Loading" component={Loading}/>
 
                      <Route path="/DemoTest" component={App}/>
 

@@ -4,12 +4,13 @@ import injectSheet from 'react-jss';
 import NavigationBar from './NavigationBar.js';
 import HomepageSettings from './HomepageSettings.js';
 import SingleActivityModal from './SingleActivityModal.js';
-import { getUserID } from './userID';
 import Activity from '../containers/ActivityContainer.js';
 // import LoginCreateAccount from './LoginCreateAccount.js';
 // import SavedActivities from './SavedActivities.js';
 // import Settings from './Settings.js';
 // import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
+import { getUserID, getUserName } from './userID';
+import BioModal from '../containers/BioModalContainer.js';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -67,6 +68,9 @@ const styles = {
     },
 };
 
+const userID = getUserID();
+const userName = getUserName();
+
 class Homepage extends React.Component {
   constructor(props) {
     super(props)
@@ -84,7 +88,15 @@ class Homepage extends React.Component {
 
   Homepage() {
     // Un-hardcode the price limit.
-    this.props.actions.getActivities(50 /* price limit */)
+    // const userID = getUserID();
+    // const userName = getUserName();
+    // console.log(userID);
+    // console.log(userName);
+    this.props.actions.findOrCreateUser(userID, userName);
+    this.props.actions.getUser(userID);
+    this.props.actions.getActivities(50 /* price limit */);
+    // this.props.actions.findOrCreateUser(userID, userName);
+    console.log('is first time from homepage: ' + this.props.is_first_time);
   }
 
 
@@ -147,6 +159,7 @@ class Homepage extends React.Component {
 
     return (
       <div className={ classes.main }>
+        <BioModal />
         <NavigationBar />
         <div className={ classes.homepageSettings }>
             <HomepageSettings />
