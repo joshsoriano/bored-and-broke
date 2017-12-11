@@ -97,9 +97,9 @@ const styles = {
         height: '10px',
         fontFamily: 'Open Sans',
     },
-    showUserTagline: {
-        opacity: 0,
-    },
+    // showUserTagline: {
+    //     opacity: 0,
+    // },
     carousel: {
         backgroundColor: 'black',
     },
@@ -156,10 +156,10 @@ class SingleActivityModal extends React.Component {
             secondState: this.props.savedAlready,
             thirdState: true,
             value: '',
-            formattedDate: dateF4
+            formattedDate: dateF4,
+            // secondTagDirection: tagOnSaved,
             // tagLongEnough: false,
         };
-        console.log(this.state.formattedDate);
     }
 
 
@@ -233,9 +233,9 @@ class SingleActivityModal extends React.Component {
             [classes.carousel]: true,
         });
 
-        const showTaglineClasses = classNames({
-            [classes.showUserTagline]: !this.state.thirdState,
-        });
+        // const showTaglineClasses = classNames({
+        //     [classes.showUserTagline]: !this.state.thirdState,
+        // });
 
         const saveButtonClasses = classNames({
             [classes.buttonContainer]: true,
@@ -266,6 +266,13 @@ class SingleActivityModal extends React.Component {
         ));
 
 
+        let tagOnSaved = "Edit Tagline:";
+        let placeholderText = this.props.tagline;
+        if (!this.props.tagline) {
+            tagOnSaved = "Tagline:"
+            placeholderText = "What are your vibes?"
+        }
+
         return (
             <div className="modalContainer" style={{ height: 50 }}>
                 <Button
@@ -288,7 +295,6 @@ class SingleActivityModal extends React.Component {
                         <h5 className={ classes.titleSubText }>Date: {this.state.formattedDate}</h5>
                         <h5 className={ classes.titleSubText }>Location: {this.props.location}</h5>
                         <h5 className={ classes.titleSubText }>Price: ${this.props.price}</h5>
-                        <p className={showTaglineClasses}> Your tagline: {this.props.tagline} </p>
                     </Modal.Header>
                     <Modal.Body>
 
@@ -308,10 +314,10 @@ class SingleActivityModal extends React.Component {
                             <Form horizontal>
                                 <FormGroup controlId="formHorizontalEmail">
                                   <Col componentClass={ControlLabel} sm={2}>
-                                    Tagline:
+                                    {tagOnSaved}
                                   </Col>
                                   <Col sm={10}>
-                                    <FormControl type="Name" value={ this.state.value } placeholder="What's your vibes?" onChange={ this.handleTagline } />
+                                    <FormControl type="Name" value={ this.state.value } placeholder={placeholderText} onChange={ this.handleTagline } />
                                   </Col>
                                 </FormGroup>
                             </Form>
