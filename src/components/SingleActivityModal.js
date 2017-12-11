@@ -25,6 +25,7 @@ const propTypes = {
     link: PropTypes.string,
     id: PropTypes.string,
     apisource: PropTypes.string,
+    queryCity: PropTypes.string,
 };
 
 const defaultProps = {
@@ -149,7 +150,6 @@ class SingleActivityModal extends React.Component {
         const dateF3 = dateF2.concat(slash);
         const dateF4 = dateF3.concat(date3);
 
-        const location = this.props.location ? this.props.location : this.props.query
         this.state = {
             show: false,
             tagline: false,
@@ -210,7 +210,7 @@ class SingleActivityModal extends React.Component {
     }
 
     render() {
-        const { classes, showModal, userBio, userTagline, date, location, price, description, link, apisource } = this.props;
+        const { classes, showModal, userBio, userTagline, date, location, price, description, link, apisource, queryCity } = this.props;
         const { secondState, thirdState, value, tagLongEnough } = this.state;
         const taglineClasses = classNames({
             [classes.taglineStyle]: this.state.secondState,
@@ -249,6 +249,8 @@ class SingleActivityModal extends React.Component {
             </Carousel.Item>
         ));
 
+        let locationString = this.props.location ? this.props.location : this.props.queryCity;
+        let priceString = (this.props.price > -1) ? this.props.price : "-";
 
         return (
             <div className="modalContainer" style={{ height: 50 }}>
@@ -270,8 +272,8 @@ class SingleActivityModal extends React.Component {
                     <Modal.Header closeButton>
                         <Modal.Title className={ classes.titleText } id="contained-modal-title">{this.props.name}</Modal.Title>
                         <h5 className={ classes.titleSubText }>Date: {this.state.formattedDate}</h5>
-                        <h5 className={ classes.titleSubText }>Location: {this.props.location}</h5>
-                        <h5 className={ classes.titleSubText }>Price: ${this.props.price}</h5>
+                        <h5 className={ classes.titleSubText }>Location: {locationString}</h5>
+                        <h5 className={ classes.titleSubText }>Price: ${priceString}</h5>
                     </Modal.Header>
                     <Modal.Body>
 

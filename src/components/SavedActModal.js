@@ -24,6 +24,7 @@ const propTypes = {
     description: PropTypes.string,
     link: PropTypes.string,
     id: PropTypes.number,
+    queryCity: PropTypes.string,
 };
 
 const defaultProps = {
@@ -159,7 +160,6 @@ class SingleActivityModal extends React.Component {
             formattedDate: dateF4
             // tagLongEnough: false,
         };
-        console.log(this.state.formattedDate);
     }
 
 
@@ -211,18 +211,9 @@ class SingleActivityModal extends React.Component {
             show: true
         })
     };
-    //
-    // stringInsert = () => {
-    //     const dateToUse = this.props.date;
-    //     console.log('date', dateToUse);
-        // const slash = "-";
-        // const dateFormatted = [dateToUse.slice(0, 3), slash, dateToUse.slice(3)].join('');
-        // console.log(dateFormatted);
-
-    // };
 
     render() {
-        const { classes, showModal, userBio, userTagline, date, location, price, description, link, apisource } = this.props;
+        const { classes, showModal, userBio, userTagline, date, location, price, description, link, apisource, queryCity } = this.props;
         const { secondState, thirdState, value, tagLongEnough, formattedDate } = this.state;
         const taglineClasses = classNames({
             [classes.taglineStyle]: this.state.secondState,
@@ -265,6 +256,8 @@ class SingleActivityModal extends React.Component {
             </Carousel.Item>
         ));
 
+        let locationString = this.props.location ? this.props.location : this.props.queryCity;
+        let priceString = (this.props.price > -1) ? this.props.price : "-";
 
         return (
             <div className="modalContainer" style={{ height: 50 }}>
@@ -286,8 +279,8 @@ class SingleActivityModal extends React.Component {
                     <Modal.Header closeButton>
                         <Modal.Title className={ classes.titleText } id="contained-modal-title">{this.props.name}</Modal.Title>
                         <h5 className={ classes.titleSubText }>Date: {this.state.formattedDate}</h5>
-                        <h5 className={ classes.titleSubText }>Location: {this.props.location}</h5>
-                        <h5 className={ classes.titleSubText }>Price: ${this.props.price}</h5>
+                        <h5 className={ classes.titleSubText }>Location: {locationString}</h5>
+                        <h5 className={ classes.titleSubText }>Price: ${priceString}</h5>
                         <p className={showTaglineClasses}> Your tagline: {this.props.tagline} </p>
                     </Modal.Header>
                     <Modal.Body>
