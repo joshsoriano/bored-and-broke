@@ -6,7 +6,7 @@ import Carousel from 'react-bootstrap/lib/Carousel';
 import {Form, FormGroup, ControlLabel, FormControl, Col, Checkbox} from 'react-bootstrap'
 import Modal from 'react-bootstrap/lib/Modal';
 import Button from 'react-bootstrap/lib/Button';
-import blackBackground from '../images/blackBackground.jpg';
+import blueBackground from '../images/blueBackground.png';
 import logo_black from '../images/logo-black.png';
 import FacebookLinkButton from './FacebookLinkButton.js';
 import {getUserID} from './userID';
@@ -98,9 +98,9 @@ const styles = {
         height: '10px',
         fontFamily: 'Open Sans',
     },
-    showUserTagline: {
-        opacity: 0,
-    },
+    // showUserTagline: {
+    //     opacity: 0,
+    // },
     carousel: {
         backgroundColor: 'black',
     },
@@ -157,7 +157,8 @@ class SingleActivityModal extends React.Component {
             secondState: this.props.savedAlready,
             thirdState: true,
             value: '',
-            formattedDate: dateF4
+            formattedDate: dateF4,
+            // secondTagDirection: tagOnSaved,
             // tagLongEnough: false,
         };
     }
@@ -224,9 +225,9 @@ class SingleActivityModal extends React.Component {
             [classes.carousel]: true,
         });
 
-        const showTaglineClasses = classNames({
-            [classes.showUserTagline]: !this.state.thirdState,
-        });
+        // const showTaglineClasses = classNames({
+        //     [classes.showUserTagline]: !this.state.thirdState,
+        // });
 
         const saveButtonClasses = classNames({
             [classes.buttonContainer]: true,
@@ -242,7 +243,7 @@ class SingleActivityModal extends React.Component {
 
         let carouselDetails = this.props.users.map(item => (
             <Carousel.Item>
-                <img alt=" " src={blackBackground}/>
+                <img alt=" " src={blueBackground}/>
                 <Carousel.Caption>
                   <h3>{item.user.name}</h3>
                   <p>Bio: {item.user.bio}</p>
@@ -258,6 +259,13 @@ class SingleActivityModal extends React.Component {
 
         let locationString = this.props.location ? this.props.location : this.props.queryCity;
         let priceString = (this.props.price > -1) ? this.props.price : "-";
+
+        let tagOnSaved = "Edit Tagline:";
+        let placeholderText = this.props.tagline;
+        if (!this.props.tagline) {
+            tagOnSaved = "Tagline:"
+            placeholderText = "What are your vibes?"
+        }
 
         return (
             <div className="modalContainer" style={{ height: 50 }}>
@@ -281,8 +289,7 @@ class SingleActivityModal extends React.Component {
                         <h5 className={ classes.titleSubText }>Date: {this.state.formattedDate}</h5>
                         <h5 className={ classes.titleSubText }>Location: {locationString}</h5>
                         <h5 className={ classes.titleSubText }>Price: ${priceString}</h5>
-                        <p className={showTaglineClasses}> Your tagline: {this.props.tagline} </p>
-                    </Modal.Header>
+                      </Modal.Header>
                     <Modal.Body>
 
                         <div className={ classes.descriptionTextContainer }>
@@ -301,21 +308,21 @@ class SingleActivityModal extends React.Component {
                             <Form horizontal>
                                 <FormGroup controlId="formHorizontalEmail">
                                   <Col componentClass={ControlLabel} sm={2}>
-                                    Tagline:
+                                    {tagOnSaved}
                                   </Col>
                                   <Col sm={10}>
-                                    <FormControl type="Name" value={ this.state.value } placeholder="What's your vibes?" onChange={ this.handleTagline } />
+                                    <FormControl type="Name" value={ this.state.value } placeholder={placeholderText} onChange={ this.handleTagline } />
                                   </Col>
                                 </FormGroup>
                             </Form>
 
                             <div className={ classes.buttonContainer }>
                               <Button onClick={ this.changeToThirdState } disabled={ !this.state.value }
-                                bastyle="primary" bsSize="small"> { this.props.onRequestClose } Save/update tagline </Button>
+                                bastyle="primary" bsSize="small"> { this.props.onRequestClose } Save Tagline & see other users </Button>
                             </div>
 
                             <div className={ classes.buttonContainer }>
-                              <Button onClick={ this.changeToThirdState } bastyle="primary" bsSize="small">{ this.props.onRequestClose } Skip </Button>
+                              <Button onClick={ this.changeToThirdState } bastyle="primary" bsSize="small">{ this.props.onRequestClose } Skip & see other users </Button>
                             </div>
 
                         </div>

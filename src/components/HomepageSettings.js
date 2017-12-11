@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import { getUserID } from './userID';
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
+import { saveLocation, getUserLocation, savePrice, getPrice } from './userID';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -29,9 +30,18 @@ const styles = {
 class HomepageSettings extends React.Component {
     constructor(props) {
         super(props);
+        let location = getUserLocation();
+        let price = getPrice();
+
+        if (location === undefined) {
+            location = '';
+        }
+        if (price === undefined) {
+            price = 0;
+        }
         this.state = {
-            city: 'Los Angeles',
-            price: 0
+            city: location,
+            price: price
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -41,7 +51,6 @@ class HomepageSettings extends React.Component {
         const target = event.target;
         const value = target.value;
         const name = target.name;
-
         this.setState({
             [name]: value
         });
@@ -49,6 +58,8 @@ class HomepageSettings extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
+        saveLocation(this.state.city);
+        savePrice(this.state.price);
         this.props.actions.getActivities(getUserID(), this.state.price, this.state.city);
     }
 

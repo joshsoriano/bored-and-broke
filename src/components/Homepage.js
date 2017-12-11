@@ -9,7 +9,7 @@ import Activity from '../containers/ActivityContainer.js';
 // import SavedActivities from './SavedActivities.js';
 // import Settings from './Settings.js';
 // import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
-import { getUserID, getUserName } from './userID';
+import { getUserID, getUserName, getPrice, getUserLocation } from './userID';
 import BioModal from '../containers/BioModalContainer.js';
 
 const propTypes = {
@@ -87,8 +87,17 @@ class Homepage extends React.Component {
 
   Homepage() {
     const myId = getUserID();
+    let location = getUserLocation();
+    let price = getPrice();
+
     this.props.actions.getUser(myId);
-    this.props.actions.getActivities(myId, 0, "Los Angeles");
+    if (price === undefined) {
+        price = 0;
+    }
+    if (location === undefined) {
+        location = "Los Angeles";
+    }
+    this.props.actions.getActivities(myId, price, location);
   }
 
 
