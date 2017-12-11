@@ -30,6 +30,7 @@ const defaultProps = {
   onRequestClose: () => {},
 };
 
+
 const styles = {
     main: {
       position: 'relative',
@@ -139,14 +140,30 @@ class SingleActivityModal extends React.Component {
         // this.getTaglineState = this.getTaglineState.bind(this);
         this.handleTagline = this.handleTagline.bind(this);
         this.onMoreInfo = this.onMoreInfo.bind(this);
+        const dateT = this.props.date;
+        const dateToUse = dateT.toString();
+        console.log('date', dateToUse);
+        const slash = "-";
+        const date1 = dateToUse.slice(0,4);
+        const date2 = dateToUse.slice(4,6);
+        const date3 = dateToUse.slice(6,8);
+        const dateF1 = date1.concat(slash);
+        const dateF2 = dateF1.concat(date2);
+        const dateF3 = dateF2.concat(slash);
+        const dateF4 = dateF3.concat(date3);
+
+        // const dateFormatted = [dateToUse.slice(0, 3), slash, dateToUse.slice(3)].join('');
+        console.log('dateF4',dateF4);
         this.state = {
             show: false,
             tagline: false,
             secondState: this.props.savedAlready,
             thirdState: true,
             value: '',
+            formattedDate: dateF4
             // tagLongEnough: false,
         };
+        console.log(this.state.formattedDate);
     }
 
 
@@ -190,10 +207,6 @@ class SingleActivityModal extends React.Component {
       window.location = '/SavedActivities';
     };
 
-    someFun = () => {
-        const saved = null;
-        this.props.callbackFromParent(saved);
-    }
 
     onMoreInfo = () => {
         let userId = getUserID();
@@ -201,11 +214,20 @@ class SingleActivityModal extends React.Component {
         this.setState({
             show: true
         })
-    }
+    };
+    //
+    // stringInsert = () => {
+    //     const dateToUse = this.props.date;
+    //     console.log('date', dateToUse);
+        // const slash = "-";
+        // const dateFormatted = [dateToUse.slice(0, 3), slash, dateToUse.slice(3)].join('');
+        // console.log(dateFormatted);
+
+    // };
 
     render() {
         const { classes, showModal, userBio, userTagline, date, location, price, description, link, apisource } = this.props;
-        const { secondState, thirdState, value, tagLongEnough } = this.state;
+        const { secondState, thirdState, value, tagLongEnough, formattedDate } = this.state;
         const taglineClasses = classNames({
             [classes.taglineStyle]: this.state.secondState,
         });
@@ -231,6 +253,7 @@ class SingleActivityModal extends React.Component {
 
         let close = () => this.setState({ show: false });
 
+
         return (
             <div className="modalContainer" style={{ height: 50 }}>
                 <Button
@@ -250,7 +273,7 @@ class SingleActivityModal extends React.Component {
                 >
                     <Modal.Header closeButton>
                         <Modal.Title className={ classes.titleText } id="contained-modal-title">{this.props.name}</Modal.Title>
-                        <h5 className={ classes.titleSubText }>Date: {this.props.date}</h5>
+                        <h5 className={ classes.titleSubText }>Date: {this.state.formattedDate}</h5>
                         <h5 className={ classes.titleSubText }>Location: {this.props.location}</h5>
                         <h5 className={ classes.titleSubText }>Price: {this.props.price}</h5>
                         <p className={showTaglineClasses}> Here is your tagline: {this.props.tagline} </p>
