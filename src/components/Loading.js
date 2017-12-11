@@ -61,7 +61,7 @@ class Loading extends React.Component {
         activity.source = "TicketMaster";
         activity.description = "Click the link for more information.";
         activity.imageUrl = event.images[0].url; // Use the first image available.
-        activity.price = event.priceRanges ? event.priceRanges[0].min : 0;
+        activity.price = event.priceRanges ? event.priceRanges[0].min : -1;
 
         // Add it to the database.
         this.addActivity(activity, city);
@@ -89,7 +89,7 @@ class Loading extends React.Component {
         activity.source = "Eventbrite";
         activity.description = "Click the link for more information.";
         activity.imageUrl = event.logo ? event.logo.url : ""; // In case there isn't a logo.
-        activity.price = 0; // This API doesn't provide price either.
+        activity.price = -1; // This API doesn't provide price either.
 
         // Add it to the database.
         this.addActivity(activity, city);
@@ -120,7 +120,7 @@ class Loading extends React.Component {
         activity.source = "Eventful";
         activity.description = event.description;
         activity.imageUrl = event.image ? event.image.medium.url : "";  // In case there isn't an image.
-        activity.price = 0; // Not available for this API.
+        activity.price = -1; // Not available for this API.
 
         // Add it to the database.
         this.addActivity(activity, city);

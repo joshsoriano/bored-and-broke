@@ -22,6 +22,7 @@ const propTypes = {
     activityId: PropTypes.number,
     activitySource: PropTypes.string,
     activityQueryLocation: PropTypes.string,
+    dash: PropTypes.string,
 };
 
 const styles = {
@@ -113,13 +114,14 @@ class Activity extends React.Component {
         if (this.props.activityImage === null || this.props.activityImage === "") {
             imgSrc = laSkyline1;
         }
+        let price = (this.props.activityPrice > -1) ? this.props.activityPrice : "-";
 
         return (
             <Col sx={12} sm={6} md={3}>
                 <Thumbnail src={imgSrc} alt="242x200">
                     <div className = {classes.textDetails}>
                         <h3 className = {classes.activityTitle}>{this.props.activityName}</h3>
-                        <p className = {classes.activityDesc}>Price: ${this.props.activityPrice}</p>
+                        <p className = {classes.activityDesc}>Price: ${price}</p>
                         <p className = {classes.activityDesc}>Date: {this.state.formattedDate}</p>
                         <p className = {classes.activityDesc}>Location: {this.state.location}</p>
 
