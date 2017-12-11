@@ -5,13 +5,11 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import { getUserID } from './userID';
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
-// import { saveLocation, getUserLocation } from './userID';
+import { saveLocation, getUserLocation, savePrice, getPrice } from './userID';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
 };
-
-// const userLocation = getUserLocation();
 
 const styles = {
     main: {
@@ -32,9 +30,18 @@ const styles = {
 class HomepageSettings extends React.Component {
     constructor(props) {
         super(props);
+        let location = getUserLocation();
+        let price = getPrice();
+
+        if (location === undefined) {
+            location = '';
+        }
+        if (price === undefined) {
+            price = 0;
+        }
         this.state = {
-            city: '',
-            price: 0
+            city: location,
+            price: price
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -44,8 +51,6 @@ class HomepageSettings extends React.Component {
         const target = event.target;
         const value = target.value;
         const name = target.name;
-
-        // this.props.actions.saveLocation(value);
         this.setState({
             [name]: value
         });
@@ -53,8 +58,8 @@ class HomepageSettings extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        // this.props.actions.saveLocation(this.state.city, userLocation);
-        // this.props.actions.getUserLocation(userLocation);
+        saveLocation(this.state.city);
+        savePrice(this.state.price);
         this.props.actions.getActivities(getUserID(), this.state.price, this.state.city);
     }
 
