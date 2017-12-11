@@ -30,7 +30,7 @@ class HomepageSettings extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            city: '',
+            city: 'Los Angeles',
             price: 0
         };
         this.handleChange = this.handleChange.bind(this);
