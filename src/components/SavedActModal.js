@@ -190,6 +190,7 @@ class SingleActivityModal extends React.Component {
       let taglineVal = this.state.value;
       let userId = getUserID();
       this.props.actions.updateTagline(userId, this.props.id, taglineVal);
+      this.props.actions.getUsersForActivity(this.props.id);
     };
 
     removeFromSaved() {
@@ -248,6 +249,22 @@ class SingleActivityModal extends React.Component {
 
         let close = () => this.setState({ show: false });
 
+        let carouselDetails = this.props.users.map(item => (
+            <Carousel.Item>
+                <img alt=" " src={blackBackground}/>
+                <Carousel.Caption>
+                  <h3>{item.user.name}</h3>
+                  <p>Bio: {item.user.bio}</p>
+                  <p>Tagline: {item.tag}</p>
+                  <FacebookLinkButton
+                    userID={item.user.id}
+                  >
+                  </FacebookLinkButton>
+                </Carousel.Caption>
+            >
+            </Carousel.Item>
+        ));
+
 
         return (
             <div className="modalContainer" style={{ height: 50 }}>
@@ -271,7 +288,7 @@ class SingleActivityModal extends React.Component {
                         <h5 className={ classes.titleSubText }>Date: {this.state.formattedDate}</h5>
                         <h5 className={ classes.titleSubText }>Location: {this.props.location}</h5>
                         <h5 className={ classes.titleSubText }>Price: ${this.props.price}</h5>
-                        <p className={showTaglineClasses}> Here is your tagline: {this.props.tagline} </p>
+                        <p className={showTaglineClasses}> Your tagline: {this.props.tagline} </p>
                     </Modal.Header>
                     <Modal.Body>
 
@@ -311,25 +328,7 @@ class SingleActivityModal extends React.Component {
                         </div>
                         <div className={ carouselClasses }>
                           <Carousel interval={ null }>
-                              <Carousel.Item>
-                                <img align="middle" src={blackBackground}/>
-                                <Carousel.Caption>
-                                  <h3>User 1</h3>
-                                  <p>Bio: My friends and I are poor and looking for fun things to do!</p>
-                                  <p>"Looking forward to tonight's concert!"</p>
-                                  <FacebookLinkButton />
-                                </Carousel.Caption>
-                              </Carousel.Item>
-
-                              <Carousel.Item>
-                                <img alt=" " src={blackBackground}/>
-                                <Carousel.Caption>
-                                  <h3>User 2</h3>
-                                  <p>Bio: {this.props.userBio}</p>
-                                  <p>Tagline: {this.props.userTagline}</p>
-                                  <FacebookLinkButton />
-                                </Carousel.Caption>
-                              </Carousel.Item>
+                              {carouselDetails}
                           </Carousel>
                         </div>
                     </Modal.Body>

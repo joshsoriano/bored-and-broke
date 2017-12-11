@@ -42,32 +42,31 @@ const styles = {
 };
 
 class SavedActivities extends React.Component {
-    constructor(props) {
-      super(props)
-    }
+  constructor(props) {
+    super(props)
+  }
 
-    componentDidMount() {
-        const myId = getUserID();
-        this.props.actions.getSaved(myId);
-    }
+  componentDidMount() {
+      const myId = getUserID();
+      this.props.actions.getSaved(myId);
+  }
 
   render() {
     const { classes } = this.props;
-    console.log('saved_activities', this.props.saved_activities);
 
     let activityDetails = this.props.saved_activities.map(item => (
-        <Activity
-            activityName={item.activity.name}
-            activityPrice={item.activity.price}
-            activityDate={item.activity.date}
-            activityLocation={item.activity.location}
-            savedPage={false}
-            activityLink={item.activity.link}
-            activityDescription={item.activity.description}
-            activityImage={item.activity.image_url}
-            activityId={item.activity.id}
-            activitySource={item.activity.source}
-        />
+      <Activity
+        activityName={item.activity.name}
+        activityPrice={item.activity.price}
+        activityDate={item.activity.date}
+        activityLocation={item.activity.location}
+        savedPage={false}
+        activityLink={item.activity.link}
+        activityDescription={item.activity.description}
+        activityImage={item.activity.image_url}
+        activityId={item.activity.id}
+        activitySource={item.activity.source}
+      />
     ));
 
     let final = [];

@@ -28,7 +28,7 @@ class FacebookLinkButton extends React.Component {
     render() {
       const { classes } = this.props;
       return(
-          <Button className={ classes.btn } onClick={ this.handleClick }>View on Facebook</Button>
+          <Button className={ classes.btn } onClick={ this.handleClick }>View Profile on Facebook</Button>
       );
     }
 }

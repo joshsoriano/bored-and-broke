@@ -21,6 +21,8 @@ const propTypes = {
     activityImage: PropTypes.string,
     activityId: PropTypes.number,
     activitySource: PropTypes.string,
+    activityQueryLocation: PropTypes.string,
+    dash: PropTypes.string,
 };
 
 const styles = {
@@ -51,8 +53,10 @@ class Activity extends React.Component {
       const dateF2 = dateF1.concat(date2);
       const dateF3 = dateF2.concat(slash);
       const dateF4 = dateF3.concat(date3);
+      const location = this.props.activityLocation ? this.props.activityLocation : this.props.activityQueryCity;
       this.state = {
-          formattedDate: dateF4
+          formattedDate: dateF4,
+          location: location
       };
   }
 
@@ -67,7 +71,8 @@ class Activity extends React.Component {
             activityPrice,
             activityLocation,
             activityLink,
-            activitySource
+            activitySource,
+            activityQueryCity
         } = this.props;
         let modalType =
             (<SingleActivityModal
@@ -109,15 +114,16 @@ class Activity extends React.Component {
         if (this.props.activityImage === null || this.props.activityImage === "") {
             imgSrc = laSkyline1;
         }
+        let price = (this.props.activityPrice > -1) ? this.props.activityPrice : "-";
 
         return (
             <Col sx={12} sm={6} md={3}>
                 <Thumbnail src={imgSrc} alt="242x200">
                     <div className = {classes.textDetails}>
                         <h3 className = {classes.activityTitle}>{this.props.activityName}</h3>
-                        <p className = {classes.activityDesc}>Price: ${this.props.activityPrice}</p>
+                        <p className = {classes.activityDesc}>Price: ${price}</p>
                         <p className = {classes.activityDesc}>Date: {this.state.formattedDate}</p>
-                        <p className = {classes.activityDesc}>Location: {this.props.activityLocation}</p>
+                        <p className = {classes.activityDesc}>Location: {this.state.location}</p>
 
                         {modalType}
                     </div>
