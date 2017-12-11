@@ -9,7 +9,6 @@ import SavedActivities from './containers/SavedActivitiesContainer';
 import Settings from './containers/SettingsContainer';
 import Loading from './containers/LoadingContainer';
 import injectSheet from 'react-jss';
-import App from './containers/AppContainer';
 
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
@@ -49,9 +48,6 @@ class BoredAndBroke extends React.Component {
                      <Route path="/Settings" component={Settings}/>
                      <Route path="/LoginCreateAccount" component={LoginCreateAccount}/>
                      <Route path="/Loading" component={Loading}/>
-
-                     <Route path="/DemoTest" component={App}/>
-
                 </Switch>
             </div>
          </Router>

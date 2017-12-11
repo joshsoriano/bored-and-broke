@@ -148,6 +148,8 @@ class SingleActivityModal extends React.Component {
         const dateF2 = dateF1.concat(date2);
         const dateF3 = dateF2.concat(slash);
         const dateF4 = dateF3.concat(date3);
+
+        const location = this.props.location ? this.props.location : this.props.query
         this.state = {
             show: false,
             tagline: false,
@@ -252,7 +254,7 @@ class SingleActivityModal extends React.Component {
                     <Modal.Header closeButton>
                         <Modal.Title className={ classes.titleText } id="contained-modal-title">{this.props.name}</Modal.Title>
                         <h5 className={ classes.titleSubText }>Date: {this.state.formattedDate}</h5>
-                        <h5 className={ classes.titleSubText }>Location: { this.props.location}</h5>
+                        <h5 className={ classes.titleSubText }>Location: {this.props.location}</h5>
                         <h5 className={ classes.titleSubText }>Price: ${this.props.price}</h5>
                     </Modal.Header>
                     <Modal.Body>
