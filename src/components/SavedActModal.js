@@ -271,7 +271,7 @@ class SingleActivityModal extends React.Component {
                         <h5 className={ classes.titleSubText }>Date: {this.state.formattedDate}</h5>
                         <h5 className={ classes.titleSubText }>Location: {this.props.location}</h5>
                         <h5 className={ classes.titleSubText }>Price: ${this.props.price}</h5>
-                        <p className={showTaglineClasses}> Here is your tagline: {this.props.tagline} </p>
+                        <p className={showTaglineClasses}> Your tagline: {this.props.tagline} </p>
                     </Modal.Header>
                     <Modal.Body>
 
