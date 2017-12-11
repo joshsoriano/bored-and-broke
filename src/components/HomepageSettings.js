@@ -5,10 +5,13 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import { getUserID } from './userID';
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
+// import { saveLocation, getUserLocation } from './userID';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
 };
+
+// const userLocation = getUserLocation();
 
 const styles = {
     main: {
@@ -42,6 +45,7 @@ class HomepageSettings extends React.Component {
         const value = target.value;
         const name = target.name;
 
+        // this.props.actions.saveLocation(value);
         this.setState({
             [name]: value
         });
@@ -49,6 +53,8 @@ class HomepageSettings extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
+        // this.props.actions.saveLocation(this.state.city, userLocation);
+        // this.props.actions.getUserLocation(userLocation);
         this.props.actions.getActivities(getUserID(), this.state.price, this.state.city);
     }
 
