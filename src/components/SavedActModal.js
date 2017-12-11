@@ -211,15 +211,6 @@ class SingleActivityModal extends React.Component {
             show: true
         })
     };
-    //
-    // stringInsert = () => {
-    //     const dateToUse = this.props.date;
-    //     console.log('date', dateToUse);
-        // const slash = "-";
-        // const dateFormatted = [dateToUse.slice(0, 3), slash, dateToUse.slice(3)].join('');
-        // console.log(dateFormatted);
-
-    // };
 
     render() {
         const { classes, showModal, userBio, userTagline, date, location, price, description, link, apisource } = this.props;
@@ -232,10 +223,6 @@ class SingleActivityModal extends React.Component {
             [classes.carouselOn]: this.state.thirdState,
             [classes.carousel]: true,
         });
-
-        // const showTaglineClasses = classNames({
-        //     [classes.showUserTagline]: !this.state.thirdState,
-        // });
 
         const saveButtonClasses = classNames({
             [classes.buttonContainer]: true,

@@ -168,10 +168,6 @@ class SingleActivityModal extends React.Component {
       this.props.actions.saveActivity(userId, this.props.id);
     };
 
-    // getTaglineState() {
-    //     return this.state.value;  //this is the most accurate one! Use this!
-    // };
-
     handleTagline(e) {
         this.setState({
             value: e.target.value, //note that the taglineVal is more accurate
@@ -304,11 +300,11 @@ class SingleActivityModal extends React.Component {
 
                             <div className={ classes.buttonContainer }>
                               <Button onClick={ this.changeToThirdState } disabled={ !this.state.value }
-                                bastyle="primary" bsSize="small"> { this.props.onRequestClose } Save Tagline </Button>
+                                bastyle="primary" bsSize="small"> { this.props.onRequestClose } Save & see other users </Button>
                             </div>
 
                             <div className={ classes.buttonContainer }>
-                              <Button onClick={ this.changeToThirdState } bastyle="primary" bsSize="small">{ this.props.onRequestClose } Skip </Button>
+                              <Button onClick={ this.changeToThirdState } bastyle="primary" bsSize="small">{ this.props.onRequestClose } Skip & see other users </Button>
                             </div>
 
                         </div>
