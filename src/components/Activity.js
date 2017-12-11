@@ -21,7 +21,7 @@ const propTypes = {
     activityImage: PropTypes.string,
     activityId: PropTypes.number,
     activitySource: PropTypes.string,
-    activityQueryLocation: PropTypes.string,
+    activityQueryCity: PropTypes.string,
     dash: PropTypes.string,
 };
 
@@ -53,10 +53,8 @@ class Activity extends React.Component {
       const dateF2 = dateF1.concat(date2);
       const dateF3 = dateF2.concat(slash);
       const dateF4 = dateF3.concat(date3);
-      const location = this.props.activityLocation ? this.props.activityLocation : this.props.activityQueryCity;
       this.state = {
-          formattedDate: dateF4,
-          location: location
+          formattedDate: dateF4
       };
   }
 
@@ -74,6 +72,7 @@ class Activity extends React.Component {
             activitySource,
             activityQueryCity
         } = this.props;
+
         let modalType =
             (<SingleActivityModal
                   savedAlready={ false } // when false nothing happens, when true the carousel goes away
@@ -88,6 +87,7 @@ class Activity extends React.Component {
                   image={this.props.activityImage}
                   id={this.props.activityId}
                   apisource={this.props.activitySource}
+                  queryCity={this.props.activityQueryCity}
             >
             </SingleActivityModal>)
 
@@ -106,6 +106,7 @@ class Activity extends React.Component {
                     image={this.props.activityImage}
                     id={this.props.activityId}
                     apisource={this.props.activitySource}
+                    queryCity={this.props.activityQueryCity}
 
                 >
                 </SavedActModal>)
@@ -115,6 +116,7 @@ class Activity extends React.Component {
             imgSrc = laSkyline1;
         }
         let price = (this.props.activityPrice > -1) ? this.props.activityPrice : "-";
+        let location = this.props.activityLocation ? this.props.activityLocation : this.props.activityQueryCity;
 
         return (
             <Col sx={12} sm={6} md={3}>
@@ -123,7 +125,7 @@ class Activity extends React.Component {
                         <h3 className = {classes.activityTitle}>{this.props.activityName}</h3>
                         <p className = {classes.activityDesc}>Price: ${price}</p>
                         <p className = {classes.activityDesc}>Date: {this.state.formattedDate}</p>
-                        <p className = {classes.activityDesc}>Location: {this.state.location}</p>
+                        <p className = {classes.activityDesc}>Location: {location}</p>
 
                         {modalType}
                     </div>

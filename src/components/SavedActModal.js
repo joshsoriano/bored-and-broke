@@ -24,6 +24,7 @@ const propTypes = {
     description: PropTypes.string,
     link: PropTypes.string,
     id: PropTypes.number,
+    queryCity: PropTypes.string,
 };
 
 const defaultProps = {
@@ -213,7 +214,7 @@ class SingleActivityModal extends React.Component {
     };
 
     render() {
-        const { classes, showModal, userBio, userTagline, date, location, price, description, link, apisource } = this.props;
+        const { classes, showModal, userBio, userTagline, date, location, price, description, link, apisource, queryCity } = this.props;
         const { secondState, thirdState, value, tagLongEnough, formattedDate } = this.state;
         const taglineClasses = classNames({
             [classes.taglineStyle]: this.state.secondState,
@@ -252,6 +253,8 @@ class SingleActivityModal extends React.Component {
             </Carousel.Item>
         ));
 
+        let locationString = this.props.location ? this.props.location : this.props.queryCity;
+        let priceString = (this.props.price > -1) ? this.props.price : "-";
 
         let tagOnSaved = "Edit Tagline:";
         let placeholderText = this.props.tagline;
@@ -280,9 +283,9 @@ class SingleActivityModal extends React.Component {
                     <Modal.Header closeButton>
                         <Modal.Title className={ classes.titleText } id="contained-modal-title">{this.props.name}</Modal.Title>
                         <h5 className={ classes.titleSubText }>Date: {this.state.formattedDate}</h5>
-                        <h5 className={ classes.titleSubText }>Location: {this.props.location}</h5>
-                        <h5 className={ classes.titleSubText }>Price: ${this.props.price}</h5>
-                    </Modal.Header>
+                        <h5 className={ classes.titleSubText }>Location: {locationString}</h5>
+                        <h5 className={ classes.titleSubText }>Price: ${priceString}</h5>
+                      </Modal.Header>
                     <Modal.Body>
 
                         <div className={ classes.descriptionTextContainer }>

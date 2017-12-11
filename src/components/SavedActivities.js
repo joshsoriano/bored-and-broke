@@ -66,6 +66,7 @@ class SavedActivities extends React.Component {
         activityImage={item.activity.image_url}
         activityId={item.activity.id}
         activitySource={item.activity.source}
+        activityQueryCity={item.activity.query_city}
       />
     ));
 
