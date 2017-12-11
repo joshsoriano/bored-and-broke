@@ -185,11 +185,7 @@ class SingleActivityModal extends React.Component {
       // let taglineVal = this.getTaglineState();
       let taglineVal = this.state.value;
       let userId = getUserID();
-      console.log('activityId', this.props.id);
       this.props.actions.updateTagline(userId, this.props.id, taglineVal);
-    //   this.props.actions.getTagline(userId, this.props.id);
-      console.log("returned Tag", this.props.tagline);
-      // const returnedTagline = this.props.tagline(userId, this.props.id);
     };
 
     removeFromSaved() {

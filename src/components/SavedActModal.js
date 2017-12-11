@@ -137,12 +137,10 @@ class SingleActivityModal extends React.Component {
         this.changeToSecondState = this.changeToSecondState.bind(this);
         this.changeToThirdState = this.changeToThirdState.bind(this);
         this.removeFromSaved = this.removeFromSaved.bind(this);
-        // this.getTaglineState = this.getTaglineState.bind(this);
         this.handleTagline = this.handleTagline.bind(this);
         this.onMoreInfo = this.onMoreInfo.bind(this);
         const dateT = this.props.date;
         const dateToUse = dateT.toString();
-        console.log('date', dateToUse);
         const slash = "-";
         const date1 = dateToUse.slice(0,4);
         const date2 = dateToUse.slice(4,6);
@@ -152,8 +150,6 @@ class SingleActivityModal extends React.Component {
         const dateF3 = dateF2.concat(slash);
         const dateF4 = dateF3.concat(date3);
 
-        // const dateFormatted = [dateToUse.slice(0, 3), slash, dateToUse.slice(3)].join('');
-        console.log('dateF4',dateF4);
         this.state = {
             show: false,
             tagline: false,
@@ -199,7 +195,6 @@ class SingleActivityModal extends React.Component {
     removeFromSaved() {
         let userId = getUserID();
         this.props.actions.unsaveActivity(userId, this.props.id);
-        console.log("unsaved!!");
         this.setState({
             secondState: true,
             thirdState: true,
