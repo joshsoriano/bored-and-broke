@@ -190,6 +190,7 @@ class SingleActivityModal extends React.Component {
       let taglineVal = this.state.value;
       let userId = getUserID();
       this.props.actions.updateTagline(userId, this.props.id, taglineVal);
+      this.props.actions.getUsersForActivity(this.props.id);
     };
 
     removeFromSaved() {
