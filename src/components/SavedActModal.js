@@ -6,7 +6,7 @@ import Carousel from 'react-bootstrap/lib/Carousel';
 import {Form, FormGroup, ControlLabel, FormControl, Col, Checkbox} from 'react-bootstrap'
 import Modal from 'react-bootstrap/lib/Modal';
 import Button from 'react-bootstrap/lib/Button';
-import blackBackground from '../images/blackBackground.jpg';
+import blueBackground from '../images/blueBackground.png';
 import logo_black from '../images/logo-black.png';
 import FacebookLinkButton from './FacebookLinkButton.js';
 import {getUserID} from './userID';
@@ -251,7 +251,7 @@ class SingleActivityModal extends React.Component {
 
         let carouselDetails = this.props.users.map(item => (
             <Carousel.Item>
-                <img alt=" " src={blackBackground}/>
+                <img alt=" " src={blueBackground}/>
                 <Carousel.Caption>
                   <h3>{item.user.name}</h3>
                   <p>Bio: {item.user.bio}</p>
