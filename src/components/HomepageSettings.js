@@ -33,10 +33,10 @@ class HomepageSettings extends React.Component {
         let location = getUserLocation();
         let price = getPrice();
 
-        if (location === undefined) {
+        if (location === null) {
             location = '';
         }
-        if (price === undefined) {
+        if (price === null) {
             price = 0;
         }
         this.state = {
