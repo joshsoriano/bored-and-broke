@@ -18,7 +18,7 @@ export const addActivityError = (data) => {
 }
 
 export const ADD_ACTIVITY = "ADD_ACTVIITY"
-export const addActivity = (name, date, location, imageUrl, link, price, description, city) => {
+export const addActivity = (name, date, location, imageUrl, link, price, description, source, city) => {
     return dispatch => {
         dispatch(addActivityStart());
         axios.put(`/api/activities/add`, {
@@ -30,6 +30,7 @@ export const addActivity = (name, date, location, imageUrl, link, price, descrip
                 link: link,
                 price: price,
                 description: description,
+                source: source,
                 city: city
            }
         })

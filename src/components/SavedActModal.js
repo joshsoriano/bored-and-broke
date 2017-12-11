@@ -154,7 +154,6 @@ class SingleActivityModal extends React.Component {
         this.setState({
             secondState: this.props.savedAlready,
       });
-      // more logic here to add this event to a user's list of saved events
     };
 
     getTaglineState() {
@@ -205,7 +204,7 @@ class SingleActivityModal extends React.Component {
     }
 
     render() {
-        const { classes, showModal, userBio, userTagline, date, location, price, description, link } = this.props;
+        const { classes, showModal, userBio, userTagline, date, location, price, description, link, apisource } = this.props;
         const { secondState, thirdState, value, tagLongEnough } = this.state;
         const taglineClasses = classNames({
             [classes.taglineStyle]: this.state.secondState,
@@ -261,7 +260,7 @@ class SingleActivityModal extends React.Component {
                         <div className={ classes.descriptionTextContainer }>
                           <span className={ classes.descriptionText }>
                             {this.props.description}
-                            <p><a href={this.props.link}>See more here</a></p>
+                            <p><a href={this.props.link}>See more on { this.props.apisource }</a></p>
                           </span>
                         </div>
 

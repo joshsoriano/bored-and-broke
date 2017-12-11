@@ -20,6 +20,7 @@ const styles = {
     main: {
         backgroundColor: '#ECF0F1',
         textAlign: 'center',
+        minHeight: '100vh',
     },
     titleContainer: {
         paddingTop: '20px',
@@ -106,6 +107,7 @@ class Homepage extends React.Component {
             activityDescription={item.description}
             activityImage={item.image_url}
             activityId={item.id}
+            activitySource={item.source}
         />
     ));
 

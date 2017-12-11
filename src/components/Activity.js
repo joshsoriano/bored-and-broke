@@ -20,6 +20,7 @@ const propTypes = {
     activityLink: PropTypes.string,
     activityImage: PropTypes.string,
     activityId: PropTypes.number,
+    activitySource: PropTypes.string,
 };
 
 const styles = {
@@ -52,7 +53,8 @@ class Activity extends React.Component {
             activityName,
             activityPrice,
             activityLocation,
-            activityLink
+            activityLink,
+            activitySource
         } = this.props;
         let modalType =
             (<SingleActivityModal
@@ -67,6 +69,7 @@ class Activity extends React.Component {
                   link={this.props.activityLink}
                   image={this.props.activityImage}
                   id={this.props.activityId}
+                  apisource={this.props.activitySource}
             >
             </SingleActivityModal>)
 
@@ -84,6 +87,8 @@ class Activity extends React.Component {
                     link={this.props.activityLink}
                     image={this.props.activityImage}
                     id={this.props.activityId}
+                    apisource={this.props.activitySource}
+
                 >
                 </SavedActModal>)
         }

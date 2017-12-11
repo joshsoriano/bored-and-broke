@@ -140,6 +140,7 @@ class Loading extends React.Component {
       activity.link,
       activity.price,
       activity.description,
+      activity.source,
       city
     );
   }

@@ -118,6 +118,7 @@ router.put('/add', function(req, res, next) {
             link: req.body.data.link,
             price: req.body.data.price ? Number.parseInt(req.body.data.price) : 0,
             description: req.body.data.description,
+            source: req.body.data.source,
             query_city: req.body.data.city
         }
     })

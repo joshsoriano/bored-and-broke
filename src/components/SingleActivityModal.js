@@ -24,6 +24,7 @@ const propTypes = {
     description: PropTypes.string,
     link: PropTypes.string,
     id: PropTypes.string,
+    apisource: PropTypes.string,
 };
 
 const defaultProps = {
@@ -203,7 +204,7 @@ class SingleActivityModal extends React.Component {
     }
 
     render() {
-        const { classes, showModal, userBio, userTagline, date, location, price, description, link } = this.props;
+        const { classes, showModal, userBio, userTagline, date, location, price, description, link, apisource } = this.props;
         const { secondState, thirdState, value, tagLongEnough } = this.state;
         const taglineClasses = classNames({
             [classes.taglineStyle]: this.state.secondState,
@@ -254,12 +255,12 @@ class SingleActivityModal extends React.Component {
                         <div className={ classes.descriptionTextContainer }>
                           <span className={ classes.descriptionText }>
                             {this.props.description}
-                            <p><a href={this.props.link}>See more here</a></p>
+                            <p><a href={this.props.link}>See more on {this.props.apisource}</a></p>
                           </span>
                         </div>
 
                         <div className = { saveButtonClasses }>
-                          <Button onClick={ this.changeToSecondState } bastyle="primary" bsSize="large">{ this.props.onRequestClose } Save Event </Button>
+                          <Button onClick={ this.changeToSecondState } bastyle="primary" bsSize="large">{ this.props.onRequestClose } Save Activity </Button>
                         </div>
 
                         <div className={ unSaveButtonClasses }>

@@ -17,7 +17,8 @@ const Activity = db.define('activity', {
    link: { type: Sequelize.TEXT },
    price: { type: Sequelize.DOUBLE },
    description: { type: Sequelize.TEXT },
-   query_city: { type: Sequelize.STRING }
+   query_city: { type: Sequelize.STRING },
+   source: { type: Sequelize.STRING }
 
  });
 
