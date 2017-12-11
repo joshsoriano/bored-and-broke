@@ -108,6 +108,7 @@ class Homepage extends React.Component {
             activityImage={item.image_url}
             activityId={item.id}
             activitySource={item.source}
+            activityQueryCity={item.query_city}
         />
     ));
 

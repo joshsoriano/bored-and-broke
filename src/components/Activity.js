@@ -21,6 +21,7 @@ const propTypes = {
     activityImage: PropTypes.string,
     activityId: PropTypes.number,
     activitySource: PropTypes.string,
+    activityQueryLocation: PropTypes.string,
 };
 
 const styles = {
@@ -51,8 +52,10 @@ class Activity extends React.Component {
       const dateF2 = dateF1.concat(date2);
       const dateF3 = dateF2.concat(slash);
       const dateF4 = dateF3.concat(date3);
+      const location = this.props.activityLocation ? this.props.activityLocation : this.props.activityQueryCity;
       this.state = {
-          formattedDate: dateF4
+          formattedDate: dateF4,
+          location: location
       };
   }
 
@@ -67,7 +70,8 @@ class Activity extends React.Component {
             activityPrice,
             activityLocation,
             activityLink,
-            activitySource
+            activitySource,
+            activityQueryCity
         } = this.props;
         let modalType =
             (<SingleActivityModal
@@ -117,7 +121,7 @@ class Activity extends React.Component {
                         <h3 className = {classes.activityTitle}>{this.props.activityName}</h3>
                         <p className = {classes.activityDesc}>Price: ${this.props.activityPrice}</p>
                         <p className = {classes.activityDesc}>Date: {this.state.formattedDate}</p>
-                        <p className = {classes.activityDesc}>Location: {this.props.activityLocation}</p>
+                        <p className = {classes.activityDesc}>Location: {this.state.location}</p>
 
                         {modalType}
                     </div>
