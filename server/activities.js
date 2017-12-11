@@ -31,6 +31,7 @@ router.get('/', function(req, res, next) {
           };
           return Activity.findAll({
             limit: 40,
+            order: Sequelize.col('date'),
             where: {
               price: { [Sequelize.Op.lte]: req.query.priceLimit },
               date: { [Sequelize.Op.gte]: yyyymmdd },
