@@ -20,6 +20,7 @@ const propTypes = {
     activityLink: PropTypes.string,
     activityImage: PropTypes.string,
     activityId: PropTypes.number,
+    activitySource: PropTypes.string,
 };
 
 const styles = {
@@ -40,7 +41,20 @@ const styles = {
 class Activity extends React.Component {
     constructor(props) {
       super(props)
-    }
+      const dateT = this.props.activityDate;
+      const dateToUse = dateT.toString();
+      const slash = "-";
+      const date1 = dateToUse.slice(0,4);
+      const date2 = dateToUse.slice(4,6);
+      const date3 = dateToUse.slice(6,8);
+      const dateF1 = date1.concat(slash);
+      const dateF2 = dateF1.concat(date2);
+      const dateF3 = dateF2.concat(slash);
+      const dateF4 = dateF3.concat(date3);
+      this.state = {
+          formattedDate: dateF4
+      };
+  }
 
     render() {
         const {
@@ -52,7 +66,8 @@ class Activity extends React.Component {
             activityName,
             activityPrice,
             activityLocation,
-            activityLink
+            activityLink,
+            activitySource
         } = this.props;
         let modalType =
             (<SingleActivityModal
@@ -67,6 +82,7 @@ class Activity extends React.Component {
                   link={this.props.activityLink}
                   image={this.props.activityImage}
                   id={this.props.activityId}
+                  apisource={this.props.activitySource}
             >
             </SingleActivityModal>)
 
@@ -84,6 +100,8 @@ class Activity extends React.Component {
                     link={this.props.activityLink}
                     image={this.props.activityImage}
                     id={this.props.activityId}
+                    apisource={this.props.activitySource}
+
                 >
                 </SavedActModal>)
         }
@@ -98,7 +116,7 @@ class Activity extends React.Component {
                     <div className = {classes.textDetails}>
                         <h3 className = {classes.activityTitle}>{this.props.activityName}</h3>
                         <p className = {classes.activityDesc}>Price: ${this.props.activityPrice}</p>
-                        <p className = {classes.activityDesc}>Date: {this.props.activityDate}</p>
+                        <p className = {classes.activityDesc}>Date: {this.state.formattedDate}</p>
                         <p className = {classes.activityDesc}>Location: {this.props.activityLocation}</p>
 
                         {modalType}

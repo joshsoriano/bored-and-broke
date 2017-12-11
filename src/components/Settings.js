@@ -126,9 +126,7 @@ class Settings extends React.Component {
           <NavigationBar />
 
           <div >
-              <Col className={ classes.instructions } sm={12}>
-                  <span>Please enter your information below. Feel free to change it whenever!</span>
-              </Col>
+                <h4 className={ classes.instructions }>Settings</h4>
           </div>
           <div className={ classes.formInput }>
               <Form horizontal>
@@ -149,7 +147,7 @@ class Settings extends React.Component {
                       Bio
                     </Col>
                     <Col className={ classes.rightCol } sm={6}>
-                      <textarea className="form-control" value={this.state.value} onChange={this.handleChange} rows="3" placeholder="Talk about yourself!"></textarea>
+                      <textarea className="form-control" value={this.state.value} onChange={this.handleChange} rows="3" placeholder="Describe yourself!"></textarea>
                     </Col>
                   </FormGroup>
 

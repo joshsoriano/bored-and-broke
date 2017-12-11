@@ -14,6 +14,7 @@ const styles = {
     main: {
         backgroundColor: '#2C3E50',
         textAlign: 'center',
+        minHeight: '100vh',
     },
     navBar: {
         display: 'flex',
@@ -65,6 +66,7 @@ class SavedActivities extends React.Component {
             activityDescription={item.activity.description}
             activityImage={item.activity.image_url}
             activityId={item.activity.id}
+            activitySource={item.activity.source}
         />
     ));
 
@@ -85,7 +87,7 @@ class SavedActivities extends React.Component {
       <div className={ classes.main }>
         <NavigationBar />
         <div className={ classes.instructions }>
-            <span>Here are the activities you have saved so far:</span>
+            <h3>Saved Activities</h3>
         </div>
         {final}
     </div>

@@ -24,6 +24,7 @@ const propTypes = {
     description: PropTypes.string,
     link: PropTypes.string,
     id: PropTypes.string,
+    apisource: PropTypes.string,
 };
 
 const defaultProps = {
@@ -134,16 +135,26 @@ class SingleActivityModal extends React.Component {
         this.changeToSecondState = this.changeToSecondState.bind(this);
         this.changeToThirdState = this.changeToThirdState.bind(this);
         this.removeFromSaved = this.removeFromSaved.bind(this);
-        // this.getTaglineState = this.getTaglineState.bind(this);
         this.handleTagline = this.handleTagline.bind(this);
         this.onMoreClick = this.onMoreClick.bind(this);
+
+        const dateT = this.props.date;
+        const dateToUse = dateT.toString();
+        const slash = "-";
+        const date1 = dateToUse.slice(0,4);
+        const date2 = dateToUse.slice(4,6);
+        const date3 = dateToUse.slice(6,8);
+        const dateF1 = date1.concat(slash);
+        const dateF2 = dateF1.concat(date2);
+        const dateF3 = dateF2.concat(slash);
+        const dateF4 = dateF3.concat(date3);
         this.state = {
             show: false,
             tagline: false,
             secondState: true,
             thirdState: true,
             value: '',
-            // tagLongEnough: false,
+            formattedDate: dateF4
         };
     }
 
@@ -174,17 +185,12 @@ class SingleActivityModal extends React.Component {
       // let taglineVal = this.getTaglineState();
       let taglineVal = this.state.value;
       let userId = getUserID();
-      console.log('activityId', this.props.id);
       this.props.actions.updateTagline(userId, this.props.id, taglineVal);
-    //   this.props.actions.getTagline(userId, this.props.id);
-      console.log("returned Tag", this.props.tagline);
-      // const returnedTagline = this.props.tagline(userId, this.props.id);
     };
 
     removeFromSaved() {
         let userId = getUserID();
         this.props.actions.unsaveActivity(userId, this.props.id);
-        console.log("unsaved!!");
         this.setState({
             secondState: true,
             thirdState: true,
@@ -203,7 +209,7 @@ class SingleActivityModal extends React.Component {
     }
 
     render() {
-        const { classes, showModal, userBio, userTagline, date, location, price, description, link } = this.props;
+        const { classes, showModal, userBio, userTagline, date, location, price, description, link, apisource } = this.props;
         const { secondState, thirdState, value, tagLongEnough } = this.state;
         const taglineClasses = classNames({
             [classes.taglineStyle]: this.state.secondState,
@@ -245,21 +251,21 @@ class SingleActivityModal extends React.Component {
                 >
                     <Modal.Header closeButton>
                         <Modal.Title className={ classes.titleText } id="contained-modal-title">{this.props.name}</Modal.Title>
-                        <h5 className={ classes.titleSubText }>Date: {this.props.date}</h5>
+                        <h5 className={ classes.titleSubText }>Date: {this.state.formattedDate}</h5>
                         <h5 className={ classes.titleSubText }>Location: { this.props.location}</h5>
-                        <h5 className={ classes.titleSubText }>Price: {this.props.price}</h5>
+                        <h5 className={ classes.titleSubText }>Price: ${this.props.price}</h5>
                     </Modal.Header>
                     <Modal.Body>
 
                         <div className={ classes.descriptionTextContainer }>
                           <span className={ classes.descriptionText }>
                             {this.props.description}
-                            <p>See more at: {this.props.link} </p>
+                            <p><a href={this.props.link}>See more on {this.props.apisource}</a></p>
                           </span>
                         </div>
 
                         <div className = { saveButtonClasses }>
-                          <Button onClick={ this.changeToSecondState } bastyle="primary" bsSize="large">{ this.props.onRequestClose } Save Event </Button>
+                          <Button onClick={ this.changeToSecondState } bastyle="primary" bsSize="large">{ this.props.onRequestClose } Save Activity </Button>
                         </div>
 
                         <div className={ unSaveButtonClasses }>
