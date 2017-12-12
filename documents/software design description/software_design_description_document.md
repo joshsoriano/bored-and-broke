@@ -70,24 +70,23 @@ Collectively, the Web Frontend CSC, Database CSC and Server CSC are the Bored&Br
 ### 6.3.1 Detailed Class Descriptions
 The following sections provide the details of all classes used in the Bored and Broke application. Each class is defined by its fields and methods, which are described in detail below.
 
-#### 6.3.1.3  Models
+#### 6.3.1.3  Database
 * Fields:
   * Activity: defines the activity (activities populated from various APIs) model.
   * Tagline: defines the tagline (taglines created by users) model.
   * User: defines the user (users of Bored & Broke) model.
 * Methods:
   * sync(): creates the tables in the database if they do not already exist.
-#### 6.3.1.4  Database
-* Fields:
-  * Models: (from above)
+#### 6.3.1.4  Server
 * Methods:
   * getActivity(): returns an activity object from the database.
   * getActivities(): returns an array of activities that occur in the future from the database.
   * getSaved(): returns an array of activities that have been saved by a user.
   * saveActivity(): store userID, activityID, and tagline in the database.
+  * unsaveActivity(): Remove tagline in the database for a user ID and activity ID.
   * addActivity(): store an activity object in the database.
-  * getUserSettings(): return a user object.
-  * setUserSettings(): store a user’s information to the database.
+  * getUser(): return a user object.
+  * saveUserSettings(): store or update a user’s information in the database.
   * findOrCreateUser(): returns true if the user exists in the user table of the database, and cerates the user and returns false if not.
   
 #### 6.3.1.5  LoginButton
