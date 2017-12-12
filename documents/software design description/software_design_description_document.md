@@ -42,7 +42,7 @@ The PostgreSQL database runs through the AWS Relational Database Service (RDS). 
 #### Data Flow Diagram
 ![State Diagram](stateDiagram.png)
 #### Class Diagram
-![Class Diagram](https://raw.githubusercontent.com/joshsoriano/bored-and-broke/master/documents/software%20design%20description/class_diagram.png)
+![Class Diagram](architectureClassDiagrams.PNG)
 
 ## 6.3 CSC and CSU Descriptions Section
 ### Web Frontend CSC
@@ -168,6 +168,7 @@ The following sections provide the details of all classes used in the Bored and 
   * TitleContainer: holds the title of the page.
   * SingleActivityModal: (from above)
   * Activity: (from above)
+  * BioModal: Allows a first-time user to create their bio, which is editable from the settings page. 
 * Methods:
   * render(): renders the final homepage consisting of the NavigationBar, HomepageSettings, TitleContainer, and many SingleActivityModals.
 #### 6.3.1.15  Index
