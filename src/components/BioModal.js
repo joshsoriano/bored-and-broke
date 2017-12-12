@@ -48,16 +48,14 @@ class BioModal extends React.Component {
     }
 
     handleBio = (e) => {
-        this.setState({
-            value: e.target.value,
-        });
+        this.setState({ value: e.target.value });
     }
 
     render() {
         const { classes } = this.props;
         return (
             <div>
-                <Modal show={this.state.showModal} onHide={this.close}>
+                <Modal show={ this.state.showModal } onHide={ this.close }>
                     <Modal.Header closeButton>
                         <Modal.Title>Welcome to Bored&Broke!</Modal.Title>
                     </Modal.Header>

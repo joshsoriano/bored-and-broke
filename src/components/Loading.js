@@ -55,7 +55,7 @@ class Loading extends React.Component {
         }).done((result) => {
             let activityList = [];
             result._embedded.events.map((event) => {
-                let activity = {};
+                let activity = { };
 
                 // Build the activity object.
                 activity.name = event.name;
@@ -83,7 +83,7 @@ class Loading extends React.Component {
             "location.within": "10mi"
         }).done((result) => {
             result.events.map((event) => {
-                let activity = {};
+                let activity = { };
 
                 // Build the activity object.
                 activity.name = event.name.text;
@@ -114,7 +114,7 @@ class Loading extends React.Component {
             units: "mi"
         }).done((result) => {
             result.events.event.map((event) => {
-                let activity = {};
+                let activity = { };
 
                 // Build the activity object.
                 activity.name = event.title;

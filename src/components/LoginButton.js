@@ -25,7 +25,7 @@ class LoginButton extends React.Component {
         super(props);
         this.state = {
             first_time: false
-        }
+        };
     }
 
     componentDidMount() {
@@ -119,7 +119,7 @@ class LoginButton extends React.Component {
 
     render() {
         const { classes } = this.props;
-        return <img src={ fbButton } height='50px' onMouseOver={ this.mouseOver } className={ classes.loginButton } onClick={this.handleClick}/>
+        return <img src={ fbButton } height='50px' onMouseOver={ this.mouseOver } className={ classes.loginButton } onClick={ this.handleClick }/>
     }
 }
 
