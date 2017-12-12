@@ -1,10 +1,10 @@
 import React from 'react';
-import { Form, FormGroup, ControlLabel, FormControl, Col, Checkbox, Row } from 'react-bootstrap';
+import { Form, FormGroup, ControlLabel, FormControl, Col } from 'react-bootstrap';
 import Button from 'react-bootstrap/lib/Button';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import { getUserID } from './userID';
-import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { saveLocation, getUserLocation, savePrice, getPrice } from './userID';
 
 const propTypes = {

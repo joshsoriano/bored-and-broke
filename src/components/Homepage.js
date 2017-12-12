@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import NavigationBar from './NavigationBar.js';
 import HomepageSettings from '../containers/HomepageSettingsContainer';
-import SingleActivityModal from './SingleActivityModal.js';
 import Activity from '../containers/ActivityContainer.js';
 import { getUserID, getUserName, getPrice, getUserLocation } from './userID';
 import BioModal from '../containers/BioModalContainer.js';

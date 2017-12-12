@@ -6,7 +6,8 @@ import React from 'react';
 import $ from 'jquery';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-import { BrowserRouter as Redirect } from 'react-router-dom';
+// import { BrowserRouter as Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import { getUserID, getUserName } from './userID';
 import '../styles.css';
 

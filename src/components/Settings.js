@@ -63,7 +63,7 @@ const styles = {
 };
 
 const id = getUserID();
-const name = getUserName();
+// const name = getUserName();
 
 class Settings extends React.Component {
     constructor(props) {
