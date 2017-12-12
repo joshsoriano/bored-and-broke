@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import classNames from 'classnames';
 import Carousel from 'react-bootstrap/lib/Carousel';
-import {Form, FormGroup, ControlLabel, FormControl, Col, Checkbox} from 'react-bootstrap'
+import {Form, FormGroup, ControlLabel, FormControl, Col } from 'react-bootstrap'
 import Modal from 'react-bootstrap/lib/Modal';
 import Button from 'react-bootstrap/lib/Button';
 import blackBackground from '../images/blueBackground.png';
-import logo_black from '../images/logo-black.png';
 import FacebookLinkButton from './FacebookLinkButton.js';
 import {getUserID} from './userID';
 
@@ -206,8 +205,8 @@ class SingleActivityModal extends React.Component {
     }
 
     render() {
-        const { classes, showModal, userBio, userTagline, date, location, price, description, link, apisource, queryCity } = this.props;
-        const { secondState, thirdState, value, tagLongEnough } = this.state;
+        const { classes, userBio, userTagline, date, location, price, description, link, apisource, queryCity } = this.props;
+        const { secondState, thirdState, value } = this.state;
         const taglineClasses = classNames({
             [classes.taglineStyle]: this.state.secondState,
         });

@@ -4,7 +4,6 @@ import injectSheet from 'react-jss';
 
 import Col from 'react-bootstrap/lib/Col';
 import Thumbnail from 'react-bootstrap/lib/Thumbnail';
-import Button from 'react-bootstrap/lib/Button';
 import SingleActivityModal from '../containers/SingleActivityModalContainer';
 import SavedActModal from '../containers/SavedActModalContainer';
 import laSkyline1 from '../images/filler-images/la-skyline-1.jpeg';

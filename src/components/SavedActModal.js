@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import classNames from 'classnames';
 import Carousel from 'react-bootstrap/lib/Carousel';
-import {Form, FormGroup, ControlLabel, FormControl, Col, Checkbox} from 'react-bootstrap'
+import {Form, FormGroup, ControlLabel, FormControl, Col } from 'react-bootstrap'
 import Modal from 'react-bootstrap/lib/Modal';
 import Button from 'react-bootstrap/lib/Button';
 import blueBackground from '../images/blueBackground.png';
-import logo_black from '../images/logo-black.png';
 import FacebookLinkButton from './FacebookLinkButton.js';
 import {getUserID} from './userID';
 
@@ -158,8 +157,6 @@ class SingleActivityModal extends React.Component {
             thirdState: true,
             value: '',
             formattedDate: dateF4,
-            // secondTagDirection: tagOnSaved,
-            // tagLongEnough: false,
         };
     }
 
@@ -173,7 +170,6 @@ class SingleActivityModal extends React.Component {
     getTaglineState() {
         const taglineVal = this.state.value;  //this is the most accurate one! Use this!
         console.log("taglineVal:", taglineVal)
-        const tagLength = this.state.value.length; //need to make sure it's not too long
     };
 
     handleTagline(e) {
@@ -215,7 +211,7 @@ class SingleActivityModal extends React.Component {
 
     render() {
         const { classes, showModal, userBio, userTagline, date, location, price, description, link, apisource, queryCity } = this.props;
-        const { secondState, thirdState, value, tagLongEnough, formattedDate } = this.state;
+        const { secondState, thirdState, value, formattedDate } = this.state;
         const taglineClasses = classNames({
             [classes.taglineStyle]: this.state.secondState,
         });
