@@ -42,7 +42,7 @@ The PostgreSQL database runs through the AWS Relational Database Service (RDS). 
 #### Data Flow Diagram
 ![State Diagram](stateDiagram.png)
 #### Class Diagram
-![Class Diagram](architectureClassDiagrams.PNG)
+![Class Diagram](https://raw.githubusercontent.com/joshsoriano/bored-and-broke/master/documents/software%20design%20description/class_diagram.png)
 
 ## 6.3 CSC and CSU Descriptions Section
 ### Web Frontend CSC
