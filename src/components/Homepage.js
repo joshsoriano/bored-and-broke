@@ -91,10 +91,10 @@ class Homepage extends React.Component {
     let price = getPrice();
 
     this.props.actions.getUser(myId);
-    if (price === undefined) {
+    if (price === null) {
         price = 0;
     }
-    if (location === undefined) {
+    if (location === null) {
         location = "Los Angeles";
     }
     this.props.actions.getActivities(myId, price, location);

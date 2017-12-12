@@ -1,3 +1,7 @@
+/**
+  This file defines the Activity table in the database.
+**/
+
 'use strict'
 
 const Sequelize = require('sequelize');

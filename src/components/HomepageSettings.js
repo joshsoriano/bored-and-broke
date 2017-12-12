@@ -33,10 +33,10 @@ class HomepageSettings extends React.Component {
         let location = getUserLocation();
         let price = getPrice();
 
-        if (location === undefined) {
-            location = '';
+        if (location === null) {
+            location = "Los Angeles";
         }
-        if (price === undefined) {
+        if (price === null) {
             price = 0;
         }
         this.state = {
@@ -60,6 +60,8 @@ class HomepageSettings extends React.Component {
         event.preventDefault();
         saveLocation(this.state.city);
         savePrice(this.state.price);
+        console.log(this.state.price);
+        console.log(this.state.city);
         this.props.actions.getActivities(getUserID(), this.state.price, this.state.city);
     }
 

@@ -1,3 +1,7 @@
+/**
+    This file creates a button with a link to a specified user's Facebook profile.
+**/
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
@@ -10,10 +14,10 @@ const propTypes = {
 
 const styles = {
     btn: {
-      backgroundColor: '#3B5998',
-      color: 'white',
-      fontFamily: 'Open Sans',
-    }
+        backgroundColor: '#3B5998',
+        color: 'white',
+        fontFamily: 'Open Sans',
+    },
 };
 
 class FacebookLinkButton extends React.Component {
@@ -21,15 +25,17 @@ class FacebookLinkButton extends React.Component {
         super(props);
         this.handleClick = this.handleClick.bind(this);
     }
+
     handleClick() {
-      const link = 'https://www.facebook.com/' + this.props.userID;
-      window.open(link);
+        const link = 'https://www.facebook.com/' + this.props.userID;
+        window.open(link);
     }
+
     render() {
-      const { classes } = this.props;
-      return(
-          <Button className={ classes.btn } onClick={ this.handleClick }>View Profile on Facebook</Button>
-      );
+        const { classes } = this.props;
+        return(
+            <Button className={ classes.btn } onClick={ this.handleClick }>View Profile on Facebook</Button>
+        );
     }
 }
 

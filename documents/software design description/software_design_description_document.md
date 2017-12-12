@@ -21,14 +21,14 @@ The server hosts the web application as well as all the information stored withi
 Since Bored and Broke is a web based application, a wired or wireless connection will be needed in order to access the application via a web browser.
 
 ## 6.2 Architectural Design
-The overall design of our system is split up into four sets, the Web Frontend, Backend, AWS Elastic Beanstalk, and AWS RDS (PostgreSQL DB). The Web Frontend set of class definitions includes the display of the Login page, Homepage, Saved Activities, Activity Modal, and Settings page. The Backend set includes verifying the User’s Facebook login information, getting the activities from the various APIs, adding these activities to the database, displaying all of the activities, getting a single activity, getting the user’s saved activities, getting the user’s settings, changing or setting the user’s settings, and opening the database connection. The AWS Elastic Beanstalk set will include loading, building and deploying our web application. The AWS RDS set will include connecting to the web application. The Web Frontend set is connected to the Backend set and AWS Elastic Beanstalk set. The Backend set is connected to the Web Frontend, AWS Elastic Beanstalk and AWS RDS. The AWS set is connected to the Web Frontend and the Backend. The AWS RDS is connected to the Backend.
+The overall design of our system is split up into four sets, the Web Frontend, Server, AWS Elastic Beanstalk, and AWS RDS (PostgreSQL DB). The Web Frontend set of class definitions includes the display of the Login page, Homepage, Saved Activities, Activity Modal, and Settings page. The Backend set includes verifying the User’s Facebook login information, getting the activities from the various APIs, adding these activities to the database, displaying all of the activities, getting a single activity, getting the user’s saved activities, getting the user’s settings, changing or setting the user’s settings, and opening the database connection. The AWS Elastic Beanstalk set will include loading, building and deploying our web application. The AWS RDS set will include connecting to the web application. The Web Frontend set is connected to the Backend set and AWS Elastic Beanstalk set. The Backend set is connected to the Web Frontend, AWS Elastic Beanstalk and AWS RDS. The AWS set is connected to the Web Frontend and the Backend. The AWS RDS is connected to the Backend.
 
 ### 6.2.1 Major Software Components
 #### 6.2.1.1 - Web Frontend
 This component will be made up of four pages that allow the user to interact with the application. The first of the four pages is the Login/Create Account page, which will handle user login or account creation. Next is the Settings page, which will show user account information.  Third is the Homepage that will be populated with the activities that the user can navigate through.  Each activity, if clicked on, will lead to a single activity modal, which holds more information about the specific activity.  The final page is the Saved Activities page, which shows all of the activities that a user has saved from the Homepage.
 #### 6.2.1.2 - Database
 This component will store all of the activity and user account information. Queries will be used to access the information within the database and apply it to the user interface, as well as save information, gained from the user interface, into the database.
-#### 6.2.1.3 - Backend
+#### 6.2.1.3 - Server
 This component allows the user interface to interact with the database and handle the constant transferring/requesting of data. Users will be able to view and adjust their account information, such as price range and location.  Furthermore, activities can be saved to the database in order for its information to be retrieved later. The backend will also handle the multiple different API calls that return activity information, as well as provide login/account creation capabilities.
 
 ### 6.2.2 Major Software Interactions
@@ -38,11 +38,11 @@ The PostgreSQL database runs through the AWS Relational Database Service (RDS). 
 
 ### 6.2.3 Architectural Design Diagrams
 #### UML Case Diagram
-![Case Diagram](UMLCaseDiagram.png)
+![Case Diagram](UML.png)
 #### Data Flow Diagram
 ![State Diagram](stateDiagram.png)
 #### Class Diagram
-![Class Diagram](architectureClassDiagrams.png)
+![Class Diagram](architectureClassDiagrams.PNG)
 
 ## 6.3 CSC and CSU Descriptions Section
 ### Web Frontend CSC
@@ -69,38 +69,26 @@ Collectively, the Web Frontend CSC, Database CSC and Server CSC are the Bored&Br
 
 ### 6.3.1 Detailed Class Descriptions
 The following sections provide the details of all classes used in the Bored and Broke application. Each class is defined by its fields and methods, which are described in detail below.
-#### 6.3.1.1  activityRetriever
-* Fields:
-  * None
-* Methods:
-  * retrieve(): sends requests for the events from each of the APIs (Ticketmaster, Eventbrite, Eventful) and populates a JSON object for each event.
-#### 6.3.1.2  Deduplicator
-* Fields:
-  * Sequelize: supports database queries.
-* Methods:
-  * getDeDups(): removes duplicates from the array of activities.
-#### 6.3.1.3  Models
+
+#### 6.3.1.3  Database
 * Fields:
   * Activity: defines the activity (activities populated from various APIs) model.
   * Tagline: defines the tagline (taglines created by users) model.
   * User: defines the user (users of Bored & Broke) model.
-  * Sequelize: supports database queries.
 * Methods:
   * sync(): creates the tables in the database if they do not already exist.
-#### 6.3.1.4  Database
-* Fields:
-  * activityRetriever: (from above)
-  * Sequelize: supports database queries.
+#### 6.3.1.4  Server
 * Methods:
   * getActivity(): returns an activity object from the database.
-  * getFutureActivities(): returns an array of activities that occur in the future from the database.
-  * getSavedActivities(): returns an array of activities that have been saved by a user.
+  * getActivities(): returns an array of activities that occur in the future from the database.
+  * getSaved(): returns an array of activities that have been saved by a user.
   * saveActivity(): store userID, activityID, and tagline in the database.
-  * addActivities(): store activity objects in the database (already de-duplicated).
-  * getUserSettings(): return a user object.
-  * setUserSettings(): store a user’s information to the database.
-  * isUser(): returns true if the user exists in the user table of the database.
-  * sync(): creates the tables according to the models defined in Models if they do not already exist.
+  * unsaveActivity(): Remove tagline in the database for a user ID and activity ID.
+  * addActivity(): store an activity object in the database.
+  * getUser(): return a user object.
+  * saveUserSettings(): store or update a user’s information in the database.
+  * findOrCreateUser(): returns true if the user exists in the user table of the database, and cerates the user and returns false if not.
+  
 #### 6.3.1.5  LoginButton
 * Fields:
   * styles: defines the CSS for the LoginButton.
@@ -190,9 +178,8 @@ who saved this event. The user will also be interfacing with the Facebook API if
 he/she chooses to message one of the other users who saved the event (since
 the messaging is done through Facebook).
 #### 6.3.2.5 Database CSU
-Our Postgres database interfaces with the
-activityRetriever() function which calls our APIs to pull activities for our users.
-The database also interfaces with our frontend by providing us with saved user data (user’s name, if they have created an account already, their saved preferences, etc.)
+Our Postgres database interfaces with the Loading page which calls our APIs to pull activities for our users.
+The database also interfaces with our server to perform the CRUD operations with inputs given from the frontend.
 
 ### 6.3.3 Detailed Data Structure Descriptions Section
 #### 6.3.3.1 Login/Create Account Page CSU:

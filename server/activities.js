@@ -1,3 +1,7 @@
+/**
+  The queries that have to do with the Activity table are defined here.
+**/
+
 const db = require('../db') //this is required
 const Activity = require('../db/models/activity');
 const Tagline = require('../db/models/tagline');
@@ -31,6 +35,7 @@ router.get('/', function(req, res, next) {
           };
           return Activity.findAll({
             limit: 40,
+            order: Sequelize.col('date'),
             where: {
               price: { [Sequelize.Op.lte]: req.query.priceLimit },
               date: { [Sequelize.Op.gte]: yyyymmdd },
@@ -62,6 +67,7 @@ router.get('/saved', function(req, res, next) {
     // Get a user's saved activities.
     Tagline.findAll({
         include: [ Activity ],
+        order: Sequelize.col('activity.date'),
         where: {
           user_id: req.query.userId
         }
@@ -110,7 +116,6 @@ router.put('/add', function(req, res, next) {
 
     Activity.findOrCreate({
         where: {
-            date_added: yyyymmdd,
             name: req.body.data.name,
             date: Number.parseInt(req.body.data.date),
             location: req.body.data.location,
@@ -120,7 +125,8 @@ router.put('/add', function(req, res, next) {
             description: req.body.data.description,
             source: req.body.data.source,
             query_city: req.body.data.city
-        }
+        },
+        defaults: { date_added: yyyymmdd }
     })
     .then(res.status(200).send("Added activity!"))
     .catch(next);
