@@ -88,19 +88,62 @@ The following sections provide the details of all classes used in the Bored and 
   * getUser(): return a user object.
   * saveUserSettings(): store or update a user’s information in the database.
   * findOrCreateUser(): returns true if the user exists in the user table of the database, and cerates the user and returns false if not.
-  
+
 #### 6.3.1.5  LoginButton
 * Fields:
   * styles: defines the CSS for the LoginButton.
   * propTypes: defines the propTypes for the LoginButton.
 * Methods:
+  * constructor(): sets the first_time state to false.
+  * componentDidMount(): loads the Facebook SDK.
+  * redirectLoggedInUser(): redirects the user to the loading page.
   * checkLoginState(): checks whether the user is logged in or not.
   * statusChangeCallback(): deals with a change in user login status.
   * window.fbAsyncInit(): initializes the Facebook login connection.
   * getLoginStatus(): checks whether the user is logged in or not.
   * testAPI(): tests the connection to the Facebook login module.
+  * handleClick(): handles a user's click on the Facebook button.
+  * mouseOver(): changes the cursor if hovering over the Facebook button.
   * render(): renders the login button to the page.
-#### 6.3.1.6  HomepageSettings
+
+#### 6.3.1.6  Loading
+* Fields:
+  * styles: defines the CSS for the Loading page.
+  * propTypes: defines the propTypes for the Loading page.
+* Methods:
+  * constructor(): sets the initial state.
+  * componentDidMount(): calls isUpdateNeeded() and findOrCreateUser().
+  * retrieveTicketMaster(): pulls data from the TicketMaster API.
+  * retrieveEventbrite(): pulls data from the Eventbrite API.
+  * retrieveEventful(): pulls data from the Eventful API.
+  * addActivity(): adds an activity to the database.
+  * updateDatabase(): updates the database.
+  * render(): renders the loading page.
+
+#### 6.3.1.7  UserImage
+* Fields:
+  * styles: defines the CSS for the UserImage.
+  * propTypes: defines the propTypes for the UserImage.
+* Methods:
+  * render(): renders the UserImage to the page.
+#### 6.3.1.8  BioModal
+* Fields:
+  * styles: defines the CSS for the BioModal.
+  * propTypes: defines the propTypes for the BioModal.
+* Methods:
+  * constructor(): sets the initial state.
+  * close(): handles closing the modal.
+  * handleBio(): gets the value of the text written by the user.
+  * render(): renders the BioModal to the page.
+#### 6.3.1.9  FacebookLinkButton
+* Fields:
+  * styles: defines the CSS for the FacebookLinkButton.
+  * propTypes: defines the propTypes for the FacebookLinkButton.
+* Methods:
+  * constructor(): handles binding.
+  * handleClick(): handles a user's click on the FacebookLinkButton.
+  * render(): renders the FacebookLinkButton to the page.
+#### 6.3.1.10  HomepageSettings
 * Fields:
   * propTypes: defines the propTypes for the HomepageSettings.
   * styles: defines the CSS for the HomepageSettings.
@@ -109,7 +152,7 @@ The following sections provide the details of all classes used in the Bored and 
   * handleChange(): updates the zip code, distance, and price values with the user-inputted values.
   * handleSubmit(): submits the zip code, distance, and price values when the user chooses to do so.
   * render(): renders the zip code input box, distance slider, and price slider to the page.
-#### 6.3.1.7  SingleActivityModal
+#### 6.3.1.11  SingleActivityModal
 * Fields:
   * styles: defines the CSS for the SingleActivityModal.
   * propTypes: defines the propTypes for the SingleActivityModal.
@@ -118,7 +161,7 @@ The following sections provide the details of all classes used in the Bored and 
   * constructor(): initializes state.
   * close(): closes the modal.
   * render(): renders the modal to the page.
-#### 6.3.1.8  SavedActModal
+#### 6.3.1.12  SavedActModal
 * Fields:
   * styles: defines the CSS for the SingleActivityModal.
   * propTypes: defines the propTypes for the SingleActivityModal.
@@ -127,19 +170,19 @@ The following sections provide the details of all classes used in the Bored and 
   * constructor(): initializes state.
   * close(): closes the modal.
   * render(): renders the modal to the page.
-#### 6.3.1.9  NavigationBar
+#### 6.3.1.13  NavigationBar
 * Fields:
   * styles: defines the CSS for the NavigationBar.
   * propTypes: defines the propTypes for the NavigationBar.
 * Methods:
   * render(): renders the navigation bar to the page.
-#### 6.3.1.10  SavedActivities
+#### 6.3.1.14  SavedActivities
 * Fields:
   * styles: defines the CSS for the SavedActivities.
   * propTypes: defines the propTypes for the SavedActivities.
 * Methods:
   * render(): renders the page displaying all of the user’s saved activities.
-#### 6.3.1.11  Settings
+#### 6.3.1.15  Settings
 * Fields:
   * styles: defines the CSS for the Settings.
   * propTypes: defines the propTypes for the Settings.
@@ -149,7 +192,7 @@ The following sections provide the details of all classes used in the Bored and 
   * saveSettings(): saves the user's settings.
   * deactivateAccount(): deactivates the user's account if they choose to stop using Bored&Broke.
   * render(): renders the settings page to the browser.
-#### 6.3.1.12  Activity
+#### 6.3.1.16  Activity
 * Fields:
   * styles: defines the CSS for the Settings.
   * propTypes: defines the propTypes for the Settings.
@@ -157,14 +200,15 @@ The following sections provide the details of all classes used in the Bored and 
   * SavedActModal: (from above)
 * Methods:
   * render(): renders the settings page to the browser.
-#### 6.3.1.13  LoginCreateAccount
+#### 6.3.1.17  LoginCreateAccount
 * Fields:
   * styles: defines the CSS for the LoginCreateAccount.
   * propTypes: defines the propTypes for the LoginCreateAccount.
   * LoginButton: (from above)
 * Methods:
+  * constructor(): sets the initial state.
   * render(): renders the LoginButton along with the other aspects of the login page to the browser.
-#### 6.3.1.14  Homepage
+#### 6.3.1.18  Homepage
 * Fields:
   * styles: defines the CSS for the Homepage.
   * propTypes: defines the propTypes for the Homepage.
@@ -173,10 +217,10 @@ The following sections provide the details of all classes used in the Bored and 
   * TitleContainer: holds the title of the page.
   * SingleActivityModal: (from above)
   * Activity: (from above)
-  * BioModal: Allows a first-time user to create their bio, which is editable from the settings page. 
+  * BioModal: Allows a first-time user to create their bio, which is editable from the settings page.
 * Methods:
   * render(): renders the final homepage consisting of the NavigationBar, HomepageSettings, TitleContainer, and many SingleActivityModals.
-#### 6.3.1.15  Index
+#### 6.3.1.19  Index
 * Fields:
   * Homepage: (from above)
   * LoginCreateAccount: (from above)
