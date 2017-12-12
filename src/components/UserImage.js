@@ -1,3 +1,7 @@
+/**
+    This file creates a circular user image pulling from the Facebook API.
+**/
+
 /*global FB*/
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -16,13 +20,13 @@ const styles = {
 
 class UserImage extends React.Component {
     render() {
-      const { classes } = this.props;
-      const userID = getUserID();
-      const imgSrc = "http://graph.facebook.com/" + userID + "/picture?height=50";
-      return (
-         <img className={ classes.userImage } src={ imgSrc } alt='User'></img>
-      );
-   }
+        const { classes } = this.props;
+        const userID = getUserID();
+        const imgSrc = "http://graph.facebook.com/" + userID + "/picture?height=50";
+        return (
+            <img className={ classes.userImage } src={ imgSrc } alt='User'></img>
+        );
+    }
 };
 
 UserImage.propTypes = propTypes;

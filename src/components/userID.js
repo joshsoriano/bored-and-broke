@@ -1,14 +1,13 @@
 export function saveUserID(userID) {
-  sessionStorage.setItem('userID', userID);
+    sessionStorage.setItem('userID', userID);
 }
 
 export function getUserID() {
-  return sessionStorage.getItem('userID');
+    return sessionStorage.getItem('userID');
 }
 
 export function removeUserID() {
-  console.log('removing user id');
-  sessionStorage.removeItem('userID');
+    sessionStorage.removeItem('userID');
 }
 
 export function saveUserName(userName) {
@@ -16,21 +15,21 @@ export function saveUserName(userName) {
 }
 
 export function getUserName() {
-  return sessionStorage.getItem('userName');
+    return sessionStorage.getItem('userName');
 }
 
 export function saveLocation(userLocation) {
-  sessionStorage.setItem('userLocation', userLocation);
+    sessionStorage.setItem('userLocation', userLocation);
 }
 
 export function getUserLocation() {
-  return sessionStorage.getItem('userLocation');
+    return sessionStorage.getItem('userLocation');
 }
 
 export function savePrice(userPrice) {
-  sessionStorage.setItem('userPrice', userPrice);
+    sessionStorage.setItem('userPrice', userPrice);
 }
 
 export function getPrice() {
-  return sessionStorage.getItem('userPrice');
+    return sessionStorage.getItem('userPrice');
 }
