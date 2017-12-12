@@ -1,14 +1,12 @@
-/*global FB*/
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Homepage from './containers/HomepageContainer';
 import LoginCreateAccount from './components/LoginCreateAccount.js';
 import SavedActivities from './containers/SavedActivitiesContainer';
 import Settings from './containers/SettingsContainer';
 import Loading from './containers/LoadingContainer';
-import injectSheet from 'react-jss';
 
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
@@ -62,7 +60,7 @@ BoredAndBroke.propTypes = propTypes;
 ReactDOM.render(
   <Provider store={store}>
     <BoredAndBroke
-      classes={styles.main}
+        classes={styles.main}
     />
   </Provider>,
   document.getElementById('root')

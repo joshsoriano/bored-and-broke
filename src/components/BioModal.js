@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import Modal from 'react-bootstrap/lib/Modal';
 import Button from 'react-bootstrap/lib/Button';
-import { Popover, Tooltip, OverlayTrigger, Form, FormGroup, ControlLabel, FormControl, Col, Checkbox } from 'react-bootstrap';
+import { FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 import { getUserID, getUserName } from './userID';
 
 const propTypes = {

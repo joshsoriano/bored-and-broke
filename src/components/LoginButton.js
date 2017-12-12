@@ -6,7 +6,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-import { Button } from 'react-bootstrap';
 import fbButton from '../images/fb_login.png';
 import { saveUserID, saveUserName } from './userID';
 
@@ -106,7 +105,7 @@ class LoginButton extends React.Component {
                     saveUserID(response.id);
                     saveUserName(response.name);
                     window.location = "/Loading";
-                }.bind(this));
+                });
             } else {
                 console.log('User cancelled login or did not fully authorize.');
             }
@@ -119,7 +118,7 @@ class LoginButton extends React.Component {
 
     render() {
         const { classes } = this.props;
-        return <img src={ fbButton } height='50px' onMouseOver={ this.mouseOver } className={ classes.loginButton } onClick={ this.handleClick }/>
+        return <img src={ fbButton } alt='FB Login Button' height='50px' onMouseOver={ this.mouseOver } className={ classes.loginButton } onClick={ this.handleClick }/>
     }
 }
 

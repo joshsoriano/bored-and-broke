@@ -2,7 +2,6 @@
     This file creates a circular user image pulling from the Facebook API.
 **/
 
-/*global FB*/
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
