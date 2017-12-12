@@ -60,8 +60,6 @@ class HomepageSettings extends React.Component {
         event.preventDefault();
         saveLocation(this.state.city);
         savePrice(this.state.price);
-        console.log(this.state.price);
-        console.log(this.state.city);
         this.props.actions.getActivities(getUserID(), this.state.price, this.state.city);
     }
 
@@ -69,26 +67,26 @@ class HomepageSettings extends React.Component {
         const { classes } = this.props;
         return (
             <Form inline className={ classes.main } controlId="homepageSettings" onSubmit={ this.handleSubmit }>
-                <Col componentClass={ControlLabel} sm={6}>
+                <Col componentClass={ ControlLabel } sm={ 6 }>
                     <FormGroup className={ classes.formInput } controlId="formZipcode" >
                         City: <br/>
-                        <FormControl name="city" value={this.state.city} onChange={this.handleChange} componentClass="select" placeholder="Los Angeles">
+                        <FormControl name="city" value={ this.state.city } onChange={ this.handleChange } componentClass="select" placeholder="Los Angeles">
                             <option value="Los Angeles">Los Angeles</option>
                             <option value="Seattle">Seattle</option>
                             <option value="San Francisco">San Francisco</option>
                         </FormControl>
                     </FormGroup>
                 </Col>
-                <Col componentClass={ControlLabel} sm={6}>
+                <Col componentClass={ ControlLabel } sm={ 6 }>
                     <FormGroup className={ classes.formInput } controlId="formPrice">
                         $0 to $100 <br/>
                         <FormControl type="range" min="0" max="100" name="price"
-                        value={this.state.price}
-                        onChange={this.handleChange}/> <br/>
-                        ${this.state.price}
+                        value={ this.state.price }
+                        onChange={ this.handleChange }/> <br/>
+                        ${ this.state.price }
                     </FormGroup>
                 </Col>
-                <Col sm={12}>
+                <Col sm={ 12 }>
                 <div>
                     <Button className={ classes.searchButton } type="submit">Search</Button>
                 </div>

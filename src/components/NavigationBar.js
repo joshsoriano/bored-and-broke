@@ -19,7 +19,7 @@ import { removeUserID } from './userID';
 import UserImage from './UserImage.js';
 
 const LINKS = [
-    { to: './SavedActivities.js', title: 'SAVED_ACTIVITIES'},
+    { to: './SavedActivities.js', title: 'SAVED_ACTIVITIES' },
 ];
 
 const propTypes = {
@@ -68,24 +68,24 @@ class NavigationBar extends React.Component {
     render() {
         const { classes } = this.props;
         window.fbAsyncInit = function() {
-          FB.init({
-            appId            : '1960748417506782',
-            autoLogAppEvents : true,
-            xfbml            : true,
-            version          : 'v2.11'
-          });
+            FB.init({
+                appId            : '1960748417506782',
+                autoLogAppEvents : true,
+                xfbml            : true,
+                version          : 'v2.11'
+            });
         };
 
         (function(d, s, id){
-           var js, fjs = d.getElementsByTagName(s)[0];
-           if (d.getElementById(id)) {return;}
-           js = d.createElement(s); js.id = id;
-           js.src = "https://connect.facebook.net/en_US/sdk.js";
-           fjs.parentNode.insertBefore(js, fjs);
-         }(document, 'script', 'facebook-jssdk'));
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
 
-         function fbLogoutUser() {
-           removeUserID();
+        function fbLogoutUser() {
+            removeUserID();
             FB.getLoginStatus(function(response) {
                 if (response && response.status === 'connected') {
                     FB.logout(function(response) {
@@ -95,41 +95,41 @@ class NavigationBar extends React.Component {
         }
 
         return(
-              <div>
-                  <Navbar inverse collapseOnSelect className={classes.navbar}>
-                      <Navbar.Header>
+            <div>
+                <Navbar inverse collapseOnSelect className={ classes.navbar }>
+                    <Navbar.Header>
                         <Navbar.Brand>
-                          <a className={classes.logoLink} href="#">
-                            <img src={ logo } height='30px' onMouseOver={ this.mouseOver } className={ classes.logo } onClick={this.onclick}/>
-                          </a>
+                            <a className={ classes.logoLink } href="#">
+                                <img src={ logo } height='30px' onMouseOver={ this.mouseOver } className={ classes.logo } onClick={ this.onclick }/>
+                            </a>
                         </Navbar.Brand>
                         <Navbar.Toggle />
-                      </Navbar.Header>
-                      <Navbar.Collapse className={classes.navbarContent}>
-                          <Nav pullRight>
-                              <NavDropdown eventKey={3} title={ <UserImage /> } id="basic-nav-dropdown">
-                                  <span className={classes.aNavItem}>
-                                      <Link to="/Homepage">Homepage</Link>
-                                  </span>
-                                  <div className={ classes.space } />
-                                  <span className={classes.aNavItem}>
-                                      <Link to="/SavedActivities">Saved Activities</Link>
-                                  </span>
-                                  <div className={ classes.space } />
-                                  <span className={classes.aNavItem}>
-                                      <Link to="/Settings">Settings</Link>
-                                  </span>
-                                  <MenuItem divider />
-                                  <div className={ classes.space } />
-                                  <span className={classes.aNavItem}>
-                                      <Link to="/LoginCreateAccount" onClick={fbLogoutUser}>Logout</Link>
-                                  </span>
-                              </NavDropdown>
-                          </Nav>
-                      </Navbar.Collapse>
-                  </Navbar>
-              </div>
-          );
+                    </Navbar.Header>
+                    <Navbar.Collapse className={ classes.navbarContent }>
+                        <Nav pullRight>
+                            <NavDropdown eventKey={ 3 } title={ <UserImage /> } id="basic-nav-dropdown">
+                                <span className={ classes.aNavItem }>
+                                    <Link to="/Homepage"> Homepage </Link>
+                                </span>
+                                <div className={ classes.space } />
+                                <span className={ classes.aNavItem }>
+                                    <Link to="/SavedActivities">Saved Activities</Link>
+                                </span>
+                                <div className={ classes.space } />
+                                <span className={ classes.aNavItem }>
+                                    <Link to="/Settings"> Settings </Link>
+                                </span>
+                                <MenuItem divider />
+                                <div className={ classes.space } />
+                                <span className={ classes.aNavItem }>
+                                    <Link to="/LoginCreateAccount" onClick={ fbLogoutUser }> Logout </Link>
+                                </span>
+                            </NavDropdown>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Navbar>
+            </div>
+        );
     }
 };
 
