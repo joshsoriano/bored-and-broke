@@ -102,7 +102,8 @@ The following sections provide the details of all classes used in the Bored and 
   * render(): renders the login button to the page.
 #### 6.3.1.6  HomepageSettings
 * Fields:
-  * None
+  * propTypes: defines the propTypes for the HomepageSettings.
+  * styles: defines the CSS for the HomepageSettings.
 * Methods:
   * constructor(): creates the initial values for the zip code, distance, and price.
   * handleChange(): updates the zip code, distance, and price values with the user-inputted values.
@@ -143,6 +144,10 @@ The following sections provide the details of all classes used in the Bored and 
   * styles: defines the CSS for the Settings.
   * propTypes: defines the propTypes for the Settings.
 * Methods:
+  * constructor(): it binds the functions and sets the state.
+  * handleChange(): updates the state.
+  * saveSettings(): saves the user's settings.
+  * deactivateAccount(): deactivates the user's account if they choose to stop using Bored&Broke.
   * render(): renders the settings page to the browser.
 #### 6.3.1.12  Activity
 * Fields:
