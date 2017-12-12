@@ -6,7 +6,7 @@ import Carousel from 'react-bootstrap/lib/Carousel';
 import {Form, FormGroup, ControlLabel, FormControl, Col, Checkbox} from 'react-bootstrap'
 import Modal from 'react-bootstrap/lib/Modal';
 import Button from 'react-bootstrap/lib/Button';
-import blackBackground from '../images/blackBackground.jpg';
+import blackBackground from '../images/blueBackground.png';
 import logo_black from '../images/logo-black.png';
 import FacebookLinkButton from './FacebookLinkButton.js';
 import {getUserID} from './userID';
