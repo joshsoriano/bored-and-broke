@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-import { ControlLabel } from 'react-bootstrap';
 import NavigationBar from './NavigationBar.js';
 import Activity from '../containers/ActivityContainer';
 import { getUserID } from './userID';
@@ -42,9 +41,9 @@ const styles = {
 };
 
 class SavedActivities extends React.Component {
-  constructor(props) {
-    super(props)
-  }
+  // constructor(props) {
+  //   super(props)
+  // }
 
   componentDidMount() {
       const myId = getUserID();

@@ -117,32 +117,49 @@ The following sections provide the details of all classes used in the Bored and 
   * constructor(): initializes state.
   * close(): closes the modal.
   * render(): renders the modal to the page.
-#### 6.3.1.8  NavigationBar
+#### 6.3.1.8  SavedActModal
+* Fields:
+  * styles: defines the CSS for the SingleActivityModal.
+  * propTypes: defines the propTypes for the SingleActivityModal.
+  * defaultProps: defines the default properties for the SingleActivityModal.
+* Methods:
+  * constructor(): initializes state.
+  * close(): closes the modal.
+  * render(): renders the modal to the page.
+#### 6.3.1.9  NavigationBar
 * Fields:
   * styles: defines the CSS for the NavigationBar.
   * propTypes: defines the propTypes for the NavigationBar.
 * Methods:
   * render(): renders the navigation bar to the page.
-#### 6.3.1.9  SavedActivities
+#### 6.3.1.10  SavedActivities
 * Fields:
   * styles: defines the CSS for the SavedActivities.
   * propTypes: defines the propTypes for the SavedActivities.
 * Methods:
   * render(): renders the page displaying all of the user’s saved activities.
-#### 6.3.1.10  Settings
+#### 6.3.1.11  Settings
 * Fields:
   * styles: defines the CSS for the Settings.
   * propTypes: defines the propTypes for the Settings.
 * Methods:
   * render(): renders the settings page to the browser.
-#### 6.3.1.11  LoginCreateAccount
+#### 6.3.1.12  Activity
+* Fields:
+  * styles: defines the CSS for the Settings.
+  * propTypes: defines the propTypes for the Settings.
+  * SingleActivityModal: (from above)
+  * SavedActModal: (from above)
+* Methods:
+  * render(): renders the settings page to the browser.
+#### 6.3.1.13  LoginCreateAccount
 * Fields:
   * styles: defines the CSS for the LoginCreateAccount.
   * propTypes: defines the propTypes for the LoginCreateAccount.
   * LoginButton: (from above)
 * Methods:
   * render(): renders the LoginButton along with the other aspects of the login page to the browser.
-#### 6.3.1.12  Homepage
+#### 6.3.1.14  Homepage
 * Fields:
   * styles: defines the CSS for the Homepage.
   * propTypes: defines the propTypes for the Homepage.
@@ -150,9 +167,11 @@ The following sections provide the details of all classes used in the Bored and 
   * HomepageSettings: (from above)
   * TitleContainer: holds the title of the page.
   * SingleActivityModal: (from above)
+  * Activity: (from above)
+  * BioModal: Allows a first-time user to create their bio, which is editable from the settings page. 
 * Methods:
   * render(): renders the final homepage consisting of the NavigationBar, HomepageSettings, TitleContainer, and many SingleActivityModals.
-#### 6.3.1.13  Index
+#### 6.3.1.15  Index
 * Fields:
   * Homepage: (from above)
   * LoginCreateAccount: (from above)

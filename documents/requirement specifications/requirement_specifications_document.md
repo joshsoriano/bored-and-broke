@@ -37,45 +37,16 @@ application. It will consist of four pages and multiple activity modals. There
 will be the ability to create an account, adjust user settings, navigate through 
 activities, save activities, and direct users to other user’s facebook pages.  							
 
-&nbsp;&nbsp; 5.2.1.1    Login/Create Account Page CSU -- This unit will handle user login or account creation.      
-&nbsp;&nbsp;&nbsp;&nbsp; 5.2.1.1.1    Login With Facebook Button -- Initiates Facebook authentication via Facebook modal. Prompts user to login using their Facebook credentials.      										           
-&nbsp;&nbsp;&nbsp;&nbsp; 5.2.1.1.2    Create an Account Button -- Opens new window/tab linked to web address for Facebook account creation.     
-&nbsp;&nbsp;&nbsp;&nbsp; 5.2.1.1.3    Title module -- The title will include the web app name and page name.     		           
-&nbsp;&nbsp;&nbsp;&nbsp; 5.2.1.1.4    Logo module -- The web app logo is visible.       	 								 
+&nbsp;&nbsp; 5.2.1.1    Login/Create Account Page CSU -- This unit will handle user login or account creation.      						 
 
-&nbsp;&nbsp; 5.2.1.2    Settings Page CSU -- After creating an account with Facebook, first-time users will be shown a summary of the account information populated with information pulled from their public Facebook profile.     
-&nbsp;&nbsp;&nbsp;&nbsp; 5.2.1.2.1    Name Input Field module -- Input string for user’s name.             
-&nbsp;&nbsp;&nbsp;&nbsp; 5.2.1.2.2    Email Input Field module -- Input string for user’s email (associated with Facebook account); credential for access to web app.       										           
-&nbsp;&nbsp;&nbsp;&nbsp; 5.2.1.2.3    Password Input Field module -- Input string for user’s password; credential for access to web app.       
-&nbsp;&nbsp;&nbsp;&nbsp; 5.2.1.2.4    Location Input Field module -- Input string that filters activities based on their proximity to the location inputted.        										           
-&nbsp;&nbsp;&nbsp;&nbsp; 5.2.1.2.5    Price Range Slider module -- Slider that adjusts filter for desired price range of activities.       
-&nbsp;&nbsp;&nbsp;&nbsp; 5.2.1.2.6    Bio Input Field module -- Input string of with a maximum character limit. 	   					
+&nbsp;&nbsp; 5.2.1.2    Settings Page CSU -- After creating an account with Facebook, first-time users will be shown a summary of the account information populated with information pulled from their public Facebook profile.      	   					
 
 &nbsp;&nbsp; 5.2.1.3    Homepage CSU -- This unit will be responsible for the organization and navigation of the activities. The page will also consist of ways to adjust specific settings and travel to other pages in the web frontend.          
-&nbsp;&nbsp;&nbsp;&nbsp; 5.2.1.3.1    Activities module -- Clickable objects that lead to activity modal.         
-&nbsp;&nbsp;&nbsp;&nbsp; 5.2.1.3.2    Price Slider module -- Slider that adjusts price range of activities.        
-&nbsp;&nbsp;&nbsp;&nbsp; 5.2.1.3.3    Location Input Field module -- Provides location for activities to be oriented around.        
-&nbsp;&nbsp;&nbsp;&nbsp; 5.2.1.3.4    Range Slider module -- Provides range around location that activities are located.         
-&nbsp;&nbsp;&nbsp;&nbsp; 5.2.1.3.5    Load Button module -- Loads activities based off information from price slider, range slider, and location input field.         
-&nbsp;&nbsp;&nbsp;&nbsp; 5.2.1.3.6    Drop-down Menu module -- Holds buttons that navigate to other pages.         
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5.2.1.3.6.1    Saved Activities Button -- Leads to Saved Activities Page.        
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5.2.1.3.6.1    Settings Button -- Leads to Settings Page.        
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5.2.1.3.6.1    Logout Button -- Logs out of account and leads to Login/Create Account Page.         
-
 
 &nbsp;&nbsp; 5.2.1.4    Single Activity Modal CSU -- Holds information about a specific activity.         
-&nbsp;&nbsp;&nbsp;&nbsp; 5.2.1.4.1    Event information including date, location, time, and price.        
-&nbsp;&nbsp;&nbsp;&nbsp; 5.2.1.4.2    Carousel of profiles of those who also saved the event. Shows bio and event-specific taglines. Shows only a small number of profiles at a time.        
-&nbsp;&nbsp;&nbsp;&nbsp; 5.2.1.4.3    Message Button located under each profile -- Leads to the Facebook of the this user to accommodate messaging through Facebook.         
-&nbsp;&nbsp;&nbsp;&nbsp; 5.2.1.4.4    Right Arrow Button -- Leads to next set of attendees.        
-&nbsp;&nbsp;&nbsp;&nbsp; 5.2.1.4.5    Left Arrow Button -- Leads to previous set of attendees.         
 
 
 &nbsp;&nbsp; 5.2.1.5    Saved Activities Page CSU -- Shows the user’s activities that they have saved through the Single Activity Modal.        
-&nbsp;&nbsp;&nbsp;&nbsp; 5.2.1.5.1    Page containing user’s saved events -- Thumbnails objects that lead to activity modal        
-&nbsp;&nbsp;&nbsp;&nbsp; 5.2.1.5.2    Drop-down Menu module -- Holds buttons that navigate to other pages        
-&nbsp;&nbsp;&nbsp;&nbsp; 5.3.1.5.3    Scrollable Page           
-
 
 5.2.2    Database CSC -- Will hold the user account information, as well as user’s saved activities.         
 &nbsp;&nbsp; 5.2.2.1    Queries CSU -- units that will run queries on stored data        

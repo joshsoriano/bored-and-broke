@@ -3,12 +3,7 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import NavigationBar from './NavigationBar.js';
 import HomepageSettings from '../containers/HomepageSettingsContainer';
-import SingleActivityModal from './SingleActivityModal.js';
 import Activity from '../containers/ActivityContainer.js';
-// import LoginCreateAccount from './LoginCreateAccount.js';
-// import SavedActivities from './SavedActivities.js';
-// import Settings from './Settings.js';
-// import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 import { getUserID, getUserName, getPrice, getUserLocation } from './userID';
 import BioModal from '../containers/BioModalContainer.js';
 

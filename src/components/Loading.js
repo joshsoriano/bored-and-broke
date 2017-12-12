@@ -6,10 +6,8 @@ import React from 'react';
 import $ from 'jquery';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
+// import { BrowserRouter as Redirect } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
-import eventExample from '../images/eventExample.png';
-import NavigationBar from './NavigationBar.js';
-import logo_offwhite from '../images/logo-offwhite.png';
 import { getUserID, getUserName } from './userID';
 import '../styles.css';
 
@@ -53,7 +51,6 @@ class Loading extends React.Component {
             city: city,
             apikey: "uWhf6Zv92eNoIQA4E16MdCe7HC2DSEMS"
         }).done((result) => {
-            let activityList = [];
             result._embedded.events.map((event) => {
                 let activity = { };
 
@@ -69,7 +66,7 @@ class Loading extends React.Component {
 
                 // Add it to the database.
                 this.addActivity(activity, city);
-                if (city == this.state.cities[this.state.cities.length - 1]) {
+                if (city === this.state.cities[this.state.cities.length - 1]) {
                     this.setState({ ticketMaster: true });
                 }
             })
@@ -97,7 +94,7 @@ class Loading extends React.Component {
 
                 // Add it to the database.
                 this.addActivity(activity, city);
-                if (city == this.state.cities[this.state.cities.length - 1]) {
+                if (city === this.state.cities[this.state.cities.length - 1]) {
                     this.setState({ eventbrite: true });
                 }
             })
@@ -128,7 +125,7 @@ class Loading extends React.Component {
 
                 // Add it to the database.
                 this.addActivity(activity, city);
-                if (city == this.state.cities[this.state.cities.length - 1]) {
+                if (city === this.state.cities[this.state.cities.length - 1]) {
                     this.setState({ eventful: true });
                 }
             })
