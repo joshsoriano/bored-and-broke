@@ -63,6 +63,7 @@ router.get('/saved', function(req, res, next) {
     // Get a user's saved activities.
     Tagline.findAll({
         include: [ Activity ],
+        order: Sequelize.col('activity.date'),
         where: {
           user_id: req.query.userId
         }
