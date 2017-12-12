@@ -66,7 +66,7 @@
 **9.0**  Configuration Management Plan
 
 **10.0** [Testing](https://github.com/joshsoriano/bored-and-broke/blob/master/documents/test%20plan%20document/test_plan_document.md)
-10.1     Unit Test Plan
+10.1     Unit Test Plan  
 
 10.1.1   Unit Test Descriptions
 10.1.1.1 Activity
