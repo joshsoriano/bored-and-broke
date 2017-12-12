@@ -112,7 +112,6 @@ router.put('/add', function(req, res, next) {
 
     Activity.findOrCreate({
         where: {
-            date_added: yyyymmdd,
             name: req.body.data.name,
             date: Number.parseInt(req.body.data.date),
             location: req.body.data.location,
@@ -122,7 +121,8 @@ router.put('/add', function(req, res, next) {
             description: req.body.data.description,
             source: req.body.data.source,
             query_city: req.body.data.city
-        }
+        },
+        defaults: { date_added: yyyymmdd }
     })
     .then(res.status(200).send("Added activity!"))
     .catch(next);
