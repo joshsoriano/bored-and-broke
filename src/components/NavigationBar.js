@@ -99,15 +99,9 @@ class NavigationBar extends React.Component {
                 <Navbar inverse collapseOnSelect className={ classes.navbar }>
                     <Navbar.Header>
                         <Navbar.Brand>
-<<<<<<< HEAD
-                            <a className={ classes.logoLink } href="#">
-                                <img src={ logo } height='30px' onMouseOver={ this.mouseOver } className={ classes.logo } onClick={ this.onclick }/>
-                            </a>
-=======
-                          <a className={classes.logoLink} href="#">
-                            <img alt="" src={ logo } height='30px' onMouseOver={ this.mouseOver } className={ classes.logo } onClick={this.onclick}/>
+                          <a className={ classes.logoLink } href="#">
+                            <img alt="" src={ logo } height='30px' onMouseOver={ this.mouseOver } className={ classes.logo } onClick={ this.onclick }/>
                           </a>
->>>>>>> cfd2e157d63e754a2bdff7c953377c05f0e9861e
                         </Navbar.Brand>
                         <Navbar.Toggle />
                     </Navbar.Header>
