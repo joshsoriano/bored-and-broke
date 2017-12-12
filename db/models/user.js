@@ -1,3 +1,6 @@
+/**
+  This file defines the User table in the database.
+**/
 'use strict'
 
 const Sequelize = require('sequelize');
