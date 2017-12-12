@@ -38,7 +38,7 @@ The PostgreSQL database runs through the AWS Relational Database Service (RDS). 
 
 ### 6.2.3 Architectural Design Diagrams
 #### UML Case Diagram
-![Case Diagram](UMLCaseDiagram.png)
+![Case Diagram](UML.png)
 #### Data Flow Diagram
 ![State Diagram](stateDiagram.png)
 #### Class Diagram
@@ -70,24 +70,23 @@ Collectively, the Web Frontend CSC, Database CSC and Server CSC are the Bored&Br
 ### 6.3.1 Detailed Class Descriptions
 The following sections provide the details of all classes used in the Bored and Broke application. Each class is defined by its fields and methods, which are described in detail below.
 
-#### 6.3.1.3  Models
+#### 6.3.1.3  Database
 * Fields:
   * Activity: defines the activity (activities populated from various APIs) model.
   * Tagline: defines the tagline (taglines created by users) model.
   * User: defines the user (users of Bored & Broke) model.
 * Methods:
   * sync(): creates the tables in the database if they do not already exist.
-#### 6.3.1.4  Database
-* Fields:
-  * Models: (from above)
+#### 6.3.1.4  Server
 * Methods:
   * getActivity(): returns an activity object from the database.
   * getActivities(): returns an array of activities that occur in the future from the database.
   * getSaved(): returns an array of activities that have been saved by a user.
   * saveActivity(): store userID, activityID, and tagline in the database.
+  * unsaveActivity(): Remove tagline in the database for a user ID and activity ID.
   * addActivity(): store an activity object in the database.
-  * getUserSettings(): return a user object.
-  * setUserSettings(): store a user’s information to the database.
+  * getUser(): return a user object.
+  * saveUserSettings(): store or update a user’s information in the database.
   * findOrCreateUser(): returns true if the user exists in the user table of the database, and cerates the user and returns false if not.
   
 #### 6.3.1.5  LoginButton
@@ -118,32 +117,49 @@ The following sections provide the details of all classes used in the Bored and 
   * constructor(): initializes state.
   * close(): closes the modal.
   * render(): renders the modal to the page.
-#### 6.3.1.8  NavigationBar
+#### 6.3.1.8  SavedActModal
+* Fields:
+  * styles: defines the CSS for the SingleActivityModal.
+  * propTypes: defines the propTypes for the SingleActivityModal.
+  * defaultProps: defines the default properties for the SingleActivityModal.
+* Methods:
+  * constructor(): initializes state.
+  * close(): closes the modal.
+  * render(): renders the modal to the page.
+#### 6.3.1.9  NavigationBar
 * Fields:
   * styles: defines the CSS for the NavigationBar.
   * propTypes: defines the propTypes for the NavigationBar.
 * Methods:
   * render(): renders the navigation bar to the page.
-#### 6.3.1.9  SavedActivities
+#### 6.3.1.10  SavedActivities
 * Fields:
   * styles: defines the CSS for the SavedActivities.
   * propTypes: defines the propTypes for the SavedActivities.
 * Methods:
   * render(): renders the page displaying all of the user’s saved activities.
-#### 6.3.1.10  Settings
+#### 6.3.1.11  Settings
 * Fields:
   * styles: defines the CSS for the Settings.
   * propTypes: defines the propTypes for the Settings.
 * Methods:
   * render(): renders the settings page to the browser.
-#### 6.3.1.11  LoginCreateAccount
+#### 6.3.1.12  Activity
+* Fields:
+  * styles: defines the CSS for the Settings.
+  * propTypes: defines the propTypes for the Settings.
+  * SingleActivityModal: (from above)
+  * SavedActModal: (from above)
+* Methods:
+  * render(): renders the settings page to the browser.
+#### 6.3.1.13  LoginCreateAccount
 * Fields:
   * styles: defines the CSS for the LoginCreateAccount.
   * propTypes: defines the propTypes for the LoginCreateAccount.
   * LoginButton: (from above)
 * Methods:
   * render(): renders the LoginButton along with the other aspects of the login page to the browser.
-#### 6.3.1.12  Homepage
+#### 6.3.1.14  Homepage
 * Fields:
   * styles: defines the CSS for the Homepage.
   * propTypes: defines the propTypes for the Homepage.
@@ -151,9 +167,10 @@ The following sections provide the details of all classes used in the Bored and 
   * HomepageSettings: (from above)
   * TitleContainer: holds the title of the page.
   * SingleActivityModal: (from above)
+  * Activity: (from above)
 * Methods:
   * render(): renders the final homepage consisting of the NavigationBar, HomepageSettings, TitleContainer, and many SingleActivityModals.
-#### 6.3.1.13  Index
+#### 6.3.1.15  Index
 * Fields:
   * Homepage: (from above)
   * LoginCreateAccount: (from above)
