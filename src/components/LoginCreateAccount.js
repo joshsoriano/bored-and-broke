@@ -89,7 +89,7 @@ class LoginCreateAccount extends React.Component {
                 <div className={ classes.logoSpacer }></div>
                 <img src={logoBlack} className={ classes.envelopeImage } alt="" height='60px' />
                 <div className={ classes.instructionSpacer }></div>
-                <span className={ classes.instructions }>Connect with Facebook to start browsing events near you!</span>
+                <span className={ classes.instructions }>Connect with Facebook to start browsing activities near you!</span>
                 <div className={ classes.loginSpacer }></div>
                 <LoginButton />
               </div>
