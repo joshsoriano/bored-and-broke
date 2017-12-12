@@ -1,3 +1,7 @@
+/**
+  The queries that have to do with the Tagline table are defined here.
+**/
+
 const db = require('../db') //this is required
 const Activity = require('../db/models/activity');
 const Tagline = require('../db/models/tagline');

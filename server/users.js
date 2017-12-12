@@ -1,3 +1,7 @@
+/**
+  The queries that have to do with the User table are defined here.
+**/
+
 const db = require('../db') //this is required
 const User = require('../db/models/user');
 const Activity = require('../db/models/activity');

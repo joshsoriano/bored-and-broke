@@ -1,3 +1,7 @@
+/**
+  This file defines the routes that lead to each of the files.
+**/
+
 const api = module.exports = require('express').Router()
 const activities = require('./activities');
 const taglines = require('./taglines');
