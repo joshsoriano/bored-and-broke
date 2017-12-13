@@ -115,6 +115,8 @@ router.put('/add', function(req, res, next) {
     let yyyymmdd = Number.parseInt(yyyy.concat(mm).concat(dd));
 
     Activity.findOrCreate({
+        // Only add an activity if an activity with the same name, date, and
+        // city does not exist in the database already.
         where: {
             name: req.body.data.name,
             date: Number.parseInt(req.body.data.date),
