@@ -118,15 +118,17 @@ router.put('/add', function(req, res, next) {
         where: {
             name: req.body.data.name,
             date: Number.parseInt(req.body.data.date),
-            location: req.body.data.location,
-            image_url: req.body.data.imageUrl,
-            link: req.body.data.link,
-            price: req.body.data.price ? Number.parseInt(req.body.data.price) : -1,
-            description: req.body.data.description,
-            source: req.body.data.source,
             query_city: req.body.data.city
         },
-        defaults: { date_added: yyyymmdd }
+        defaults: {
+            date_added: yyyymmdd,
+            link: req.body.data.link,
+            location: req.body.data.location,
+            image_url: req.body.data.imageUrl,
+            price: req.body.data.price ? Number.parseInt(req.body.data.price) : -1,
+            description: req.body.data.description,
+            source: req.body.data.source
+         }
     })
     .then(res.status(200).send("Added activity!"))
     .catch(next);
