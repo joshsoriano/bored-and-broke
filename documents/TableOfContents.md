@@ -1,6 +1,6 @@
 **1.0**&nbsp;&nbsp;&nbsp;[Preliminary Project Proposal](https://github.com/joshsoriano/bored-and-broke/blob/master/documents/project%20proposal/Proposal.md)
 
-**2.0**&nbsp;&nbsp;&nbsp;[Proposal Document and Presentation Slides]()
+**2.0**&nbsp;&nbsp;&nbsp;[Proposal Document and Presentation Slides](https://github.com/joshsoriano/bored-and-broke/blob/master/documents/FinalPresentationSlidesB%26B.pdf)  
 
 **3.0**&nbsp;&nbsp;&nbsp;Needs Analysis  
 3.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Introduction  
