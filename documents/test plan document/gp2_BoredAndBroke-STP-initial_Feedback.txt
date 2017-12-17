@@ -1,0 +1,19 @@
+Hi, Bored & Broke team ----
+
+Very nice work on this Test Plan.
+
+You have captured the testing philosophy very well.
+
+Nothing to fix for this one.  I like the way you have built in the specific
+descriptions.  However, in the industry, you may be required to use numbered
+tests, with individual tests for each of the activities you have lumped
+together here.  For example, in Section 10.2.1.7, you may be required to
+have separate sub-sections for each of the four drop down options.
+
+The module dependencies diagram looks good -- a nice way to show the module
+dependencies to insure correct ordering when running the tests!
+
+You have 10% out of 10% for this document, which is an A-plus.
+
+Nice work!
+
